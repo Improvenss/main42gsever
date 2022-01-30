@@ -1,0 +1,61 @@
+
+
+
+			KODLARIN ANLAMLARI
+
+
+
+ls -l: dosyanın içindekileri ayrıntılı biçimde gösteriyor
+	NOT: "ls test3 test5" yaparsak test3 ve test5'i birbirine bağlayıp 1 olan değer 2 oluyor.
+---------------------
+vim (dosya ismi): kod editörüne giriş
+---------------------
+":wq" : kaydedip çıkmak için. write and quit
+---------------------
+chmod: dosya izinleri (yetki) değiştirme komutu
+
+	r = 4, w = 2, x = 1 değerini alıyor.
+	
+	rwx = okuma, yazma, çalıştırma izni oluyor.
+
+	- 1 - - - 2 - - - 3 - - - =gibi gruplandırılıyor
+		r - - = yalnız okuma izni var,
+		- w - = yalnız yazma izni var,		
+		- - x = yalnız çalıştırma izni var.
+
+
+		" NOT: Baştaki (-) dosya ya da klasörün türünü gösterir "
+
+	1 varsa sahip izinleri
+	2 varsa grup izinleri
+	3 varsa diğer kullanıcı izinleri
+---------------------
+touch -t: dosya ya da klasörün tarih/saatini değiştirmek için kullanılıyor.
+	örnek: "touch -t 06012342 deneme.*"  (06012342 kısmı)--> ay/tarih/saat/dakika şeklinde oluyor.
+	NOT: "touch -ht 06012242 deneme.*" yaptığımızda gösterdiğimiz uzantıdaki sadece test6'yı baz alıyor.
+---------------------
+tar -cf (dosya ismi).tar (dosya ismi): çalışma bittikten sonra dosyayı tarattırıp .tar uzantılı çıktısını vermesi için yazdığımız kod.
+---------------------
+ln -s /test0 test6: test6 dosyasını test0 klasörüne bağlamak için kullandığımız komut.
+	NOT: "ln -s test0 test6" yaparsak test0 klasörüne test6 (klasörünü) oluşturmuş oluyoruz.
+---------------------
+patch ./a -o ./b < sw.diff: 
+---------------------
+git status --ignored -s | grep '!!' | cut -f 2 -d' ':
+	"--ignored": Dışlanmış yok sayılmış dosyaları göstermesi için.
+		"-s": İstenilen dosyalara "??" koy, istenmeyen dosyalara "!!" koy.
+--------------------
+xattr -c (dosya ismi): 2 kere tıklanarak açılan dosyaları ls -la olarak göstermek istediğimizde @ işareti oluyor izinler kısmında, o "@" işaretini kaldırmak için kullanıyoruz.
+---------------------
+git init: github deponun konumunu belirliyoruz. Kısacası GIT dizini oluştutuyor.
+---------------------
+git status: Dosyalarının o anki durumu hakkında bilgi verir. Eğer değiştirilmiş dosya falan varsa onları gösterir.
+---------------------
+git add *: Seçtiğin git klasöründeki bütün dosyaları ekliyorsun.
+---------------------
+git commit -m "first commit": Projede herhangi bir değişiklik yaptığımızda yaptığın andaki halini kaydetmesine yarar.
+---------------------
+git push:Commit'lediğimiz dosyalarımızı uzak sunucudaki repository(sunucudaki veritabanı yani)'e gönderir.
+	örnek: git push "git@vogsphere.42kocaeli.com.tr:vogsphere/intra-uuid-d226b5ad-8478-4808-aa2c-37e49baaa09a-3890860 master"
+	NOT: En sonda yazdığımız "master" Repo'nun(depo) ana branchi'dir(projenin derli toplu tutulmasını sağlar.
+---------------------

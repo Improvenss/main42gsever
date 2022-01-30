@@ -1,0 +1,3392 @@
+C++ Dili Hakkında Temel Bilgiler:
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Fonksiyon - Function Nedir:
+        Fonksiyonlar belirli kod parçalarını tutan, verdiğimiz parametreler ile işlemler yapılmasını
+        sağlayan kendine has hafıza bölgesine sahip olan kod tutuculardır.
+
+    Standart Kütüphane Nedir:
+        C++ dilinin barındırdığı fonksiyonları ve objeleri barındıran kod sayfalarıdır.
+        #include <iostream> yapılarak Standart Kütüphane'nin belirli bir kısmını projeye dahil
+        etmiş oluruz. Bu sayede std::cout gibi standart kütüphaneye ait fonksiyonlarını kullanabiliriz.
+
+    Değişken - Variable Nedir:
+        Değişkenler program boyunca kullanacağımız verileri tutmak için kullandığımız veri birimleridir.
+        Bir çok çeşidi bulunur, örneğin; int, char, bool, short, long, double, float... vs.
+
+    İşaretçi - Pointer Nedir:
+        Belirli bir değişkenin veya objenin hafıza adresini tutan yani objenin bulunduğu hafızayı
+        işaret eden başka tür bir değişkendir.
+
+    Başlık - Header Dosyaları Nedir:
+        Başlık dosyaları özellikle c/c++ dillerinde kullanılan belirli kod tanımlarını, fonksiyonları
+        bazı değişkenleri ve hatta değişken türlerini barındıran kod sayfalarıdır.
+    
+    Döngü - Loop Nedir:
+        Belirttiğimiz koşullar dahilinde içerisinde bulunan kodları istediğimiz kadar tekrarlamamızı
+        sağlayan yapılardır.
+    
+    Koşullar - Conditions Nedir:
+        Programlama dillerinde belirli mantıksal işlemler yapmamız gerekir örneğin, verdiğimiz bir
+        değişkenin içeriğini kontrol etmemiz ve ona göre işlemler yapabilmeliyiz. Bu tür işlemleri
+        if-else yapıları ile kontrol edebiliriz.
+
+    Sınıf/Yapı - Class/Struct Nedir:
+        İçerisinde istediğimiz değişkenleri, fonksiyonları yazabileceğimiz kodumuza işlevsellik katmamızı
+        sağlayan yapılardır. Bu yapıları kullanarak kendi değişken türlerimizi bile oluşturabiliriz.
+
+    Bit Nedir:
+        Bit bilgisayar hafızasında bulunan en küçük veri birimidir, 0 veya 1 değerini alabilir.
+        Bilgisayar hafızaları bit'leri adresleyemediğinden bit'lere ulaşmak için byte'lar üzerinde
+        bitwise işlemlerini kullanırız.
+
+    Byte Nedir:
+        8 bit'den oluşan veri birimleridir, adreslenebilir/erişilebilir en küçük veri alanıdır.
+
+    Bitwise Nedir:
+        Bitwise, bit bazında işlem yapmamızı sağlayan mantıksal operatörlerdir. Örneğin:
+            1 & 0 = 0 // 1 ve 0 = 0
+            1 | 0 = 1 // 1 veya 0 = 1
+            ~1 = 0    // 1'in tersi = 0
+            1010 << 4 // -> 10100000 Türkçe meali -> 1010 bit dizisine soldan 4 bit ekle
+            1010 >> 2 // -> 10 Türkçe meali -> 1010 bit dizisini sağa 2 kaydır/soldan 2 bit ekle
+            bit'ler sağdan sola doğru yazıldığı için sola veya sağa kaydırdığımızda bitler 
+            hafıza dışındaysa kaybolur. Örneğin 8 bitlik bir değişkenimiz olsun (char)
+            10100000 << 2 -> 00101000
+            00101000 << 4 -> 00000010
+
+    Derlemek Nedir:
+        Yazdığımız kodların çalıştırılabilir program biçimine dönüştürülmesi işlemine derleme denir.
+
+    Derleyici Nedir:
+        Yazdığımız kodları makinenin anlayacağı çalıştırılabilir kodlara dönüştüren bir başka programdır.
+        Sonuçta bilgisayarlar ingilizce anlamaz onların dili 0 ve 1'lerden oluşur.
+        Derleyici yazdığımız her kod dosyasını ayrı derler ve .obj/.o uzantılı obje dosyası oluşturur,
+        ve geri kalan işi (Linking) yapması için Linker'ı çağırır.
+
+    Linking Nedir:
+        Derlenen kod sayfalarının birbirine bağlanarak tek bir çalıştırılabilir dosya oluşturulmasıdır.
+
+    Linker Nedir:
+        Linking işlemini yapan başka bir programdır.
+    
+    Preprocessor Statement Nedir:
+        Derlemeden önce çalışan birnevi derleyiciye komut verebilmemizi sağlayan ve "#" işareti ile başlayan
+        komutlar bütünüdür.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+# ile başlayan her şey preprocessor statement'dir. Derlemeden önce gerçekleşirler.
+#include : hedef gösterilen dosyayı aktif olan dosyanın içerisine kopyalar.
+#define INTEGER int : preprocessor kod sayfasında INTEGER gördüğü yere int yazacaktır.
+#if CONDITION [...] #endif : belirtilen koşulun sağlanması durumunda aktifleştirilecek kodları içerir.
+#pragma once : her kod sayfası için belirtilen dosyanın sadece bir kere include edilmesini sağlar.
+#ifndef _DEGER_ : "_DEGER_" adlı değişkeninin tanımlanıp tanımlanmadığını kontrol eder, eğer tanımlı değilse 
+                : akabinde gelen kodu gerçekleştirir.
+#ifdef _DEGER_ : "_DEGER_" adlı preprocessor değişkeninin tanımlı olup olmadığını kontrol eder.
+#define _DEGER_ : "_DEGER_" adlı preprocessor değişkenini tanımlar.
+#endif : koşulun bittiği yerde kullanılır. 
+
+Linker : Her bir kod sayfasının derlenerek oluşturulduğu obj dosyalarını birbirine bağlayarak
+         çalıştırılabilir dosya elde edilmesini sağlayan araç.
+Bir sayfada tanımlı olmayıp başka sayfada tanımlanmış fonksiyonu kullanmak için fonksiyonun tanımlayıcısını
+kullanılmak istenilen dosyada belirtmek gerekir.
+
+static fonksiyon : bir fonksiyon static olarak yazıldıysa, o fonksiyon sadece içerisinde bulunduğu
+kod sayfasında işlem görebilir. Başka bir kod sayfasında kullanılamaz.
+
+extern : extern anahtarı başka bir kod sayfasında tanımlanmış static olmayan fonksiyon veya değişkenlerin
+extern edildiği sayfadan erişilebilmesini sağlar.
+
+constexpr : bu anahtar ile belirttiğimiz değişkeni veya fonksiyonu derleme sırasında kullanabilmek için
+kullanırız, örneğin:
+
+    constexpr int degerDondur(int a, int b){
+        return a * b;
+    }
+
+    const int sabitDeger = degerDondur(10, 20);
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+inline fonksiyon : bir fonksiyon inline tanımlandıysa, derleyici o fonksiyonun çağırıldığı yere fonksiyonun
+gövdesini verilen parametrelere göre yerleştirir.
+
+    Değişkenler :
+        int -> 4 bytes : 32 bitlik değer alabilir, bu bitlerden bir tanesi değerin işareti için kullanılır
+        kullanabileceğimiz max int değer -> ((2^31) - 1) dir. Burdaki -1'in nedeni 0'ı da dahil etmemiz gerektiğin-
+        den dolayı. Sayısal değerler tutar ve alabileceği max değer : 2.147.483.647, min değer: -2.147.483.646
+
+        unsigned int -> 4 bytes : 32 bitlik değer alabilir, işaret bit'i içermez bu yüzden kullanabileceğimiz max
+        sayısal değeri -> ((2^32) -1) dir. Yani : 4.294.967.295
+
+        bool -> 1 byte -> Doğru - Yanlış : True - False değeri tutan değişkendir, mantıksal işlemlerde kullanılır.
+        char -> 1 byte -> Tek bir karakter tutan değişkendir.
+        short -> 2 bytes -> int türünün küçük versiyonudur 2 byte'lık alan kaplar. Max : 32767, Min : -32768
+        float -> 4 bytes
+        double -> 8 bytes
+        long -> usually 4 bytes
+        long long -> usually 8 bytes
+    
+    Bitwise Operatorleri : 
+        & ve -> (0 & 0 = 0), (0 & 1 = 0), (1 & 1 = 1) // Sadece her ikiside 1 ise 1
+        | yada -> (0 | 0 = 0), (0 | 1 = 1), (1 | 1 = 1) // İçinden birisinde 1 var ise 1 
+        ^ xor -> (0 ^ 1 = 1), (0 ^ 0 = 0), (1 ^ 1 = 0) // Farklı değerlerde 1, aynı değerlerde 0
+        << lsh -> 0001 << 2  --> 0100 // Istenilen derecede sola kaydırır
+        >> rsh -> 1001 >> 2  --> 0010 // Istenilen derecede sağa kaydırır
+        ~ not -> (~0 = 1, ~1 = 0) //Tüm değerleri tersine çevirir
+    
+    Bitwise Operatörleri ile İşlemler :
+
+        Setting a bit : Use OR (|) operation to set a bit
+            number |= 0x01 << n; n'inci bit'e 1 değerini yazar. number'ın ilk bit'i n-1'dir
+        
+        Clearing a bit : Use AND (&) operation to clear a bit
+            number &= ~(0x01 << n);
+
+        Checking a bit : Shift the number n to the right, then bitwise AND it
+            bit = (number >> n) & 0x01;
+
+        Changing the nth bit to x:
+            number ^= (-x ^ number) & (0x01 << n);
+
+
+Fonksiyonlar:
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+    Fonksiyonlar belirlediğimiz kod parçalarını tutan kendine özel hafızaya sahip işlevsel bir yapıdır.
+    Fonksiyonlar çalışmayı bitirdiği zaman içerisinde veya parametrelerinde yaratılan/tanımlanan
+    değişkenler hafızadan silinir, bu yüzden bir fonksiyon içerisinde yazılmış değişkenlere başka bir
+    yerden erişmek mümkün olmayacaktır, tabi eğer değişkenimizi heap hafıza bölesinde yaratmadıysak.
+    Heap ileride değineceğimiz bir konu. Fakat kısaca bahsetmek gerekirse bir program çalışırken iki
+    farklı hafıza türüne sahiptir ilki stack, ikincisi heap'dir. Stack hafızası programımızda "new"
+    anahtarı kullanamdan oluşturduğumuz tüm değişkenlerin bulunduğu hafızadır. Örneğin : "int sayi;"
+    "char harf;"  "bool dogruMu;" vs. Stack'de yaratılan değişkenler yaratıldıkları fonksiyon bitince
+    hafızadan silinirler. Heap'de oluşturulan değişkenlerin hafıza kontrolleri ise bize aittir yani
+    işimiz bitince o değişkeni hafızadan silmemiz gerekir. Silmezsek program kapanana kadar hafızada
+    kalmaya devam eder.
+
+    int fonksiyonum (int ilkSayi) // Fonksiyonun tanımıdır
+    {   // fonksiyonun kendine has hafızasının başladığı alandır.
+        int fonkDegiskeni = 20; // stack'de yaratılan bir değişken (fonksiyona ait)
+        return ilkSayi * fonkDegiskeni; // return ile fonksiyonu bitirir ve geriye değer göndeririz.
+    }   // fonksiyonun ölüm zamanı içerisinde tanımlanmış olan herşey siliniyor.
+    // int -> fonksiyonun geriye döndüreceği değerin türü
+    // "fonksiyonum" -> oluşturduğumuz fonksiyonun adı 
+    // () -> içerisinde isteğe bağlı parametre yazabileceğimiz kısım.
+
+    Bu durumda yukarıdaki fonksiyonu kullanıcak olursak :
+
+    int cevap = fonksiyonum(50); // fonksiyonumu 50 sayısı (parametresi) ile çağırıyorum 
+    // fonksiyon işi bitince geriye int değer göndereceği (döndüreceği) için cevap değişkenimizde int
+    // fonksiyon aldığı parametreyi içerisinde 20 ile çarpıyor ve sonucu cevap değişkenine atıyor.
+
+    std::cout << cevap << std::endl; // Ekrana veri yazdırma komutu, -> 1000
+
+
+If - Else :
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+    if(condition){ //If 0'dan farklı ne olursa olsun çalışacaktır. Sadece 0 (false) değerinde çalışmaz 
+        [...]
+    }else{}
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+    const char* isim = "cryonayes";
+    if(isim){
+        std::cout << isim << std::endl; //Çalışacaktır çünkü isim değişkeni nullptr değil.
+    }else{[...]}
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+    if(condition == 1){
+        [...]
+    }else if(condition == 2){
+        [...]
+    }else{
+        [...]
+    }
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+Loops - Döngüler :
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+    continue : Çağırıldığı zaman içinde bulunduğu döngüde kendisinden sonra gelen kodları atlar
+               ve bir adım sonraki koşuldan devam eder.
+    return : Çağırıldığı zaman içinde bulunduğu fonksiyonu bitirir.
+    break : Çağırıldığı zaman döngüden çıkartır.
+
+    For Loop:
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        i değerini 0'a eşitler, i 5'den küçük olduğu sürece çalışır ve her çalıştığında i++ yani i'yi
+        1 arttırır. Bu sayede bu döngü 5 kere çalışmış olur.
+        
+        for(int i = 0; i < 5; i++){
+            [...]
+        }
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        İstesek kendi değişkenlerimizi döngü içerisinde bu şekilde kullanabiliriz.
+
+        int i = 1;
+        for(; i < 5; i++){
+            [...]
+        }
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        condition değişkenimiz false değerini alana kadar çalışacaktır.
+        
+        bool condition = true;
+        int i = 1;
+        for(; condition; ){
+            i++;
+            if(i == 5){
+                condition = false;
+            }
+        }
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        for(;;){
+            [...] //break veya return komutu almadığı süre boyunca sonsuza kadar devam eder.
+        }
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+    While Loop:
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        condition true ise çalışacak döngüdür.
+        
+        while (condition){
+            [...]
+        }
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Do-While Loop:
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        do{
+            [...] // Koşul yanlış bile olsa do içerisine yazılan komutlar bir kereliğine çalışır.
+                  // Koşul doğru ise zaten koşul bozulana kadar döngüde kalır.
+        }while(condition);
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+Pointers : 
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+    Hafızada bir adresi tutmak için kullanılan işaretçilerdir. Pointerların önlerinde belirtilen
+    değerler sadece compiler'ın kolaylık sunması içindir. Pointerları etkileyecek hiçbir şey yapmazlar
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        int variable = 10;
+        void* ptr = &variable; // variable değişkenimizin adresini atadık.
+        *ptr = 20; // variable değişkenimizin değerinini 20 ile değiştirdik.
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        char* isim = new char[6]; // Heap'den 6 byte'lık char dizisi
+        memset(isim, 0, 6); // Hedef hafıza bölgesini 0'a eşitliyoruz (temizliyoruz)
+
+        char** ptr = &isim; // isim char pointerimizi gösteren bir başka pointer
+
+        //Heap'de yarattığımız değişkenleri işimiz bittikten sonra delete veya delete[] ile silmemiz
+        //gerekir.
+
+        delete[] isim; 
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        int deger = 5;
+        int* ptr = &deger;
+        ptr++; //Pointerin adres değerini belirtilen değişkenin boyutuna bağlı olarak arttırır.
+               //Bu durumda 4 byte arttırılacaktır.
+        (*ptr)++; //Pointerin o adreste tuttuğu değeri arttıracaktır.
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+Referances : 
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Referanslar bir değişkene referans olurlar, gerçek bir değişken değildir sadece derleyicinin
+    kullanıcılara sağladığı bir pointer kullanım kolaylığıdır. Fonksiyonlarda referans veya pointer
+    kullanmak fonksiyonun belirtilen değişkeni tekrar kopyalamasını önler dolayısıyla performansı
+    olumlu biçimde etkiler.
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        int a = 10;
+        int& ref = a; //ref a değişkenine referans olur.
+        ref = 20; // a değişkeninin 20'ye eşitler.
+
+        int b = 50;
+        !! ref = b;  //referans atandığından başka bir değişkene referans olamaz
+        !! ref = &b; //referans atandığından başka bir değişkene referans olamaz
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        int increment(int& deger){
+            deger++; //Fonksiyona verilen değişkenin kendisini değiştirir.
+        }
+        //Bu fonskiyonun pointerlı hali ise :
+        int increment(int* deger){
+            (*deger)++;
+        }
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+Classes - Sınıflar : 
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Sınıflar nesne yönelimli programlamanın vazgeçilmez yapılarıdır. İçerisinde değişkenler, fonksiyonlar
+    ve hatta farklı iç sınıflar barındırabilir. Başka sınıflardan türetilebilir, örneği oluşturulabilir
+    veri yapılarıdır.
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        class Player{
+            !! int x, y; //Sınıflarda görünürlüğü belirtilmemiş her yapı varsayılan olarak private'dır.
+            !! int speed;//Bu yüzden bu sınıfın örneklerinde private değerlere ulaşamayız.
+            public:
+                int x, y;
+                int speed; 
+        };
+
+        Player player; //player -> Player sınıfından türetilmiş belirtilen sınıf türünden değişkendir.
+        player.x = 5;  //Sınıfta bulunan int x değerini 5'e eşitler.
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        class Player{
+            public:
+                int x, y;
+                int speed;
+        };
+
+        void Move(Player& player, int xa, int ya){
+            player.x += xa * player.speed;
+            player.y = ya * player.speed;
+        }
+
+        Player player;
+        Move(player, 1, -1);
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        class Player{
+            public:
+                int x, y;
+                int speed;
+                //Sınıf içerisinde tanımlanmış metodlar sınıf verilerine erişim sağlayabilir.
+                void Move(int xa, int ya){
+                    x += xa * speed;
+                    y = ya * speed;
+                }
+        };
+        Player player;
+        player.Move(1, -1);
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+Classes vs Structs - Sınıflar vs Yapılar:
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+    Sınıflar ve yapılar arasındaki tek fark görünürlüktür.
+    Sınıflar varsayılan olarak içerisinde bulunan tüm verileri private yapar fakat yapılarda bulunan
+    tüm değişkenler varsayılan olarak public'dir. Tüm fark bundan ibarettir fakat programcılar arasında
+    struct ve class tercihleri değişmektedir, en yaygın kullanım tarzları ise veri yapılarını tutmak
+    için struct, verilerle beraber fonskiyonlar içeren bir yapı kullanılacaksa class kullanılmasıdır.
+    Teorik olarak aralarında hiçbir fark yoktur sadece tercih meselesidir. Struct ve Class'lar aralarında
+    kalıtım yapabilir. 
+
+Static Değişkenler, Fonksiyonlar:
+    Static anahtarı bir fonksiyonun veya bir değişkenin başında kullanıldığı zaman sadece o sayfaya özel
+    olurlar. Bunu bir sınıf içerisinde bulunan private verilere benzetebiliriz.
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        ilkSayfa.cpp
+            static int degisken = 5;
+        ikinciSayfa.cpp
+            !! extern int degisken; // degisken static olarak tanımlandığı için linking esnasında
+                                    // başka kod sayfaları tarafından görünmez olacaktır, yani
+                                    // bu tanımlamayı yaptığımızda linking hatası alırız.
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        ilkSayfa.cpp
+            static void yazdir(){
+                std::cout << "Yazdir Fonskiyonu : ilkSayfa" << std::endl;
+            }
+            yazdir(); // -> Yazdir Fonskiyonu : ilkSayfa
+        ikinciSayfa.cpp
+            void yazdir(){
+                std::cout << "Yazdir Fonksiyonu : ikinciSayfa" << std::endl;
+            }
+            yazdir(); // -> Yazdir Fonksiyonu : ikinciSayfa"
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+Static in Classes/Structs:
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+    Bir sınıf veya yapı içerisinde tanımlanmış static değişken, o sınıfa veya yapıya ait tüm örneklerin
+    static olarak tanımlanan değişkenden bir tanesine sahip olabileceği anlamına gelir.
+    Örneğin: Bir sınıf içerisinde static değişken tanımlayalım, daha sonra o sınıftan istediğimiz kadar
+    örnek türetelim. Türetmiş olduğumuz sınıf örneklerinden birisinde static değişkeni değiştirirsek
+    diğer tüm örneklerde de değişken değişmiş olur. Kısaca tüm örneklerin static verinin sadece bir tane
+    örneği olmasını sağlar.
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+        class myClass{
+            public:
+                static int degisken = 20;
+        };
+        int myClass::degisken; //static değişkenler aslında tanımlandıkları sınıfın bir üyesi değildir
+                               //bu yüzden tanımlama yapmamız gerekir, aksi taktirde linking hatası verir.
+        myClass orn, orn2, orn3;
+        std::cout << orn.degisken << std::endl; // -> 20
+        orn2.degisken = 30;
+        std::cout << orn.degisken << std::endl; // -> 30
+        std::cout << orn3.degisken << std::endl; // -> 30
+
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+        class myClass{
+            public:
+                static void yazdir(){
+                    std::cout << "myClass yazdir fonksiyonu" << std::endl;
+                }
+        };
+        // Sınıf içerisinde tanımlanmış static fonksiyonlar, sınıf örneklendirilmeden de çalışabilir.
+        // Dikkat edilmesi gereken şeylerden biri de static fonksiyonların static olmayan değişkenlere
+        // erişmemesi gerektiğidir. 
+        // Bunun sebebi this anahtarının static sınıf fonksiyonları için oluşturulmamasıdır.
+        myClass::yazdir(); // -> myClass yazdir fonksiyonu
+
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+Static in Functions:
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+    Bir fonksiyon içerisinde tanımlanmış static değişken, o değişkenin bir kere tanımlanacağını söyler.
+    aynı zamanda o fonksiyon hariç başka biryerden erişimini engeller.
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+        void yazdir(){
+            static int degisken = 0;
+            i++;
+            std::cout << i++ << std::endl;
+        }
+
+        yazdir(); // -> 1
+        yazdir(); // -> 2
+        yazdir(); // -> 3
+
+        //Bu kod şu şekilde de yazılabilirdi:
+        int i = 0;
+        void yazdir2(){
+            i++;
+            std::cout << i << std::endl;
+        }
+
+        yazdir2(); // -> 1
+        yazdir2(); // -> 2
+        yazdir2(); // -> 3
+        //Fakat bu şekilde yazmak i değişkeninin farklı yerlerden erişilebilmesine neden olur.
+        //bunu engellemek için fonksiyon içerisinde static ile tanımlamak gerekir.
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+Singleton Classes with Static:
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+    Tek örnekli sınıf oluşturmak için de static kullanılabilir.
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        class singletonClass{
+            private:
+                static singletonClass* _instance;
+            public:
+                static singletonClass& Get() {
+                    return *_instance;
+                }
+                void herhangiFonksiyon(){}
+        };
+        singletonClass* singletonClass::_instance = nullptr;
+
+        singletonClass::Get().herhangiFonksiyon();
+
+        //Veya daha kısa bir yol olarak:
+        
+        class singletonClass{
+            public:
+                static singletonClass& Get() {
+                    static singletonClass instance;
+                    return instance;
+                }
+                void herhangiFonksiyon(){}
+        };
+        singletonClass::Get().herhangiFonksiyon();
+
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+Enums :
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+    Enum içerisinde oluşturulan verilere belli değerler atanmasını sağlayan yapıdır.
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        enum rights : int {
+            read = 1, write = 2, exec = 4
+        };
+
+        std::cout << read << std::endl; // -> 1
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        enum sayilar : int {
+            bir = 1, iki, uc, dort, bes // Belirtilen başlangıca göre sıralı arttırarak değer atar.
+        };
+
+        std::cout << iki << std::endl; // -> 2
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        class deneme {
+            public:
+                enum Color : int {
+                    read = 1, write = 2, exec = 4
+                }; // Tanımlandıkları sınıfta static olarak erişilebilirler.
+        };
+
+        std::cout << deneme::read << std::endl; // -> 1
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+Constructors :
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+    Bir sınıfı veya yapının örneğini oluşturduğumuzda, o sınıf/yapı içerisinde tanımlanan değişkenlere
+    ilk değerlerini vermemiz gerekir. Aksi taktirde o değerlere ulaşmaya çalıştığımızda hata alırız.
+    Bu yüzden bir sınıf oluştururken sınıf değişkenlerini constructor'lar ile oluşturmamız gerekir.
+    Bir sınıf birden fazla Constructor'a sahip olabilir. Çağırılma zamanında uygun olan kurucu fonksiyon
+    kullanılacaktır.
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        class constructor {
+            public:
+                int a, b;
+                void yazdir() {
+                    std::cout << a << " " << b << std::endl;
+                }
+        };
+        constructor ornek;
+        ornek.yazdir(); // Bu kod derlenip çalışacaktır fakat, değerlerimize başlangıç değeri
+                        // atamadığımızdan dolayı hafızada o an ne varsa o değerler kullanılacaktır.
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+        class constructor {
+            public:
+                int a, b;
+                constructor() {
+                    a = 0;
+                    b = 0;
+                }
+                constructor(int A, int B){
+                    a = A;
+                    b = B;
+                }
+                void yazdir() {
+                    std::cout << a << " " << b << std::endl;
+                }
+        };
+        constructor ornek; // Parametresi olmayan constructor kullanılır.
+    	ornek.yazdir();    // başarılı bir şekilde değişkenler 0 değeriyle yazılır.
+
+        constructor ornek2(6,10); // Uygun parametreli constructor kullanılır.
+        ornek2.yazdir();          // 6 10 değerleri yazdırılır.
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+Destructors - Yıkıcılar : 
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+    Stack'te oluşturulmuş bir sınıf örneği etki alanının dışına çıktığında örnek silinirken çalıştırılan
+    fonksiyonlardır.
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+    
+        class ornekSinif{
+            public:
+                ornekSinif(){
+                    // Constructor
+                }
+                ~ornekSinif(){
+                    // Destructor
+                }
+        };
+
+        {   //Scope (etki alanı başlangıcı)
+
+            ornekSinif sinifim; // Constructor çalıştı.
+
+        }   //End of scope (etki alanı bitişi) -> içerde stack üzerinde oluşturulmuş herşey silinir
+        // Scope'den çıkıldığı anda destructor çağırılır ve stackden silinir.
+
+        NOT: ornekSinif sinifim(); //şeklinde bir sınıfın örneği oluşturulamaz bu ornekSinif türünden
+        nesne döndüren sinifim adlı parametre almayan bir fonksiyon yaratır.
+
+        Kendi isteğimizle de destructor'u cağırabiliriz.
+            ornekSinif ornek;
+            ornek.~ornekSinif();
+
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+Inheritance - Kalıtım : 
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+    Örneğin iki ayrı sınıfımız olsun ilk sınıfın kendi fonksiyonları ikinci sınıfın ise kendine özel
+    fonksiyonları olsun. İkinci sınıfımızdan birinci sınıftaki fonksiyonlara veya değişkenlere erişmek
+    istersek kalıtımdan yararlanabiliriz. Kalıtım yaptığımız sınıf kalıtımını yaptığı sınıfların türüne
+    de sahiptir. Bu örnekte ikinciSinif hem kendi türünden hemde ilkSinif türünden bir objedir.
+    İki türe sahip olan obje üzerinde iki tür için işlem yapılabilir, bu işlemlere polymorphism denir.
+    Örneğin ilkSinif türünden bir parametre bekleyen fonksiyona ikinciSinif'dan türetilmiş bir obje
+    verilebilir. Çünkü ikinciSinif'dan türetilmiş obje içerisinde ilkSinif'a ait özellikleri bulundura-
+    cağını derleyiciye garanti eder. Fakat bazı durumlarda beklenmeyen sonuçlar elde edilebilir.
+    Karşılaşabileceğimiz sorunları bir sonraki başlıkta inceleyeceğiz.
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        class ilkSinif{
+            public:
+                int degisken = 1;
+                void yazdir(const char* yazi){
+                    std::cout << yazi << std::endl;
+                }
+        };
+
+        class ikinciSinif : public ilkSinif{    // ikinciSinif'ı ilkSinif'dan türetmiş olduk
+            public:
+                int ikinciSinifDegisken = 50;
+                void ikinciSınıfFonskiyonu(){
+                    [...]
+                }
+        };
+    
+        ikinciSinif ornek;
+        ornek.yazdir("Kalıtım"); // ilkSinif'da tanımladığımız fonksiyon.
+        std::cout << ornek.degisken << std::endl; // -> 1
+        ornek.ikinciSınıfFonskiyonu();
+        std::cout << ornek.ikinciSinifDegisken << std::endl; // -> 50
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+Virtual Functions - Sanal Fonksiyonlar - (polymorphism'de karşılaşabileceğimiz sorunlara çözüm):
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+    Örneğin iki ayrı sınıfımız var bunlara yine ilkSinif ve ikinciSinif diyelim. ikinciSinif, ilkSinif'dan
+    türetilmiş olsun yani çift türe sahip. Çift türe sahip olmasından dolayı ilkSinif türünden parametre
+    bekleyen bir fonksiyona ikinciSinif'dan türettiğimiz bir objeyi verebiliyorduk. Şimdi sorun şu ki
+    eğer ikinciSinif'ımızda ilkSinif ile aynı isimde bir fonksiyon var ise, ve ilkSinif türünden obje
+    bekleyen bir fonksiyona ikinciSinif türünden obje verip, fonksiyon içerisinde bu obje üzerinden
+    ilkSinif'da ve ikinciSinif'da ayni isimle tanımlanmış fonksiyonu çağırırmaya çalışırsak, çağırılacak
+    olan fonksiyon ilkSinif'a ait olan fonksiyondur. Örnekle açıklayalım.
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+        class ilkSinif {
+            public:
+                void Yazdir() {
+                    std::cout << "ilk sinif" << std::endl;
+                }
+        };
+
+        class ikinciSinif : public ilkSinif{
+            public:
+                std::string name;
+                ikinciSinif(const std::string str) : name(str) {} // Basitçe constructor'a verilen string
+                // türünden parametreyi alır, name değişkenine yazar. Buna tip constructor üzerinden
+                // parametrelerle değişken tanımlamaya Constructor Initializer List denir.
+                
+                void Yazdir() {
+                    std::cout << name << std::endl;
+                }
+        };
+
+        void deneme(ilkSinif* ornek) {  //ilkSinif pointer türünden parametre bekleyen fonksiyonumuz.
+            ornek->Yazdir();
+        }
+
+        int main(){
+            ilkSinif* ilk = new ilkSinif; //new anahtarı ile oluşturduğumuz objelerin hafıza yönetimleri
+            //bizim sorumluluğumuzdadır, program boyunca biz silmeden silinmezler bu verilen Heap denilen
+            //hafıza bölgesinde bulunurlar.
+
+            ikinciSinif* ikinci = new ikinciSinif("Ayberk");
+
+            deneme(ilk); // -> Parametre zaten ilkSinif türünden, beklendiği gibi ekrana "ilk sinif" yazdırır.
+
+            deneme(ikinci); // -> Parametre hem ilkSinif hem ikinciSinif türünden ve burda beklenmedik
+            // bir şekilde ekrana "ilk sinif" yazdırılıyor. Peki neden ? Bunun nedeni şu: verdiğimiz
+            // objenin iki adet türü var, biz fonksiyon parametresi olarak ilkSinif türünü kullanmak
+            // istiyoruz, deneme fonksiyonumuz ikinciSinif üzerinde tanımlanmış fonksiyonumuzu görmüyor 
+            // ve ilkSinif üzerindeki fonksiyonu çağırıyor. Nede olsa kalıtımını yaptığımız sınıfın
+            // tüm fonksiyonları kalıtım yapan sınıfda da bulunuyordu bu durumda Yazdir() fonksiyonunun
+            // sınıf içerisinde 2 örneği bulunuyor biri ilkSinif türüne ait, diğeri ise ikinciSinif türüne.
+            // Fonksiyonumuz da zaten ilkSinif türündeki fonksiyonu çağırdığı için böyle bir sorunla karşılaşıyoruz
+
+            // Bu sorunla karşılaşmamak için Sanal Fonksiyonlar denilen bir yapı kullanılıyor.
+
+            //Heap'de oluşturduğumuz objeleri kendimiz işimiz bittiği zaman silmeliyiz. Tabi program bittiyse
+            //otomatikman tüm hafıza yok edilecektir ama yine de silelim.
+
+            delete ilk;
+            delete ikinci;
+
+            return 0;
+        }
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+    Yukarıda belirttiğimiz sorunun önüne geçmek için yapılması gereken şey, kalıtımı yapılacak olan
+    sınıftaki fonksiyonun tanımına virtual anahtarını eklemek. Bunun yaptığı şey kısaca işlemciye
+    "Hey ben bu fonksiyonu alt sınıflarda yeniden tanımladım doğru olanı çalıştır." demektir.
+    Bu işlemi de V-Table -> Virtual Table adı verilen mekanizmayla sağlar, virtual anahtarı getirilen
+    fonksiyon için alt sınıflarda özel bir tablo oluşturulur ve işlemci bu tabloya bakarak doğru
+    fonksiyonun nerde olduğunu anlar. Ayrıca alt sınıfta override yani yeniden tanımladığımız fonksiyona
+    override anahtarını da eklersek derleyici yapabileceğimiz olası hatalarda bizi uyaracaktır ve kodu
+    daha okunaklı bir hale getirecektir.
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+        class ilkSinif {
+            public:
+                virtual void Yazdir() { // virtual anahtarı
+                    std::cout << "ilk sinif" << std::endl;
+                }
+        };
+
+        class ikinciSinif : public ilkSinif{
+            public:
+                std::string name;
+                ikinciSinif(const std::string str) : name(str) {}
+                
+                void Yazdir() override { // override anahtarı
+                    std::cout << name << std::endl;
+                }
+        };
+
+        void deneme(ilkSinif* ornek) {
+                ornek->Yazdir();
+        }
+
+        int main(){
+
+            ilkSinif* ilk = new ilkSinif;   
+            //Heap bölgesinde oluşturuldu hafıza yönetimi bize ait
+            
+            ikinciSinif* ikinci = new ikinciSinif("Ayberk");  
+            //Heap bölgesinde oluşturuldu hafıza yönetimi bize ait
+
+            deneme(ilk);    // -> "ilk sinif"
+            deneme(ikinci); // -> "Ayberk"
+
+            //Heap'de oluşturduğumuz objeleri kendimiz işimiz bittiği zaman silmeliyiz. Tabi program bittiyse
+            //otomatikman tüm hafıza yok edilecektir ama yine de silelim.
+
+            delete ilk;
+            delete ikinci;
+
+            return 0;
+        }
+
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+    Polymorphism (Kalıtım) da karşılaşabileceğimiz sorunlardan bir tanesi de üst sınıfın türünden oluşturulmuş
+    alt sınıfın yıkıcı metodu çağırılırken yanlış sınıfın yıkıcı fonksiyonu çağırılmasıdır.
+    
+    Örnek üzerinde görelim :
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        #include <iostream>
+
+        class UstSinif {
+            public:
+                UstSinif() {
+                    std::cout << "Ust Sinif Kurucu Metod !" << std::endl;
+                }
+                ~UstSinif() {
+                    std::cout << "Ust Sinif Yikici Metod !" << std::endl;
+                }
+        };
+
+        class AltSinif : public UstSinif {
+            public:
+                AltSinif() {
+                    std::cout << "Alt Sinif Kurucu Metod !" << std::endl;
+                }
+                ~AltSinif() {
+                    std::cout << "Alt Sinif Yikici Metod !" << std::endl;
+                }
+        };
+
+        int main() {
+            
+            UstSinif* temelSinif = new UstSinif();
+            delete temelSinif;
+
+            // Beklendiği gibi UstSinif'ın kurucusu ve sonra yıkıcısı çalıştırılıyor, sorun yok.
+            //  Ust Sinif Kurucu Metod !
+            //  Ust Sinif Yikici Metod !
+            
+            std::cout << "------------------------" << std::endl;
+
+            AltSinif* altSinif = new AltSinif();
+            delete altSinif;
+            
+            // Beklendiği gibi önce türetildiği üst sınıfın kurucusu, sonra kendi kurucusu ardından
+            // kendi yıkıcısı ve en son üst sınıfın yıkıcı metodu çalıştırılıyor. Burda da sorun yok.
+            //  Ust Sinif Kurucu Metod !
+            //  Alt Sinif Kurucu Metod !
+            //  Alt Sinif Yikici Metod !
+            //  Ust Sinif Yikici Metod !
+
+            std::cout << "------------------------" << std::endl;
+            
+            UstSinif* kalitimliObje = new AltSinif();
+            delete kalitimliObje;
+
+            // İşte işler burda beklendiği gibi gitmiyor. kalitimliObje AltSinif'dan oluşturuldu,
+            // AltSinif aynı zamanda UstSinif türüne sahip olduğu için sorun çıkmıyor fakat.
+            // Bu objeyi silmek istediğimiz zaman beklenmedik bir şekilde, sırasıyla
+            //  Ust Sinif Kurucu Metod !
+            //  Alt Sinif Kurucu Metod !
+            //  Ust Sinif Yikici Metod !
+            // Bu çıktıyı alıyoruz. Peki Alt sınıfın yıkıcı metodu nerde ? Maalesef derleyicimiz
+            // alt sınıf objesi, üst sınıf türünden oluşturulduğu için alt sınıfın kendi yıkıcı
+            // metodunu göremiyor. Bu tür olaylar hafıza ile ilgili sorunlara yol açıyor bu yüzden
+            // dikkat edilmesi gereken bir konu. Sonuçta biz alt sınıf içerisinden heap değişkeni
+            // oluşturabiliriz ve bunu kendi yıkıcısı çağırılmadığı için silemezsek sorun çıkar.
+        }
+
+        Bu sorunun önüne geçmek için yapmamız gereken tek şey üst sınıf içerisinde yıkıcı metodu
+        virtual anahtarı ile tanımlamak. Bu işlemin yaptığı şey, derleyiciye alt sınıftan oluşturulmuş
+        bir objenin olabileceğini ve yıkıcı metodlara dikkat etmesi gerektiğini belirtir.
+
+
+        class UstSinif {
+            public:
+                UstSinif() {
+                    std::cout << "Ust Sinif Kurucu Metod !" << std::endl;
+                }
+                virtual ~UstSinif() {
+                    std::cout << "Ust Sinif Yikici Metod !" << std::endl;
+                }
+        };
+        
+        Bu değişikliği yaptıktan sonra :
+
+            UstSinif* kalitimliObje = new AltSinif();
+            delete kalitimliObje;
+
+        Çıktısı :
+            
+            Ust Sinif Kurucu Metod !
+            Alt Sinif Kurucu Metod !
+            Alt Sinif Yikici Metod !
+            Ust Sinif Yikici Metod !
+
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+Interfaces - Pure Virtual Functions :
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+    Tekrardan kalıtımda kullanılan bir özelliktir, kalıtımı yapılacak ana sınıfta tanımlanan özel
+    fonksiyonlardandır, kullanılma amacı kendisinden oluşturulacak alt sınıflarda belli bir fonksiyonun
+    oluşturulmasını zorunlu hale getirmektir. Bunu yapmak için virtual olarak belirtilen fonksiyonun
+    gövdesi (kodlarının bulunduğu kısım) silinir ve 0'a eşitlenir.
+    Örnek:
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+        class ilkSinif{
+            public:
+                virtual void Yazdir() = 0; // Bu bir interface'dir (pure virtual function)
+        };
+
+        class ikinciSinif : public ilkSinif{ // Bu sınıfı ilkSinif'dan oluşturduğumuz için Yazdir
+            public:                          // fonskiyonun tanımlamak zorundayız aksi taktirde hata alırız
+                void Yazdir(){
+                    std::cout << "Pure Virtual Function" << std::endl;
+                }
+        };
+
+        int main(){
+         !! ilkSinif ornekHata; // HATA! -> İçerisinde interface kullanılan sınıflar soyut sınıf olur.
+                             // Ve soyut sınıfların örneklerini oluşturamayız.
+            ikinciSinif ornek;
+            ornek.Yazdir(); // -> "Pure Virtual Function"
+        }
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+Visibility - Görünürlük :
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+    Sınıflarda tanımlanmış fonksiyonların, değişkenlerin vs. hangi sınıflara veya kullanıcıya gözüküp
+    gözükmeyeceğini belirtmek için kullanılan anahtarlardır.
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        C++'da tanımlanmış 3 tane görünürlük anahtarı vardır; private, protected, public
+
+        private : İçerisinde tanımlanan herşey o sınıfın kendisine özgüdür, kendisi ve friend olarak 
+        tanımlanmış alt sınıflar hariç başka biryerden ulaşılamayan objelerdir.
+
+        protected : Sadece o sınıfta ve o sınıftan türetilmiş alt sınıflarda erişilebilirler.
+
+        public : Heryerden erişilebilen objelerdir.
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+Friend Class, Function : 
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+    Tanımlandığı sınıfta belirtilen sınıfların veya fonksiyonların private objelerine erişim izni verir
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        class ihaveaFriend {
+            private:
+                int a = 0;
+                friend class friendClass; //friendClass sınıfına erişim izni verir.
+        };
+
+        class friendClass{
+            public:
+                void yazdir(ihaveaFriend& bro) {
+                    std::cout << bro.a << std::endl;
+                }
+        };
+
+        int main(){
+            ihaveaFriend a;
+            friendClass b;
+            b.yazdir(a);
+            return 0;
+        }
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        class ihaveaFriend {
+            private:
+                int a = 0;
+                friend void yazdir(ihaveaFriend&); //fonksiyona erişim izni verir.
+        };
+
+        void yazdir(ihaveaFriend& obj) {
+            std::cout << obj.a << std::endl;
+        }
+
+        int main() {
+            ihaveaFriend a;
+            yazdir(a); // -> 0
+            return 0;
+        }
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+Arrays - Diziler : 
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+    Belirli tipte verilerden oluşan veri zincirleridir. Pointer ile kullanılırlar. Sıra numaraları 
+    0'dan başlar kullanıcının tanımladığı kadar uzar.
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        int ornek[5]; // -> {(0)int, (1)int, (2)int, (3)int, (4)int}
+        ornek[0] = 20; // ilk değeri 20'ye eşitler.
+
+        // Eğer oluşturduğumuzun dışarısında kalan bir elemente erişmek veya değer atamak hafızada 
+        // izinsiz yazma sorunlarına neden olur, hata alınabilir.
+
+        int* ptr = ornek;
+
+        ornek[2] = 5;    // 3. elemente 5 değeri yazılır.
+        *(ptr + 2) = 10; // 3. elementin değeri 10 ile değiştirilir
+        // pointerlarda arttırma işlemi yaparken pointerin tipine bağlı olarak (bu örnekte int yani 4 byte)
+        // istenilen kadar hafıza adresini arttıracaktır. Yani 2. index'e gitmek için 4*2 = 8 byte'lık
+        // adres arttırması yapılacaktır. Örneğin char tipinden olsaydı 1 byte olarak değerlendirilirdi.
+        *(int*)((char*)ptr + 8) = 15; // 3.elementin değerini 15 yapar.
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+    Heap Üzerinde dizi oluşturmak:
+
+        int* dizi = new int[5];
+
+        delete[] dizi; // Heap'te oluşturulan verileri işimiz bittiğinde silmeliyiz bu durumda
+                       // sileceğimiz veri bir array olduğu için delete[] anahtarını kullanmalıyız.
+        
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+    Standart kütüphane kullanarak dizi oluşturmak
+
+        #include <array>
+        std::array<int, 5> intarr;  // <type, size>
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+Char - String Çalışma Mantığı:
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+    Cpp dilinde karakter ve karakter dizisi hakkında dikkat edilmesi gereken noktalar vardır,
+    örneğin bir değişkeni ' ' ile tanımlarsak bu tek bir char olarak hafızaya atanır.
+    Eğer " " ile tanımlarsak bu bir char* olur ve karakterlerin sonunda bir adet null karakter
+    barındırır. Bu null karakterin bulunma sebebi örneğin bu değişkeni yazdırmak istersek yazdırıcı 
+    fonksiyonumuzun bu karakterlerin nerde biteceğini (sonunu) bilmesi gerektiğidir ve null karakter,
+    karakter dizisinin bittiğine işaret eder ve fonksiyon o andan itibaren yazdırmayı keser. Bu yüzden
+    ' ' ile tanımladığımız bir char değişkenini yazdırmak istersek akabinde takip eden garip yazılar
+    ortaya çıkar. Bu beklenmedik yazılar null karaktere denk gelinceye kadar hafızadan okunan verilerdir.
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        const char* isim = "Ayberk";
+        std::cout << isim << std::endl; // -> Ayberk
+
+        char isim2[6] = {'A', 'Y', 'B', 'E', 'R', 'K'};
+        std::cout << isim2 << std::endl; // -> AYBERK*********** 
+
+        char isim3[7] = {'A', 'Y', 'B', 'E', 'R', 'K', '\0'};
+        std::cout << isim3 << std::endl; // -> AYBERK 
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        const char* isim = "AAAAAA";
+        isim[2] = "B"; // Bu değişim asla yapılmaması gereken bir değişimdir, visual studio'da bu kod
+        // sorunsuz derleniyor fakat c++ dilinde böyle bir işleme karşılık gelen kod bulunmadığı için
+        // belirsiz davranışlara dolayısıyla hatalara yol açabilir.
+        // const char* olarak belirtilmiş veriler, hafızada yalnızca okuma iznine sahip const segment
+        // adı verilen bölgede saklanırlar, bu yüzden onları değiştirmeye çalışmak yanlıştır.
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+    Daha çok örnek
+
+        const char isim[10] = "Ayb\0erk"; // Yazının ortasında null karakter olduğu için fonksiyonlar
+                                          // null karakterden sonrasını işleme almayacaktır.
+        std::cout << isim << std::endl; // -> Ayb 
+        std::cout << strlen(isim) << std::endl; // -> 3 -> Çünkü null'dan sonrasını görmüyor.
+        //strlen() -> string'lerin boyutunu döndüren bir fonksiyon
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+    Standart kütüphane ile string oluşturmak:
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        #include <iostream>
+        #include <string>
+
+        std::string name = "Ayberk"; // Burdaki yazı std::string sınıfı içinde construct edilir
+        // std::string name("Ayberk");
+        // std::string name = {"Ayberk"};
+
+        std::cout << name << std::endl; // -> Ayberk
+
+        //<string> dosyası ayrıca içerisinde string'ile ilgili işlemler yapmamızı sağlayan fonksiyonlar
+        //da bulundurur. Örneğin:
+        ──────────────────────────────────────────────────────────────────────────────────────────────────────────
+            std::string str = "Hello";
+            str.append(" World");
+            std::cout << str << std::endl; // -> Hello World
+
+            std::string str = "Hello";
+            str += " World";
+            std::cout << str << std::endl; // -> Hello World
+
+            std::string str = std::string("Hello") + " World";
+            std::cout << str << std::endl; // -> Hello World
+        ──────────────────────────────────────────────────────────────────────────────────────────────────────────
+            std::string yazi = "Ornek bir yazi";
+            yazi.find("nek");
+            // find fonksiyonu bir string içerisinde aranan değerin olup olmadığına bakar eğer varsa
+            // geriye aranan string'in pozisyonunu verir. Bu örnekte yazi.find("nek") -> 2 değerini döndürür.
+            // bulunamama durumunda ise -1 değerini döndürür.
+
+            std::string yazi = "Hello World";   
+            bool varMi = yazi.find("lo") != std::string::npos;
+            //std::string::npos kısaca -1 değerini temsil eder
+            // varMi = varsa -> true, yoksa -> false, bu örnekte true
+        ──────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+Const Keyword - Sabit Anahtarı:
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+    Bir kere tanımladığımız değişkenin bir daha değişmemesini sağlar, tabi kesinlikle değişmeyecek diye
+    birşey yoktur bu güvenlikde bypass edilebilir fakat kod yazarken çok işe yarayan bir yapıdır.
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        const int degismeyen = 10;
+
+        !! degismeyen = 20; // Hata 
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+    Hadi güvenliği kıralım :D
+
+        const volatile int degismeyen = 30; 
+        //volatile -> önüne getirdiğimiz değişkenin veya fonksiyonun optimize edilmesini önler, eğer
+        //ben buraya volatile yazmassam örneğin derleyici diyecek ki bu degisken sabit o zaman ben kodda 
+        //bu değişkeni gördüğüm her yere 30 yazayım. Ama böyle olursa değiştirsek bile değişmiş güncel 
+        //versiyonunu elde etmemiz biraz daha zorlu olur ben her iki yöntemi de göstereceğim.
+
+        int* yeniPtr = nullptr; // nullptr -> yeni oluşturulmuş bir pointerın henüz değeri yoksa ilk 
+        // verilmesi gereken değerdir, türkçe meali 0'dır
+
+        yeniPtr = (int*)&degismeyen; // "degismeyen" normalde "const volatile int" türüne sahip ama 
+        // bizim onu int* türüne çevirmemiz gerekiyor çünkü atama yaptığımız pointer da int* türünden
+
+        *yeniPtr = 55; //Hafızada bulunan veriyi 55'e eşitliyoruz.
+        std::cout << degismeyen << std::endl; // -> 55 ve const verimizi değiştirdik.
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+    Şimdi de diğer yöntemle güvenliği atlatalım
+
+        const int degismeyen = 30;  // sabit değerimize 30 yazıyoruz.
+        int* ptr = nullptr;         // tekrar int* türünden pointer oluşturuyoruz.
+        ptr = (int*)&degismeyen;    // "degismeyen"in adresini pointer'a yazıyoruz.
+        *ptr = 1234;                // pointerin gösterdiği adrese 1234 değerini yazıyoruz.
+        std::cout << *((int*)&degismeyen) << std::endl;
+        //  1) &degismeyen ile verimizin adresini alıyoruz
+        //  2) (int*)&degismeyen ile verimizden gelen adresin bir int değeri gösterdiğini söylüyoruz.
+        //  3) *(int*)&degismeyen ile içerisindeki adrese ulaşmak istediğimizi söylüyoruz.
+        // ve ekrana yazılan değer 1234, sabiti değiştirmeyi yine başardık.
+        // std::cout << deneme << std::endl; yazsaydık olmaz mıydı ? Cevap hayır, derleyicimiz yine
+        // o değeri sabit kabul edecek ve nasıl olsa heryerde aynı olması gerektiği için fazladan iş
+        // yapmamak adına sabitin değerini gerekli yerlere yazıp programımızı öyle derleyecekti.
+        // biz burada oluşturduğumuz değerin adresine kendimiz gidip baktığımız için optimizasyon işi
+        // burda çalışmıyor ve başarılı bir şekilde sonucumuzu alıyoruz.
+
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+    Şimdi const anahtarını öğrenmeye devam edelim:
+
+        const int veri = 50; // belirlediğimiz değerin değişmeyeceğini söyler -> veri = 1; derlenmez.
+        
+        const int* ptr = &veri; // hafızada bulunan değerin değişmeyeceğini söyler -> *ptr = 1; derlenmez
+
+        int const* ptr = &veri; // const int* ptr = &veri; ile aynıdır, hafızadaki değeri değiştirtmez
+
+        int* const ptr = &veri; // pointer'ın tuttuğu adresin değişmeyeceğini söyler -> ptr = &baska; derlenmez
+
+        const int* const ptr = &veri // hem tuttuğu hafıza, hem de hafızadaki veri değiştirilemez.
+
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+    Sınıflarda const:
+    
+        class sinif {
+        	private:
+		        int sayi1, sayi2;
+
+            public:
+                int getSayi() const  {
+                !!  sayi1 = 2; // HATA 
+                    return sayi1;
+                }
+        };
+        // fonksiyon tanımından sonra gelen const o fonksiyonun sınıf içerisinde tanımlanan bir
+        // değeri değiştirmeyeceğini söyler. Bu yapıyı kullanmalıyız çünkü 1) kod okunurluğunu arttırıyor,
+        // ikincisi geliştirme zamanında yapabileceğimiz bazı hatalarda bizi uyarıyor.
+        // Yani sayi1 ve sayi2 değişkenlerini bu fonksiyon 
+        // içerisinde değiştiremeyeceğimiz anlamına geliyor... tabiki sözde biz istersek derleyicimizi
+        // kolayca kandırabiliriz. Konunun bitişinde bunu da açıklayacağım.
+
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+        class sinif {
+            private:
+                const int* const sayi1, sayi2; // sayi1 -> const int* const sayi
+                                               // sayi2 -> const int
+                // sayi1 ve sayi2'nin tiplerinin değişik olmasının sebebi sayi2 nin pointer olmamasıdır
+                // eğer aynı satırda birden fazla pointer tanımlamak istiyorsak kodumuz şöyle olmalı:
+                // const int* const sayi1, *sayi2; artık sayi2 de const int* const türüne sahip
+            public:
+                const int* const getSayi() const {
+                    return sayi1;
+                }
+        };
+        // getSayi() fonksiyonu const int* const türünden bir değer döndüreceğini ve fonksiyon içerisinde
+        // sınıf verileri üzerinde herhangi bir değişiklik yapılmayacağını söylüyor.
+    
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────
+    Fonksiyonlarda const:
+
+        class sinif {
+	        private:
+		        int sayi1, sayi2;
+
+        	public:
+	        	int getSayi(){
+	    		    return sayi1;
+	        	}
+        };
+
+        void constFonksiyon(const sinif& ref){
+            !!ref.getSayi(); // HATA -> derlenmez
+        }
+        
+        // Fonksiyonumuz referans olarak bir parametre alıyor, referans almasının sebebi hatırlarsak
+        // fonksiyona verilen argümanın tekrar kopyalanmasını engellemek ve performanstan kazanmaktı.
+        // const sinif& ref -> bize gelen argümanın, ref adında "sinif"a ait bir referans olduğunu ve
+        // bu gelen sınıfın içeriğinin değiştirilmemesi gerektiğini söylüyor. Hatamız ise sınıf içerisinde
+        // çağırılan getSayi() fonksiyonunun sınıf üzerinde bulunan verilere dokunmayacağını garanti
+        // etmemesinden kaynaklanıyor.
+        
+        // Bu hatanın önüne geçmek için sınıf içerisinde bulunan fonksiyonumuzun sınıf verilerini
+        // değiştirmeyeceğini belirtmemiz gerekiyor : 
+
+        class sinif {
+	        private:
+		        int sayi1, sayi2;
+
+        	public:
+	        	int getSayi() const {
+	    		    return sayi1;
+	        	}
+        };
+
+        void constFonksiyon(const sinif& ref){
+            ref.getSayi();
+        }
+
+        // Referans kısmı karışık geldiyse aynı fonksiyonu pointer ile şu şekilde tanımlayabiliriz.
+        void constFonksiyon(const sinif* ref){
+            ref->getSayi(); // "->" işareti ile kullanıyoruz çünkü parametremiz bir pointer.
+            // ref->getSayi(); = (sinif*)(*ref).getSayi();
+            // ref->getSayi(); = (*(sinif*)ref).getSayi();
+            // ref->getSayi(); = ((sinif)*ref).getSayi();
+            // ref->getSayi(); = (**(sinif**)&ref).getSayi();
+            // Bu şekilde pointerlar ile oynamak mümkün :D
+        }
+        // const sinif* ref -> tekrar hatırlarsak : pointerın tuttuğu adres değişebilir ama içeriği değişemez.
+        
+    
+    Bir başka örnek:
+
+        class sinif {
+            private:
+                int sayi1, sayi2;
+
+            public:
+                int getSayi(){
+                    std::cout << "Selam" << std::endl;
+                    return sayi1;
+                }
+        };
+
+        const sinif ornek;
+     !! ornek.getSayi(); // HATA -> biz ornek'i değişmez sinif objesi olarak tanımladık ve getSayi
+                         // fonksiyonu değişmeyeceğini garantilemiyor. Bu durumda yine sınıf içerisinde
+                         // getSayi fonksiyonunu const yapmamız gerek.
+
+        class sinif {
+            private:
+                int sayi1, sayi2;
+
+            public:
+                int getSayi() const {
+                    std::cout << "Selam" << std::endl;
+                    return sayi1;
+                }
+        };
+
+        const sinif ornek;
+        ornek.getSayi(); // Çalışır.
+
+
+    Const işaretlenmiş sınıf fonksiyonunda sınıf değişkenini değiştirme:
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        
+        class sinif {
+            private:
+                int sayi1, sayi2;
+
+            public:
+                void getSayi() const {
+                    sinif* ptr = (sinif*)this;
+                    // this anahtarının ne olduğunu bilmiyorsanız, basitçe içerisinde bulunduğu sınıfın
+                    // adresini tutan bir işaretçi (pointerdır). Arkaplanda bu işaretçi sayesinde sınıf
+                    // içerisinden değişkenlere ve fonksiyonlara ulaşılır.
+                    // (sinif*)this;  burda parantezle belirtilen şeye casting denir, tür dönüşümüdür.
+                    // This denilen pointerin türü aslında -> const sinif* const'dır yani :
+                    // Ne pointerin tuttuğu adresi ne de adresteki verileri değiştirebiliriz demektir.
+                    // İşte bu yüzden this pointerını sinif* pointerına çeviriyoruz ki içeriğini
+                    // istediğimiz gibi değiştirebilelim.
+
+                    ptr->sayi1 = 20; // "->" işaretini bilmiyorsanız, kısaca bir pointerı dereferance
+                    // etmeye yarar yani içeriğine erişmek için kullanılır. Tabi bunu * işaretiyle de 
+                    // yapabiliriz : (*ptr).sayi1 = 20; 
+
+                    std::cout << sayi1 << std::endl; // Ekrana 20 yazılır.
+
+                }
+        };
+        
+
+
+
+Mutable keyword - Değişken anahtarı
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+    Örneğin bir sınıf içerisinde tanımladığımız const fonksiyonumuz olsun -> void fonksiyon() const {}
+    eğer bir şekilde biz bu fonksiyon içerisinde sınıfa ait bir veriyi değiştirmek istersek burda devreye
+    mutable anahtarı giriyor. Örnek:
+
+    class sinif {
+        private:
+            int sayi1, sayi2;
+            mutable int degistirilebilir;
+
+        public:
+            int getSayi() const {
+                degistirilebilir = 50; // "degistirilebilir" adlı değişkenimiz mutable olduğu için sınıf
+                                       // içerisinde const fonksiyonlarda bile değiştirilebilir.
+                return sayi1;
+            }
+    };
+
+
+
+Constructor Initializer List - Kurucu Başlatma Listesi :
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+    Bir sınıfın örneğini oluştururken verdiğimiz parametreler ile sınıf içerisindeki değişkenlerin
+    tanımlanması olayının kolaylaştırılmış haline denir. Örnek:
+
+    class sinifim {
+        public:
+            int a, b, c;
+
+        public:
+            sinifim(int argA, int argB, int argC) : a(argA), b(argB), c(argC){}
+            // ":" dan sonra atamak istediğimiz sınıf değişkenlerine verilen değerleri atıyoruz. 
+            // Burda kritik önemde olan şey tanımlama listemizi (a(argA)...) yazarken değişkenlerimizi
+            // sırasına göre yazmalıyız yani int a, b, c; bu sıraya uymalı önce a sonra b, en son c'yi
+            // tanımlamalıyız yoksa yanlış olur. Bunu bir örnekle açıklayalım.
+    };
+    
+    sinifim sinif(1, 2, 4); // sinif.a = 1, sinif.b = 2, sinif.c = 4
+
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+    Kritik Durum:
+
+    class sinifim {
+        public:
+            int a, b, c;
+
+        public:
+            sinifim(int argA, int argB, int argC) : c(argA), b(argB), a(argC){}
+            // Burda listeyi sırasına göre yazmadığımız için, c'ye atamak istediğimiz değer aslında a'ya
+            // b zaten ortada olduğu için b'de sorun yok, ama a'ya atamak istediğimiz değer ise c'ye
+            // yazılacaktır. Bu nedenle bu özelliği kullanırken dikkat etmek gerekir.
+    }
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+    Bu yaptıklarımızı normal yolla da yapabilirdik :
+
+    class sinifim {
+        public:
+            int a, b, c;
+
+        public:
+            sinifim(int argA, int argB, int argC){
+                a = argA;
+                b = argB;
+                c = argC;
+            }
+    };
+
+    Peki ama böyle yapmak varken neden bu yöntemi tercih edelim ? Cevap çok basit.. performans ve okunabilirlik
+    öncelikle performansdan bahsedelim. Örneğin iki sınıfımız olsun ve bu sınıfımız içerisinde private olarak
+    tanımlanmış bir "Ornek" sınıfı türünde değişkenimiz olsun:
+
+    class Ornek{
+        public:
+            Ornek(){
+                std::cout << "Ornek Sınıfından Selamlar" << std::endl;
+            }
+            Ornek(const char* mesaj){
+                std::cout << "Ornek Sınıfından Selamlar : " << mesaj << std::endl;
+            }
+    };
+
+
+    class memberInitList{
+        private:
+            Ornek sinif; //sinif değişkenimiz burda Ornek sınıfından oluşturuldu.
+
+        public:
+            memberInitList(const char* mesaj){
+                sinif = Ornek(mesaj); //Burda sinif değişkenimiz tekrar tanımlandı.
+            }
+
+    };
+
+    memberInitList yeniSinifOrnegi; // Burda yeniSinifOrnegi adında sınıfımı örneklendiriyorum/kuruyorum.
+    // Bu esnada ilk önce sınıf içerisinde tanımlanmış değişkenlerimiz hafızada yerini alacak/oluşturulacak.
+    // Bu değişkenlerin içerisinde Ornek sınıfından türelimiş sinif adında bir değişkenimiz var yani bu 
+    // değişken Ornek sınıfını çalıştıracak, varsa Ornek sınıfının değişkenlerini oluşturacak daha sonra 
+    // yine Ornek sınıfına ait verilen parametrelere göre uygun kurucu (constructor) fonksiyonu çağıracak.
+    // Daha sonra tüm değişkenler hazır olunca memberInitList sınıfında bulunan kurucu fonksiyon çalıştırılacak.
+    // Ama sorun şu ki o fonksiyonun içerisinde sinif değişkeni tekrar tanımlanıyor, yani tüm bu Ornek sınıfı
+    // silinip verilen parametreyle tekrar oluşturulacak. Bir dünya iş, işte bu yüzden "Member Initializer List"
+    // kullanmalıyız, ancak o zaman bu gereksiz oluşturmalardan kurtuluruz.
+
+    Diğer bir önemi ise okunabilirlik demiştik, bu liste tanımlama yapısını kullanarak kodumuzu daha
+    temiz ve okunabilir hale getirebiliriz. Özellikle büyük projelerde kodların karmaşasından bir nebze de 
+    olsa kurtulmak için çok işe yarayan bir yapıdır.
+
+
+
+Ternary Operators - Üçlü Operatörler:
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+    If-Else yapılarının yaptığı görevleri yapar tek farklı göze daha güzel gözükmesi ve okunabilirlik
+    düzeyini arttırmasıdır. Verilen koşulların doğru veya yanlış olmasına karşılık gelen kodları çalıştırır,
+    veya verilen değerleri geri döndürür (aşağıdaki örnekte sayi değişkeninin koşula göre değer alması).
+
+    Örnek:
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+    int sayi = 0;
+    int ikinciSayi = 5;
+    
+    if(ikinciSayi > sayi){
+        sayi = 10;
+    }else{
+        sayi = 5;
+    }
+
+    Bu sıradan if-else yapımızı ternary yapısındaki karşılığı şudur:
+
+    int sayi = 0;
+    int ikinciSayi = 5;
+        sayi = (ikinciSayi > sayi) ? 10 : 5; // -> sayi = 10;
+    // Eğer belirttiğimiz koşul doğru ise geriye ilk kısım (bu durumda 10), 
+    // eğer yanlış ise ikinci kısım döndürülür.
+    
+    Bir başka örnek:
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        int fonksiyonIle(){
+            return 35;
+        }
+
+        int deneme = 0;
+        int sayi = 5;
+
+        deneme = (deneme > -5) ? ((sayi > deneme) ? 10 : 0 ) : fonksiyonIle(); // -> deneme = 10
+
+        deneme = (deneme > -5) ? ((sayi > deneme) ? 10 : -10 ) : fonksiyonIle(); // -> deneme = -10
+
+        deneme = (deneme > -5) ? ((sayi > deneme) ? 10 : -10 ) : fonksiyonIle(); // -> deneme = 35
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+    Başka veri tiplerinde de kullanılabilir tabi
+
+        int ogrenciNo = 255;
+        std::string Ogrenci = (ogrenciNo == 255) ? "Ayberk" : ((ogrenciNo == 253) ? : "Ahmet" : "Bilinmiyor");
+
+        Normal If-Else Yapıları Ile Yazımı:
+
+            int ogrenciNo = 255;
+            std::string Ogrenci;
+            if(ogrenciNo == 255){
+                Ogrenci = "Ayberk";    
+            }else if(ogrenciNo == 253){
+                Ogrenci = "Ahmet";
+            }else{
+                Ogrenci = "Bilinmiyor";
+            }
+
+Creating and Instantiate Objects - Obje Oluşturmak ve Örneklendirmek :
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+    Sınıf tanımlama ve örneklendirme yöntemleri :
+
+    class Entity{
+        private:
+            std::string m_Isim;
+        public:
+            Entity() : m_Isim("Tanımsız"){}
+            Entity(const std::string& isim) : m_Isim(isim) {}
+            const std::string& GetName() const { return m_Isim; }
+    };
+
+    int main(){
+
+        Entity* e = nullptr; // Entity türünden obje adresi tutacak pointer. 
+        
+        {   //Yeni stack etki alanı yaratıldı.
+
+            Entity entity = Entity("Ayberk"); //Stack üzerinde kuruldu
+            //Entity entity("Ayberk");
+            //Entity entity = {"Ayberk"};
+            e = &entity;
+            std::cout << e->GetName(); // -> "Ayberk"
+       
+        }   //Stack'de yaratılan değerler yok edildi
+
+        std::cout << e->GetName(); // -> Artık böyle bir veri yok, stackden silindi
+
+        return 0;
+    }
+
+    Görüldüğü gibi belirli bir scope (etki alanı) içerisinde yaratılan objeler scope bitişinde
+    hafızadan siliniyorlar bu yüzden scope içerisinde stack'de yaratılan objelere scope dışında 
+    erişmek mümkün olmuyor. Bu durumu atlatmak istersek objelerimizi heap içerisinde yaratabilir, 
+    böylece biz silmeden objelerin hafızadan silinmesi önleyebiliriz. 
+    
+    Örnek:
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        class Entity{
+            private:
+                std::string m_Isim;
+            public:
+                Entity() : m_Isim("Tanımsız"){}
+                Entity(const std::string& isim) : m_Isim(isim) {}
+                const std::string& GetName() const { return m_Isim; }
+        };
+
+        int main(){
+
+            Entity* e = nullptr; // Entity türünden obje adresi tutacak pointer. 
+            
+            {   //Yeni stack etki alanı yaratıldı.
+
+                Entity* entity = new Entity("Ayberk"); // new anahtarı ile heap içerisinde kuruldu
+                e = entity;
+                std::cout << e->GetName() << std::endl; // -> "Ayberk"
+        
+            }   //Stack'de yaratılan değerler yok edildi, bu örnekte stack'de veri yok.
+
+            std::cout << e->GetName() << std::endl; // -> Objemize hala ulaşabiliyoruz.
+
+            delete e; // -> Heap'de yarattığımız objeleri işimiz bittiği zaman silmeyi unutmayalım.
+            return 0;
+        }
+
+
+New Keyword - New Anahtarı:
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+    New anahtarı heap hafıza bölgesinde istediğimiz boyutta bize alan verir, bu hafıza içerisinde 
+    objelerimizi ve veri türlerimizi oluşturabiliriz. New anahtarı ile bir obje oluşturduğumuz zaman
+    bize bir hafıza adresi verilir, bu sebeple oluşturacağımız objelerimizin türü pointer olmalıdır.
+    Stack'den farklı olarak heap'in boyutu stack'den çok daha büyüktür bu yüzden büyük projelerde heap 
+    tercih edilir. Ayrıca oluşturduğumuz objelerin hafıza yönetimleri bize aittir, biz silmeden 
+    hafızadan yok olup gitmezler. Bu nedenle fonksiyonlar arası kullanımları çok daha kolaydır.
+    New anahtarı kısaca istediğimiz boyutta bize alan bulan ve bulunan alanın adresine istediğimiz
+    verileri yazmamızı sağlayan bir yardımcı yapıdır.
+
+
+    Örneğin:
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        
+        class Entity{
+            private:
+                std::string m_Isim;
+            public:
+                Entity() : m_Isim("Tanımsız"){}
+                Entity(const std::string& isim) : m_Isim(isim) {}
+                ~Entity(){ std::cout << "Yıkıcı Metod" << std::endl; }
+                const std::string& GetName() const { return m_Isim; }
+        };
+
+        int a = 10; // -> Stack'de 4 byte'lık alana yazıldı.
+        int* b = new int[50]; // -> Heap'de 50*4 (200) byte'lık alan ayrıldı.
+
+        Entity* entity = new Entity; // -> Heap'den Entity boyutunda bir alan ayırdı, ve ayrıca sınıfın
+                                     // örneğini oluşturdu yani constructor'u çağırarak kurdu.
+
+        delete entity; // Entity sınıfının yıkıcı metodunu çağırdıktan sonra, hafızadan siler.
+        delete[] b;    // Array şeklinde oluşturduğumuz heap verilerini delete[] anahtarı ile silmeliyiz.
+        
+
+    New anahtarı aslında arka planda hafıza işlemleriyle ilgilenir örneğin bunu elle yapmak istersek:
+
+        Entity* entity = (Entity*)malloc(sizeof(Entity)); // malloc -> Heap'den hafıza ayırmak için
+        // kullanılan bir fonksiyondur daha çok ileri düzey işlemlerde kullanılır.
+        // Ayrıca malloc sadece heapde hafıza alanı ayırmaktadır, new anahtarında olduğu gibi sınıfın
+        // bir örneğini oluşturmayacak yani kurucu fonksiyonunu çağırmayacaktır.
+        // Eğer üstüne birde o sınıfı verilen adres üzerinde kurmak istersek :
+
+        entity = new(entity)Entity("Ayberk"); // -> malloc'dan verilen adres üzerine objemizi yaratıcaktır.
+        // Fakat malloc ile bu şekilde obje yaratırsak, hafızadan silmek istediğimiz zaman delete anahtarı
+        // çalışmayacaktır. Silmek için malloc'un tersi olan free fonksiyonunu kullanmamız gerekir.
+        // Fakat free kullanırsak bu sefer de sınıfımızın yıkıcı / destructor fonksiyonu çalışmaz.
+        // O yüzden bu işi de elle yapmak gerekir. Ama new anahtarı varken niye bunlarla uğraşalım ki.
+
+        entity->~Entity(); // Yıkıcı fonksiyonumuzu çağırıyoruz.
+
+        free(entity); // -> malloc ile oluşturduğumuz hafızayı silmek için.
+
+
+Implicit Conversion - İma Yoluyla Dönüşüm :
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+    Örneğin bir sınıf objesini oluşturmanın birden fazla yolu vardır. İster direk belirterek oluşturabilir
+    veya üstü kapalı bir şekilde (ima ederek) oluşturabiliriz. En iyi örneklerle anlaşılacaktır.
+    
+    Örnek:
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        class Sinifim{
+            private:
+                std::string m_Isim;
+                int yas;
+            public:
+                Sinifim(const std::string& isim) : m_Isim(isim) : yas(-1) {}
+                Sinifim(const std::string& isim, int sayi) : m_Isim(isim) : yas(sayi) {}
+        };
+        // Bu sinifimiz iki adet kurucu fonksiyona sahip, biri sadece string için, diğeri de hem string
+        // hem int argümanlar için.
+
+        Sinifim sinif(std::string("Ayberk")); // Bu normal yolla örneklendirme, ilk kurucu metodu kullanır.
+        Sinifim sinif(19); // Bu da ayrıca normal yolla örneklendirme, ikinci kurucu metodu kullanıcak.
+
+        // Hadi işleri biraz ilginç hale getirelim
+
+        Sinifim sinif = std::string("Ayberk"); 
+        // Bu olay ima yoluyla örneklendirmedir, "Sinifim"ın içerisinde string parametresi alan bir kurucu
+        // olduğu için bu yöntemi kullanarak objemi sorunsuz bir şekilde oluşturabiliyorum.
+        
+        Sinifim sinif = 19; // Aynı şekilde bu da int değişkenini içeren kurucuyu tetikleyecektir.
+
+    Buraya kadar herşey güzel hadi şimdi işleri biraz daha ileriye taşıyalım:
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        class Sinifim{
+            private:
+                std::string m_Isim;
+                int yas;
+            public:
+                Sinifim(const std::string& isim) : m_Isim(isim) : yas(-1) {}
+                Sinifim(const std::string& isim, int sayi) : m_Isim(isim) : yas(sayi) {}
+                
+                void isimYazdir() const { // const -> sınıf değişkenlerini değiştirmeyeceğimize dair söz veriyoruz.
+		        	std::cout << m_Isim << std::endl;
+		        }
+        };
+        // Sınıfımıza yazdırma fonksiyonu ekledik.
+
+        void degisikFonksiyon(const Sinifim& sinif) {
+            sinif.isimYazdir();
+        }
+
+        // Şimdi bu fonksiyonu çağıralım.
+        
+        degisikFonksiyon(std::string("Ayberk")); // Çalışır ama nasıl ? Cevap basit, Sinifim'ızın içerisinde
+        // string değer alan bir kurucu olduğu için ilk önce sınıfımız bu parametre ile kurulacak daha sonra
+        // fonksiyona parametre olarak verilecektir. Çıktısı ise beklendiği gibi : "Ayberk"
+    
+    Peki iki parametreyi birden kullanmak istersek ne yapıcaz ? C++11 den sonra gelen "aggregate initialization"
+    özelliğinden sonra objelerimizi süslü parantezler kullanarak da oluşturabiliyoruz.
+
+    Örnek:
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        class Sinifim{
+            private:
+                std::string m_Isim;
+                int yas;
+            public:
+                Sinifim(const std::string& isim) : m_Isim(isim) : yas(-1) {}
+                Sinifim(const std::string& isim, int sayi) : m_Isim(isim) : yas(sayi) {}
+                
+                void Yazdir() const { // const -> sınıf değişkenlerini değiştirmeyeceğimize dair söz veriyoruz.
+                    std::cout << "Isim : " << m_Isim << std::endl << "Yas : " << yas  << std::endl;
+                }
+        }; //yazdirma fonksiyonu değiştirildi
+
+        Sinifim ornek = {"Ayberk", 19};
+        // Görüldüğü gibi iki argümanı da bu şekilde kullanabiliyoruz, ayrıca fark ettiyseniz "Sinifim" kurucu
+        // fonksiyonunda std::string türünden argüman bekliyorduk ama bu örnekte const char* verdik.
+        // Bunun sebebi "aggregate initialization"da mümkün olan tür dönüşümleri otomatik olarak yapılıyor.
+        // İlk önce const char* -> std::string türüne dönüştürülecek daha sonra sınıf kurulacak.
+
+        // Tıpkı buna benzeyen bir tanımlama yöntemi de var
+        // Sinifim ornek{ "Ayberk", 19 }; Bu şekilde örneklendirme ima yoluyla değildir.
+        // ornek("Ayberk", 19); yerine geçer. 
+
+
+Explicit Keyword - Explicit Anahtarı:
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+    Explicit anahtarı sınıf içerisinde kurucu fonksiyonların önüne yazıldığı zaman o kurucunun ima 
+    yoluyla yani implicit olarak tanımlanmasını engeller. 
+    
+    Örnek:
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        class Sinifim {
+            private:
+                int yas;
+            public:
+                explicit Sinifim(int sayi) : yas(sayi) {}
+                void Yazdir() const {
+                    std::cout << yas << std::endl;
+                }
+        };
+
+        !! Sinifim ornek = 19; // HATA -> Bu şekilde örneklendirmeye izin vermez
+        !! Sinifim ornek = { 19 }; // Hata
+        Sinifim ornek{ 19 }; // Çalışır.
+        Sinifim ornek = Sinifim(19) // Çalışır.
+        Sinifim ornek(19) // Çalışır
+
+
+Operatörler ve Operatörleri Aşırı Yükleme:
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+    Operatörler programlama dillerinde kullandığımız +, -, (), {}, *, /, &, ~, |, <<, >> gibi işaretlerdir.
+    Her operatör aslında birer fonksiyondur sadece özel sembollerle gösterilirler. Çoğu modern programlama 
+    dillerinde bu operatörleri kendi isteklerimize göre modifiye edebilir veya kendi operatörlerimizi 
+    oluşturabiliriz. Bu bölümde bir sınıf içerisinde + operatörünü nasıl modifiye edebileceğimizi ve 
+    nasıl kullanabileceğimizi anlatacağım. Tabi bu yapılan işlemler diğer operatorler için de geçerlidir.
+    
+    Örnek:
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        class veriTutucu {
+            private:
+                int veri, veri2, veri3; // Sadece sınıf fonksiyonlarının ulaşabileceği gizli değişkenler
+
+            public:
+
+                veriTutucu() : veri(0), veri2(0), veri3(0){} // Varsayılan parametresiz kurucu.
+                veriTutucu(int a, int b, int c) : veri(a), veri2(b), veri3(c){}
+
+                veriTutucu operator+(const veriTutucu& parametre) const { 
+                    return veriTutucu(veri + parametre.veri, veri2 + parametre.veri2, veri3 + parametre.veri3);
+                }
+                // Geri dönüş tipi veriTutucu sınıfı olan operatör fonksiyonumuz, operatör fonksiyonlarının
+                // parametresi operatörden sonra gelen objenin veri türüdür. Ben bu örnekte const veriTutucu&
+                // dedim, çünkü hem tekrar kopyalamak istemiyorum (&) hem de derleyiciye parametredeki objeyi
+                // değiştirmeyeceğimizi belirtiyorum (const). Fonksiyon gövdesinden önce gelen const ile
+                // fonksiyonun ait olduğu sınıftaki değerleri değiştirmeyeceğimi söylüyorum. Bunları belirtmek
+                // kod okunabilirliği ve olası hataları engellemek için önemli. 
+
+                void yazdir() {
+                    std::cout << veri << " " << veri2 << " " << veri3 << std::endl;
+                }
+        };
+
+        int main() {
+            veriTutucu ilk(5, 5, 5), ikinci(10, 20, 30), toplam; // Sınıflarımızı oluşturuyoruz
+            
+            toplam = ilk + ikinci; // "ilk"in içindeki + operatör fonksiyonuna "ikinci" sınıfını veriyoruz.
+            // bu kodu daha iyi anlamak adına şu şekilde de yazabiliriz -> toplam = ilk.operator+(ikinci);
+            // veya toplam = ilk +(ikinci);
+            // operatör fonksiyonu zaten geriye yeni bir sınıf döndürdüğü için bu değeri önceden yarattığımız,
+            // toplam örneğine atayabiliyoruz.
+            toplam.yazdir(); // 15 25 35
+        }
+
+
+
+    Sınıflarda Kurucu Fonksiyon ve Invoke () Operatörünün Farkı :
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        Örnek olarak bir sınıfımız olsun sınıfımızın varsayılan bir kurucusu ve override edilmiş () 
+        operatörü olsun. Peki bu () operatörünü nasıl çalıştıracağız ??
+
+        class myClass {
+            public:
+
+                myClass(std::string mesaj) {
+                    std::cout << "Kurucu fonksiyon diyor ki: " << mesaj << std::endl;
+                }
+
+                void operator()(std::string mesaj) {
+                    std::cout << "Invoke operatoru diyor ki: " << mesaj << std::endl;
+                }
+        };
+
+        int main() {
+            
+            myClass sinifim("Obje ilk olusturuldugunda ben calisirim.");
+            // Burası kurucu fonksiyonu tetikleyecektir.
+
+            sinifim("Obje zaten olusturulduysa ben devreye girerim.");
+            // Obje zaten kurulmuş o zaman invoke operatörü çalıştırılacak.
+
+            // Ayrıca bu örnekte std::string vermem gereken parametreye const char* verdim
+            // burda implicit dönüşüm kullanarak bunu yapabiliyoruz. Fakat dikkat edilmesi
+            // gereken noktalardan biri parametrenin referans olmamasıdır. Yani sıfırdan
+            // std::string objesinin oluşturulması gerekir. Çünkü std::string const char*
+            // kullanılarak oluşturulabiliyordu.
+            // std::string mesaj = "Burası aslında const char* ama string'e dönüştürülüyor";
+        }
+
+
+    NOT:
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        Ek bir bilgi olması amacıyla ekrana yazdırma işlemleri için kullandığımız std::cout fonksiyonundaki
+        << operatörünü nasıl kendimize göre modifiye edebileceğimizi göstereceğim :
+
+            #include <iostream>
+
+            class veriTutucu {
+                private:
+                    int veri, veri2, veri3;
+
+                public:
+                    friend std::ostream& operator<<(std::ostream& ostream, veriTutucu& veri);
+                    // Dışarıdaki bir fonksiyondan private verilere ulaşmak için, fonksiyonu friend olarak
+                    // sınıfıma tanıtıyorum. 
+
+                    veriTutucu() : veri(0), veri2(0), veri3(0){}
+                    veriTutucu(int a, int b, int c) : veri(a), veri2(b), veri3(c){}
+            };
+
+            // std::cout için kullanılan operatör std::ostream dosyasında bu şekilde tanımlanmış
+            // bizde bu şekilde var olan operatöre özellik ekliyoruz
+            std::ostream& operator<<(std::ostream& stream, veriTutucu& veri) {
+                stream << veri.veri << " " << veri.veri2 << " " << veri.veri3;
+                return stream;
+            }
+
+            int main() {
+                veriTutucu ilk(5, 5, 5);
+                std::cout << ilk << std::endl; // -> 5 5 5
+            }
+
+
+This Keyword - This Anahtarı:
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+    This anahtarı sınıflar içerisinde kullanılan sınıfın kendisine işaret eden bir pointer türüdür.
+    Bu pointer sayesinde sınıfın kendisi, fonksiyonlarından kendi değişkenlerine erişebilir. 
+    This anahtarının türü sınıfına pointer türündedir, örneğin aşağıdaki sinifFonksiyonu'nda this'in 
+    türü "veriTutucu* const"dur. This anahtarının gösterdiği adres hiçbir zaman değiştirilemez.
+    Ayrıca this anahtarı sınıfın her yerinde aynı türde olacak diye bir şart yoktur, fonksiyon eğer
+    const bir fonksiyon ise this anahtarının türü örneğin "const veriTutucu* const" olacaktır.
+
+    Örnek:
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        class veriTutucu {
+            private:
+                int veri, veri2, veri3;
+
+            public:
+                veriTutucu() : veri(0), veri2(0), veri3(0){}
+                veriTutucu(int a, int b, int c) : veri(a), veri2(b), veri3(c){}
+                
+                void sinifFonksiyonu(){ 
+                    // this'in türü = verTutucu* const yani içerik değiştirilebilir, pointer değiştirilemez
+                    veri = 10; // Değişkene yazma : this->veri = 10;
+                    std::cout << veri3 << std::endl; // Değişken okuma : this->veri3 vs.
+                }
+
+                void sabitSinifFonksiyonu() const { 
+                    // this'in türü = const verTutucu* const -> içeriği de pointerı da değiştiremeyiz
+                    // tabi bu güvenlik de "const" başlığının sonunda anlattığım gibi geçilebilir.
+                    veri = 10; // Değişkene yazma : this->veri = 10;
+                    std::cout << veri3 << std::endl; // Değişken okuma : this->veri3 vs.
+                }
+        };
+
+    Bu arada ek bilgi olarak şunu belirtmek isterim ki, delete ile this anahtarını silmeye çalışmak çok
+    kötü bir fikirdir, tüm sınıfı etkiler. Eğer böyle bişey yapıcak olursak sınıf kendi adresini unutmuş
+    olur, neye uğradığını şaşırır dolayısıyla da programımız hata verip çöker.
+
+
+Etki Alanı (scope), Stack ve Obje Yaşam Süreleri:
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+    Etki alanı "{ }" işaretleriyle belirlenir, stack üzerinde yaratılmış değişkenler veya bütün objeler
+    etki alanı dışarısına çıktığı anda stack'den silinir. Heap içinde tanımlanan objeler için bu geçerli
+    değildir, onların hafıza yönetimi tamamen kullanıcıya aittir.
+
+    Örnek:
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        int main()
+        { // main fonksiyonu etki alanı başlangıcı
+            int a = 10;
+            { // yeni etki alanı
+                int b = 20;
+                { // yeni etki alanı
+                    int c = 30;
+                    { // yeni etki alanı
+                        int d = 40;
+                    } // d değişkeni stackden silindi.
+                } // c değişkeni stackden silindi.
+            } // b değişkeni stackden silindi.
+        } // a değişkeni stackden silindi.
+    
+    Her fonksiyon kendi etki alanına sahiptir; döngüler, if-else, operatörler, sınıf içerisindeki yapılar...
+    
+    Daha öncede bir çok kez bahsettiğim gibi heap üzerinde oluşturulan verilerin hafıza yönetimleri bize
+    aitti, peki ya heap üzerinde oluşturulmuş ve etki alanı dışına çıktığı zaman kendi kendini silen bir
+    obje yaratabilir miyiz ? Cevap evet. 
+    
+    Basitçe mantığı şu şekilde olabilir: Stack üzerinde bir sınıf oluştururuz ve bu sınıfın içerisinde 
+    heap'de oluşturduğumuz objenin adresini tutarız. Oluşturduğumuz sınıf etki alanı dışına çıktığı zaman 
+    yıkıcı metodu çağıracağı için, yıkıcı (destructor) metod içinde delete ile heap üzerinde oluşturduğumuz
+    objeyi de otomatik olarak silebiliriz. Yapmaya çalıştığımız yapı standart kütüphanede hali hazırla
+    smart pointers adı altında bulunmakta bunu bir sonraki başlıkta anlatacağım, ama şimdi mantığını kavramak
+    için kendi basit "smart pointer" sınıfımızı yazalım.
+
+    Çakma Smart Pointer Yapımı :
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        Henüz template (şablon) sınıf/fonksiyon yazmayı anlatmadığım için şuan yapacağım "akıllı işaretçi" 
+        sınıfı sadece tek bir sınıf türü için geçerli olacak. Ama mantığı anlamak için yeterli.
+
+        #include <iostream>
+
+        class normalBirSinif{
+
+            public:
+                normalBirSinif(){
+                    std::cout << "Yaratıldı !" << std::endl;
+                }
+
+                ~normalBirSinif(){
+                    std::cout << "Yok edildi !" << std::endl;
+                }
+        };
+
+        class akilliPtr{
+            private:
+                normalBirSinif* isaretci;
+            public:
+                akilliPtr(normalBirSinif* ptr) : isaretci(ptr) {}
+                
+                ~akilliPtr(){
+                    delete isaretci;
+                }
+        };
+
+        int main()
+        {    
+            { // Yeni scope başlangıcı
+                akilliPtr ptr = new normalBirSinif;
+                // normalBirSinif heap'de yaratıldı
+                // ptr stack'de yaratıldı o yüzden etki alanından çıkınca yok edilecek.
+            } // akilliPtr sınıfından oluşturulmuş ptr'nin yıkıcı metodu çalıştırılıp hafızadan siliniyor.
+        }
+
+
+Smart Pointers - Akıllı İşaretçiler : 
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+    C++ standart kütüphanesinde 3 adet smart pointer bulunur, bu pointerleri kullanmak için :
+    #include <memory>
+
+    Smart Pointer'ları ne zaman kullanmalıyım ? : Smart pointerları özellikle bir sınıfın örneğini 
+    oluşturacağımız zaman tercih etmeliyiz. Veya hafıza işlemlerimizin otomatik yapılmasını istiyorsak da
+    tercih edebiliriz.
+
+    1) std::unique_ptr  : Bir önceki örnekte gösterdiğim gibi scoped pointerlardır, etki alanı dışarısına
+    çıktıkları zaman işaret ettikleri hafızayı otomatik olarak silerler. Ayrıca kopyalanamazlar nedeni ise
+    örneğin aynı hafızayı işaret eden iki pointerımız olsun bu pointerlardan biri etki alanı dışına çıkarsa
+    hafızayı silecektir, o zaman da ikinci pointer boş bir hafızayı göstereceğinden hataya sebep olur.
+    Bu tür sorunların önüne geçmek için kopyalanmaları mantıklı değildir.
+
+    2) std::shared_ptr : Oluşturduğumuz pointeri eğer başka bir fonksiyona parametre olarak vermek istersek 
+    veya oluşturduğumuz pointerı kodumuzun farklı yerlerinde kullanmak istersek kullanabileceğimiz yapıdır.
+    Kopyalanabilen bir işaretçi türüdür. Her bir kopyasını oluşturduğumuzda kendi içerisinde bulunan kopya
+    sayısını arttırır. Tüm bu kopyalarımızın kullanılması bittiğinde (yok edildiğinde, kopya sayısı 0 olunca)
+    ise işaret ettiği hafıza alanını otomatik olarak siler.
+
+    3) std::weak_ptr : Genellikle "std::shared_ptr" ile birlikte kullanılırlar, shared_ptr'den farkı
+    weak_ptr kullanılarak oluşturduğumuz pointer kopyası shared_ptr'da bulunan kopya sayısını arttırmaz.
+    Bu işaretçi türünün verilere ulaşmak için kullanıması yanlış bir davranış olabilir, daha çok shared_ptr'ın
+    gösterdiği adresde bulunan objenin silinip silinmediğini kontrol etmek gibi amaçlarda kullanılır.
+
+
+    Örnek unique_ptr :
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+        class Sinifim {
+            public:
+                Sinifim() {
+                    std::cout << "Sinif Kuruldu !" << std::endl;
+                }
+                ~Sinifim() {
+                    std::cout << "Sinif Silindi !" << std::endl;
+                }
+        };
+
+        int main() 
+        {
+            { // Scope başlangıcı.
+                std::unique_ptr<Sinifim> ptr = std::make_unique<Sinifim>();
+                // !! std::unique_ptr<Sinifim> ptr2 = ptr; -> Hata
+            } // Pointerımız ve hafızadaki objemiz silinir.
+        }
+
+
+    Örnek shared_ptr ve weak_ptr:
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+        class Sinifim {
+            public:
+                Sinifim() { // Kurucu metod
+                    std::cout << "Sinif Kuruldu !" << std::endl;
+                }
+                ~Sinifim() { // Yıkıcı metod
+                    std::cout << "Sinif Silindi !" << std::endl;
+                } 
+        };
+
+        int main() 
+        { 
+            {
+                std::shared_ptr<Sinifim> ptr = std::make_shared<Sinifim>();
+                // Kopyalanabilir pointer oluşturuyoruz. <> içerisindeki parametre pointerımızın türüdür.
+                // ptr : pointer değişkenimizin adı. Burda önemli olan nokta ise :
+                // std::make_shared<Sinifim>() -> Bu fonksiyonu kullanmadan:
+                // std::shared_ptr<Sinifim> ptr(new Sinifim); şeklinde de pointerımızı oluşturabiliriz.
+                // FAKAT make_shared yapısını kullanmamak, sınıf içerisinde çıkacak olası bir hatada 
+                // programımızın çökmesine bile yol açabilir. Dolayısıyla make_shared, shared_ptr için 
+                // hata kontrol mekanizmasını içerir. Ayrıca örnekteki pointerimiz Sinifim türünden bir
+                // objeyi otomatik olarak yaratacaktır. Dolayısıyla bu işlemden sonra "Sinifim"ızın kurucu
+                // metodu çağırılacak ve ekrana sınıf içerisinde belirtilen yazı yazılacaktır.
+                // ptr isimli pointerımızın şuan aktif kullanım sayısı kendisiyle beraber 1'dir.
+
+                std::cout << "Ortak Pointer Kullanim Sayisi: " << ptr.use_count() << std::endl; // -> 1
+                // Pointerımızın aktif kopyalarının sayısını bu şekilde elde edebiliriz.
+                {
+                    std::shared_ptr<Sinifim> ptr2 = ptr; // Yeni bir shared_ptr ile ptr yapımızı kopyalıyoruz.
+                    // Bu işlem sırasında ptr pointerımızın aktif kopya sayısı 1 arttırılacaktır.
+
+                    std::cout << "Ortak Pointer Kullanim Sayisi: " << ptr.use_count() << std::endl; // -> 2
+                    {
+                        std::weak_ptr<Sinifim> weakPtr = ptr;
+                        // weak_ptr kullanarak tekrardan ptr objemizi kopyalıyoruz fakat, bu kopyalama işlemi
+                        // weak_ptr ile yapıldığından dolayı ptr objemizde kopya sayısı arttırılmayacaktır.
+                        std::cout << "Ortak Pointer Kullanim Sayisi: " << ptr.use_count() << std::endl; // -> 2
+                    } //weakPtr objemiz hafızadan silindi.
+                } // ptr2 objemiz hafızadan silindi, ptr objemizde ise kullanım sayısı 1 azaltıldı.
+                std::cout << "Ortak Pointer Kullanim Sayisi: " << ptr.use_count() << std::endl; // -> 1
+            } // ptr objemizin de hafızadan silinme zamanı geldi ve sınıfımızın yıkıcı metodunu çağırarak
+              // objemizi hafızadan sildi.
+        }
+
+
+Kopyalama ve Kopyalama Kurucuları :
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+    Bir sınıf objesini kendi türünden bir başka obje ile kopyalama işlemine kopyalama denir. Sınıf
+    içerisinde bu kopyalama işlemlerini kontrol edebilir, programın kopyalama davranışlarını istediğimiz 
+    şekilde değiştirebiliriz. Örnekler üzerinde anlatmak daha mantıklı olacaktır.
+
+    Örnek:
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        #include <iostream>
+        #include <memory>
+
+        class Yazi {
+            private:
+                char* yaziDizisi;
+                unsigned int diziBoyutu;
+
+            public:
+                Yazi(const char* yazi){
+                    diziBoyutu = strlen(yazi); // Parametre olarak verilen karakter dizisinin boyutu
+                    yaziDizisi = new char[diziBoyutu + 1]; // Heap üzerinde oluşturulan bir char dizisi
+                    memcpy(yaziDizisi, yazi, diziBoyutu); // Heap'deki adres üzerine parametredeki "yazi"
+                    // değişkenini kopyalıyoruz.
+                    yaziDizisi[diziBoyutu] = 0; // Kopyaladığımız yazının sonuna 0 yani Null termimation
+                    // karakteri koyuyoruz böylece yaziDizisi'ni yazdırmak istediğimiz zaman istenmeyen
+                    // karakterleri görmeyeceğiz.
+                    }
+
+                ~Yazi() {
+                    delete[] yaziDizisi; // Heap'de oluşturduğumuz alanı silelim.
+                }
+        };
+
+        int main() 
+        {
+            Yazi bir = "Ayberk"; // Yazi sınıfının örneğini "Ayberk" parametresiyle oluşturuyoruz.
+         !! Yazi iki = bir; // Burda Yapmak istediğimiz şey aslında bir objesindeki yazıyı yeni
+                               // oluşturduğumuz objeye yazmaktı ama kopyalama kurucularını kullanmadan
+                               // bunu yapmaya çalışırsak, "iki" objemiz aslında "bir" objesinin adresini
+                               // tutacaktır. Yani "bir" objesi silinirse "iki" objeside yanlış hafızayı
+                               // gösterecektir. Bu yüzden biz sadece içeriğini kopyalamak istiyoruz.
+                               // Bu içeriğini kopyalama olayına Deep Copy denir.
+        }
+
+    Bunu yapmak için sınıfımızda Kopyalama Kurucusu tanımlamamız gerekir:
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        class Yazi {
+            private:
+                char* yaziDizisi;
+                unsigned int diziBoyutu;
+
+            public:
+                Yazi(const char* yazi){
+                    diziBoyutu = strlen(yazi);
+                    yaziDizisi = new char[diziBoyutu + 1];
+                    memcpy(yaziDizisi, yazi, diziBoyutu);
+                    yaziDizisi[diziBoyutu] = 0;
+                }
+
+                Yazi(const Yazi& digerSinif) : diziBoyutu(digerSinif.diziBoyutu) // kopyalama kurucusu
+                // Peki bu kopyalama kurucusu nasıl çalışıyor ?
+                // Örneğin: Hatırlarsak Yazi ilk = "Ayberk"; dediğimiz zaman bu aynı zamanda Yazi ilk("Ayberk");
+                // demek ile aynı anlama geliyordu, aynı mantıkla Yazi iki(ilk) dediğimiz zaman, Yazi türünden bir
+                // objeyi yeni oluşturulan sınıfa parametre olarak veriyoruz ve parametre içerisinde bir değişiklik
+                // yapmak istemediğimiz için const olarak işaretliyoruz, bu olay da belirttiğimiz bu kurucu
+                // fonksiyonu çağırarak diğer sınıfta bulunan bilgileri kendi içerisine kopyalayıyor.
+                {
+                    yaziDizisi = new char[diziBoyutu + 1]; // Yeni sınıf içerisindeki karakter dizisi için
+                    // heap'den kopyaladığımız sınıftaki dizinin boyutu +1 kadar hafıza alanı ayırıyoruz.
+                    // + 1 hafıza istememizin nedeni yazımızın sonuna ayriyetten Null karakter koymak istememiz.
+                    memcpy(yaziDizisi, digerSinif.yaziDizisi, diziBoyutu + 1);
+                    // Diğer sınıfta bulunan diziyi bu sınıf içerisindeki hafıza alanına kopyalıyoruz.
+                }
+
+                ~Yazi() {
+                    delete[] yaziDizisi; // Tabiki işimiz bittikten sonra silinmesi için destructor'da delete
+                    // işlemi tanımlıyoruz.
+                }
+
+                void yazdir() {
+                    std::cout << yaziDizisi << std::endl;
+                }
+        };
+
+        int main()
+        {
+            Yazi bir = "Ayberk";
+            Yazi iki = bir;
+            iki.yazdir(); // -> Ayberk
+        }
+    
+    Kopyalama kurucuları kısaca bu şekilde kullanılabiliyor.
+
+
+
+Kopyalama Kurucusu ve Atama Operatörü Arasındaki Fark :
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+    Örnek bir sınıfımız olsun sınıfımızda hem copy constructor tanımlanmış hem de atama operatörü aşırı 
+    yüklenmiş olsun, hangi durumda hangi fonksiyon çalışacak inceleyelim :
+
+    Örnek:
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        class Obje {
+            public:
+                int data = 0;
+
+            public:
+                Obje(const Obje& diger) { // -> Copy constructor
+                    this->data = diger.data;
+                }
+
+                void operator=(const Obje& diger) { // Assigment operator  
+                    this->data = diger.data;
+                }
+        };
+
+        int main(){
+            Obje a, b;
+            a = b; // -> Assigment operator çalışacaktır.
+
+            Obje c = b; // -> Copy constructor çalışacaktır.
+        }
+        
+        Yani anlaşılacağı üzere daha önce tanımlanmış objeler arasında işlem yapılıyorsa: assigment operator
+        Eğer ilk kez tanımlanacak bir obje ile işlem yapılıyorsa: copy constructor çalışır.
+
+
+
+
+Dinamik Diziler - Dynamic Arrays: (std::vector)
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+    Vektörler (dinamik diziler) boyutu ve içeriği değiştirilebilen dizi türleridir. Dinamik dizilerin
+    boyutunun belirtilmesi önemli değildir, biz içerisine veri girmek istediğimiz zaman kendi boyutu
+    otomatik olarak ayarlanıp arttırılabilir. Çalışma mantığından bahsedicek olursak kısaca verdiğimiz
+    verileri tutan ve daha çok veri eklemek istediğimizde yeterli boş alana sahip değilse hafızada 
+    yeni bir alan bulup içeriği yeni hafızaya kopyalayıp eski hafızayı da sildikten sonra yeni hafıza
+    üzerinde işlem yapan yapılardır. Dinamik dizileri önce nasıl kullanabileceğimizden daha sonra nasıl 
+    optimize ederek daha yüksek performans alabileceğimizden bahsedeceğim. 
+    Ek bilgi : Yaptığım deneylere göre heap üzerinde dizi oluşturmak stack'e göre %20 den %100'e kadar
+    zamandan ve işlemci gücünden tasarruf ediyor. Bunun en önemli nedeni, stack'de oluşturulan diziye 
+    yeni bir veri eklemek istediğimizde tüm eski verileri silip yeni veriyle herşeyi baştan yazmaya
+    çalışmasıdır, heap üzerinde yarattığımız dizilerde böyle bir sorunla karşılaşmıyoruz. Heap'de 
+    objemiz herhangi bir yerde oluşturuluyor daha sonra vector yapısı bu adresleri hafızada tutuyor.
+    Yani daha az iş yapmış oluyor. (Bu anlattıklarım boyutu 4 byte'dan büyük olan objeler için geçerlidir.)
+
+
+    Örnek bir program ile vector'leri açıklayacağım:
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        #include <iostream>
+        #include <string>
+        #include <vector> // Dinamik dizileri kullanmak için gerekli dosya.
+
+        class Kimlik 
+        {
+            public:
+                std::string isim;
+                unsigned char yas;
+                Kimlik(const std::string& pIsim, const unsigned char& pYas) : isim(pIsim), yas(pYas){}
+        };
+
+        int main()
+        {
+            std::vector<Kimlik> kişiler; // Kimlik türünden obje taşıyacak bir dizi oluşturuyoruz.
+            kişiler.push_back({ "Ayberk", 19 }); // Implicit dönüşüm ile bu parametrelerden oluşturulmuş
+            // kimlik objesini oluşturduğumuz diziye ekliyoruz.
+            kişiler.push_back({ "Alexander", 20 });
+
+            // Verilerimize erişmek istersek :
+            std::cout << kişiler[0].isim; // Dizideki ilk objemizdeki isim değerini yazdırır. -> Ayberk
+
+            // Vector içerisinde bulunan değerleri for döngüsü içerisinde elde etmenin 2 yolu vardır.
+            // Bunlardan birisi de "Range based for loops"dur, özellikle standart kütüphane içerisinde
+            // tanımlanmış veri türlerinde kullanılırlar.
+
+            for(Kimlik& kisi : kişiler)
+            // Range based for loop, referans türünden parametre veriyoruz ki
+            // tekrar tekrar kopyalama yapmadan işimizi daha efektif bir şekilde halledebilelim
+            {
+                std::cout << kisi.isim << std::endl; // Tüm objelerdeki isim değerlerini yazdırır.  
+            }
+
+            // Normal yol kullanarak for döngüsü yazmak:
+            for(unsigned int i = 0; i < kişiler.size(); i++){
+                std::cout << kişiler[i].isim << std::endl;
+            }
+        }
+
+    Burda iki adet stack objesi oluşturduk ve daha sonra bunları dizimize ekledik. Her ekleme sırasında 
+    tüm herşey silinip tekrar oluşturuldu. Şimdi Heap üzerinde objeler ile çalışmayı bir örnekle göstereceğim.
+    Daha sonra optimizasyon konusuna geçicem.
+
+    Heap Objeler ile Vectorler:
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        
+        class Kimlik 
+        {
+            public:
+                std::string isim;
+                unsigned char yas;
+                Kimlik(const std::string& pIsim, const unsigned char& pYas) : isim(pIsim), yas(pYas){}
+        };
+
+        int main()
+        {
+            std::vector<Kimlik*> kişiler; // Kimlik pointerı türünden obje taşıyacak bir dizi oluşturuyoruz.
+            kişiler.push_back(new Kimlik { "Ayberk", 19 }); // Implicit dönüşüm ile belirtilen parametrelerden 
+            // oluşturulmuş heap üzerinde obje yaratıyoruz ve bunu push_back komutu ile dizimizin sonuna ekliyoruz.
+            kişiler.push_back(new Kimlik { "Alexander", 20 });
+
+            // Verilerimize erişmek istersek :
+            std::cout << kişiler[0]->isim; // Dizideki ilk objemizdeki isim değerini yazdırır. -> Ayberk
+            // Eklediğimiz veriler pointer türünden olduğundan erişmek için "->" (arrow operator) kullanıyoruz.
+
+            // Heap üzerinde oluşturulmuş veriler ile for döngüsü kullanmak:
+
+            for(Kimlik* kisi : kişiler)
+            // Range based for loop, pointer türünden parametre veriyoruz ki
+            // heap üzerinde bulunan objelerimize ulaşabilelim.
+            {
+                std::cout << kisi->isim << std::endl; // Tüm objelerdeki isim değerlerini yazdırır.  
+            }
+
+            // Normal yol kullanarak for döngüsü yazmak:
+            for (unsigned int i = 0; i < kişiler.size(); i++) {
+                std::cout << kişiler[i]->isim << std::endl;
+            }
+        }
+    
+
+    Vector İçerisinde Bulunan Bir Objeyi Silmek:
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        Vectorler ile uğraşırken dizi içerisindeki bir veriyi silmek istediğimizde vector için tanımlanmış 
+        erase fonksiyonunu kullanabiliriz, erase fonksiyonu bizden parametre olarak silinecek olan verinin
+        bulunduğu adresi bekler, fakat bu adresi tutan parametre normal bir pointer değildir.
+        Iterator olarak adlandırırlar peki iterator nedir ? Iterator her vector dizisi için özel olarak 
+        oluşturulmuş özel bir pointer'dır. 
+        
+        Yaptığı iş kısaca, dizimizin başlangıç adresini tutar, ulaşmak istediğimiz veri, başlangıç adresinden
+        ne kadar uzaksa kendi değerini o kadar arttırır, yani yeni oluşan adres, dizimizin içerisindeki hedef
+        objeye ayarlanır ve istenilen işlemler bu adres üzerinden yapılır.
+
+        Örnek:
+        ──────────────────────────────────────────────────────────────────────────────────────────────────────────
+                        
+            class Kimlik 
+            {
+                public:
+                    std::string isim;
+                    unsigned char yas;
+                    Kimlik(const std::string& pIsim, const unsigned char& pYas) : isim(pIsim), yas(pYas){}
+            };
+
+            int main()
+            {
+                std::vector<Kimlik> kişiler; // Kimlik objelerini tutacak dizimiz oluşturuldu.
+                
+                kişiler.push_back({ "Ayberk", 19 }); // İlk veri -> kişiler.begin() fonksiyonunun gösterdiği değer.
+                kişiler.push_back({ "Alexander", 19 }); // İkinci veri
+                kişiler.push_back({ "Richa", 19 }); // Üçüncü veri
+
+                kişiler.erase(kişiler.begin()); // İlk veriyi siler.
+                // begin() belirtilen dizinin başlangıç adresini iterator türünden veren fonksiyondur.
+
+                kişiler.erase(kişiler.begin() + 1); // İlk veri adresinin üzerine, ikinci veriyi göstermesi
+                // için gereken hafıza değerini ekler. Yani bu fonksiyon ikinci veriyi siler.
+                kişiler.erase(kişiler.begin() + 2); // İlk veri adresinin üzerine 2 obje kadar hafıza ekleyerek
+                // hafızada üçüncü veriyi gösterir sonra da erase fonksiyonu o veriyi siler.
+            }
+
+
+    Vector'lerde Optimizasyon ve Yüksek Performans:
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        Hatırlarsak oluşturduğumuz bir vector'e yeni değerler eklemek istediğimizde, vector ilk önce
+        yeterli alanı olup olmadığına bakıyor, eğer yeterli alan yoksa daha büyük yeni bir hafıza alanı 
+        ayırıyor daha sonra eski verileri yeni hafızaya kopyalayıp eski hafızadaki verileri siliyordu.
+        Yeterli alan varsa da sadece yeni verileri o boşluğa ekliyordu. Vector objelerimizi optimize 
+        ederken bu kopyalama işlemini mümkün olduğunca indirgemeye çalışacağız. Örneklerin havada 
+        uçuşacağı bir bölüm olacak :D
+
+
+        Örnek !:
+        ──────────────────────────────────────────────────────────────────────────────────────────────────────────
+        Örneklerde işlerin nasıl ilerlediğinden basitçe bahsetmeye çalıştım.
+
+        class Kimlik 
+        {
+            public:
+                std::string isim;
+                unsigned char yas;
+                Kimlik(const std::string& pIsim, const unsigned char& pYas) : isim(pIsim), yas(pYas){}
+        };
+
+        std::vector<Kimlik> kişiler; // Kişiler dizimiz oluşturuldu.
+
+        kişiler.push_back(Kimlik("Ayberk", 19));
+        kişiler.push_back(Kimlik("Alexander", 20));
+        kişiler.push_back(Kimlik("Richa", 19));
+        ──────────────────────────────────────────────────────────────────────────────────────────────────────────
+        // Burda bilmemiz gereken bazı detaylar var öncelikle, vektörler oluşturulduğu zaman varsayılan
+        // olarak kapasiteleri 1'dir. Bu şu anlama gelir, bu vektöre belirttiğimiz Kimlik türündeki objelerden
+        // yazmak istersek her seferinde en fazla 1 tane Kimlik objesi yazabiliriz. Yani ikinci objemizi içerisine 
+        // koymaya çalıştığımız zaman yeterli hafızaya (kapasiteye) sahip olmadığı için yeni bir hafıza alanı
+        // ayıracak daha sonra eski verileri boş hafızaya kopyalayacak, yeni veriyi hafızaya girecek ve eski
+        // hafızayı silecektir. Fakat biz istersek vektörlere başlangıçta şu kadar alan ayır diyebiliriz bu 
+        // sayede belirttiğimiz kapasite dolana kadar boşu boşuna hafıza işlemleri yapmayacaktır:
+
+        class Kimlik 
+        {
+            public:
+                std::string isim;
+                unsigned char yas;
+                Kimlik(const std::string& pIsim, const unsigned char& pYas) : isim(pIsim), yas(pYas){}
+        };
+
+        std::vector<Kimlik> kişiler; // Kişiler dizimiz oluşturuldu.
+        kişiler.reserve(3); // Başlangıçta üç tane Kimlik objesi boyutunda alan ayır. Yani ard arda 3 tane
+        // Kimlik objesini tekrar tekrar silip kopyalamadan dizimize yerleştirebiliriz. Ama kapasite tekrar
+        // dolunca yine eskisi gibi tek tek hepsini kopyalamaya devam edicektir.
+
+        kişiler.push_back(Kimlik("Ayberk", 19));
+        kişiler.push_back(Kimlik("Alexander", 20));
+        kişiler.push_back(Kimlik("Richa", 19));
+        // Şu ana kadar ekstra kopyalama işlemi yapılmadı ama kapasite dolduğu için bundan sonra yapılacak.
+        kişiler.push_back(Kimlik("Yeni biri", 21)); // Hafıza yetmediği için tüm herşey yeni hafızaya kopyalandı.
+
+
+    Peki bu kopyalamaların önüne nasıl geçeriz ??
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        Bunu anlamak için öncelikle push_back komutunun nasıl çalıştığını bilmeliyiz.
+
+        class Kimlik 
+        {
+            public:
+                std::string isim;
+                unsigned char yas;
+                Kimlik(const std::string& pIsim, const unsigned char& pYas) : isim(pIsim), yas(pYas){}
+
+                Kimlik(const Kimlik& diger) : isim(diger.isim), yas(diger.yas)
+                {
+                    std::cout << "Kopyalandi !" << std::endl;
+                }
+        };
+        // Kopyalama kurucu fonksiyonu eklendi bu sayede bu sınıf ne zaman kopyalanırsa, ekrana Kopyalandi!
+        // yazilacak.
+
+
+        int main()
+        {
+            std::vector<Kimlik> kişiler;
+            kişiler.reserve(3);
+
+            kişiler.push_back(Kimlik("Ayberk", 19)); // -> Kopyalandi !
+            // Kimlik("Ayberk", 19) diyerek kurduğumuz obje aslında main fonksiyonu içerisinde kurulmuş
+            // yani main fonksiyonuna ait bir objedir, bu yüzden push_back komutu vektörümüzün içerisine
+            // bu objeyi eklemek istediği zaman, onun kopyasını alıp hafızasına yazacaktır. İşte bu yüzden
+            // gereksiz kopyalama olaylarıyla karşı karşıya kalmaktayız. Bunun önüne geçmek için
+            // kullanmamız gereken fonksiyon ise emplace_back fonksiyonudur, bu fonksiyon basitçe, verdiğimiz
+            // parametreleri kullanarak vektörün türünde belirtilen objeyi kendi hafızası içerisinde yaratır.
+            // Yani ilk önce main'de yaratılma olayı gerçekleşmemiş olur.
+            
+            kişiler.emplace_back("Ayberk", 19); // Kapasitenin 3'te 2'si kullanıldı. Kopyalama yok.
+            kişiler.emplace_back("Ayberk", 19); // Kapasitenin 3'te 3'ü kullanıldı. Kopyalama yok.
+            
+            kişiler.emplace_back("Ayberk", 19); // Kapasite dolduğu için herşeyi baştan oluşturdu yani şuana
+            // kadar eklenmiş tüm verileri kopyalayacak, bu örnekte 4 kopya oluşur. İşte bu yüzden eğer bir 
+            // vektörün kullanılacak kapasitesi belli ise mutlaka o kapasiteyi belirtmek gerekir.
+        }
+    
+
+Birden Fazla Değer Döndürmek - Returning Multiple Types:
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+    C++'ın kendisi otomatik olarak bir fonksiyondan birden fazla değer döndürmeyi desteklemez fakat 
+    biz kendimize uygun diğer yöntemlerle bu işi yapabiliriz.
+
+    Kullanabileceğimiz Yöntemler :
+        1) İstediğimiz değerleri barındıran struct yapısı döndürmek.
+        2) Fonksiyona referans veya pointer olarak verdiğimiz parametreleri kullanmak.
+            (Performans açısından oldukça iyi bir yöntemdir)
+        3) std::array türünü kullanarak dizi içerisinde veri döndürmek. 
+           Veya std::vector türünde döndürmek. (Vectorler, std::array'a göre biraz daha yavaştır)
+        4) std::tuple<> kullanarak. Tuple yöntemi basit olarak istediğimiz türden verileri tutan
+           bir yapı oluşturur. Fakat bunu yaparken geri döndürmek için std::make_pair() yapısını
+           kullanmamız gerekir, ve ayrıca geri döndürülen değerleri almak için ise std::get<>()
+           fonksiyonunu kullanmalıyız. Örneklerde açıkça bahsedeceğim.
+
+    Örnek program:
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        #include <iostream>
+        #include <tuple>
+        #include <array>
+        #include <vector>
+        #include <string>
+        #include <utility>
+
+
+        struct donusDegerleri
+        {
+            std::string isim, soyisim;
+        };
+
+        donusDegerleri fonksiyon_struct()
+        {
+            return { "Ayberk", "Eser" }; // implicit conversion ile oluşturulan struct'u döndürür.
+        }
+
+        void fonksiyon_referans(std::string& isim, std::string& soyisim)
+        {
+            isim = "Ayberk";
+            soyisim = "Eser";
+        }
+
+        std::array<std::string, 2> fonksiyon_array()
+        {
+            return std::array<std::string, 2> {"Ayberk", "Eser"};
+        }
+
+        std::vector<std::string> fonksiyon_vector()
+        {
+            return std::vector<std::string> {"Ayberk", "Eser"};
+        }
+
+        std::tuple<std::string, std::string> fonksiyon_tuple()
+        {
+            return std::make_pair("Ayberk", "Eser");
+        }
+
+        std::pair<std::string, std::string> fonksiyon_pair() 
+        {
+            return std::make_pair("Ayberk", "Eser");
+        }
+
+
+        int main()
+        {
+
+            donusDegerleri degerStruct = fonksiyon_struct();
+            degerStruct.isim; // Ayberk
+            degerStruct.soyisim; // Eser
+
+            std::string isim, soyisim;
+            fonksiyon_referans(isim, soyisim);
+            isim; // Ayberk
+            soyisim; // Eser
+
+            std::array<std::string, 2> degerArray = fonksiyon_array();
+            degerArray[0]; // Ayberk -> std::get<0>(degerArray);
+            degerArray[1]; // Eser -> std::get<1>(degerArray);
+
+            std::vector<std::string> degerVector = fonksiyon_vector();
+            degerVector[0]; // Ayberk
+            degerVector[1]; // Eser
+
+            std::tuple<std::string, std::string> degerTuple = fonksiyon_tuple();
+            std::get<0>(degerTuple); // Ayberk
+            std::get<1>(degerTuple); // Eser
+
+            std::pair<std::string, std::string> degerPair = fonksiyon_pair();
+            degerPair.first; // Ayberk -> std::get<0>(degerPair);
+            degerPair.second; // Eser -> std::get<1>(degerPair);
+            // Pairler tek seferde en fazla 2 değer tutabilir. Adı üstünde pair (çift)
+
+        }
+
+Şablonlar - Templates : (Çok önemli)
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+    Örneğin bir fonksiyon oluşturduğumuzda o fonksiyonun parametrelerinin türü bellidir, fakat
+    biz aynı fonksiyonun birden fazla tür kullanan versiyonlarını istiyorsak, o fonksiyonları ayriyetten
+    tanımlamamız gerekir. Daha sonra eğer bu fonksiyonlara bir özellik veya kod eklemek istersek
+    tüm fonksiyonlarımızın hepsini tek tek değiştirmemiz gerekir. Şablonlar kullanılarak oluşturulan
+    fonksiyonlar veya sınıflar bu sorunların önüne geçmemizi sağlar. Şablon kullanılarak tanımlanmış
+    bir sınıf veya fonksiyon derleme zamanında kullanıcığının kullandığı parametre türlerine göre
+    oluşturulur. Bu konunun örnek üzerinde daha iyi anlaşılacağını düşünüyorum.
+
+    Örnek:
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        
+        template<typename Tip> // Şablon tanımlama şeklimiz, typename yerine class da yazılabilir aynı şey.
+        void fonksiyon(Tip deger) // Tip deger, bu fonksiyon hangi tip parametreyle çağırılırsa onun tipini alır.
+        {
+            std::cout << deger << std::endl; // std::cout fonksiyonu hemen hemen tüm türleri yazdırabildiği
+            // için bu kısımda sorun yaşamıyoruz.
+        }
+
+        int main()
+        { 
+            fonksiyon(5); // Parametrede verilen değerin türüne/tipene bağlı olarak fonksiyonumuz oluşturulur.
+            // Bu durumda şablon fonksiyonun tanımındaki "Tip" int olacaktır.
+            
+            fonksiyon("Ayberk"); // Şablon fonksiyonundaki "Tip" const char* olacaktır.
+
+            // Bu şekilde çağırılan şablon fonksiyonlar implicit conversion kullanır. Biz bunu açık olarak
+            // belirtmek istersek, kullanmak istediğimiz türü <> işaretleri arasında gösterebiliriz.
+
+            fonksiyon<int>(5); // Burda açıkça fonksiyonun int olan versiyonunu istediğimizi söylüyoruz.
+            // Tıpkı std::vector<std::string> de olduğu gibi <> arasında tanımladığımız değerler şablon
+            // türleri olarak kullanılır.
+            
+            fonksiyon<std::string>("Ayberk"); // Burda ilk önce "Ayberk" const char*'ını string'e dönüştürecek
+            // daha sonra std::string için oluşturulmuş fonksiyonu çağıracaktır.
+        }
+
+    Şablonların Sınıf İçerisinde Kullanımı:
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        
+        template <typename type, int boyut> // Şablon içerisinde istediğimiz türü kullanabiliriz.
+        class diziOlustur {
+            public:
+                type dizi[boyut]; // <> içerisinde verilen ikinci parametre "boyut" dizi boyutu olarak
+                // kullanılacak, "type" ise dizimizin türü için kullanılacak.
+                
+                int boyutuNe() {
+                    return boyut; // Aynı şekilde boyut parametresi burada kullanılacak.
+                }
+
+        };
+
+        int main() 
+        {
+            diziOlustur<std::string, 5> dizi; // string türünde 5 adet değer tutan dizi oluşturur.
+            std::cout << dizi.boyutuNe() << std::endl; // -> 5
+        }
+
+
+    Özelleştirilmiş Şablon Kullanımı:
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        Eğer şablonlarla kullanılacak bir fonksiyon veya sınıfımız varsa fakat, özellikle bir tür
+        için ayrı işlemler yapmak istiyorsak, belirlediğimiz türe özel fonksiyon oluşturabiliriz.
+
+        
+        template <typename T>
+        void myFunction(T param) // std::string* hariç tüm türler bu fonksiyonu kullanacak.
+        {
+            std::cout << param << std::endl;
+        }
+
+        template <> // Özelleştirilmiş template tanımı
+        void myFunction(std::string* param) // Referans yerine pointer kullandım, genel olarak kodun
+        // okunabilirliğini arttırıyor.
+        {
+            std::cout << "Ozellestirilmis template fonksiyonu : " << *param << std::endl;
+        }
+        // Bu özelleştirilmiş fonksiyon std::string* türünden değer alınırsa çalışacaktır.
+
+        int main()
+        {
+            std::string deneme = "Ayberk";
+            myFunction(&deneme); // -> Ozellestirilmis template fonksiyonu : Ayberk
+            return 0;
+        }
+
+
+        Önemli bir not :
+        ──────────────────────────────────────────────────────────────────────────────────────────────────────────
+            Örneğin şablon ile oluşturulmuş bir fonksiyonumuz ve aynı fonksiyona ait özelleştirilmiş
+            bir fonksiyonumuz olsun:
+
+            template<typename T>
+            void myFunction(T& param) {
+                std::cout << "Normal Function : " << param << std::endl;
+            }
+
+            template <>
+            void myFunction(std::string& param) {
+                std::cout << "std::string& function : " << param << std::endl;
+            }
+
+            Ben bu fonksiyonlardan ikincisini çalıştırmak istersem bunu implicit olarak yapmam gerekir:
+                myFunction(deneme); // Ayrıca myFunction<>(deneme); ile aynı şeydir.
+
+            Çünkü <> içersinde tanımladığımız değerler şu anlama gelir: "Hey derleyici bak ben bu türden
+            typename ile tanımlanmış fonksiyonu istiyorum."
+
+            Fakat myFunction(deneme); gibi çağırılmış fonksiyonda <> olmadığı için derleyici diyecektir
+            ki : "Aaa bu fonksiyon typename ile tanımlanmış bişey istemiyor o zaman boş olanı çalıştırayım."
+
+
+
+Değişken Sayıda Parametre Alan Fonksiyonlar : (Biraz ileri düzey konu fakat anlamakta fayda var)
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+    Variadic arguments adı verilen yapıdır fonksiyon parametrelerinde ... ile gösterilir. Çalışma 
+    mantığını anlamak için biraz ayrıntıya girmem gerekiyor fakat olabildiğince basit anlatmaya 
+    çalışacağım. Öncelikle bir fonksiyonu çağırdığımız zaman fonksiyonun parametreleri sondan başa
+    doğru stack hafızasına sıra sıra yazılır. Daha sonra çağırılan fonksiyon stack'den bu parametreleri
+    alarak istenilen işlemleri yapar.
+
+        Örnek :
+        ──────────────────────────────────────────────────────────────────────────────────────────────────────────
+            void fonksiyonum(int a, int b, int c){}
+
+            fonksiyonum(1, 2, 3); // olarak çağırdığımız anda arka planda gerçekleşen komutlar şunlardır.
+            // push stack'e yazmak için kullanılan komut, call fonksiyonu çağırmak için kullanılan komut.
+            	push	3
+                push	2
+                push	1
+                call	deneme
+
+            // Daha sonra fonksiyonumuz çağırılınca yapılacak işleme göre parametreleri tek tek stack'den alır
+            // ve istenilen işlemleri gerçekleştirir.
+
+
+    Yani anlaşılacağı üzere tüm parametreler daha sonra kullanılmak üzere stack'e yazılır.
+    Şimdi Variadic arguments adını verdiğimiz değişken sayıda parametrelerin nasıl çalıştığına bakalım.
+
+        void ornekFonksiyon(const char* args...)
+
+        args adıyla tanımlanmış değişken sayıda parametredir, bu fonksiyonu istediğimiz gibi çağırabiliriz.
+        
+        Örneğin:
+        ──────────────────────────────────────────────────────────────────────────────────────────────────────────
+            ornekFonksiyon("Ayberk", 1, 2, 3, 4, 5, 6);
+
+        Burda anlattığım gibi tüm parametreler stack üzerine sondan başa doğru yazılır. Yani istersek her 
+        birinin adresine kendimiz erişebiliriz. Bir örnekle bir sonraki parametreye nasıl ulaşabileceğimizi
+        göstericem.
+
+
+    Sonraki parametreye ulaşmak : 
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+        void ornekFonksiyon(const char* args...){
+            // Burda yapacağım işlemlerde ilk parametre hariç diğerlerinin int değer olacağını varsayıyorum.
+
+            int birSonraki = *((int*)&args + 1);
+            // args bir char* yani karakter dizisi gösteren bir hafıza tutuyor. O yüzden ilk önce args'ın
+            // kendisinin hafızadaki yerini & ile öğreniyoruz daha sonra bunu int*'a çeviriyoruz ki + 1
+            // yaptığımızda hafıza tam 4 byte artsın. Daha sonra yeni adresimizi dereferance ediyoruz
+            // ve elde ettiğimiz değeri birSonraki değişkenine aktarıyoruz.
+
+            std::cout << "ikinci parametre : " << birSonraki << std::endl;
+
+            // üçüncü parametre olduğunu varsayalım ve onun değerini alalım.
+            int ucuncuParametre = *((int*)&args + 2);
+            
+            std::cout << "üçüncü parametre : " << ucuncuParametre << std::endl;
+
+        }
+
+        int main(){
+            ornekFonksiyon("Ayberk", 1, 2); // -> 1
+                                            // -> 2
+        }
+    
+
+    Şuana kadar yapmış olduğumuz örnekleri otomatik olarak yapmamızı sağlayan yapılar mevcut. Bu yapıları
+    kullanarak örnek bir program üzerinde anlatıcam:
+
+
+    Mevcut yapılar ile Variadic arguments kullanımı :
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        Bu hazır yapıları kullanmak için -> #include <cstdarg>
+
+        void basitFonksiyon(const char* args...)
+        {
+            va_list argList; // va_list aslında char*'dır sadece isimlendirmesi farklı
+            va_start(argList, args); // argList = *((int*)&args + 1); işini yapan fonksiyon.
+
+            while (*(char*)args != '\0'){ // ilk parametremiz ("Ayberk") dizisi bitene kadar çalış.
+                int i = va_arg(argList, int); // i değerine argList'in gösterdiği değeri yazar ve argList'in
+                // gösterdiği hafızayı int'ın boyutu kadar (4 byte) arttırır. Yani (int*)argList + 1
+                std::cout << i << std::endl;
+                ++args; // Dizimiz char türünden olduğu için 1 byte arttırır örneğin dizimiz "yberk" olur.
+                // Char dizisi bitine kadar devam eder, "berk" -> "erk" -> "rk" -> "k" ve döngüden çıkılır. 
+            }
+            va_end(argList); // Döngü bittikten sonra argList pointerını 0x00000000 yapar. İşimiz bittikten
+            // sonra heap değişkenlerini silmek gibi.
+        }
+        // Bu fonksiyonda dikkat etmemiz gereken şey ilk parametremiz yani bu örnekte "Ayberk" kaç harften
+        // oluşuyorsa (6) o kadar int değer girmemiz gerekli yoksa hafızada olmayan değerler ekrana yazılır.
+        // Çünkü döngümüz char dizisi bitene kadar devam ediyor. Ve döngü içerisinde hafıza arttırımı yaparak
+        // yeni hafıza değerlerine erişmeye çalışıyoruz.
+
+        int main()
+        {
+            simple_function("Ayberk", 1, 2, 3, 4, 5, 6);
+            // Bu fonksiyonun çıktısı -> 1
+                                         2
+                                         3
+                                         4
+                                         5
+                                         6
+        }        
+    
+
+Şablonlarla Değişken Sayıda Parametre Alan Fonksiyon Yazma :
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+    Bu tür fonksiyonlar recursive yani kendini çağıran türden fonksiyonlardır, verilen parametrelerin
+    sayısı değişkendir. Verilen parametrelerin sonuna gelene kadar işlem yaparlar. Örnek ile inceleyelim:
+
+
+    Recursive Variadic Templates :
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        template <typename T>
+        void yazdir(const T& deger) {
+            std::cout << deger << std::endl;
+        }
+        // Bu fonksiyonu tanımlamamızın nedeni, tüm ekstra parametreler bittikten sonra sadece tek bir
+        // parametre kalacak ve bu parametreyle işlem yapacak bir fonksiyona ihtiyacımız olacak.
+        // Eğer bunu tanımlamazsak 1) Program derlenmez, 2) Derlense bile program son adımı çalıştıramaz.
+        
+        template <typename First, typename... sonrakiler> //Şablonlarda bu şekilde tanımlıyoruz. typename... 
+        void yazdir(const First& ilk, const sonrakiler& ... geriKalan) // performans için & kullandım.
+        {
+            std::cout << ilk << ", ";
+            yazdir(geriKalan...); // fonksiyonumuz geri kalan yani ilk parametre hariç diğer parametrelerle
+            // tekrar çağırılıyor. Bu böyle son 1 parametre kalana kadar devam edicek ve 1 parametre kalınca
+            // yukarda tanımladığımız tek parametreli fonksiyon çağırılacak.
+        }
+
+        int main()
+        {
+            yazdir(3, 2, 1, "Ayberk", 3.1415); // -> 3, 2, 1, Ayberk, 3.1415
+        }
+
+
+
+"auto" Anahtar Kelimesi :
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+    auto anahtar kelimesini genelde değişken tanımlarken kullanıyoruz, bunun özelliği derleyicinin
+    istediği türe göre değişkenlerimizin otomatik olarak belirlenmesi. Peki bu şekilde değişken
+    tanımlayabiliyorsak neden int, char, float... gibi değişkenlere ihtiyacımız var ? Cevap 
+    okunabilirlik, eğer herşeyi auto ile tanımlarsak emin olun karmaşık projelerde o kodu anlamak
+    çok daha zahmetli hale gelir. Ben şahsen auto anahtarını geri dönüş türünü bilmediğim fonksiyonlarda
+    kullanıyorum.
+    
+    Örnek:
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        Bir zamanlayıcı sınıfı yazmak istediğimizde örneğin <chrono> sınıfını kullanabiliriz.
+        Bu sınıf içerisinde yüksek hassasiyetle anlık zamanı almamızı sağlayan bir fonksiyon var, 
+            std::chrono::high_resolution_clock::now(); 
+        ve bu fonksiyon geriye std::chrono::time_point<std::chrono::steady_clock> türünde değer
+        döndürüyor. Akılda tutması çok da kolay değil bu yüzden auto kullanılabilir.
+
+        auto zaman = std::chrono::high_resolution_clock::now();
+
+        // mouse ile zaman isimli değişkenimizin üzerine gelirsek, visual studio bize alması gereken
+        // türü gösterecektir. Bu örnekte std::chrono::time_point<std::chrono::steady_clock>
+        // İşte sayede hangi türü kullanmamız gerektiğini kolayca öğrenebilir veya kontrol edebiliriz.
+
+
+    Bir başka örnek:
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        Diyelim ki bi sebepten dolayı vektörümüzde bulunan değerleri "iterator" ile yazdırmak istiyoruz
+        yazmamız gereken kod şu şekildedir:
+
+        std::vector<std::string> vektorum;
+        vektorum.reserve(2); //performans için
+        vektorum.emplace_back("Ayberk"); // performans için emplace_back
+        vektorum.emplace_back("Eser"); // performans için emplace_back
+
+        for (std::vector<std::string>::iterator it = vektorum.begin(); it != vektorum.end(); it++)
+        {
+            std::cout << *it << std::endl;
+        }
+
+        // Burda görüldüğü gibi iterator tanımı çok çok uzun, bunu kısaltmak için auto kullanabiliriz.
+
+        for (auto it = vektorum.begin(); it != vektorum.end(); it++)
+        {
+            std::cout << *it << std::endl;
+        }
+
+Fonksiyon İşaretçileri - Function Pointers :
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+    Fonksiyonlarların adreslerini tutan, onları çalıştırmamızı veya başka bir fonksiyona parametre
+    olarak göndermek gibi işlemlerle kullanılırlar.
+
+    Örnek:
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        void fonksiyonum(int deger) {
+            std::cout << "Gonderilen sayi : " << deger << std::endl;
+        }
+
+        int main(){
+            void (*fonksiyonPTR)(int) = fonksiyonum; // fonksiyon () kullanılmadan tanımlanmalıdır.
+            // fonksiyonPTR -> yeni oluşan işaretçimizin adıdır.
+            // (int) olarak tanımladığımız kısım asıl fonksiyonumuzdaki parametre türleridir.
+            // void ise fonksiyonumuzun dönüş tipini belirtir.
+            fonksiyonPTR(10); // Bu şekilde işaretçinin tuttuğu fonksiyon çalıştırılabilir.
+        }
+
+
+    Parametre Olarak Fonksiyon Gönderme : 
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        void yazdir(int& val) {
+            std::cout << val << std::endl;
+        }
+
+        void forEach(std::vector<int>& vector, void(*fonk)(int&)){
+            for (int deger : vector){
+                fonk(deger);
+            }
+        }
+
+        int main(){
+            std::vector<int> vector  { 1,2,3,4,5 };
+            forEach(vector, yazdir);
+        }
+        
+        Örneğin kendini açıklar nitelikte olduğunu düşünüyorum o yüzden ek bir açıklama yapmadım.
+
+
+
+Anonim Fonksiyonlar / Lambda'lar :
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+    Lambda'lar isimsiz fonksiyonlardır bir önceki örnekte olduğu gibi fonksiyonlara parametre olarak
+    verilebilirler.
+
+    [](){} şeklinde tanımlanırlar.
+    
+    Örnek:
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        [](int val){std::cout << val << std::endl;}
+        // () -> lambda fonksiyonunun alacağı parametreler.
+        // [] -> capture field / yakalama alanı, fonksiyonun dış verilere nasıl ulaşabileceğine
+        // dair ayarları yaptığımız yerdir.
+        // {} -> fonksiyonumuzun gövdesi, tüm kodları barındırdığı yer.
+
+        Capture Field [] :
+        ──────────────────────────────────────────────────────────────────────────────────────────────────────────
+            Örneğin lambda dışarısında bir değişkenimiz olsun ve bu değişkene lambda içerisinde
+            ulaşmak istiyoruz. Bunu yapabilmemizin çeşitli yolları var, bunlar :
+
+            & -> Dış değişkenlere referans ile ulaşılacağı anlamına gelir.
+            = -> Dış değişkenlerin kopyalanarak kullanılacağı anlamına gelir.
+            this -> İçerisinde bulunduğu sınıf objelerine referans ile ulaşacaktır.
+            *this -> İçerisinde bulunduğu sınıf objelerini kopyalayarak kullanacaktır.
+
+            ÖNEMLİ BİR NOT:
+            ──────────────────────────────────────────────────────────────────────────────────────────────────────
+                Oluşturduğumuz bir lambdayı eğer capture field'ı boş ise, normal olarak fonksiyon
+                işaretçilerini kullanabiliriz. FAKAT eğer [] içerisinde herhangi bir kural belirtirsek
+                oluşan lambda fonksiyonunu normal işaretçilerle değil, std::function yapısını
+                kullanmamız gerekir. 
+            
+                std::string isim = "Ayberk";
+                int a = 20;
+                
+                void (*fonksiyonPTR)() = []() { std::cout << "Basit lambda fonksiyonu !" << std::endl; };
+                // [] içerisinde tanımlı kural olmadığı için normal fonksiyon işaretçileri ile gösterilebilir.
+
+                std::function<void(int)> fonks = [&]() {
+	            	std::cout << "Isim : " << isim << "a degiskeni : " << a << std::endl;
+	            };
+                // [] içerisinde referans kuralı tanımlandığı için artık normal bir fonksiyon olarak
+                // tanımlayamıyoruz. std::function kullanmamız gerekli. std::function<void(int)>
+                // void -> lambda'dan değer döndürülmediği için, int döndürseydi int derdik.
+                // int -> lambdanın aldığı parametre türü.
+
+
+            Örnek:
+            ──────────────────────────────────────────────────────────────────────────────────────────────────────
+
+                std::string isim = "Ayberk";
+                int a = 20;
+
+                [=, &isim](){std::cout << "a değişkeni: "<< a << " İsim : "<< isim};
+                // isim değişkeni referans ile, geri kalan değişkenler kopyalama ile kullanılacak.
+            
+                !! HATA [&isim](){std::cout << "a değişkeni: "<< a << " İsim : "<< isim};
+                // a değişkenine erişim belirtilmediği için a'ya ulaşılamaz
+
+                [=]() {std::cout << "a degiskeni: " << a << " Isim : " << isim; };
+                // Herşey kopyalanarak kullanılacak.
+
+                [&]() {std::cout << "a degiskeni: " << a << " Isim : " << isim; };
+                // Herşey referans ile kullanılacak.
+
+                
+    Tanımladığımız Lambda'ları Çalıştırmak :
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        #include <iostream>
+        #include <functional>
+
+        int main(){
+
+            std::string isim = "Ayberk";
+            int yas = 19;
+            int degisken = 55;
+
+            std::function<void(std::string&, int&)> lambdaFonks = [&](std::string& isim, int& yas) {
+                std::cout << isim << " " << yas << " yasinda !" << std::endl;
+                std::cout << "Lambda disindan aldigimiz degisken : " << degisken << std::endl;
+            };
+
+            lambdaFonks(isim, yas);
+
+            //Ayberk 19 yasinda !
+            //Lambda disindan aldigimiz degisken : 55
+
+            void(*fonksiyonPTR)(std::string&) = [](std::string& param) {
+                std::cout << "Daha basit bir lambda, alinan parametre : " << param;
+            };
+
+            fonksiyonPTR(isim);
+            // Daha basit bir lambda, alinan parametre : Ayberk
+
+        }
+
+    Lambda Parametresi Alan Örnek Bir Fonksiyon:
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        Standart kütüphane içerisinde std::find_if olarak tanımlanmış fonksiyonun bir benzerini
+        yazdım. Bu fonksiyon kısaca verdiğimiz vektördeki her elemanı bizim belirlediğimiz
+        fonksiyona veya lambdaya yollar, ve istediğimiz işlemleri gerçekleştiririz.
+
+        #include <iostream>
+        #include <vector>
+
+        template <typename ilk, typename son, typename fonksiyon>
+        void vektorIcindeAra(ilk iteratorIlk, son iteratorSon, fonksiyon fonkPtr) {
+            for (; iteratorIlk != iteratorSon; ++iteratorIlk){
+                if (fonkPtr(*iteratorIlk)) {
+                    break;
+                };
+            }
+            // Bu for döngüsü sayesinde parametre olarak verilen vektörün her elemanını
+            // alıp, kullanıcının verdiği fonksiyona parametre olarak veriyoruz. Ayrıca
+            // kullanıcının verdiği fonksiyonun true değerini döndürmesi fonksiyonun
+            // işinin bittiğini yani bundan sonra başka işlem yapmak istemediğini söylüyor
+            // ve break komutu sayesinde for döngüsünden çıkılarak işlem sonlandırılıyor.
+            // Bu sayede işimizin olmadığı diğer değerlerle uğraşmak zorunda kalmıyoruz.
+
+        }
+
+        int main(){
+
+            std::vector<int> numaralar { 1,2,3,4,5,6,7,8,9 };
+            vektorIcindeAra(numaralar.begin(), numaralar.end(), [](int gelen) {
+                    if (gelen == 5) {
+                        std::cout << "Dizi icerisinde 5 bulundu !" << std::endl;
+                        return 1; // İşimiz bitti 1 döndürelim ve for döngüsünden çıkalım.
+                    }
+                    return 0; // İşimiz bitmediği için 0 döndürüyoruz. 
+                    // Burayı unutursak program yanlış çalışacaktır.
+                }
+            );
+            // İlk ve ikinci parametre olarak vektörün başı ve sonuna ait pointer değerlerini
+            // veriyoruz. Bu pointerlar for döngüsünde kullanılacak. Üçüncü parametremiz ise
+            // her bir vektör elemanının parametre olarak verileceği fonksiyon. Bu örnekte
+            // lambda kullanarak yaptık.
+
+        }
+
+
+Paralel Programlama - Threads :
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+    Bu kısımda anlatacaklarım modern yazılımların vazgeçilmez yapılarından biridir. Bir program
+    başlattığımızda standart olarak o program üzerinde bir adet thread (iş yapan birim) çalışır,
+    bu ana thread genelde main fonksiyonudur. İsteğimize göre yapılmak istenen işleri birbirinden
+    bağımsız veya birbirine bağlı olarak ayrı thread'ler üzerinde çalıştırabiliriz. Varsayalım ki
+    ağ bağlantılarını dinleyen bir programımız var ve ağ üzerinden aldığı her veriyi ekrana yazdıracak
+    olsun, ve aynı zamanda main fonksiyonunda geri sayım işlemi yapılsın belirtilen süre içerisinde
+    ağdan cevap alınmazsa program sonlandırılsın. İşte bu ve bunun gibi durumlarda thread'leri 
+    kullanmazsak aynı anda birden fazla iş yapamayacağımız için ya ağdan gelen verileri kaçırırırz,
+    ya da geri sayımı yapamayız. Umarım yeterince açıklayıcı olmuştur, olmadıysa da dert etmeyin
+    örneklerle daha iyi anlaşılacağını düşünüyorum.
+
+    Örnekler:
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        #include <iostream>
+        #include <thread>
+        #include <chrono> 
+
+        void yazdirLen() {
+            std::cout << "Baska bir thread'den selamlar !" << std::endl;
+        }
+
+        int main(){
+            std::thread t1(yazdirLen); // Thread'imizi tanımladıktan itibaren belirtilen fonksiyon 
+            // ayrı bir thread içerisinde çalışmaya başlar.
+            
+            //t1.join(); -> join fonksiyonu oluşturulan thread'in işinin bitmesini bekle demektir.
+            // yani t1 thread'i bitene kadar main fonksiyonu çalışmayı durdurur.
+
+            t1.detach(); // detach ise thread'ı kendi haline bırakır, main çalışmaya devam eder.
+            // Bu tür thread'lere daemon process denir.
+
+            std::this_thread::sleep_for(std::chrono::milliseconds(1000)); 
+            // Bu fonksiyon main thread'inin 1 saniye beklemesini söylüyor bunu yaptım çünkü detach
+            // ile tanımladığım thread ana thread'den bağımsız ve main thread'den daha fazla işe sahip
+            // bu yüzden muhtemelen main thread bittiğinde yani programımız kapandığında t1 thread'i işini
+            // anca bitirebilecek ve biz bu yüzden ekranda yazı falan göremeyeceğiz.
+        }
+    
+        Dikkat etmemiz gereken noktalardan biri ise join() veya detach() fonksiyonlarını her thread için 
+        yalnızca bir kere kullanabileceğimizdir. Birden fazla kere kullanmaya çalışırsak program çöker.
+        Eğer bir threadin join() fonksiyonunu kullanmak istiyorsak, joinable() metodu ile ilk önce bunu
+        kontrol etmemiz gerekir. 
+        
+        Örneğin:
+        ──────────────────────────────────────────────────────────────────────────────────────────────────────────
+            #include <iostream>
+            #include <thread>
+            #include <chrono>
+
+            void yazdirLen() {
+                std::cout << "Baska bir thread'den selamlar !" << std::endl;
+            }
+
+            int main(){
+                std::thread t1(yazdirLen);
+                t1.detach();
+
+                if (t1.joinable()){ 
+                    // Detach kullandığımız için bir daha join veya detach kullanamayız.
+                    // Bu yüzden joinable metodu false değer döndürecektir ve bu kısım çalışmayacaktır.
+                    t1.join();
+                }
+                std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+            }
+
+
+    Oluşturulan Thread Fonksiyonuna/Sınıfına Parametre Vermek :
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        Oluşturduğumuz thread fonksiyonlarına veya sınıflarına parametre vererek işlem yapabiliriz.
+        İlk önce fonksiyon ile yapılışını daha sonra sınıf üzerinden yapılışını göstereceğim.
+        Şunu bilmek gerekir ki std::thread bir sınıf üzerinden thread oluşturacacağı zaman istediğimiz
+        parametreleri sınıfın invoke fonksiyonuna verir.
+
+
+        Sınıf ile Oluşturulan Thread'e Parametre Vermek :
+        ──────────────────────────────────────────────────────────────────────────────────────────────────────────
+            class myClass {
+                public:
+                    void operator()(std::string mesaj) {
+                        std::cout << "Sinif Thread'i diyor ki: " << mesaj << std::endl;
+                    }
+            };
+
+            int main() {
+                
+                std::string mesaj = "Parametre kopyalama yoluyla geldi.";
+                std::thread th1((myClass()), mesaj);
+                // İlk önce ekstra parantez içerisinde sınıfımızı kurduk, ekstra parantez kullanmamın
+                // nedeni eski derleyicilerde hata almamak. Peki neden hata versinki diyorsanız.
+                
+                // std::thread th1(myClass()); -> Bu şekilde yazım derleyiciler tarafından fonksiyon
+                // tanımı olarak anlaşılmaktadır. Türkçe meali ise şudur:
+                // std::thread türünden obje döndüren th1 adında bir fonksiyonumuz var, bu fonksiyon
+                // ise MyClass türünden obje döndüren isimsiz bir fonksiyon parametresi alıyor.
+                // Yani std::thread th1(myClass()); = std::thread th1(myClass (*)())
+                
+                // Tabi bizim örneğimizde ekstra mesaj parametresini verdiğimiz için derleyici bunun
+                // bir thread objesi olduğunu anlıyor. Ama parametresiz kullanacaksak dikkat etmemiz
+                // gereken bir sorun.
+
+                th1.join(); // Bir thread'de join veya detach kullanmazsak hata alırız.
+                
+            }
+        
+        Bu örnekte string objesini sınıfa verirken referans kullanmadığımız için objemizin kopyalanmasına
+        neden olduk. Peki bunu nasıl engelleriz ? Sadece () operatörüne referans operatörünü yazsak olmaz
+        mıydı ? Cevap hayır maalesef thread objesi biz müdahale etmedikçe parametreleri sıfırdan kopyalıyor.
+        Ayrıca () operatörüne referans yazıp objemizi normal şekilde oluşturursak yeni derleyiciler hata bile
+        veriyor. Bir örnekle demek istediğimi göstereyim :
+
+            class myClass {
+                public:
+                    void operator()(std::string& mesaj) { // Referans yaptık.
+                        std::cout << "Sinif Thread'i diyor ki: " << mesaj << std::endl;
+                    }
+            };
+
+            std::string mesaj = "Bu ornekte hata alicaz.";
+            std::thread th1((myClass()), mesaj); // Bu kısım hata vericektir.
+        
+        Şimdi bu sorunun nasıl önüne geçebiliriz, çözümleri inceleyelim.
+
+
+    Thread Objelerine Referans Parametresi Vermek:
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        Bu işlem için yapabileceğimiz üç çözüm var fakat bu çözümler dikkatle kullanılmalıdır. Zira
+        hem main thread hem de oluşturduğumuz yeni thread aynı hafızaya aynı anda erişebileceği için
+        Data Race adı verilen soruna sebep olur. Data Race kısaca anlatmak gerekirse aynı anda bir
+        hafızadaki değişkene erişen iki fonksiyonumuz olsun, fonksiyonlardan biri değeri okumak diğeri
+        ise değeri değiştirmek istiyorsa. Hangi fonksiyonun daha önce çalışacağı bilinemeyeceğinden
+        değişkenin değerine bağlı olarak beklenmedik davranışlara neden olabilirler.
+        Bu yüzden dikkatli olunması gerekir. 
+
+
+        1) Pointer kullanmak, Data Race Riskli:
+            Pointer kullanarak fonksiyonumuza veya sınıfımıza parametremizin adresini verebilir ve bu
+            şekilde istediğimiz işlemleri yapabiliriz.
+
+            class myClass {
+                public:
+                    void operator()(std::string* mesaj) {
+                        std::cout << "Sinif Thread'i diyor ki: " << *mesaj << std::endl;
+                    }
+            };
+
+            int main() {
+                std::string mesaj = "Parametre kopyalama yoluyla geldi.";
+                std::thread th1((myClass()), &mesaj); // Hafıza adresini veriyoruz.
+                th1.join();
+            }
+
+
+        2) std::ref kullanmak, Data Race Riskli:
+            
+            class myClass {
+                public:
+                    void operator()(std::string mesaj) {
+                        std::cout << "Sinif Thread'i diyor ki: " << *mesaj << std::endl;
+                    }
+            };
+
+            int main() {
+                std::string mesaj = "Parametre kopyalama yoluyla geldi.";
+                std::thread th1((myClass()), std::ref(mesaj)); // Referans olarak thread'e veriyoruz.
+                th1.join();
+            }
+
+
+        3) std::move kullanmak, Güvenli:
+            Bu fonksiyonu kullanmak güvenlidir, çünkü vermek istediğimiz parametredeki değişken hedef
+            thread'in alanına taşınır. Ana thread'den ulaşılmaz hale gelir. Bu yüzden değeri tekrar
+            kullanmak istemiyorsak kullanabileceğimiz bir çözümdür.
+
+            class myClass {
+                public:
+                    void operator()(std::string mesaj) {
+                        std::cout << "Sinif Thread'i diyor ki: " << *mesaj << std::endl;
+                    }
+            };
+
+            int main() {
+                std::string mesaj = "Parametre kopyalama yoluyla geldi.";
+                std::thread th1((myClass()), std::move(mesaj)); // Referans olarak thread'e veriyoruz.
+                th1.join();
+                // mesaj değişkeni artık boş
+            }
+
+
+
+R-Values & L-Values ve Taşıma Semantikleri / Move Semantics:
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+    R-Values : Herhangi bir tanıma ve hafıza adresine sahip olmayan değerler/ifadeler.
+
+    L-Values : Hafıza adresine sahip olan değerler/ifadeler birer lvalue'dir.
+
+    
+    R-Value ve L-Value Örnekleri:
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        int a = 1; // a -> lvalue, 1 -> rvalue
+
+        std::string fonksiyon(){
+            std::string str = "Orneklerle semantikler";
+            return str; // -> return yerel bir değişken kullandığı için döndürdüğü değer rvalue olur.
+        }
+
+        int main(){
+
+            std::string& deger = fonksiyon(); // -> HATA, referans sadece lvalue kabul eder.
+
+            std::string&& deger2 = fonksiyon(); // Çalışır -> && operatörü rvalue referansıdır burda çalışır.
+
+            // C++11'den düşük versiyonlarda kopyalama yapılır, C++11 ve üst versiyonlarında ise taşıma
+            // işlemi yapılarak performans sağlanır. Bu işlemi yapabilmemiz için std::string sınıfında
+            // move operatörüne "overloading/aşırı yükleme" yapılmıştır.
+            std::string deger3 = fonksiyon();
+
+        }
+
+
+    Mükemmel Yönlendirme / Perfect Forwarding :
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        Şablonlarla birlikte oluşturulmuş fonksiyonlarda/sınıflarda && operatörü kullanılarak
+        o fonksiyonun/sınıfın hem lvalue hem rvalue almasını sağlanabilir ve gelen parametrelerin 
+        yapısını bozulmadan başka bir fonksiyona std::forward kullanılarak aktarılabilir.
+        İşte bu olaya Perfect Forwarding adı verilir. 
+
+
+        Örnek:
+        ──────────────────────────────────────────────────────────────────────────────────────────────────────────
+            
+            class siradanBirObje {};
+
+            template<typename Type>
+            void fonksiyon(Type&& t) {
+                // Kodlar falan
+            }
+
+            int main() {
+                siradanBirObje obje;
+                fonksiyon(obje);
+                // obje burada lvalue olduğu için Type, obje& olarak işlem görür.
+
+                fonksiyon(siradanBirObje());
+                // Fonksiyon parametresinde yaratılan obje geçici bir obje olduğu için rvalue'dir.
+                // Type ise siradanBirObje olarak kabul edilir.
+
+            }
+        
+        Şimdi sıra geldi daha gerçek hayat kullanımına :
+        ──────────────────────────────────────────────────────────────────────────────────────────────────────────
+            Tavsiyem bu örneği visual studio üzerinde derleyip sonuçlarını debugger ile incelemeniz.
+            
+
+            #include <iostream>
+
+            class Obje {
+                private:
+                    size_t diziBoyutu;
+                    int* veri;
+
+                public:
+
+                    Obje(size_t boyut) : diziBoyutu(boyut), veri(new int[boyut]) {}
+                    // Sınıf oluşturucumuz
+
+                    ~Obje() {
+                        if (veri != nullptr) {
+                            delete[] veri;
+                        }
+                    }
+                    // Yıkıcı fonksiyonumuz, heap üzerinde oluşturulmuş verileri siliyor.
+
+
+                    Obje(const Obje& other) : diziBoyutu(other.diziBoyutu), veri(new int[other.diziBoyutu]) {
+                        std::copy(other.veri, other.veri + diziBoyutu, veri);
+                    } 
+                    // Obje ornek = obj2;
+
+                    Obje& operator=(const Obje& other) { // obj = obj2;
+
+                        if (this != &other) {
+                            delete[] veri;
+                            diziBoyutu = other.diziBoyutu;
+                            veri = new int[diziBoyutu];
+                            std::copy(other.veri, other.veri + diziBoyutu, veri);
+                        }
+                        return *this;
+                    }
+
+                    Obje(Obje&& other) noexcept : veri(nullptr), diziBoyutu(0) {
+
+                        veri = other.veri;
+                        diziBoyutu = other.diziBoyutu;
+
+                        other.veri = nullptr;
+                        other.diziBoyutu = 0;
+                    } //Obje yeniObj = std::move(eskiObj);
+
+                    Obje& operator=(Obje&& other) noexcept {
+
+                        if (this != &other) {
+                            delete[] veri;
+
+                            veri = other.veri;
+                            diziBoyutu = other.diziBoyutu;
+
+                            other.veri = nullptr;
+                            other.diziBoyutu = 0;
+                        }
+                        return *this;
+                    } // yeniObj = std::move(yeniObj2);
+
+                    size_t Boyut() const {
+                        return diziBoyutu;
+                    }
+            };
+
+            int main() {
+                Obje obj(10), obj2(20);
+                obj = obj2;
+
+                Obje ornek = obj2;
+                
+                Obje yeniObj(10), yeniObj2(20);
+                yeniObj = std::move(yeniObj2);
+                
+            }
+
+    Sonuç:
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+    Obje& operator=(const Obje& other){} :
+        Copy Assignment -> Kopyalayarak Atama : 
+            Daha önce oluşturulmuş objeleri birbirine eşitlerken çalıştırılır:
+                obj1 = obj2;
+
+    Obje(const Obje& other) : diziBoyutu(other.diziBoyutu), veri(new int[other.diziBoyutu]){} :
+        Copy Constructor -> Kopyalama kurucusu :
+            Yeni tanımlanan bir objeyi önceki objeye eşitlerken çalışır:
+                Obje ornek = obj2;
+
+    Obje(Obje&& other) noexcept : veri(nullptr), diziBoyutu(0){} :
+        Move Constructor :
+            Bu tür && ile tanımlanmış kucular taşıma kurucularıdır, std::move ile çağırılır : 
+                Obje yeniObj = std::move(eskiObj); veya Obje yeniObj(std::move(eskiObj));
+
+    Obje& operator=(Obje&& other){} :
+        Move Assignment Operator :
+            Daha önceden tanımlanmış objeleri birbirine eşitlerken std::move kullanılarak çalıştırılır.
+                yeniObj = std::move(yeniObj2);
+
+
+Şablonlarda Tag Dispatch :
+─────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+    Tag dispatch, şablon ile tanımlanmış fonksiyonların belirlediğimiz tür konuşllarına göre işlem
+    yapmamızı sağlayan bir yöntemdir. Standart kütüphane içerisinde bulunan yapıları kullanarak 
+    bu yapıları anlatmaya çalışacağım.
+
+    
+    Tag Dispatch - Standart Kütüphane -> #include <type_traits>: 
+    ─────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        İşlemleri sırasıyla takip ediniz.
+
+        #include <iostream>
+        #include <type_traits>
+
+        template <class _Ty>
+        void fonksiyonum(_Ty deger, std::true_type) {
+            std::cout << "Fonksiyon int deger ile cagirildi !" << std::endl;
+        }
+
+        template <class _Ty>
+        void fonksiyonum(_Ty deger, std::false_type) {
+            std::cout << "Fonksiyon int olmayan deger ile cagirildi !" << std::endl;
+        }
+
+        // Fonksiyon parametrelerinde tanımladığımız true_type ve false_type birer objedir ama fonksiyon
+        // içerisinde kullanmadığımız için isim vermiyoruz. Sadece derleyicimizin doğru fonksiyonu seçmesi
+        // için yardımcı parametreler.
+
+        template <class _Ty>
+        void fonksiyonum(_Ty deger) {
+            using namespace std;
+            fonksiyonum(deger, conditional<is_integral<_Ty>::value, true_type, false_type>::type{});
+        }
+
+        int main() {
+            fonksiyonum(5);
+        }
+
+        Bu program kısaca fonksiyona verdiğimiz parametrenin türünü inceliyor, ve verdiğimiz parametrenin
+        türü istediğimiz tür ile uyuşuyorsa, fonksiyon, kendisinin true_type ile tanımlanmış versiyonunu
+        çağırıyor. Eğer istemediğimiz türden bir parametre alırsak false_type ile tanımlanan versiyonu
+        çağırılıyor. Şimdi sırasıyla bu yapıların nasıl çalıştığından bahsedeceğim. 
+
+
+            std::conditional nasıl çalışır ? Kaynak kodu ile inceleyelim.
+            ──────────────────────────────────────────────────────────────────────────────────────────────────────
+            template <bool _Test, class _Ty1, class _Ty2>
+            struct conditional 
+            {
+                using type = _Ty2; // Bu şekilde tanımlanmış yapılar, gönderilen türü öğrenebilmemiz
+                // için kullanışlıdır.
+                // Ben burdaki type'a -> conditional<koşul, true_type, false_type>::type şeklinde erişebilirim.
+            };
+
+            // Örneğin biz conditional'ı -> conditional<is_integral<_Ty>::value, true_type, false_type>
+            // olarak çağırmış olalım. is_integral<_Ty>::value -> _Ty olarak verdiğimiz tür, C++'ın kendi
+            // değişken türlerinden biri ise true_type yani true, eğer yabancı türden ise false_type yani false
+            // değeri verir. Örneğimizi int durumu için inceleyeceğiz bu durumda :
+            // is_integral<int>::value -> true olacaktır. Ve bu sebepten dolayı conditional şablonunun 
+            // özelleştirilmiş true yapısına sahip şablonu çalışacak. Aşağıki kod üzerinden devam edelim.
+
+            template <class _Ty1, class _Ty2>
+            struct conditional<true, _Ty1, _Ty2> // is_integral'den true aldığımız için burası kullanılacak.
+            {
+                using type = _Ty1;
+            };
+
+            // _Ty1 -> ilk önce true_type verdiğimiz için true_type
+            // _Ty2 -> ikinci olarak false_type verdiğimiz için false_type
+            // Yukarıda görüldüğü gibi -> using type = _Ty1; yani, type = true_type olacaktır.
+            // Ve bu elde ettiğimiz tür'e : conditional<kosul, true_type, false_type>::type{}; şeklinde
+            // ulaşabiliyoruz. {} kullanmamızın nedeni bu yapıların birer struct olması ve kullanılabilmesi
+            // için öncelikle oluşturmak gerekiyor.
+            // Fark ettiyseniz yukarıdaki örnekte bu mantık kullanılarak :
+            // fonksiyonum(deger, conditional<is_integral<_Ty>::value, true_type, false_type>::type{});
+            // fonksiyonum(deger, true_type); şekline geldi.
+
+
+            is_integral nasıl çalışır ? Kaynak kodu ile inceleyelim. (Basitleştirilmiş kod) :
+            ──────────────────────────────────────────────────────────────────────────────────────────────────────
+            template <class _Ty>
+            struct is_integral : false_type { // Belirtilen durumlar haricinde, false_type
+            };
+
+            template <>
+            struct is_integral<bool> : true_type { // is_integral<bool> -> true_type
+            };
+
+            template <>
+            struct is_integral<char> : true_type { // is_integral<char> -> true_type
+            };
+
+            template <>
+            struct is_integral<int> : true_type { // is_integral<int> -> true_type
+            };
+
+            Şeklinde signed, unsigned, long, double gibi tüm türler tanımlı.
+
+
+            true_type ve false_type aslında nedir ? Kaynak kodu ile inceleyelim.
+            ──────────────────────────────────────────────────────────────────────────────────────────────────────
+                using true_type  = integral_constant<bool, true>;
+                using false_type = integral_constant<bool, false>;
+
+                using anahtar kelimesi de true_type'ın aslında integral_constant<bool, true>; anlamına
+                geldiğini belirten bir yardımcı. Temelinde #define'a benzer iş görüyor.
+
+            
+            integral_constant yapısı :
+            ──────────────────────────────────────────────────────────────────────────────────────────────────────
+                template <class _Ty, _Ty _Val>
+                struct integral_constant { // convenient template for integral constant types
+                    static constexpr _Ty value = _Val;
+
+                    using value_type = _Ty;
+                    using type       = integral_constant;
+
+                    constexpr operator value_type() const noexcept {
+                        return value;
+                    }
+
+                    _NODISCARD constexpr value_type operator()() const noexcept {
+                        return value;
+                    }
+                };
+
+                // Anlaşılacağı üzere bu da aldığı değerleri depolayıp çağırıldığı zaman o değerleri
+                // geri döndüren bir yapıya sahip. Yani pek bir iş yapmıyor sadece örneğimizde true, false
+                // değerlerini tutmakla görevli. 
+
+
+
+
+- AYBERK ESER / Cryonayes

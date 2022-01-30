@@ -1,0 +1,10 @@
+Terminal komutları:
+
+mkdir: klasör oluşturma
+
+touch: dosya oluşturma
+
+cat: olduğumuz klasördeki dosyayı çalıştırma
+
+vim: oluşturduğumuz klasörü kod editörü olarak açabilmek için
+

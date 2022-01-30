@@ -1,0 +1,4 @@
+#include "*.c": Projemizde "*.c" dosyalarını dahil ederken; sadece o kodun kullanıldığı zaman çağırılır.
+-------------------
+#include "*.h": Kullandığımızda ise "*.h" her zaman çağırılır.
+-------------------
