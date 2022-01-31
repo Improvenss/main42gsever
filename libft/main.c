@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gcosta-d <gcosta-d@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/27 23:05:38 by gcosta-d          #+#    #+#             */
-/*   Updated: 2021/09/09 20:37:38 by gcosta-d         ###   ########.fr       */
+/*   Created: 2022/01/31 12:58:50 by gsever            #+#    #+#             */
+/*   Updated: 2022/01/31 17:56:48 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ctype.h>
 #include <stdio.h>
 #include <string.h>
-#include <bsd/string.h>
+//#include <bsd/string.h>
 #include <stdlib.h>
 #include "libft.h"
 
@@ -52,105 +52,7 @@ void	ft_lstsize_test(void);
 void	ft_lstlast_test(void);
 
 
-int	main(void)
-{
-	printf("=== ft_isalpha_test: ===\n");
-	ft_isalpha_test();
 
-	printf("\n=== ft_isdigit_test: ===\n");
-	ft_isdigit_test();
-
-	printf("\n=== ft_isalnum_test: ===\n");
-	ft_isalnum_test();
-
-	printf("\n=== ft_isascii_test: ===\n");
-	ft_isascii_test();
-
-	printf("\n=== ft_isprint_test: ===\n");
-	ft_isprint_test();
-
-	printf("\n=== ft_strlen_test: ===\n");
-	ft_strlen_test();
-
-	printf("\n=== ft_toupper_test: ===\n");
-	ft_toupper_test();
-
-	printf("\n=== ft_tolower_test: ===\n");
-	ft_tolower_test();
-
-	printf("\n=== ft_strlcpy_test: ===\n");
-	ft_strlcpy_test();
-
-	printf("\n=== ft_strlcat_test: ===\n");
-	ft_strlcat_test();
-
-	printf("\n=== ft_strncmp_test: ===\n");
-	ft_strncmp_test();
-
-	printf("\n=== ft_strchr_test: ===\n");
-	ft_strchr_test();
-
-	printf("\n=== ft_strrchr_test: ===\n");
-	ft_strrchr_test();
-
-	printf("\n=== ft_memset_test: ===\n");
-	ft_memset_test();
-
-	printf("\n=== ft_bzero_test: ===\n");
-	ft_bzero_test();
-
-	printf("\n=== ft_memcpy_test: ===\n");
-	ft_memcpy_test();
-
-	printf("\n=== ft_memmove_test: ===\n");
-	ft_memmove_test();
-
-	printf("\n=== ft_memchr_test: ===\n");
-	ft_memchr_test();
-
-	printf("\n=== ft_memcmp_test: ===\n");
-	ft_memcmp_test();
-
-	printf("\n=== ft_strnstr_test: ===\n");
-	ft_strnstr_test();
-
-	printf("\n=== ft_atoi_test: ===\n");
-	ft_atoi_test();
-
-	printf("\n=== ft_calloc_test: ===\n");
-	ft_calloc_test();
-
-	printf("\n=== ft_strdup_test: ===\n");
-	ft_strdup_test();
-
-	printf("\n=== ft_substr_test: ===\n");
-	ft_substr_test();
-
-	printf("\n=== ft_strjoin_test: ===\n");
-	ft_strjoin_test();
-
-	printf("\n=== ft_strtrim_test: ===\n");
-	ft_strtrim_test();
-
-	printf("\n=== ft_split_test: ===\n");
-	ft_split_test();
-
-	printf("\n=== ft_itoa_test: ===\n");
-	ft_itoa_test();
-
-	printf("\n=== ft_lstnew_test: ===\n");
-	ft_lstnew_test();
-
-	printf("\n=== ft_lstadd_back_test: ===\n");
-	ft_lstadd_back_test();
-
-	printf("\n=== ft_lstsize_test: ===\n");
-	ft_lstsize_test();
-
-	printf("\n=== ft_lstlast_test: ===\n");
-	ft_lstlast_test();
-	return (0);
-}
 
 void	ft_isalpha_test(void)
 {
@@ -414,8 +316,8 @@ void	ft_memset_test(void)
 	char	arr1[] = {'0', '1', '2'};
 	char	arr2[] = {'0', '1', '2'};
 
-	memset(arr1, 48, 3);
-	ft_memset(arr2, 48, 3);
+	memset(arr1, 77, 3);
+	ft_memset(arr2, 77, 3);
 	printf("ORIGINAL: {%c, %c, %c}\n", arr1[0], arr1[1], arr1[2]);
 	printf("MY FUNC: {%c, %c, %c}\n", arr2[0], arr2[1], arr2[2]);
 }
@@ -677,4 +579,104 @@ void	ft_lstlast_test(void)
 	ft_lstadd_back(&meu, johnny);
 
 	printf("|%s| last element\n", ft_lstlast(meu)->content);
+}
+
+int	main(void)
+{
+	printf("=== ft_isalpha_test: ===\n");
+	ft_isalpha_test();
+
+	printf("\n=== ft_isdigit_test: ===\n");
+	ft_isdigit_test();
+
+	printf("\n=== ft_isalnum_test: ===\n");
+	ft_isalnum_test();
+
+	printf("\n=== ft_isascii_test: ===\n");
+	ft_isascii_test();
+
+	printf("\n=== ft_isprint_test: ===\n");
+	ft_isprint_test();
+
+	printf("\n=== ft_strlen_test: ===\n");
+	ft_strlen_test();
+
+	printf("\n=== ft_toupper_test: ===\n");
+	ft_toupper_test();
+
+	printf("\n=== ft_tolower_test: ===\n");
+	ft_tolower_test();
+
+	printf("\n=== ft_strlcpy_test: ===\n");
+	ft_strlcpy_test();
+
+	printf("\n=== ft_strlcat_test: ===\n");
+	ft_strlcat_test();
+
+	printf("\n=== ft_strncmp_test: ===\n");
+	ft_strncmp_test();
+
+	printf("\n=== ft_strchr_test: ===\n");
+	ft_strchr_test();
+
+	printf("\n=== ft_strrchr_test: ===\n");
+	ft_strrchr_test();
+
+	printf("\n=== ft_memset_test: ===\n");
+	ft_memset_test();
+
+	printf("\n=== ft_bzero_test: ===\n");
+	ft_bzero_test();
+
+	printf("\n=== ft_memcpy_test: ===\n");
+	ft_memcpy_test();
+
+	printf("\n=== ft_memmove_test: ===\n");
+	ft_memmove_test();
+
+	printf("\n=== ft_memchr_test: ===\n");
+	ft_memchr_test();
+
+	printf("\n=== ft_memcmp_test: ===\n");
+	ft_memcmp_test();
+
+	printf("\n=== ft_strnstr_test: ===\n");
+	ft_strnstr_test();
+
+	printf("\n=== ft_atoi_test: ===\n");
+	ft_atoi_test();
+
+	printf("\n=== ft_calloc_test: ===\n");
+	ft_calloc_test();
+
+	printf("\n=== ft_strdup_test: ===\n");
+	ft_strdup_test();
+
+	printf("\n=== ft_substr_test: ===\n");
+	ft_substr_test();
+
+	printf("\n=== ft_strjoin_test: ===\n");
+	ft_strjoin_test();
+
+	printf("\n=== ft_strtrim_test: ===\n");
+	ft_strtrim_test();
+
+	printf("\n=== ft_split_test: ===\n");
+	ft_split_test();
+
+	printf("\n=== ft_itoa_test: ===\n");
+	ft_itoa_test();
+
+	printf("\n=== ft_lstnew_test: ===\n");
+	ft_lstnew_test();
+
+	printf("\n=== ft_lstadd_back_test: ===\n");
+	ft_lstadd_back_test();
+
+	printf("\n=== ft_lstsize_test: ===\n");
+	ft_lstsize_test();
+
+	printf("\n=== ft_lstlast_test: ===\n");
+	ft_lstlast_test();
+	return (0);
 }

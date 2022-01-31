@@ -3,19 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gcosta-d <gcosta-d@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/20 16:34:24 by gcosta-d          #+#    #+#             */
-/*   Updated: 2021/09/14 09:59:53 by gcosta-d         ###   ########.fr       */
+/*   Created: 2022/01/31 14:11:15 by gsever            #+#    #+#             */
+/*   Updated: 2022/01/31 16:43:42 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-/* The string need to be different from void to iterate.
- * bzero put 0s in n bytes.
- */
-
+//this function putting 0 this values.
 void	ft_bzero(void *s, size_t n)
 {
 	size_t	i;

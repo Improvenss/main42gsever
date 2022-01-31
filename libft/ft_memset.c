@@ -3,19 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gcosta-d <gcosta-d@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/20 16:35:38 by gcosta-d          #+#    #+#             */
-/*   Updated: 2021/09/14 10:15:17 by gcosta-d         ###   ########.fr       */
+/*   Created: 2022/01/31 14:06:03 by gsever            #+#    #+#             */
+/*   Updated: 2022/01/31 16:23:20 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-/*	Memset put in n memories a passing integer and return
- *	a pointer to the first memory area passed.
- */
-
+//this program changing (1, 2, 3,) to (M, M, M) or (e, e, e.)
 void	*ft_memset(void *s, int c, size_t n)
 {
 	size_t	i;
