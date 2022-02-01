@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 16:43:53 by gsever            #+#    #+#             */
-/*   Updated: 2022/01/31 17:03:04 by gsever           ###   ########.fr       */
+/*   Updated: 2022/02/01 15:41:52 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,21 @@
  *	to the destinated area.
  */
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
 	size_t	i;
-	char	*buff_dest;
+	char	*buff_dst;
 	char	*buff_src;
 
 	i = 0;
-	buff_dest = (char *)dest;
+	buff_dst = (char *)dst;
 	buff_src = (char *)src;
-	if (buff_dest == 0 && buff_src == 0)
+	if (buff_dst == 0 && buff_src == 0)
 		return (NULL);
 	while (i < n)
 	{
-		buff_dest[i] = buff_src[i];
+		buff_dst[i] = buff_src[i];
 		i++;
 	}
-	return (buff_dest);
+	return (buff_dst);
 }

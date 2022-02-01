@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gcosta-d <gcosta-d@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/20 16:34:31 by gcosta-d          #+#    #+#             */
-/*   Updated: 2021/09/14 09:59:52 by gcosta-d         ###   ########.fr       */
+/*   Created: 2022/02/01 11:41:58 by gsever            #+#    #+#             */
+/*   Updated: 2022/02/01 15:47:59 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,15 @@
  * putting 0 inside them. Than, pointer return the beggining of
  * the memory.
  */
-
-void	*ft_calloc(size_t nbr, size_t size)
+//amount = miktar
+void	*ft_calloc(size_t count, size_t size)
 {
 	char	*p;
 	char	*pointer;
 	size_t	amount;
 	size_t	i;
 
-	amount = nbr * size;
+	amount = count * size;
 	p = (char *) malloc(amount);
 	if (!p)
 		return (NULL);
