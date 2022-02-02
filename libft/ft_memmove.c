@@ -6,35 +6,30 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 17:02:55 by gsever            #+#    #+#             */
-/*   Updated: 2022/01/31 17:02:58 by gsever           ###   ########.fr       */
+/*   Updated: 2022/02/02 20:04:54 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-/* Memmove moves n memory area to another (unlike memcpy,
- * in this function the content may overwrite).
- * If dest address is further than src address, we need
- * to make sure them not overflow.
- */
-
-void	*ft_memmove(void *dest, const void *src, size_t n)
+//"start" --> 3's "ststt" doing.
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	char	*buff_dest;
-	char	*buff_src;
+	char	*d;
+	char	*s;
+	char	*lasts;
+	char	*lastd;
 
-	buff_dest = (char *)dest;
-	buff_src = (char *)src;
-	if (!buff_dest || !buff_src || !n)
-		return (dest);
-	if (buff_dest > buff_src)
-	{
-		while (n--)
-			buff_dest[n] = buff_src[n];
-	}
+	d = dst;
+	s = (char *) src;
+	if (d < s)
+		while (len--)
+			*d++ = *s++;
 	else
 	{
-		ft_memcpy(buff_dest, buff_src, n);
+		lasts = s + (len - 1);
+		lastd = d + (len - 1);
+		while (len--)
+		*lastd-- = *lasts--;
 	}
-	return (buff_dest);
+	return (dst);
 }

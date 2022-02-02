@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 17:19:12 by gsever            #+#    #+#             */
-/*   Updated: 2022/01/31 20:44:22 by gsever           ###   ########.fr       */
+/*   Updated: 2022/02/02 20:10:54 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,28 +20,28 @@
  * should be equal to size and don't concatenate.
  */
 
-size_t	ft_strlcat(char *dest, const char *src, size_t size)
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	size_t	dest_len;
+	size_t	dst_len;
 	size_t	src_len;
 	size_t	i;
 	size_t	j;
 
-	dest_len = ft_strlen(dest);
+	dst_len = ft_strlen(dst);
 	src_len = ft_strlen(src);
 	i = 0;
-	j = dest_len;
-	if (dest_len < size - 1 && size > 0)
+	j = dst_len;
+	if (dst_len < dstsize - 1 && dstsize > 0)
 	{
-		while (src[i] != '\0' && dest_len + i < size - 1)
+		while (src[i] != '\0' && dst_len + i < dstsize - 1)
 		{
-			dest[j] = src[i];
+			dst[j] = src[i];
 			j++;
 			i++;
-			dest[j] = '\0';
+			dst[j] = '\0';
 		}
 	}
-	if (dest_len >= size)
-		dest_len = size;
-	return (dest_len + src_len);
+	if (dst_len >= dstsize)
+		dst_len = dstsize;
+	return (dst_len + src_len);
 }

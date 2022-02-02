@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 12:58:50 by gsever            #+#    #+#             */
-/*   Updated: 2022/01/31 20:44:37 by gsever           ###   ########.fr       */
+/*   Updated: 2022/02/02 20:05:04 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -411,7 +411,7 @@ void	ft_strrchr_test(void)
 
 void	ft_memset_test(void)
 {
-	char	arr1[] = {'0', '1', '2'};
+	char	arr1[] = {'d', 'p', '2'};
 	char	arr2[] = {'0', '1', '2'};
 
 	memset(arr1, 77, 3);
@@ -446,12 +446,12 @@ void	ft_memcpy_test(void)
 	printf("MY FUNC: {%c, %c, %c}\n", arr2[0], arr2[1], arr2[2]);
 
     printf("String : |%s|\n", str1);
-    printf("Source: |%s|\n", str1);
+    printf("Source : |%s|\n", str1);
     printf("Dest: |%s|\n", str1 + 19);
-    memcpy(str1 + 19, str1 + 4, 18);
+    memcpy(str1 + 19, str1, 18);
     printf("ORIGINAL: |%s| Length: |%lu|\n", str1, strlen(str1));
-	ft_memcpy(str2 + 19, str2 + 4, 18);
-    printf("MY FUNC: |%s| Length: |%lu|\n", str2, strlen(str2));
+	ft_memcpy(str2 + 19, str2, 18);
+    printf("MY FUNC : |%s| Length: |%lu|\n", str2, strlen(str2));
 }
 
 void	ft_memmove_test(void)
@@ -461,20 +461,20 @@ void	ft_memmove_test(void)
 	char	str1[50] = "The cake is a lie! 42 is the answer";
 	char	str2[50] = "The cake is a lie! 42 is the answer";
 
-	memmove(arr1, arr2, 2);
+	memcpy(arr1, arr2, 2);
 	printf("ORIGINAL: {%c, %c, %c}\n", arr1[0], arr1[1], arr1[2]);
 	printf("ORIGINAL: {%c, %c, %c}\n", arr2[0], arr2[1], arr2[2]);
-	ft_memmove(arr1, arr2, 2);
+	ft_memcpy(arr1, arr2, 2);
 	printf("MY FUNC: {%c, %c, %c}\n", arr1[0], arr1[1], arr1[2]);
 	printf("MY FUNC: {%c, %c, %c}\n", arr2[0], arr2[1], arr2[2]);
 
     printf("String : |%s|\n", str1);
-    printf("Source: |%s|\n", str1);
+    printf("Source : |%s|\n", str1);
     printf("Dest: |%s|\n", str1 + 19);
-    memmove(str1 + 19, str1 + 4, 18);
+    memcpy(str1 + 19, str1, 18);
     printf("ORIGINAL: |%s| Length: |%lu|\n", str1, strlen(str1));
-	ft_memmove(str2 + 19, str2 + 4, 18);
-    printf("MY FUNC: |%s| Length: |%lu|\n", str2, strlen(str2));
+	ft_memcpy(str2 + 19, str2, 18);
+    printf("MY FUNC : |%s| Length: |%lu|\n", str2, strlen(str2));
 }
 
 void	ft_memchr_test(void)
