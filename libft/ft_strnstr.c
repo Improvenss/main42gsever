@@ -3,41 +3,47 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gcosta-d <gcosta-d@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/20 16:36:12 by gcosta-d          #+#    #+#             */
-/*   Updated: 2021/09/14 10:18:14 by gcosta-d         ###   ########.fr       */
+/*   Created: 2022/02/04 19:32:48 by gsever            #+#    #+#             */
+/*   Updated: 2022/02/04 19:55:40 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-/* Strnstr finds if there is a little string in a big string.
- * The comparissons must be done until find the little string,
- * or until little string fits into the last bytes of big string.
- */
-
-char	*ft_strnstr(const char *s1, const char *s2, size_t	n)
+/* samanlikta igne aramak. "gorkem sever" "ke" ariyorsun
+buldugunda direkt k'den itibaren yazdiriyorsun. */
+/*
+#include <string.h>
+#include <stdio.h>
+*/
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	size_t	i;
-	size_t	j;
-	size_t	s2_len;
+	unsigned int	counter;
+	unsigned int	len_needle;
 
-	i = 0;
-	s2_len = ft_strlen(s2);
-	if (!s2_len)
-		return ((char *)s1);
-	if (n != 0)
+	len_needle = ft_strlen(needle);
+	if (len_needle == 0)
+		return ((char *) haystack);
+	if (len == 0)
+		return ((char *) NULL);
+	counter = 0;
+	while (counter <= (len - len_needle) && haystack[counter] != '\0')
 	{
-		while (s1[i] && i <= n - s2_len)
-		{
-			j = 0;
-			while (s2[j] && s2[j] == s1[i + j])
-				j++;
-			if (j == s2_len)
-				return ((char *)&s1[i]);
-			i++;
-		}
+		if (ft_strncmp(&haystack[counter], needle, len_needle) == 0)
+			return ((char *)&haystack[counter]);
+		counter++;
 	}
-	return (NULL);
+	return ((char *) NULL);
 }
+/*
+int main()
+{
+    char *a;
+    char *b;
+    
+    a = "gorkem sever";
+    b = "ke";
+    printf("ft_:%s", ft_strnstr(a, b, 5));
+}
+*/	

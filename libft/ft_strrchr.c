@@ -3,29 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
+/*   By: aeser <aeser@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/31 18:49:43 by gsever            #+#    #+#             */
-/*   Updated: 2022/02/03 11:31:22 by gsever           ###   ########.fr       */
+/*   Created: 2022/01/08 16:54:15 by aeser             #+#    #+#             */
+/*   Updated: 2022/02/01 11:38:22 by aeser            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/* Strrchr works reverse if compared to strchr.
- * Return a pointer to the last occourence of a passed char.
- */
-
 char	*ft_strrchr(const char *s, int c)
 {
-	int	s_len;
+	char	*start;
 
-	s_len = ft_strlen(s);
-	while (s_len >= 0)
+	start = (char *)s;
+	while (*s)
+		s++;
+	while (s >= start)
 	{
-		if (s[s_len] == (char)c)
-			return ((char *)&s[s_len]);
-		s_len--;
+		if (*((char *)s) == (char)c)
+			return ((char *)s);
+		s--;
 	}
 	return (NULL);
 }

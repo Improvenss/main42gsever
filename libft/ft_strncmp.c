@@ -3,29 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
+/*   By: aeser <aeser@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/03 11:58:01 by gsever            #+#    #+#             */
-/*   Updated: 2022/02/03 12:42:09 by gsever           ###   ########.fr       */
+/*   Created: 2022/01/08 16:54:33 by aeser             #+#    #+#             */
+/*   Updated: 2022/01/08 16:54:35 by aeser            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/* This function compares two strings and return the difference
- * between the first divergent content.
- */
-
-int	ft_strncmp(const char *s1, const char *s2, size_t size)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	size_t	i;
+	size_t	counter;
 
-	i = 0;
-	while (i < size && (s1[i] != '\0' || s2[i] != '\0'))
+	if (n == 0)
+		return (0);
+	counter = 0;
+	while (counter < (n - 1) && s1[counter] && s2[counter])
 	{
-		if (s1[i] != s2[i])
-			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
-		i++;
+		if (s1[counter] != s2[counter])
+			break ;
+		counter++;
 	}
-	return (0);
+	return (((unsigned char *)s1)[counter] - ((unsigned char *)s2)[counter]);
 }

@@ -3,42 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gcosta-d <gcosta-d@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: aeser <aeser@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/25 15:03:45 by gcosta-d          #+#    #+#             */
-/*   Updated: 2021/09/14 10:54:37 by gcosta-d         ###   ########.fr       */
+/*   Created: 2022/01/08 16:54:10 by aeser             #+#    #+#             */
+/*   Updated: 2022/02/03 12:15:37 by aeser            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/* Substr return a pointer to a copy string from the big string
- * len bytes and counting with the start index.
- * If len was 0 or the start index was bigger than the string
- * the function have to return a void string.
- * If only len was bigger than the string, the copy will return
- * all content of the source string.
- */
-
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t			s_len;
-	char			*copy;
+	char	*ret;
+	size_t	src_len;
 
-	s_len = ft_strlen(s);
-	if (start > s_len || len <= 0)
-		return (ft_strdup(""));
-	if ((start + len) > s_len)
-	{
-		copy = (char *) ft_calloc(s_len - start + 1, sizeof(char));
-		if (!copy)
-			return (NULL);
-		ft_strlcpy(copy, s + start, s_len - start + 1);
-		return (copy);
-	}
-	copy = (char *) ft_calloc(len + 1, sizeof(char));
-	if (!copy)
+	if (!s)
 		return (NULL);
-	ft_strlcpy(copy, s + start, len + 1);
-	return (copy);
+	src_len = ft_strlen(s);
+	if (start >= src_len)
+	{
+		ret = malloc(sizeof(char));
+		if (!ret)
+			return (NULL);
+		*ret = '\0';
+	}
+	else
+	{
+		if ((src_len - start) < len)
+			len = src_len - start;
+		ret = malloc(sizeof(char) * len + 1);
+		if (!ret)
+			return (NULL);
+		ft_strlcpy(ret, (char *)(s + start), len + 1);
+	}
+	return (ret);
 }

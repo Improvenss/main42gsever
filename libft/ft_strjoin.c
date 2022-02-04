@@ -3,44 +3,40 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gcosta-d <gcosta-d@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: aeser <aeser@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/25 15:03:06 by gcosta-d          #+#    #+#             */
-/*   Updated: 2021/09/14 10:17:45 by gcosta-d         ###   ########.fr       */
+/*   Created: 2022/01/28 14:05:54 by aeser             #+#    #+#             */
+/*   Updated: 2022/02/03 11:54:29 by aeser            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/* Strjoin concatenate two string in one and return a pointer
- * to the new string.
- */
+static char	*ft_strcpy(char *dst, const char *src)
+{
+	size_t	i;
+
+	i = 0;
+	if (!dst && !src)
+		return (NULL);
+	while (*src)
+		dst[i++] = *((char *)src++);
+	dst[i] = '\0';
+	return (dst);
+}
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	unsigned int	i;
-	unsigned int	j;
-	unsigned int	s1_len;
-	unsigned int	s2_len;
-	char			*s3;
+	char	*ret;
+	int		ret_len;
 
-	s1_len = ft_strlen(s1);
-	s2_len = ft_strlen(s2);
-	s3 = malloc(s1_len + s2_len + 1);
-	if (!s3)
+	if (!s1 || !s2)
 		return (NULL);
-	i = 0;
-	while (s1[i] != 0)
-	{
-		s3[i] = s1[i];
-		i++;
-	}
-	j = 0;
-	while (s2[j] != 0)
-	{
-		s3[i + j] = s2[j];
-		j++;
-	}
-	s3[i + j] = 0;
-	return (s3);
+	ret_len = ft_strlen(s1) + ft_strlen(s2) + 1;
+	ret = malloc(sizeof(char) * (ret_len));
+	if (!ret)
+		return (NULL);
+	ft_strcpy(ret, s1);
+	ft_strlcat(ret, (char *)s2, ret_len);
+	return (ret);
 }

@@ -3,17 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
+/*   By: aeser <aeser@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/31 17:37:02 by gsever            #+#    #+#             */
-/*   Updated: 2022/01/31 17:37:08 by gsever           ###   ########.fr       */
+/*   Created: 2022/01/08 16:54:07 by aeser             #+#    #+#             */
+/*   Updated: 2022/01/08 16:54:08 by aeser            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 int	ft_tolower(int c)
 {
-	if (c >= 'A' && c <= 'Z')
+	if (ft_isupper(c))
 		return (c + 32);
-	else
-		return (c);
+	return (c);
 }

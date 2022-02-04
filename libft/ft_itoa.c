@@ -3,75 +3,68 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gcosta-d <gcosta-d@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: aeser <aeser@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/25 15:00:55 by gcosta-d          #+#    #+#             */
-/*   Updated: 2021/09/14 10:19:30 by gcosta-d         ###   ########.fr       */
+/*   Created: 2022/01/30 16:34:31 by aeser             #+#    #+#             */
+/*   Updated: 2022/01/30 17:00:11 by aeser            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*	Itoa transform an integer in char.
- *	The return value is the pointer to the first memory
- *	that was transform. The get_len function count
- *	the amount of algarisms in n to allocate memory.
- */
+static size_t	digit_count(int n)
+{
+	int	count;
 
-static int	get_len(int nbr);
-static char	*get_digit(int n, int n_len, char *str);
+	if (n == ((1 << ((32) - 1))))
+		return (11);
+	count = 1;
+	if (n < 0)
+	{
+		n *= -1;
+		count++;
+	}
+	while (n > 9)
+	{
+		n /= 10;
+		count++;
+	}
+	return (count);
+}
+
+static void	put_number(int n, char *str, int *i)
+{
+	if (n > 9)
+	{
+		put_number(n / 10, str, i);
+		put_number(n % 10, str, i);
+	}
+	else
+		str[(*i)++] = n + '0';
+}
 
 char	*ft_itoa(int n)
 {
 	char	*str;
-	int		n_len;
+	int		i;
+	long	nbr;
 
-	n_len = get_len(n);
-	str = (char *) ft_calloc(n_len + 1, sizeof(char));
+	nbr = n;
+	str = malloc(sizeof(char) * (digit_count(nbr) + 1));
 	if (!str)
 		return (NULL);
-	if (n == 0)
-		*str = n / 10 + '0';
-	else if (n < 0)
+	if (n == ((1 << ((32) - 1))))
 	{
-		if (n == -2147483648)
-		{
-			ft_strlcpy(str, "-2147483648", n_len + 1);
-			return (str);
-		}
-		str[0] = '-';
-		n *= -1;
+		ft_strlcpy(str, "-2147483648", 12);
+		return (str);
 	}
-	str = get_digit(n, n_len, str);
-	return (str);
-}
-
-static int	get_len(int nbr)
-{
-	int	nbr_len;
-
-	nbr_len = 0;
-	if (nbr <= 0)
-		nbr_len++;
-	while (nbr)
+	i = 0;
+	if (nbr < 0)
 	{
-		nbr /= 10;
-		nbr_len++;
+		str[i++] = '-';
+		nbr *= -1;
 	}
-	return (nbr_len);
-}
-
-static char	*get_digit(int n, int n_len, char *str)
-{
-	int	n1;
-
-	n1 = 0;
-	while (n != 0)
-	{
-		n_len--;
-		n1 = n % 10;
-		*(str + n_len) = n1 + '0';
-		n = n / 10;
-	}
+	put_number(nbr, str, &i);
+	str[i] = '\0';
 	return (str);
 }

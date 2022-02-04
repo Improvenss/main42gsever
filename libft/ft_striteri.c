@@ -3,30 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gcosta-d <gcosta-d@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: aeser <aeser@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/25 15:02:52 by gcosta-d          #+#    #+#             */
-/*   Updated: 2021/09/14 10:54:20 by gcosta-d         ###   ########.fr       */
+/*   Created: 2022/01/30 17:08:14 by aeser             #+#    #+#             */
+/*   Updated: 2022/02/03 12:14:09 by aeser            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/* This function iterate the string and applies the callback
- * function in every index of the string.
- */
-
 void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	unsigned int	i;
+	unsigned int	index;
 
-	if (s)
+	if (s == NULL || f == NULL)
+		return ;
+	index = 0;
+	while (s[index])
 	{
-		i = 0;
-		while (s[i])
-		{
-			f(i, &s[i]);
-			i++;
-		}
+		f(index, &s[index]);
+		index++;
 	}
 }

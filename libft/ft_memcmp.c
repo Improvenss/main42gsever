@@ -3,35 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gcosta-d <gcosta-d@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/20 16:35:23 by gcosta-d          #+#    #+#             */
-/*   Updated: 2021/09/14 10:13:03 by gcosta-d         ###   ########.fr       */
+/*   Created: 2022/02/04 19:24:40 by gsever            #+#    #+#             */
+/*   Updated: 2022/02/04 19:32:21 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-/*	Memcmp function compares byte a byte if the value of a memory
- *	area is bigger, smaller or equal to the second area passed.
- *	The return value is the difference when the first different area
- *	is encountered.
- */
-
+/* 2 string arasinda istenilen kadar (n) sayar, esitse 0 doner
+* degilse baytinin farkini alir ve onu dondurur. Cunku fonk int tanimlanmis.*/
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	unsigned char	*buff_s1;
-	unsigned char	*buff_s2;
-	unsigned int	i;
+	size_t	index;
 
-	buff_s1 = (unsigned char *)s1;
-	buff_s2 = (unsigned char *)s2;
-	i = 0;
-	while (i < n)
+	if (n == 0)
+		return (0);
+	index = 0;
+	while (index < (n - 1))
 	{
-		if (buff_s1[i] != buff_s2[i])
-			return ((unsigned char)buff_s1[i] - (unsigned char)buff_s2[i]);
-		i++;
+		if (((unsigned char *)s1)[index] != ((unsigned char *)s2)[index])
+			break ;
+		index++;
 	}
-	return (0);
+	return (((unsigned char *)s1)[index] - (((unsigned char *)s2)[index]));
 }

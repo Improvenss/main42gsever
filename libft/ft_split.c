@@ -3,70 +3,67 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gcosta-d <gcosta-d@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: aeser <aeser@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/25 15:02:42 by gcosta-d          #+#    #+#             */
-/*   Updated: 2021/09/14 10:17:18 by gcosta-d         ###   ########.fr       */
+/*   Created: 2022/01/08 23:57:42 by aeser             #+#    #+#             */
+/*   Updated: 2022/02/03 12:03:30 by aeser            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*	Split takes up a string and split it in many strings
- *	depending on the delimiter character. The function
- *	returns an array of strings. The str_in_array count
- *	how many pointer to strings is needed to allocate.
- *	The function itself reaches the first char that isn't
- *	the delimiter, allocate memory and than copy the content
- *	of the string to inside the array at that index.
- */
+static void	ft_allocate(char **tab, char const *s, char sep)
+{
+	char		**tab_p;
+	char const	*tmp;
 
-static int	str_in_array(const char *s, char delimiter);
+	tmp = s;
+	tab_p = tab;
+	while (*tmp)
+	{
+		while (*s == sep)
+			++s;
+		tmp = s;
+		while (*tmp && *tmp != sep)
+			++tmp;
+		if (tmp > s)
+		{
+			*tab_p = ft_substr(s, 0, tmp - s);
+			s = tmp;
+			++tab_p;
+		}
+	}
+	*tab_p = NULL;
+}
+
+int	ft_count_words(char const *s, char sep)
+{
+	int	word_count;
+
+	word_count = 0;
+	while (*s)
+	{
+		while (*s == sep)
+			++s;
+		if (*s)
+			++word_count;
+		while (*s && *s != sep)
+			++s;
+	}
+	return (word_count);
+}
 
 char	**ft_split(char const *s, char c)
 {
-	char			**arr;
-	unsigned int	j;
-	unsigned int	a;
+	char	**new;
+	int		size;
 
-	arr = (char **) ft_calloc(str_in_array(s, c) + 1, sizeof(char *));
-	if (!arr)
+	if (!s)
 		return (NULL);
-	a = -1;
-	while (*s)
-	{
-		if (*s == c)
-			s++;
-		else
-		{
-			j = 0;
-			while (*s != c && *s)
-			{
-				s++;
-				j++;
-			}
-			arr[++a] = (char *) ft_calloc(j + 1, sizeof(char));
-			ft_strlcpy(arr[a], s - j, j + 1);
-		}
-	}
-	return (arr);
-}
-
-static int	str_in_array(const char *s, char delimiter)
-{
-	unsigned int	qnt;
-
-	qnt = 0;
-	while (*s)
-	{
-		if (*s == delimiter)
-			s++;
-		else
-		{
-			while (*s != delimiter && *s)
-				s++;
-			qnt++;
-		}
-	}
-	return (qnt);
+	size = ft_count_words(s, c);
+	new = (char **)malloc(sizeof(char *) * (size + 1));
+	if (!new)
+		return (NULL);
+	ft_allocate(new, s, c);
+	return (new);
 }

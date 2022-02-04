@@ -5,41 +5,54 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/03 10:12:22 by gsever            #+#    #+#             */
-/*   Updated: 2022/02/03 10:12:42 by gsever           ###   ########.fr       */
+/*   Created: 2022/02/04 19:14:50 by gsever            #+#    #+#             */
+/*   Updated: 2022/02/04 20:04:13 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/* This function transform some kind of string in integers.
- * The rules are: the string may have any space characters,
- * the space characters may be followed by a symbol (+ or -),
- * the only chars that can be transformed are number,
- * if other ascii thing was encountered, the function stops
- * and return an integer transformed.*/
+#include "libft.h"
+#include "limits.h"
+//#include <stdio.h>
+static int	ft_isspace(char chr)
+{
+	if ((chr >= 9 && chr <= 13) || chr == ' ')
+		return (1);
+	return (0);
+}
 
 int	ft_atoi(const char *nptr)
 {
-	int	negative;
-	int	i;
-	int	nbr;
+	unsigned long	ret_val;
+	int				index;
+	int				polarity;
 
-	negative = 1;
-	i = 0;
-	nbr = 0;
-	if (nptr == 0)
+	polarity = 1;
+	index = 0;
+	if (*nptr == '\0')
 		return (0);
-	while ((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == ' ')
-		i++;
-	if (nptr[i] == '+' || nptr[i] == '-')
+	while (ft_isspace(nptr[index]))
+		index++;
+	if (nptr[index] == '-' || nptr[index] == '+')
 	{
-		if (nptr[i] == '-')
-			negative = -1;
-		i++;
+		if (nptr[index] == '-')
+			polarity *= -1;
+		index++;
 	}
-	while (nptr[i] >= '0' && nptr[i] <= '9')
-	{
-		nbr = nbr * 10 + nptr[i] - '0';
-		i++;
-	}
-	return (nbr * negative);
+	ret_val = 0;
+	while (nptr[index] >= '0' && nptr[index] <= '9')
+		ret_val = (ret_val * 10) + (nptr[index++] - '0');
+	if (ret_val > LONG_MAX && polarity == -1)
+		return (0);
+	if (ret_val > LONG_MAX && polarity == 1)
+		return (-1);
+	return (ret_val * polarity);
 }
+/*
+int main ()
+{
+    char *a;
+    
+    a = "-1234567";
+    printf("ft_:%d", ft_atoi(a));
+}
+*/

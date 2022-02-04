@@ -3,30 +3,34 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
+/*   By: aeser <aeser@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/20 16:35:48 by gcosta-d          #+#    #+#             */
-/*   Updated: 2022/02/01 15:45:34 by gsever           ###   ########.fr       */
+/*   Created: 2022/01/08 16:54:56 by aeser             #+#    #+#             */
+/*   Updated: 2022/02/03 11:56:43 by aeser            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/* This function dupplicates the string that is passed.
- * And return a pointer to the copied string.
- */
-
-char	*ft_strdup(const char *s1)
+static char	*ft_strcpy(char *dst, const char *src)
 {
-	size_t	s_len;
-	char	*p;
-	char	*pointer;
+	size_t	i;
 
-	s_len = ft_strlen(s1) + 1;
-	p = (char *)ft_calloc(s_len, sizeof(char));
-	if (!p)
+	i = 0;
+	if (!dst && !src)
 		return (NULL);
-	pointer = p;
-	ft_strlcpy(p, s1, s_len);
-	return (pointer);
+	while (*src)
+		dst[i++] = *((char *)src++);
+	dst[i] = '\0';
+	return (dst);
+}
+
+char	*ft_strdup(const char *s)
+{
+	char	*ret;
+
+	ret = malloc(sizeof(char) * (ft_strlen(s) + 1));
+	if (ret)
+		ft_strcpy(ret, s);
+	return (ret);
 }
