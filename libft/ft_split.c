@@ -6,11 +6,12 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 14:36:35 by gsever            #+#    #+#             */
-/*   Updated: 2022/02/05 14:36:38 by gsever           ###   ########.fr       */
+/*   Updated: 2022/02/05 23:11:47 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+//#include <stdio.h>
 
 static void	ft_allocate(char **tab, char const *s, char sep)
 {
@@ -67,3 +68,17 @@ char	**ft_split(char const *s, char c)
 	ft_allocate(new, s, c);
 	return (new);
 }
+/*
+int	main()
+{
+	const char *a = "gorkem sever 42 school";
+	char b = ' ';
+	
+	char	**sonuc = ft_split(a, b);
+	while (*sonuc)
+	{
+		printf("ft_:%s\n", *sonuc);
+		sonuc++;
+	}
+}
+*/
