@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 14:37:36 by gsever            #+#    #+#             */
-/*   Updated: 2022/02/05 14:37:37 by gsever           ###   ########.fr       */
+/*   Updated: 2022/02/05 17:11:37 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,9 @@ char	*ft_strtrim(char const *s1, char const *set)
 		return (NULL);
 	ft_strlcpy(ret, start, s1 - start + 1);
 	return (ret);
+}
+
+int	main()
+{
+	
 }

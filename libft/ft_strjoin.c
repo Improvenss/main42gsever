@@ -6,12 +6,13 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 14:36:58 by gsever            #+#    #+#             */
-/*   Updated: 2022/02/05 14:36:59 by gsever           ###   ########.fr       */
+/*   Updated: 2022/02/05 17:04:04 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
+//s1 = "gorkem" s2 = "sever" --> gorkemsever
+//2 stringi birlestiriyor.
 static char	*ft_strcpy(char *dst, const char *src)
 {
 	size_t	i;
@@ -40,3 +41,12 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	ft_strlcat(ret, (char *)s2, ret_len);
 	return (ret);
 }
+/*
+int main()
+{
+	char a[] = "gorkem";
+	char b[] = "sever";
+
+	printf("ft_:%s", ft_strjoin(a, b));
+}
+*/

@@ -6,12 +6,14 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 14:37:41 by gsever            #+#    #+#             */
-/*   Updated: 2022/02/05 14:37:42 by gsever           ###   ########.fr       */
+/*   Updated: 2022/02/05 16:46:11 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
+//belirli bir string icerisindeki starttan itibaren len kadarki kismi aliyor.
+//(int start) >= (s = "gorkem")
+//gorkem --> kem
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*ret;
@@ -38,3 +40,11 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	}
 	return (ret);
 }
+/*
+int main()
+{
+    char a[] = "gorkem";
+    
+	printf("ft_:%s\n", ft_substr(a, 3, 3));
+}
+*/
