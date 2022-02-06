@@ -6,12 +6,12 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 14:36:11 by gsever            #+#    #+#             */
-/*   Updated: 2022/02/05 14:36:12 by gsever           ###   ########.fr       */
+/*   Updated: 2022/02/06 04:02:22 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
+//char yaz
 void	ft_putchar_fd(char c, int fd)
 {
 	write(fd, &c, 1);

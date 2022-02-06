@@ -6,12 +6,12 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 14:36:22 by gsever            #+#    #+#             */
-/*   Updated: 2022/02/05 14:36:23 by gsever           ###   ########.fr       */
+/*   Updated: 2022/02/06 04:31:25 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
+//?
 void	ft_putnbr_fd(int n, int fd)
 {
 	if (n < 0)
@@ -32,3 +32,10 @@ void	ft_putnbr_fd(int n, int fd)
 	else
 		ft_putchar_fd('0' + n, fd);
 }
+/*
+int	main()
+{
+	int a = -23232323;
+	printf("ft_:%d", ft_putnbr_fd(a, 4));
+}
+*/

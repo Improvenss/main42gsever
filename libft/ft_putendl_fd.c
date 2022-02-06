@@ -6,12 +6,12 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 14:36:16 by gsever            #+#    #+#             */
-/*   Updated: 2022/02/05 14:36:17 by gsever           ###   ########.fr       */
+/*   Updated: 2022/02/06 04:15:38 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
+//?
 void	ft_putendl_fd(char *s, int fd)
 {
 	if (s == NULL)

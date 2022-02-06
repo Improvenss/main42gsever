@@ -6,12 +6,12 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 14:37:16 by gsever            #+#    #+#             */
-/*   Updated: 2022/02/06 03:39:51 by gsever           ###   ########.fr       */
+/*   Updated: 2022/02/06 03:50:33 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
+//stringde bulunan bir karakteri f ye gonderir ve sonucu diziye atar
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	int		i;
