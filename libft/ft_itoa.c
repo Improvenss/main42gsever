@@ -6,12 +6,12 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 14:34:51 by gsever            #+#    #+#             */
-/*   Updated: 2022/02/05 14:34:53 by gsever           ###   ########.fr       */
+/*   Updated: 2022/02/06 03:01:18 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
+//int degeri string donduruyor
 static size_t	digit_count(int n)
 {
 	int	count;
@@ -68,3 +68,13 @@ char	*ft_itoa(int n)
 	str[i] = '\0';
 	return (str);
 }
+/*
+int	main()
+{
+	printf("Int min: %s\n", ft_itoa(-2147483648));
+	printf("Int max: %s\n", ft_itoa(2147483647));
+	printf("Zero: %s\n", ft_itoa(0));
+	printf("Positive: %s\n", ft_itoa(1));
+	printf("Negative : %s\n", ft_itoa(-1));
+}
+*/

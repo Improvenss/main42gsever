@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 14:37:16 by gsever            #+#    #+#             */
-/*   Updated: 2022/02/05 14:37:17 by gsever           ###   ########.fr       */
+/*   Updated: 2022/02/06 03:39:51 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,3 +31,16 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	ret[i] = '\0';
 	return (ret);
 }
+/*
+char	*ft_ppu(unsigned int, char)
+{
+	char ppu[] = "ppu";
+	return (ppu);
+}
+
+int	main()
+{
+	char a = "gorkem sever";
+	printf("ft_:%s", ft_strmapi(a))
+}
+*/
