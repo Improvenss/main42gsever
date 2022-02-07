@@ -6,12 +6,12 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 14:35:54 by gsever            #+#    #+#             */
-/*   Updated: 2022/02/05 14:35:56 by gsever           ###   ########.fr       */
+/*   Updated: 2022/02/07 12:11:19 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
+//throwing source to destination e.g.:"sourceation" or "gork5"
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
 	unsigned char	*ret;
@@ -25,3 +25,16 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 		*((unsigned char *)dest++) = *((unsigned char *)src++);
 	return (ret);
 }
+/*
+#include <string.h>
+int	main()
+{
+	char a[] = "destination";
+	char b[] = "source";
+	char ft_a[] = "12345";
+	char ft_b[] = "gorkem";
+
+	printf("org:%s\n", memcpy(a, b, 6));
+	printf("ft_:%s\n", ft_memcpy(ft_a, ft_b, 4));
+}
+*/

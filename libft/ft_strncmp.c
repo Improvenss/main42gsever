@@ -6,12 +6,12 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 14:37:24 by gsever            #+#    #+#             */
-/*   Updated: 2022/02/05 14:37:25 by gsever           ###   ########.fr       */
+/*   Updated: 2022/02/07 16:56:17 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
+//comparing n times, if find different doing s1 - s2 = int. Bu ne bicm ing
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	size_t	counter;
@@ -27,3 +27,19 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	}
 	return (((unsigned char *)s1)[counter] - ((unsigned char *)s2)[counter]);
 }
+/*
+int	main()
+{
+	char a[] = "1234";
+	char b[] = "12345";
+	int result;
+
+	result = ft_strncmp(a, b, 4);
+	if(result < 0)
+		printf("s1 > s2 output:%d\n", result);
+	else if (result > 0)
+		printf("s1 < s2 output:%d\n", result);
+	else
+		printf("s1 = s2 output:%d\n", result);
+}
+*/

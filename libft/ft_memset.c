@@ -6,12 +6,11 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 14:36:05 by gsever            #+#    #+#             */
-/*   Updated: 2022/02/06 02:34:50 by gsever           ###   ########.fr       */
+/*   Updated: 2022/02/07 11:21:09 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-//#include <string.h>
 //byte dizeye byte yaziyoruz. "gorkem" --> "aaaaem"
 void	*ft_memset(void *s, int c, size_t n)
 {
@@ -26,6 +25,7 @@ void	*ft_memset(void *s, int c, size_t n)
 	return (s);
 }
 /*
+#include <string.h>
 int	main()
 {
 	char	arr1[] = {'d', 'p', '3'};

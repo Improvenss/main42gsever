@@ -6,12 +6,12 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 14:37:12 by gsever            #+#    #+#             */
-/*   Updated: 2022/02/05 14:37:13 by gsever           ###   ########.fr       */
+/*   Updated: 2022/02/07 11:15:45 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
+//counting string's letters
 size_t	ft_strlen(const char *s)
 {
 	size_t	i;

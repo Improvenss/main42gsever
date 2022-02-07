@@ -6,12 +6,12 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 14:34:51 by gsever            #+#    #+#             */
-/*   Updated: 2022/02/06 03:01:18 by gsever           ###   ########.fr       */
+/*   Updated: 2022/02/07 17:38:19 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-//int degeri string donduruyor
+//int degeri string donduruyor 
 static size_t	digit_count(int n)
 {
 	int	count;
@@ -43,6 +43,7 @@ static void	put_number(int n, char *str, int *i)
 		str[(*i)++] = n + '0';
 }
 
+//https://www.geeksforgeeks.org/computing-int_max-int_min-bitwise-operations/
 char	*ft_itoa(int n)
 {
 	char	*str;

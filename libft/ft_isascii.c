@@ -6,12 +6,12 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 14:34:13 by gsever            #+#    #+#             */
-/*   Updated: 2022/02/05 14:34:14 by gsever           ###   ########.fr       */
+/*   Updated: 2022/02/07 11:13:22 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
+//decimal value (0-127)
 int	ft_isascii(int c)
 {
 	return (c >= 0 && c <= 127);

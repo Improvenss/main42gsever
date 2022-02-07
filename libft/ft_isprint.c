@@ -6,12 +6,12 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 14:34:37 by gsever            #+#    #+#             */
-/*   Updated: 2022/02/05 14:34:39 by gsever           ###   ########.fr       */
+/*   Updated: 2022/02/07 11:14:10 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
+//if is printable
 int	ft_isprint(int c)
 {
 	return (c >= 32 && c < 127);
