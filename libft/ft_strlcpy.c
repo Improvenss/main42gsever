@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 14:37:07 by gsever            #+#    #+#             */
-/*   Updated: 2022/02/07 17:53:19 by gsever           ###   ########.fr       */
+/*   Updated: 2022/02/08 12:54:10 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,14 @@ size_t	ft_strlcpy(char *dest, char *src, size_t size)
 		index++;
 	return (index);
 }
-/* buraya bak daha bitmedi.
+/*
 #include <string.h>
 int	main ()
 {
 	char a[] ="gorkem";
-	char b[] = "sever";
+	char b[] = "12345";
 	char ft_a[] ="gorkem";
-	char ft_b[] = "sever";
+	char ft_b[] = "12345";
 
 	printf("org:%zu\n", strlcpy(a, b, 4));
 	printf("ft_:%zu\n", ft_strlcpy(ft_a, ft_b, 4));

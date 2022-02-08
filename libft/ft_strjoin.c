@@ -6,12 +6,12 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 14:36:58 by gsever            #+#    #+#             */
-/*   Updated: 2022/02/07 17:02:39 by gsever           ###   ########.fr       */
+/*   Updated: 2022/02/08 13:02:35 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-//s1 = "gorkem" s2 = "sever" --> gorkemsever
+//s1 = "gorkem" | s2 = "sever" --> gorkemsever
 //2 stringi birlestiriyor.
 static char	*ft_strcpy(char *dst, const char *src)
 {

@@ -6,12 +6,12 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 14:36:22 by gsever            #+#    #+#             */
-/*   Updated: 2022/02/06 04:31:25 by gsever           ###   ########.fr       */
+/*   Updated: 2022/02/08 14:31:53 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-//?
+//witing integer in the file.
 void	ft_putnbr_fd(int n, int fd)
 {
 	if (n < 0)

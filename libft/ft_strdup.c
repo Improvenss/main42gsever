@@ -6,12 +6,12 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 14:36:47 by gsever            #+#    #+#             */
-/*   Updated: 2022/02/05 14:36:48 by gsever           ###   ########.fr       */
+/*   Updated: 2022/02/08 14:27:02 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
+//
 static char	*ft_strcpy(char *dst, const char *src)
 {
 	size_t	i;

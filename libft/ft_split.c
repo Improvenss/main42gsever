@@ -6,13 +6,12 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 14:36:35 by gsever            #+#    #+#             */
-/*   Updated: 2022/02/05 23:11:47 by gsever           ###   ########.fr       */
+/*   Updated: 2022/02/08 13:04:41 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 //#include <stdio.h>
-
 static void	ft_allocate(char **tab, char const *s, char sep)
 {
 	char		**tab_p;
