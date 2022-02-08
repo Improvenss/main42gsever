@@ -6,12 +6,12 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 14:35:10 by gsever            #+#    #+#             */
-/*   Updated: 2022/02/05 14:35:12 by gsever           ###   ########.fr       */
+/*   Updated: 2022/02/08 19:28:30 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
+//yagi kiri pasi soker atar
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
 	t_list	*ptr;

@@ -6,12 +6,12 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 14:34:58 by gsever            #+#    #+#             */
-/*   Updated: 2022/02/08 16:00:43 by gsever           ###   ########.fr       */
+/*   Updated: 2022/02/08 18:48:22 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
+//Adds the node ’new’ at the end of the list.
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	t_list	*tmp;
