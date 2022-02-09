@@ -6,12 +6,12 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 14:35:34 by gsever            #+#    #+#             */
-/*   Updated: 2022/02/05 14:35:35 by gsever           ###   ########.fr       */
+/*   Updated: 2022/02/09 17:49:34 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
+//doing same thing as lstiter.c + 'del' function used to if needed. ingye gel :'
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list	*new;
