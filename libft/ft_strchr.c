@@ -6,12 +6,15 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 14:36:42 by gsever            #+#    #+#             */
-/*   Updated: 2022/02/05 14:36:43 by gsever           ###   ########.fr       */
+/*   Updated: 2022/02/10 12:33:02 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
+/*
+int olarak aramak istedigimiz karakteri unsigned chara cevirir ve 
+aradigimiz karakter dahil olmak uzere devamini donrurur.
+*/
 char	*ft_strchr(const char *s, int c)
 {
 	while (*s && *s != (char)c)
@@ -20,3 +23,11 @@ char	*ft_strchr(const char *s, int c)
 		return ((char *)s);
 	return (NULL);
 }
+/*
+int	main()
+{
+	char a[] = "gorkem";
+	
+	printf("ft_:%s", ft_strchr(a, 'r'));
+}
+*/

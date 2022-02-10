@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 14:37:24 by gsever            #+#    #+#             */
-/*   Updated: 2022/02/07 16:56:17 by gsever           ###   ########.fr       */
+/*   Updated: 2022/02/10 12:45:23 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	return (((unsigned char *)s1)[counter] - ((unsigned char *)s2)[counter]);
 }
 /*
+//this s1-s2=109 -> m-0=m=109 -----> 0 = NULL
 int	main()
 {
 	char a[] = "1234";

@@ -6,12 +6,12 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 14:35:54 by gsever            #+#    #+#             */
-/*   Updated: 2022/02/07 12:11:19 by gsever           ###   ########.fr       */
+/*   Updated: 2022/02/10 11:00:49 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-//throwing source to destination e.g.:"sourceation" or "gork5"
+//throwing source to destination e.g.:"sourceation" or "gork5" |not adres va mi
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
 	unsigned char	*ret;

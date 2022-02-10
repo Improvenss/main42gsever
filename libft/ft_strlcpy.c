@@ -6,12 +6,12 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 14:37:07 by gsever            #+#    #+#             */
-/*   Updated: 2022/02/08 12:54:10 by gsever           ###   ########.fr       */
+/*   Updated: 2022/02/10 11:30:31 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-//copying up to size source -size-> destination (boyutu kadar kopyalama)
+//copying but returning to size|source-size->destination|(boyutukadarkopyalama)
 size_t	ft_strlcpy(char *dest, char *src, size_t size)
 {
 	size_t	index;
@@ -32,6 +32,7 @@ size_t	ft_strlcpy(char *dest, char *src, size_t size)
 }
 /*
 #include <string.h>
+//gorkem->1234\0 toplamda 5 oldu.
 int	main ()
 {
 	char a[] ="gorkem";
