@@ -6,13 +6,15 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 19:24:40 by gsever            #+#    #+#             */
-/*   Updated: 2022/02/04 19:32:21 by gsever           ###   ########.fr       */
+/*   Updated: 2022/02/10 15:14:28 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-/* 2 string arasinda istenilen kadar (n) sayar, esitse 0 doner
-* degilse baytinin farkini alir ve onu dondurur. Cunku fonk int tanimlanmis.*/
+/*
+2 string arasinda istenilen kadar (n) sayar, esitse 0 doner
+degilse baytinin farkini alir ve onu dondurur. Cunku fonk int tanimlanmis.
+*/
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
 	size_t	index;
@@ -28,3 +30,16 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	}
 	return (((unsigned char *)s1)[index] - (((unsigned char *)s2)[index]));
 }
+/*
+#include <string.h>
+#include <stdio.h>
+int	main()
+{
+	char a[] = "gor234";
+	char b[] = "gor123";
+	char ft_a[] = "gor234";
+	char ft_b[] = "gor123";
+	printf("org:%d\n", memcmp(a, b, 4));
+	printf("ft_:%d\n", ft_memcmp(ft_a, ft_b, 4));
+}
+*/

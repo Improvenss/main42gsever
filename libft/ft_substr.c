@@ -6,14 +6,17 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 14:37:41 by gsever            #+#    #+#             */
-/*   Updated: 2022/02/05 16:46:11 by gsever           ###   ########.fr       */
+/*   Updated: 2022/02/10 16:44:08 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-//belirli bir string icerisindeki starttan itibaren len kadarki kismi aliyor.
-//(int start) >= (s = "gorkem")
-//gorkem --> kem
+/*
+belirli bir string icerisindeki starttan itibaren len kadarki kismi aliyor.
+(int start) >= (s = "gorkem") | len'i --> 3 | gorkem --> kem
+not: 36.satirda len'imiz "gorkem[6]-->startimiz[2] yani 6-2=4" den buyukse
+len'imizi string_len-start=len(4) yapiyoruz.
+*/
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*ret;

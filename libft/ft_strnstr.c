@@ -6,13 +6,15 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 19:32:48 by gsever            #+#    #+#             */
-/*   Updated: 2022/02/04 19:55:40 by gsever           ###   ########.fr       */
+/*   Updated: 2022/02/10 15:19:20 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-/* samanlikta igne aramak. "gorkem sever" "ke" ariyorsun
-buldugunda direkt k'den itibaren yazdiriyorsun. */
+/*
+samanlikta igne aramak. "gorkem sever" "ke" ariyorsun
+buldugunda direkt k'den itibaren yazdiriyorsun.
+*/
 /*
 #include <string.h>
 #include <stdio.h>

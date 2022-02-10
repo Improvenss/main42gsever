@@ -6,14 +6,14 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 19:14:50 by gsever            #+#    #+#             */
-/*   Updated: 2022/02/05 23:12:03 by gsever           ###   ########.fr       */
+/*   Updated: 2022/02/10 16:11:22 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "limits.h"
-//#include <stdio.h>
 //static int = program calistirildiktan bitisine kadar saymaya devam eder.
+//#include <stdio.h>
 static int	ft_isspace(char chr)
 {
 	if ((chr >= 9 && chr <= 13) || chr == ' ')

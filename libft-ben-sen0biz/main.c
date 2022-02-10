@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 12:58:50 by gsever            #+#    #+#             */
-/*   Updated: 2022/02/04 17:13:17 by gsever           ###   ########.fr       */
+/*   Updated: 2022/02/10 16:11:25 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -557,7 +557,7 @@ void	ft_atoi_test(void)
 void	ft_calloc_test(void)
 {
 	int *ptr;
-	int  *ft_p;
+	int *ft_p;
 	int i;
 	int j;
 

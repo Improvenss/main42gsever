@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 19:15:53 by gsever            #+#    #+#             */
-/*   Updated: 2022/02/10 12:57:47 by gsever           ###   ########.fr       */
+/*   Updated: 2022/02/10 15:01:24 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	return (&((unsigned char *)s)[index]);
 }
 /*
-//string icinde byte ariyor. "gorkem" "or" ara budun mu o'nun adresi gonder
-int	main()
+//string icinde byte ariyor. "gorkem" "or" ara budun mu o'nun adresi gonderir
+int	main() 
 {
 	char array1[] = {'A', 'B', 'C'};
 	char string1[] = "Gorkem Sever 42 Schools";
