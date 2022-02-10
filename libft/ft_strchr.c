@@ -6,14 +6,14 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 14:36:42 by gsever            #+#    #+#             */
-/*   Updated: 2022/02/10 12:33:02 by gsever           ###   ########.fr       */
+/*   Updated: 2022/02/10 17:35:29 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 /*
 int olarak aramak istedigimiz karakteri unsigned chara cevirir ve 
-aradigimiz karakter dahil olmak uzere devamini donrurur.
+aradigimiz karakter dahil olmak uzere devamini dondurur.
 */
 char	*ft_strchr(const char *s, int c)
 {

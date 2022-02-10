@@ -6,13 +6,17 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 14:36:58 by gsever            #+#    #+#             */
-/*   Updated: 2022/02/08 13:02:35 by gsever           ###   ########.fr       */
+/*   Updated: 2022/02/10 17:18:20 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-//s1 = "gorkem" | s2 = "sever" --> gorkemsever
-//2 stringi birlestiriyor.
+/*
+s1 = "gorkem" | s2 = "sever" --> gorkemsever
+2 stringi birlestiriyor.
+not: static char -> sadece bu fonksiyon icinde kullanilabilinir. bu ft_strjoin.c
+dosyasini baska dosyalarda kullanacagin zaman, ft_strcpy() diye cagiramazsin.
+*/
 static char	*ft_strcpy(char *dst, const char *src)
 {
 	size_t	i;

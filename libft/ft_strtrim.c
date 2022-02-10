@@ -6,12 +6,17 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 14:37:36 by gsever            #+#    #+#             */
-/*   Updated: 2022/02/05 22:21:32 by gsever           ###   ########.fr       */
+/*   Updated: 2022/02/10 17:38:31 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-//set'teki string'i s1'in basindan ve sonundan siliyor
+/*
+set'teki string'i s1'in basindan ve sonundan siliyor
+not: ABgorkeABmAB'de A yi cikartmak istedigimizde, xBgorkeABmAB oluyor. x ile
+isaretledigim A cikartiliyor. Kenarinda A yok AB var, B'den sonra geliyor A,
+o yuzden icine girmis oluyor ve cikartmiyore. :)
+*/
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*start;
