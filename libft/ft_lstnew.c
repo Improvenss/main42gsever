@@ -6,12 +6,14 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 14:35:39 by gsever            #+#    #+#             */
-/*   Updated: 2022/02/08 15:53:20 by gsever           ###   ########.fr       */
+/*   Updated: 2022/02/12 17:13:35 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-//creating new student
+/*
+creating new student but we can add just string. WHY? im really don't know.
+*/
 t_list	*ft_lstnew(void *content)
 {
 	t_list	*new;
@@ -26,10 +28,8 @@ t_list	*ft_lstnew(void *content)
 /*
 int	main()
 {
-	char a[] = "gorkem";
-
 	t_list *student;
-	student = ft_lstnew(a);
+	student = ft_lstnew("gorkem");
 	printf("ft_:%s", student->content);
 }
 */

@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 14:34:58 by gsever            #+#    #+#             */
-/*   Updated: 2022/02/08 18:48:22 by gsever           ###   ########.fr       */
+/*   Updated: 2022/02/12 18:17:47 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,26 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	tmp->next = new;
 }
 /*
+void print_all_ls(t_list *start)
+{
+	t_list *temp = start;
+	while(temp->next != NULL)
+	{	
+		printf("ft_:%s\n", temp->content);
+		temp = temp->next;
+	}
+	printf("ft_:%s\n", temp->content);
+}
+
 int	main()
 {
+	t_list *lst = ft_lstnew("start");
 	t_list *gorkem = ft_lstnew("gorkem");
 	t_list *sever = ft_lstnew("sever");
+
+	ft_lstadd_back(&lst, gorkem);
 	ft_lstadd_back(&gorkem, sever);
-		while (gorkem)
-	{
-		printf("lista: %s\n", gorkem->content);
-		gorkem = gorkem->next;
-	}
+
+	print_all_ls(lst);	
 }
 */
