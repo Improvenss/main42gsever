@@ -6,13 +6,13 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 14:35:05 by gsever            #+#    #+#             */
-/*   Updated: 2022/02/12 18:17:18 by gsever           ###   ########.fr       */
+/*   Updated: 2022/02/13 11:55:59 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 /*
-linked list yani bagli liste dinamik boyutludur istedi zaman artar.
+linked list yani bagli liste dinamik boyutludur istedigi zaman artar.
 -veri yapilari yani data structures-
 olusturdugumuz listeyi listenin basina atar.
 */
