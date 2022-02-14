@@ -6,14 +6,16 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 19:14:50 by gsever            #+#    #+#             */
-/*   Updated: 2022/02/10 16:11:22 by gsever           ###   ########.fr       */
+/*   Updated: 2022/02/14 11:44:53 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "limits.h"
-//static int = program calistirildiktan bitisine kadar saymaya devam eder.
-//#include <stdio.h>
+/*
+static int = program calistirildiktan bitisine kadar saymaya devam eder.
+char dizisinden olusan bir stringi integer olarak yazdiriyor.
+*/
 static int	ft_isspace(char chr)
 {
 	if ((chr >= 9 && chr <= 13) || chr == ' ')
@@ -49,6 +51,7 @@ int	ft_atoi(const char *nptr)
 	return (ret_val * polarity);
 }
 /*
+#include <stdio.h>
 int main ()
 {
     char *a;

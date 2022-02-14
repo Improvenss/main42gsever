@@ -6,12 +6,12 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 14:36:47 by gsever            #+#    #+#             */
-/*   Updated: 2022/02/10 16:14:50 by gsever           ###   ########.fr       */
+/*   Updated: 2022/02/14 13:21:49 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-//istenilen string kadar malloc'ta yer ayirior, ayirdigi yeri return ediyor
+//istenilen string kadar malloc'ta yer ayirior, string'i icine koyup return edio
 static char	*ft_strcpy(char *dst, const char *src)
 {
 	size_t	i;

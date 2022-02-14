@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 14:37:02 by gsever            #+#    #+#             */
-/*   Updated: 2022/02/10 11:52:15 by gsever           ###   ########.fr       */
+/*   Updated: 2022/02/14 14:38:09 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,5 @@ int	main()
 
 	printf("ft_:%zu\n", ft_strlcat(a, b, 4));
 	printf("%s: %s\n", a, b);
-	printf("ft_:%zu\n", ft_strlcat(a, b, 7));
 }
 */
