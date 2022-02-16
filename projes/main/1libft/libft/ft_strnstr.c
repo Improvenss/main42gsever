@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 19:32:48 by gsever            #+#    #+#             */
-/*   Updated: 2022/02/10 15:19:20 by gsever           ###   ########.fr       */
+/*   Updated: 2022/02/14 14:38:25 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,6 @@
 /*
 samanlikta igne aramak. "gorkem sever" "ke" ariyorsun
 buldugunda direkt k'den itibaren yazdiriyorsun.
-*/
-/*
-#include <string.h>
-#include <stdio.h>
 */
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
@@ -39,6 +35,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	return ((char *) NULL);
 }
 /*
+#include <stdio.h>
 int main()
 {
     char *a;

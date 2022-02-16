@@ -67,10 +67,10 @@ char	**ft_split(char const *s, char c)
 	ft_allocate(new, s, c);
 	return (new);
 }
-
+/*
 int	main()
 {
-	const char *a = "        gorkem sever 42 school";
+	const char *a = "gorkem sever 42 school";
 	char b = ' ';
 	
 	char	**sonuc = ft_split(a, b);
@@ -80,3 +80,4 @@ int	main()
 		sonuc++;
 	}
 }
+*/

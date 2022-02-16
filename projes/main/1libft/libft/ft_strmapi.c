@@ -6,12 +6,15 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 14:37:16 by gsever            #+#    #+#             */
-/*   Updated: 2022/02/06 03:50:33 by gsever           ###   ########.fr       */
+/*   Updated: 2022/02/14 14:14:22 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-//stringde bulunan bir karakteri f ye gonderir ve sonucu diziye atar
+/*
+stringde bulunan bir karakteri f'nin butun karakterlerine uygular
+sonucu yeni bir stringe atar
+*/
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	int		i;
@@ -32,15 +35,9 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	return (ret);
 }
 /*
-char	*ft_ppu(unsigned int, char)
-{
-	char ppu[] = "ppu";
-	return (ppu);
-}
-
 int	main()
 {
 	char a = "gorkem sever";
-	printf("ft_:%s", ft_strmapi(a))
+	printf("ft_:%s", ft_strmapi(a, fonksiyon));
 }
 */
