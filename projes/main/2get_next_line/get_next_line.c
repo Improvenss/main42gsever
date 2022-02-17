@@ -6,11 +6,16 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 15:04:12 by gsever            #+#    #+#             */
-/*   Updated: 2022/02/17 20:03:07 by gsever           ###   ########.fr       */
+/*   Updated: 2022/02/17 20:48:52 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
+char	*ft_new_left_str(char *first)
+{
+	
+}
 
 char	*ft_get_line(char *first)
 {
@@ -20,7 +25,23 @@ char	*ft_get_line(char *first)
 	i = 0;
 	if (!first[i])
 	 	return (NULL);
-	
+	while (first[i] && first[i] != '\n')
+		i++;
+	str = (char *)malloc(sizeof(char) * (i + 2));
+	if (!str)
+		return (NULL);
+	while (first[i] && first[i] != '\n')
+	{
+		str[i] = first[i];
+		i++;
+	}
+	if (first[i] == '\n')
+	{
+		str[i] = first[i];
+		i++;
+	}
+	str[i] = '\0';
+	return (str);
 }
 
 char *ft_read_lines_to_left(int fd, char *first)
@@ -58,6 +79,7 @@ char *get_next_line(int fd);
 	if (!first)
 		return (NULL);
 	str = ft_get_line(first);
+	first = ft_new_left_str();
 }
 
 #include <stdio.h>
