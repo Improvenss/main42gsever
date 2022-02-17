@@ -6,20 +6,23 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 15:04:12 by gsever            #+#    #+#             */
-/*   Updated: 2022/02/17 15:58:50 by gsever           ###   ########.fr       */
+/*   Updated: 2022/02/17 17:48:41 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-
+char *ft_read_lines_to_left(int fd, char *line)
+{
+	read()
+}
 
 char *get_next_line(int fd);
 {
 	char str;
 	static char res;
 
-	if (fd < 0 || BUFFER_SIZE <= 0)
+	if (fd < 0 || fd > 1024 || BUFFER_SIZE <= 0)
 	{
 		return (0);
 	}
