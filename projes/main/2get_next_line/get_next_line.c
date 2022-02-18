@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 15:04:12 by gsever            #+#    #+#             */
-/*   Updated: 2022/02/17 20:48:52 by gsever           ###   ########.fr       */
+/*   Updated: 2022/02/18 13:14:46 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,28 @@
 
 char	*ft_new_left_str(char *first)
 {
-	
+	int	i;
+	int	j;
+	char	*str;
+
+	i = 0;
+	while (first[i] && first[i] != '\n')
+		i++;
+	if (!first[i])
+	{
+		free(first);
+		return (NULL);
+	}
+	str = (char *)malloc(sizeof(char) * ft_strlen(first) - i + 1);
+	if (!str)
+		return (NULL);
+	i++;
+	j = 0;
+	while (first[i])
+		str[j] = first[i];
+	str[j] = '\0';
+	free(first);
+	return (str);
 }
 
 char	*ft_get_line(char *first)
@@ -68,7 +89,7 @@ char *ft_read_lines_to_left(int fd, char *first)
 	return (first);
 }
 
-char *get_next_line(int fd);
+char *get_next_line(int fd)
 {
 	char *str;
 	static char *first;
@@ -79,16 +100,20 @@ char *get_next_line(int fd);
 	if (!first)
 		return (NULL);
 	str = ft_get_line(first);
-	first = ft_new_left_str();
+	first = ft_new_left_str(first);
+	return (str);
 }
-
-#include <stdio.h>
-
 int	main()
 {
+	char *ft_txt;
 	int fd = open("test1", O_RDONLY);
-	int res = open("result", O_RDWR);
-	fprintf(test1, "ft_:%s\n", 50);
+	int ft_res_fd = open("result", O_RDWR);
+	
+	for (int i = 0; i < 10; i++)
+	{
+		ft_txt = get_next_line(fd);
+		write (ft_res_fd, ft_txt, ft_strlen(ft_txt));
+	}
 }
 /*
 1-Ilk basta fd'miz ve BUFFER_SIZE'miz islenebilen bir degerse devam.

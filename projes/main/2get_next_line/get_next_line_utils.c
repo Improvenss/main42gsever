@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 15:20:56 by gsever            #+#    #+#             */
-/*   Updated: 2022/02/17 15:22:06 by gsever           ###   ########.fr       */
+/*   Updated: 2022/02/18 13:13:44 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ size_t	ft_strlen(const char *s)
 	return (i);
 }
 
-static char	*ft_strcpy(char *dst, const char *src)
+char	*ft_strcpy(char *dst, const char *src)
 {
 	size_t	i;
 
@@ -33,6 +33,25 @@ static char	*ft_strcpy(char *dst, const char *src)
 		dst[i++] = *((char *)src++);
 	dst[i] = '\0';
 	return (dst);
+}
+
+size_t	ft_strlcat(char *dest, char *src, size_t size)
+{
+	unsigned int	c;
+	unsigned int	d;
+
+	if (size <= ft_strlen(dest))
+		return (size + ft_strlen(src));
+	c = ft_strlen(dest);
+	d = 0;
+	while (src[d] != '\0' && c + 1 < size)
+	{
+		dest[c] = src[d];
+		c++;
+		d++;
+	}
+	dest[c] = '\0';
+	return (ft_strlen(dest) + ft_strlen(&src[d]));
 }
 
 char	*ft_strjoin(char const *s1, char const *s2)
