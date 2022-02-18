@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 14:37:02 by gsever            #+#    #+#             */
-/*   Updated: 2022/02/17 18:54:20 by gsever           ###   ########.fr       */
+/*   Updated: 2022/02/18 16:47:11 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ size_t degiskenlerini yazdırmanın dogru yolu “%zu” kullanmaktır.
 “%zu” biciminde, z bir uzunluk degistiricidir
 ve u, isaretsiz tur anlamına gelir.
 */
-
+/*
 #include <stdio.h>
 int	main()
 {
@@ -45,3 +45,4 @@ int	main()
 	printf("ft_:%zu\n", ft_strlcat(a, b, 12));
 	printf("%s: %s\n", a, b);
 }
+*/
