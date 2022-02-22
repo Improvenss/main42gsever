@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 15:04:12 by gsever            #+#    #+#             */
-/*   Updated: 2022/02/22 14:48:19 by gsever           ###   ########.fr       */
+/*   Updated: 2022/02/22 15:03:59 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,11 @@ char	*ft_remove_writed_line(char *line)
 	//line'yi saydiriyoruz.
 	while (line[counter] && line[counter] != '\n')
 		counter++;
+	if (!line[counter])
+	{
+		free(line);
+		return (NULL);
+	}
 	//fd'den line'yi cikarip kalan kisim kadar yer ayirmamiz gerekiyor.
 	new_removed_file = malloc(sizeof(char) * (ft_strlen(line) - counter + 1));
 	if (!new_removed_file)
@@ -58,6 +63,8 @@ char	*ft_write_readed_line(char *line)
 	char	*new_writed_line;
 
 	counter = 0;
+	if (!line[counter])
+		return (NULL);
 	while (line[counter] != '\n' && line[counter] != '\0')
 		counter++;
 	new_writed_line = malloc(sizeof(char) * counter + 2);
@@ -114,7 +121,11 @@ char	*get_next_line(int fd)
 	static char	*line;
 	char		*write_readed_line;
 
+	if (fd < 0 || BUFFER_SIZE <= 0)
+		return (NULL);
 	line = ft_read_line(fd, line);
+	if (!line)
+		return (NULL);
 	write_readed_line = ft_write_readed_line(line);
 	line = ft_remove_writed_line(line);
 	return (write_readed_line);
