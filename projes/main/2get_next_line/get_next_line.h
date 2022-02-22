@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 12:46:10 by gsever            #+#    #+#             */
-/*   Updated: 2022/02/18 19:56:31 by gsever           ###   ########.fr       */
+/*   Updated: 2022/02/22 14:47:13 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,12 @@
 # include <unistd.h>
 
 char	*get_next_line(int fd);
-
+char	*ft_read_line(int fd, char *line);
+char	*ft_write_readed_line(char *line);
+char	*ft_remove_writed_line(char *line);
 //UTILS
+size_t	ft_strlen(const char *s);
+char	*ft_strchr(const char *s, int c);
+char	*ft_strjoin(char *s1, char *s2);
+
 #endif
