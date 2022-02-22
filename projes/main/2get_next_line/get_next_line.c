@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 15:04:12 by gsever            #+#    #+#             */
-/*   Updated: 2022/02/22 15:03:59 by gsever           ###   ########.fr       */
+/*   Updated: 2022/02/22 15:32:24 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,7 @@ char	*ft_remove_writed_line(char *line)
 	counter++;
 	counter_removed = 0;
 	while (line[counter])
-	{
-		new_removed_file[counter_removed] = line[counter];
-		counter_removed++;
-		counter++;
-	}
+		new_removed_file[counter_removed++] = line[counter++];
 	new_removed_file[counter_removed] = '\0';
 	free(line);
 	return (new_removed_file);
