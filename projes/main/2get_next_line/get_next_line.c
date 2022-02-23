@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 15:04:12 by gsever            #+#    #+#             */
-/*   Updated: 2022/02/22 15:41:33 by gsever           ###   ########.fr       */
+/*   Updated: 2022/02/23 14:30:40 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ FD'den aldigimiz 1 satiri okuyup yazdiktan sonra okudugumuz satiri
 cikartip kalan satirlari tekrardan yazmamiz gerekiyor.
 Bu yuzden fonksiyona line'yi ve fd'yi gondermemiz gerekiyor.
 ornek -> fd = fd - line;
+Burada tanimladigimiz counter'le line'yi saydiriyoruz.
 */
 char	*ft_remove_writed_line(char *line)
 {
@@ -24,7 +25,7 @@ char	*ft_remove_writed_line(char *line)
 	char	*new_removed_file;
 
 	counter = 0;
-	//line'yi saydiriyoruz.
+	//line'nin 1 satirini saydiriyoruz.
 	while (line[counter] && line[counter] != '\n')
 		counter++;
 	if (!line[counter])
