@@ -1,0 +1,860 @@
+──────────────────────────────────────────────────GENEL BİLGİLER──────────────────────────────────────────────────
+
+Hafıza :
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+    Bit : 0 ve 1 değeri tutan en küçük hafıza birimi.
+    Byte : 8 adet bitden oluşan adreslenebilir (erişilebilir) en küçük hafıza birimi.
+    Kilobyte : 1024 byte
+    Megabyte : 1024 kilobyte
+    ...
+    
+
+    Stack : Programımızın dinamik verileri tuttuğu hafıza alanıdır. 
+            Stack'e değer yazdıkça ESP'nin değeri yazılan verinin boyutu kadar azaltılır.
+
+    0xFFFFFFFF
+    ┌──────────────────────┐ 
+    │   OS KERNEL SPACE    │ İşletim sistemine özel kodların bulunduğu alan.
+    ├──────────────────────┤ 
+    │       0xC0000000     │ Fonksiyonların kendi verilerini tuttuğu alandır.
+    │       STACK      ↓   │ Veri eklendikçe adres değeri azalır.
+    ├──────────────────────┤
+    │                      │
+    │                      │
+    │                      │
+    ├──────────────────────┤
+    │                      │ Dinamik hafıza bölgesi : malloc, new, free, delete komutları ile kullanılan veriler
+    │       HEAP       ↑   │ burada bulunur. Veri eklendikçe adresi artar.
+    ├──────────────────────┤
+    │       BSS            │ Tanımlanmamış verilerin alanı, 0 ile doludur.
+    ├──────────────────────┤
+    │       DATA           │ Statik olarak tanımlanmış verilerin bulunduğı alan. (const vs)
+    ├──────────────────────┤
+    │       TEXT           │ Çalıştırılabilir kodların tutulduğu alan.
+    └──────────────────────┘
+    0x00000000
+
+
+
+    CPU Registers :
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+    CPU içerisinde bulunan özel hafıza alanlarıdır, bazıları özel amaçlar için kullanılırlar.
+
+    GENEL KAYITÇILAR:
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        32 Bit register'ların adları E ile başlar : EAX, EDI, ESI, EBP, ESP EDX vs.
+        16 Bit register'larin adları ise E olmadan yazılır : AX, DI, SI, BP, SP, DX vs.
+        
+
+        EAX : Akümümalör kayıtçısıdır, genellikle dört işlem operasyonlarında kullanılır.
+              Ayrıca fonksiyonlar geri dönüş değerlerini bu registere yazarlar.
+
+                        EAX 32 bit
+            ┌──────────────────────────────────┐
+                                    AX 16 bit
+                            ┌─────────────────┐
+            ┌────────────────┬────────┬────────┐
+            │                │   AH   │   AL   │
+            │     16 bit     │  8 bit │  8 bit │
+            └────────────────┴────────┴────────┘
+            Örneğin : EAX = 0x12345678 ise 
+                      AX = 0x5678
+                      AH = 0x56
+                      AL = 0x78
+
+
+        EBX : Base register'ıdır. Programa ait stack adresini tutar, bu sayede ESP (stack adres registeri)
+              değiştirilmiş olsa bile, bu register sayesinde istediğimiz verilere erişebiliriz.
+
+                        EBX 32 bit
+            ┌──────────────────────────────────┐
+                                    BX 16 bit
+                            ┌─────────────────┐
+            ┌────────────────┬────────┬────────┐
+            │                │   BH   │   BL   │
+            │     16 bit     │  8 bit │  8 bit │
+            └────────────────┴────────┴────────┘
+            Örneğin : EBX = 0x12345678 ise
+                      BX = 0x5678
+                      BH = 0x56
+                      BL = 0x78
+
+        ECX : Counter register'idir, bir döngüye girildiği anda o döngünün daha ne kadar çalışacağının sayısı
+              bu kayıtçıda tutulur ve bu kayıtçı üzerinden kontrol yapılır.
+
+                        ECX 32 bit
+            ┌──────────────────────────────────┐
+                                    CX 16 bit
+                            ┌─────────────────┐
+            ┌────────────────┬────────┬────────┐
+            │                │   CH   │   CL   │
+            │     16 bit     │  8 bit │  8 bit │
+            └────────────────┴────────┴────────┘
+            Örneğin : ECX = 0x12345678 ise
+                      CX = 0x5678
+                      CH = 0x56
+                      CL = 0x78
+
+
+        EDX : Data register'idir, genellikle donanım ile yapılan veri giriş çıkış işlemlerinde kullanılır.
+              Ayrıca dört işlem operatörü olarak da kullanılabilir.
+
+                        EDX 32 bit
+            ┌──────────────────────────────────┐
+                                    DX 16 bit
+                            ┌─────────────────┐
+            ┌────────────────┬────────┬────────┐
+            │                │   DH   │   DL   │
+            │     16 bit     │  8 bit │  8 bit │
+            └────────────────┴────────┴────────┘
+            Örneğin : EDX = 0x12345678 ise
+                      DX = 0x5678
+                      DH = 0x56
+                      DL = 0x78
+
+    ┌────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+    │   ESI : Source Index register'idir, genelde bir verinin başlangıç adresini tutar ve ilgili her işlemde │
+    │         değeri, verinin türüne göre arttırılır.                                                        │
+    │                                                                                                        │
+    │         ESI : Tek bir bütündür.                                                                        │
+    │        ┌──────────────────────────────────┐                                                            │
+    │        │                                  │                                                            │
+    │        │                                  │                                                            │
+    │        └──────────────────────────────────┘                                                            │
+    │                                                                                                        │
+    │   EDI : Destination Index register'idir, genelde ESI ile birlikte kullanılır. Hedef hafızayı tutar ve  │
+    │         ilgili işlemde veri türüne bağlı olarak hafızayı arttırır.                                     │
+    │                                                                                                        │
+    │         EDI : Tek bir bütündür                                                                         │
+    │        ┌──────────────────────────────────┐                                                            │
+    │        │                                  │                                                            │
+    │        │                                  │                                                            │
+    │        └──────────────────────────────────┘                                                            │
+    │   Örneğin bu registerlar movsb komutunda kullanılır. Komutları fonksiyonlar bölümünde açıklayacağım.   │
+    ├────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+    │                                                                                                        │
+    │   EIP : Instruction Pointer register'idir, programımızda bir sonraki adımda çalışacak kodun adresini   │
+    │         işaret eder. EIP register'ine yanlışlıkla değer yazılması programın çökmesine neden olabilir.  │
+    │                                                                                                        │
+    │         EIP : Tek bir bütündür                                                                         │
+    │        ┌──────────────────────────────────┐                                                            │
+    │        │                                  │                                                            │
+    │        │                                  │                                                            │
+    │        └──────────────────────────────────┘                                                            │
+    │                                                                                                        │
+    │   ESP : Stack Pointer register'idir, programımızın sahip olduğu stack hafızasına işaret eder. 		 │
+	│		  Stack hafızası yüksek hafızadan (0xffffffff) düşük hafızaya (0x00000000) doğru gidildikçe		 │
+	│		  büyür. Stack'e bir değer yazıldığında ESP'nin değeri 0x4 azaltılır. (32bit sistemlerde)		 │
+    │         Stack'den bir değer aldığımızda ise ESP'nin değeri 0x4 arttırılır. (32bit sistemlerde)         │
+    │         Yani ESP'nin gösterdiği stack adresi veri yazıldıkça küçülür, veri alındıkça büyür. 		     │
+    │                    																					 │
+    │         ESP : Tek bir bütündür                                                                         │
+    │        ┌──────────────────────────────────┐                                                            │
+    │        │                                  │                                                            │
+    │        │                                  │                                                            │
+    │        └──────────────────────────────────┘                                                            │
+    │                                                                                                        │
+    │   EBP : Base Pointer register'idir stack segmentinin başladığı adresi tutar.                           │                                        
+    │                                                                                                        │
+    │         EBP : Tek bir bütündür                                                                         │
+    │        ┌──────────────────────────────────┐                                                            │
+    │        │                                  │                                                            │
+    │        │                                  │                                                            │
+    │        └──────────────────────────────────┘                                                            │
+    │                                                                                                        │
+    │   EFL : Flags register'idir çok özel göreve sahiptir, bu kayıtçının tuttuğu bit değerleri işlenmiş     │
+    │         komutlar hakkında programa bilgi vermektedir. Örneğin cmp (karşılaştırma komutu) ile yaptığımız│
+    │         bir işlemde sonuca uygun bit değerini hafızasına yazacaktır, ve bu yazılan veri bir sonraki    │
+    │         komuta uygun olup olmadığına bakılacak, eğer uygun ise o komut çalıştırılacaktır.              │
+    │                                                                                                        │
+    │         EFL : Tek bir bütündür                                                                         │
+    │        ┌──────────────────────────────────┐                                                            │
+    │        │                                  │                                                            │
+    │        │                                  │                                                            │
+    │        └──────────────────────────────────┘                                                            │
+    └────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+    
+    
+    16 Bit Segment Register'ları :
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        Segment register'larına herhangi bir veriyi yazmak mümkündür, ama bunu yapmak iyi bir fikir değildir.
+        Segment register'larının özel amaçları vardır ve hafızanın ulaşılabilir çeşitli bölümlerini gösterirler.
+
+        Segment register'ları genel amaçlı register'lar ile birlikte çalışarak hafızada herhangi bir bölgeyi
+        işaret edebilir. Örneğin: DS seg. register'i 0x1230, SI register'i 0x0040 olsun, DS segmentinde
+        0x0040 adresine (offset) denk gelen fiziksel hafızayı bulmak için:
+
+        DS seg. değeri 0x10 ile çarpılır ve SI registeri ile toplama yapılır:
+        
+        DS : 0x1230 * 0x10 = 0x12300
+        0x12300 + 0x0040 = 0x12340 -> Fiziksel adres.
+    
+
+        İki register tarafından oluşturulan adreslere "effective address" (efektif adres) denir.
+
+        BX, SI, DI register'ları DS segment register'i ile birlikte, (DS:BX, DS:SI, DS:DI)
+        BP, SP register'ları ise SS segment register'i ile birlikte çalışır. (SS:BP, SS:SP)
+
+        Ek bilgi : Efektif adres oluşturulurken BX register'inin BH ve BL parçaları kullanılamaz.
+
+
+        CS : Code segment register'idir, çalışan kodların bulunduğu adres bölgesini işaret eder.
+             En önemli kayıtçılardan biridir, programların TEXT segmentini temsil eder. Bu register'in
+             değeri istenmeyen bir şekilde değiştiği zaman programlarımız kitlenir, ayrıca windows üzerinde
+             aldığımız mavi ekran hatası da bu yüzden gerçekleşir. Yeni Windows sürümleriyle beraber gelen daha
+             gelişmiş bellek yönetim özellikleri sayesinde bu tür hatalarla eskisi kadar karşılaşmıyoruz.
+
+        DS : Data segment register'idir, programımızı yazarken tanımladığımız const verileri ve derleme sırasında
+             oluşturulan veriler bu segment altında yer alır.
+             
+        SS : Stack segment register'idir, programımızda oluşturduğumuz her türlü dinamik veri türlerini
+             barındıran stack bölgesini işaret eder.
+
+        ES : Extra segment register'idir, kullanımı programcıya bırakılmıştır.
+
+
+
+Stack Yapısı :
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+	Stack programımız boyunca oluşturduğumuz, değişkenler ve fonksiyon parametreleri gibi verilerin tutulduğu
+	hafıza alanıdır. Bu hafıza alanı yüksek hafızadan (0xFFFFFFFF) düşük hafızaya (0x00000000) doğru büyür.
+	Var olan stack hafızasından bir veri aldığımızda (pop) ise hafıza adresi büyür, yani stack küçülür.
+	Intel işlemci mimarisini kullanan sistemlerde Last In First Out (LIFO) yapısı vardır, bunun anlamı stack'e
+	son yazılan verinin, ilk önce çıkacağıdır.
+
+	Örneğin: push 0xfeedf00d; stacke veri yazıldı
+			 push 0xdeadbeef; stacke veri yazıldı
+
+			 pop eax; stack'in en üstünde bulunan veri eax'e kopyalandı. EAX = 0xdeadbeef
+			 pop ebx; stack'in en üstünde kalan veri ebx'e kopyalandı. EBX = 0xfeedf00d
+
+
+	Temsili bir stack yapısı (Başlangıçta):
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+					ESP = 0x0040F000
+		
+					0xFFFFFFFF			 
+					┌────────────────────┐                                                            
+		0x0040F000	│        ESP         │
+					├────────────────────┤
+					│                    │
+					├────────────────────┤
+					│					 │
+					└────────────────────┘
+					0x00000000
+
+					push 0xdeadbeef;	ESP'de gösterilen adrese 0xdeadbeef verisini yazalım.
+
+
+	Veri yazıldıktan sonra stack :
+	──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+					ESP = 0x0040effc -> 0x0040F000 - 0x4
+		
+					0xFFFFFFFF			 
+					┌────────────────────┐                                                            
+		0x0040F000	│     deadbeef       │
+					├────────────────────┤
+		0x0040effc	│       ESP          │
+					├────────────────────┤
+					│					 │
+					└────────────────────┘
+					0x00000000
+
+					pop eax;	Şimdi stack'e son yazılan veriyi eax registeri içerisine yazdıralım.
+
+	Veri alındıktan sonra stack :
+	──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+					ESP = 0x0040F000 -> 0x0040effc + 0x4
+		
+					0xFFFFFFFF			 
+					┌────────────────────┐                                                            
+		0x0040F000	│        ESP         │
+					├────────────────────┤
+					│      deadbeef      │
+					├────────────────────┤
+					│					 │
+					└────────────────────┘
+					0x00000000
+
+
+EBP, Fonksiyon Parametreleri ve Yerel Değişkenler Hakkında :
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+    Bir programda hata ayıklarken assembly kodları arasında (EBP - HEX) biçiminde bir adresten veri alındığını
+    görürsek anlamalıyız ki o adres ana fonksiyona ait bir yerel değişkeni tutar.
+
+    Örneğin: (EBP - HEX) -> (EBP - 0x4) İlk yerel değişkeni alınır.
+    Örneğin: (EBP - HEX) -> (EBP - 0x8) İkinci yerel değişkeni alınır.
+
+    Bir fonksiyon çalıştırılıp bittiği zaman sistemimizin programın nereden devam edeceğini bilmesi gerekir. İşte
+    bu geri dönülecek adres (EBP + 4) adresinde saklanır ve program bittiği zaman EIP registeri o adreste bulunan,
+    değere eşitlenerek program kaldığı yerden devam eder.
+
+    Fonksiyona verilen ilk parametre : (EBP + 8)
+    Fonksiyona verilen ikinci parametre : (EBP + 12)
+    ...
+
+
+
+Assembly Komut Sistemi :
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+	Tekli komutlar:
+		Verilen parametreyi kullanarak belirli işlemler yapılır.
+
+		xxx source :
+			push esp;
+			ret 0x0;
+
+	Çiftli komutlar:
+		İkinci olarak verilen parametreyi kullanarak ilk veri/yapı üzerinde işlem yapılır.
+		
+		xxx destination, source : 
+			mov eax, 0x1;
+			lea eax, DWORD PTR[var];
+
+
+	source'nin alabileceği veri/yapı türleri : 
+		*registers
+		*hafıza referansları
+		*sabit değerler
+
+	destination'ın alabileceği veri/yapı türleri :
+		*registers
+		*hafıza referansları
+
+	source ve destination aynı anda hafıza referansları gösterilerek kullanılamazlar.
+
+
+	Hafıza Referansları - Memory Referances : 
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+		[0040123Bh] -> 0x0040123B adresinde bulunan veriyi alır. "h" parametrenin hexedecimal olduğunu belirtir.
+
+		[EAX] -> EAX'ın tuttuğu hafıza değerinin içerisinde bulunan veriyi alır.
+
+		[EAX + 0xC] -> EAX'ın tuttuğu hafızaya 0xC ekler, oluşan yeni hafıza referansındaki veriyi alır.
+
+		[EAX + 0xa * 2] -> 0xa değerini 2 ile çarpar daha sonra EAX değeriyle toplar, yeni hafızadaki değeri alır.
+
+	HAFIZA BOYUTLARINI BELİRTMEK : 
+	──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+		Bu yapılar belirli bir adresten veri alımı sırasında, alınacak verinin boyutunu belirtmek için
+		kullanılmaktadır.
+
+		BYTE PTR -> Hafızada bulunan 1 byte'lık veriyi almak için kullanılır.
+		WORD PTR -> 2 bytes
+		DWORD PTR -> 4 bytes
+		QWORD PTR -> 8 bytes
+
+
+
+
+
+─────────────────────────────────────────────────────KOMUTLAR─────────────────────────────────────────────────────
+
+NOP KOMUTU - No Operation :
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+	Hiçbir şey yapmaz, derleyiciler bu komutu genellikle hafızayı düzenlemek, ayarlamak için kullanır.
+	Bazı durumlarda ise hafıza bölümlerini ayırırken aradaki boşlukları doldurmak için kullanılabilir.
+
+	NOP;
+
+	
+MOV KOMUTU - Move :
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+	Belirtilen hedefe veri ataması yapar.
+	
+	mov eax, 1;					  	 EAX'a 1 değerini yazar -> 0x00000001
+	mov eax, ESP;	 			 	 ESP'nin adres değerini eax'e yazar, EAX = ESP
+	mov eax, [ESP]; 			 	 ESP adresindeki değeri EAX'a yazar 
+	mov DWORD PTR[ADDRESS], eax; 	 EAX'de bulunan veriyi ADDRESS'de gösterilen hafızaya yazacaktır.
+
+	mov eax, [ESP] = mov eax, DWORD PTR[ESP] -> eax zaten 4 byte olduğu için uygun olan boyut kullanılacaktır.
+
+	Örneğin bir verinin bir kısmını, daha büyük boyutta ki bir registere yazmak istiyorsak, movzx komutunu da
+	kullanabiliriz.
+
+
+MOVZX KOMUTU - Move With Zero Extend : 
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+	Belirtilen hedefe, belirtilen boyuta bağlı olarak kaynaktan veri yazılır boşta kalan kısımlar ise sıfır ile
+	doldurulur.
+
+	push 0xFFFFFFFF; 					stack'e 4 byte'lık veri yazdık.
+	movzx eax, WORD PTR[esp]; 			en son stack'e yazılan verinin 2 byte'lık kısmını eax'e yazdı, boş kalan
+										yerleri ise 0 ile doldurdu. EAX = 0x0000FFFF
+
+	push 0xFFFFFFFF; 					stack'e 4 byte'lık veri yazdık.
+	movzx ax, BYTE PTR[esp];			stack'de bulunan verinin 1 byte'lık kısmını ax'a yazdık, geri kalan boş
+										yerleri ise 0 ile doldurduk. 
+										EAX = 0xXXXX00FF -> XXXX = önceden kalan, AH registerine ait veri.
+
+LEA KOMUTU - Load Effective Address :
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+	Source kısmında belirttiğimiz değişkenin veya değerin adresini almamızı sağlar. 
+	Peki aynı işlevi mov ile yapamaz mıydık ? İnceleyelim:
+
+	Örneğin C dilinde bir int değişkenimiz olsun, ilk önce bu değişkenin değerini daha sonra adresini alalım.
+
+		int intVal = 5;
+
+		mov eax, intVal;	eax = 0x5
+		mov eax, [intVal];  eax = 0x5, bu şekilde değerini alabildik şimdi değişkenin adresini alalım.
+
+		lea eax, [intVal];  eax = &intVal
+		lea eax, intVal;    eax = &intVal, eax artık intVal'ın adresini taşıyor.
+		
+
+
+PUSH KOMUTU : 
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────── 
+	ESP'nin gösterdiği adrese belirtilen veriyi yazar ve ESP'yi 0x4 azaltır.
+		NOT : Stack düşük hafıza bölgesine (0x00000000) doğru büyür.
+	
+	push 0xdeadbeef;    ESP - 4
+	push 0xfeedf00d;    ESP - 4
+
+            0xFFFFFFFF
+            ┌────────────────────┐                                                            
+        	│     0xdeadbeef     │
+            ├────────────────────┤
+            │     0xfeedf00d     │
+            ├────────────────────┤
+        ESP │    		 		 │
+            └────────────────────┘
+            0x00000000
+
+
+POP KOMUTU : 
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────── 
+    ESP'nin gösterdiği adreste belirtilen veriyi istenilen registere veya hafıza bölgesine yazar.
+    ESP'nin değerini 0x4 arttırır.
+
+    push 0xbaadc0de;     ESP - 4
+    pop eax;             ESP + 4 -> eax = 0xbaadc0de
+
+
+SUB - ADD KOMUTU : 
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────── 
+    Sub komutu çıkarma işlemi için kullanılır. İlk parametreden ikincisini çıkartır ve sonucu ilk parametreye 
+    yazar.
+
+        sub eax, ebx;   eax = eax - ebx
+
+        Örnek:
+            sub DWORD PTR[EBP - 0x4], 20;   Hatırlarsak (EBP - 0x4) ilk yerel değişkenimizdi, bu kod ile yerel
+                                            değişkenin değerini 20 azaltıyoruz.
+
+
+    Add komutu ise toplama işlemi için kullanılır. İlk parametre ile ikinci parametreyi toplar ve sonucu ilk
+    parametreye yazar.
+
+        add esp, 0x4;   ESP registerinin değerini 4 arttırır yani stack'de bulunan son değeri pop etmiş gibi
+                        işlem görür.
+
+    
+CALL KOMUTU : 
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────── 
+
+    CALL fonksiyonu basitçe bir fonksiyonu çağıracağımızda, fonksiyon bittikten sonra geri dönülecek kod 
+    adresini stack'e yazar ve fonksiyonun adresine atlayarak fonksiyonu çalıştırır. Çağırılan fonksiyon ise
+    işi bittikten sonra stack'e yazılan geri dönüş adresini alır EIP'ye eşitler ve program kaldığı yerden devam
+    eder.
+
+    Örnek:
+
+        C dilinde:
+
+            int toplamaFonksiyonu(int a, int b){
+                return a + b;
+            }
+
+            int main(){
+                int sonuc = toplamaFonksiyonu(1, 2);
+            }
+
+        Assembly Dilinde :
+
+            003B2018  push  2;    Parametrelerimiz sağdan sola stack'e yazılır.
+            003B201A  push  1;
+            003B201C  call  toplamaFonksiyonu (03B1429h);
+                call fonksiyonu burada ilk önce bir sonraki kod adresini (003B2021)'i stack'e yazacak, daha
+                sonra (EIP) registerini toplamaFonksiyonu'nun adresine eşitleyecek ve o fonksiyon çalıştırılacak.
+            
+                toplamaFonksiyonu çalıştırıldığında her fonksiyonda olduğu gibi ilk olarak mevcut olan EBP değeri
+                stack'e yazılacak daha sonra o fonksiyondaki ESP değeri EBP'ye yazılacak.
+
+                    push    ebp;        EBP'yi stack'e yaz
+                    mov     ebp,esp;    ESP'yi EBP'ye yaz
+                
+                Bu sayede fonksiyon bittiğinde (EBP + 4) ile geri dönülecek (003B2021) adresine erişebilir.
+                (EBP + 8) = ilk parametre yani bu örnekte "1"
+                (EBP + 12) = ikinci parametre yani bu örnekte "2"
+                
+
+            003B2021  add   esp,8;  Fonksiyon bittiğinde stack'i parametre sayısı çarpı boyutu kadar
+                                    arttırarak işimizin bittiği gereksiz hafızayı tekrar kullanıyoruz.
+
+            003B2024  mov   dword ptr [sonuc],eax;  Fonksiyonlar bittikleri zaman geri dönüş değerlerini
+                                                    eax registerine yazarlar. Bu kod ile dönüş değerini yani
+                                                    toplama sonucumuzu sonuc değişkenine eşitliyoruz.
+
+
+RET KOMUTU : 
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+    RET fonksiyonu ise fonksiyonun işi bittiği zaman çağırılır görevi ESP'de bulunan geri dönüş adresini 
+    EIP register'ine yazmak ve programın devam etmesini sağlamaktır. Bu komutu kullanırken ESP'nin doğru
+    adresi göstermesine dikkat edilmelidir aksi taktirde programımız istenmeyen komutları çalıştırabilir.
+
+    Örnek:
+
+        C Dilinde :
+
+            int toplamaFonksiyonu(int a, int b){
+                return a + b;
+            }
+
+            int main(){
+                int sonuc = toplamaFonksiyonu(5, 10);
+            }
+
+        Assembly Dilinde : (Adresler temsilidir)
+
+            main:
+                0x10    push 0x0a;                  Parametreleri sağdan sola doğru stack'e yazdık.
+                0x11    push 0x5;
+                0x12    call toplamaFonksiyonu;     0x13 adresi stack'e yazıldı ve fonksiyona atlandı.    
+                0x13    add esp, 8;                 Geri dönüşten sonra stack'e yazdığımız parametrelerin
+                                                    adresini tekrar kullanmak için esp'ye toplam parametre 
+                                                    boyutunu ekliyoruz.
+
+                0x14    mov dword ptr [sonuc], eax  Fonksiyonun sonucunu "sonuc" değişkenine yazıyoruz.
+                        ...
+
+            toplamaFonksiyonu:
+                0x1    push ebp;                    Mevcut registerlar stack'e kaydediliyor.
+                0x2    mov ebp,esp;                 Fonksiyona ait ESP, EBP'ye yazılıyor.
+                       ...
+                0x8    pop ebp;                     Registerlar eski haline döndürülüyor, stack ayarlanıyor.
+                0x9    ret;                         Call fonksiyonunun yazdığı geri dönüş noktasına dönülüyor.
+
+
+    Birde parametre alan RET fonksiyonu bulunmakta, bu fonksiyonun yaptığı iş ise çağırılan fonksiyonun kendi 
+    parametrelerini stack'den kendinin temizlemesini sağlamaktır. Bunun için __stdcall veya __fastcall
+    "Calling Convention"larından yararlanılır.
+
+    Örnek:
+        
+        C Dilinde :
+
+                int __stdcall toplamaFonksiyonu(int a, int b){ 
+                    return a + b;
+                }
+                // __stdcall olarak belirtilen yapı "Calling Convention" olarak geçer kısaca fonksiyona verilen
+                // parametreleri kimin temizleyeceğini belirtir. __stdcall kısaca stack üzerinde bulunan fonksiyon
+                // parametrelerinin fonksiyonun kendisinin temizleyeceği anlamına gelir. 
+
+                // Bunu belirtmediğimiz taktirde varsayılan olarak __cdecl olarak işlem görür ve bu da fonksiyonu
+                // çağıran ana fonksiyonun stack temizliği yapacağını söyler. (İlk örnekte olduğu gibi)
+
+                int main(){
+                    int sonuc = toplamaFonksiyonu(5, 10);
+                }
+
+            Assembly Dilinde : (Adresler temsilidir)
+
+                main:
+                    0x10    push 0x0a;                  Parametreleri sağdan sola doğru stack'e yazdık.
+                    0x11    push 0x5;
+                    0x12    call toplamaFonksiyonu;     0x13 adresi stack'e yazıldı ve fonksiyona atlandı.
+                    0x13    mov dword ptr [sonuc], eax  Fonksiyonun sonucunu "sonuc" değişkenine yazıyoruz.
+
+                toplamaFonksiyonu:
+                    0x1    push ebp;                    Mevcut registerlar stack'e kaydediliyor.
+                    0x2    mov ebp,esp;                 Fonksiyona ait ESP, EBP'ye yazılıyor.
+                        ...
+                    0x8    pop ebp;                     Registerlar eski haline döndürülüyor, stack ayarlanıyor.
+                    0x9    ret 8;                       Call fonksiyonunun yazdığı geri dönüş noktasına dönülüyor,
+                                                        ve ESP 8 arttırılarak parametreler stack'den temizleniyor.
+
+
+
+
+CALLING CONVENTIONS - Çağrı Kuralları :
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+    Parametrelerin fonksiyonlara nasıl verileceğini ve stack temizliğini kimin yapacağını belirler.
+    Programcı kendisi belirtmelidir, otomatik olarak gerçekleştirilmez. Bu kuralları bilmek stack incelemesi 
+    yaparken yardımcı olacaktır. 5 adet kural bulunur fakat bunların sadece 3 tanesi yaygın olarak kullanılmaktadır.
+
+    void <kural_tanımı> fonksiyonum(int a, int b) -> void __stdcall fonksiyonum(int a, int b);
+
+
+    __cdecl :
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        Parametreler stack'e sağdan sola doğru yazılır, çünkü en son yazılan değer ilk önce alınır. (LIFO)
+
+        Stack temizliğini çağırıcı fonksiyon yapar.
+        
+        Fonksiyonun adı assembly dosyasında : _FonksiyonAdı şeklinde gösterilir.
+        
+        C/C++ fonksiyonları için varsayılan kuraldır ve değişken sayıda parametreyi destekleyen tek kuraldır.
+            Örneğin: printf, değişken sayıda argümanlara ise "varargs" adı verilir.
+
+        Örnek Kod:
+        ──────────────────────────────────────────────────────────────────────────────────────────────────────────
+            C/C++ Fonksiyon tanımı : void __cdecl fonksiyonum(int a, int b);
+
+            Assembly:
+
+                push b;             b parametresini stack'e yazar.
+                push a;             a parametresini stack'e yazar.
+                call fonksiyonum;   bir sonraki kod adresini stack'e yazar ve fonksiyonu çağırır.
+                add esp, 8;         çağırılan fonksiyon __cdecl tanımlı olduğu için stack temizliğini 
+                                    çağıran fonksiyon yapar. Nadir de olsa bazen derleyicinin optimizasyon
+                                    ayarlarına göre burada pop ecx; pop ecx; şeklinde kod görülebilir. 
+                                    İkisi de aynı işi yapar, ESP'ye 8 ekler.
+
+
+    __stdcall (standart call) :
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        Parametreler stack'e sağdan sola doğru yazılır, çünkü en son yazılan değer ilk önce alınır. (LIFO)
+        
+        Stack temizliğini çağırılan fonksiyonun kendisi yapar.
+
+        Fonksiyonun adı assembly dosyasında : _ + fonksiyonAdı + @ + parametreSayısı * 4 şeklinde yazılır.
+            Örneğin: _fonksiyonum@8
+
+        Neredeyse tüm Windows API fonksiyonları bu kuralı kullanır, kod boyutunu küçültmekte de kullanılabilir.
+
+        Örnek Kod:
+        ──────────────────────────────────────────────────────────────────────────────────────────────────────────
+            C/C++ Fonksiyon tanımı : void __stdcall fonksiyonum(int a, int b);
+
+            Assembly : 
+            
+                main:
+                    push b;             b parametresini stack'e yazar.
+                    push a;             a parametresini stack'e yazar.
+                    call fonksiyonum;   bir sonraki kod adresini stack'e yazar ve fonksiyonu çağırır.
+                    ...
+
+                fonksiyonum:
+                    ...                 ret komutu çalıştırılmadan önce stack ayarlanır.
+                    ret 8;              İlk önce ESP'de bulunan geri dönüş adresini EIP registerine yazar.
+                                        Daha sonra ESP'nin değerini 8 azaltarak stack temizliği yapar.
+
+    __fastcall :
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        İlk iki parametre boyutuna bağlı olarak ECX ve EDX'e geri kalanı ise sağdan sola doğru stack'e yazılır.
+            Örneğin : 4 byte'lık ilk parametre ECX registerinde saklanır.
+                      2 byte'lık ilk parametre CX registerinde saklanır.
+                      1 byte'lık ilk parametre CL registerinde saklanır.
+                      
+                      4 byte'lık ikinci parametre EDX registerinde saklanır.
+                      2 byte'lık ikinci parametre DX registerinde saklanır.
+                      1 byte'lık ikinci parametre DL registerinde saklanır.
+                      
+        Stack temizliğini çağırılan fonksiyonun kendisi yapar.
+
+        Fonksiyonun adı assembly dosyasında : @ + fonksiyonAdı + @ + parametreSayisi * 4
+            Örneğin: @fonksiyonum@8
+
+        Link zamanında kod oluşturumu (Link Time Code Generation (LTCG)) release modunda derlenen programlarda
+        bazı fonksiyonları __fastcall'a dönüştürür.
+
+
+        Örnek Kod:
+        ──────────────────────────────────────────────────────────────────────────────────────────────────────────
+            C/C++ Fonksiyon tanımı : void __fastcall fonksiyonum(int a, int b);
+
+            Assembly : 
+            
+                main:
+                    mov edx, b;          b parametresini EDX'e yazar.
+                    mov ecx, a;          a parametresini ECX'e yazar.
+                    call fonksiyonum;    bir sonraki kod adresini stack'e yazar ve fonksiyonu çağırır.
+                    ...
+
+                fonksiyonum:
+                    ...                 ret komutu çalıştırılmadan önce stack ayarlanır.
+                    ret;                __fastcall fonksiyonlarında bulunan ret komutunun yapısı stack'de
+                                        parametre olup olmamasına bağlıdır, bu örnekte stack'de parametre
+                                        bulunmadığı için normal "ret" olarak komutu çalıştırıyor.
+                                        FAKAT eğer stack'de yani ikiden fazla sayıda parametremiz olsaydı
+                                        ret komutu -> ret stackParametreSayısı * 4 şeklinde kullanılacaktı.
+
+        Şimdi stack üzerinde de parametre bulunduran __fastcall fonksiyonunu inceleyelim.
+
+        Örnek Kod:
+        ──────────────────────────────────────────────────────────────────────────────────────────────────────────
+            C/C++ Fonksiyon tanımı : void __fastcall fonksiyonum(int a, int b, int c, int d);
+
+            Assembly : 
+            
+                main:
+                    push d;              d parametresini stack'e yazar.
+                    push c;              c parametresini stack'e yazar.
+                    mov edx, b;          b parametresini EDX'e yazar.
+                    mov ecx, a;          a parametresini ECX'e yazar.
+                    call fonksiyonum;    bir sonraki kod adresini stack'e yazar ve fonksiyonu çağırır.
+                    ...
+
+                fonksiyonum:
+                    ...                  ret komutu çalıştırılmadan önce stack ayarlanır.
+                    ret 8;               bu örnekte stack'de iki adet parametre bulunduğu için ret komutu
+                                         ret 8 şeklinde kullanılıyor.
+
+
+    THISCALL (C++) :
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        C++'da sınıf objelerince kullanılan bir çağrı yapısıdır, otomatik olarak tanımlanırlar.
+
+        C++'da oluşturulan sınıf fonksiyonları hafızanın bir bölgesinde yer alır ve tüm sınıf örnekleri (objeleri)
+        aynı kodu kullanır. Peki aralarındaki fark nedir, nasıl oluyorda programımız farklı objelerin 
+        değişkenlerini ayırt edebiliyor ? Cevap çok basit her sınıf objesi kendi adresine ve bu adreslerde kendi 
+        değişkenlerine sahip, bir sınıf fonksiyonu çağırılacağı zaman çağırılan fonksiyonun varargs içerip 
+        içermemesine göre objeler kendi adreslerini belirli yöntemlerle fonksiyona veriyorlar ve fonksiyon bu 
+        adresi kullanarak o objeye ait veriler üzerinde işlem gerçekleştiriyor. Fonksiyona verilen bu adresin 
+        içeriğine biz programcılar "this" anahtarı ile ulaşabiliyoruz.
+
+        NOT : this içerisinde tutulan adres o anki objeye ait ilk değişkenin adresini barındırır.
+
+        Şimdi fonksiyonların "varargs" davranış durumlarını inceleyelim.
+
+
+        Varargs İçermeyen Sınıf Fonksiyonlarında : (__stdcall davranışı görülür)
+        ──────────────────────────────────────────────────────────────────────────────────────────────────────────
+            Sınıf objemizin adresi ECX registerine yazılır, geri kalan parametreler ise sağdan sola olmak üzere
+            stack'e yazılır. Sınıf fonksiyonları ise ECX registerinde bulunan adresdeki verileri kullanır.
+
+            C++ Kodu :
+            ──────────────────────────────────────────────────────────────────────────────────────────────────────
+                
+                class ornekSinif{
+                    public:
+                        int sinifDegiskeni = 0;
+
+                        void normalFonksiyon(int a){
+                            this->sinifDegiskeni = a;
+                        }
+
+                };
+                
+                int main(){
+                    ornekSinif sinifObjesi;
+                    sinifObjesi.normalFonksiyon(20);
+                }
+
+            Assembly Kodu :
+            ──────────────────────────────────────────────────────────────────────────────────────────────────────
+
+                main:
+                    push 0x14;                          Parametreyi stack'e yazar
+                    lea ecx, [sinifObjesi];             Sınıflarla çalışırken, ECX sınıf objesinin adresini tutar.
+                    call ornekSinif::normalFonksiyon;   OrnekSinif'da tanımlanmış fonksiyona gider,
+                                                        ECX sayesinde istenilen obje üzerinde işlem yapılır.
+                    ...
+
+                normalFonksiyon:
+                    ...
+                    mov     dword ptr [this], ecx;  this = ECX -> ECX objemizin adresi
+                    ...
+                    mov     eax,dword ptr [this];   EAX = this
+                    mov     ecx,dword ptr [a];      ECX = fonksiyona verilen parametre
+                    mov     dword ptr [eax],ecx;    Verilen parametre, objenin ilk değişkenine yazılır.
+                    ...
+                    ret 4;      Sınıf fonksiyonumuz "varargs" türünden parametre içermediği için __stdcall gibi
+                                davranarak stack'i kendi temizleyecektir.
+
+
+        
+        Varargs İçeren Sınıf Fonksiyonlarında : (__cdecl davranışı görülür)
+        ──────────────────────────────────────────────────────────────────────────────────────────────────────────
+            Varargs içeren sınıf fonksiyonları çağırılırken, ilk önce parametreler sağdan sola daha sonra objenin
+            adresi stack'e yazılır ve sınıf fonksiyonu çağırılır. Sınıf fonksiyonu stacke yazılan adresi "this"
+            işaretçisi ile alır ve gereken işlemleri yapar.
+
+            C++ Kodu :
+            ──────────────────────────────────────────────────────────────────────────────────────────────────────
+                
+                class ornekSinif{
+                    public:
+                        int sinifDegiskeni = 0;
+
+                        void varargsFonksiyon(int a, ...) {
+                            this->sinifDegiskeni = a;
+                        }
+
+                };
+                
+                int main(){
+                    ornekSinif sinifObjesi;
+                    sinifObjesi.varargsFonksiyon(5, 9);
+                }
+
+            Assembly Kodu :
+            ──────────────────────────────────────────────────────────────────────────────────────────────────────
+
+                main:
+                    push    9;                              Son parametre stack'e yazıldı.
+                    push    5;                              İlk parametre stack'e yazıldı.
+                    lea     eax,[sinifObjesi];              Objemizin adresi eax registerine yazıldı.
+                    push    eax;                            Objemizin adresi stack'e yazıldı.
+                    call    ornekSinif::varargsFonksiyon;   Sınıf fonksiyonu çağırılıyor.
+                    add     esp,0xc;                        Stack temizliği çağıran fonksiyon tarafından 
+                                                            yapılıyor. 
+
+                normalFonksiyon:
+                    ...
+                    mov    eax,dword ptr [this];    This burada stack'den alınan objemizin adresini temsil ediyor.
+                    mov    ecx,dword ptr [a];       Parametreden aldığı değeri ECX değerine yazıyor.
+                    mov    dword ptr [eax],ecx;     Parametremizi EAX'ın gösterdiği adrese yazıyor.
+                                                    Yani işlem yaptığımız objemizin ilk değişkenine.
+                    ...
+                    ret;    Sınıf fonksiyonumuz "varargs" türünden parametre içerdiği için __cdecl gibi
+                            davranarak stack'i çağıran fonksiyonun temizlemesi gerekecek.
+
+
+    64 Bit Calling Convention :
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        İlk 4 int parametreler sırasıyla RCX, RDX, R8, R9'a.
+        İlk 4 floating point parametreler sırasıyla XMM0, XMM1, XMM2, XMM3'e.
+        Geri kalan tüm parametreler ise sağdan sola doğru stack'e yazılır.
+        Stack temizliğini çağıran fonksiyon yapar.
+
+        Parametre sırası önemlidir, örneğin 3. parametre int ise int değerlere ait registerlerin 3'üncüsüne yazılır.
+        Ya da 2. parametresi float olan bir parametre XMM1'e yazılacaktır. 
+
+        Örnek : void fonksiyon(int a, double b, int c, float d);
+        a-> RCX, b -> XMM1, c -> R8, d -> XMM3 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+
+
+
+
+
+    ─  │ ┌ ┐ └ ┘ ├ ┤ ┬ ┴ ┼ ═ ║ ╒ ╓ ╔ ╕ ╗ ╖ ╘ ╙ ╚ ╛ ╜ ╝ ╞ ╟ ╠ ╡ ╢ ╣ ╤ ╥ ╦ ╧ ╨ ╩ ╪ ╫ ╬ ▲ ► ▼ ◄
+    ▬ ↓ ↑ ← → — ― ‖ ‗
