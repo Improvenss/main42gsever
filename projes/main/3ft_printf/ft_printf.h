@@ -6,9 +6,18 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 14:25:26 by gsever            #+#    #+#             */
-/*   Updated: 2022/02/24 15:07:47 by gsever           ###   ########.fr       */
+/*   Updated: 2022/02/25 14:43:32 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
+
+# include <stdlib.h>
+# include <unistd.h>
+# include <stdarg.h>
+
+int ft_printf(const char *, ...);
+
+
+#endif
