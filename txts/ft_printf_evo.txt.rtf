@@ -1,0 +1,73 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2513
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 Futura-Bold;\f1\fnil\fcharset0 Futura-Medium;\f2\fnil\fcharset0 Futura-MediumItalic;
+}
+{\colortbl;\red255\green255\blue255;\red190\green185\blue176;\red19\green20\blue21;\red184\green179\blue170;
+\red19\green20\blue21;}
+{\*\expandedcolortbl;;\cssrgb\c79216\c77255\c74510;\cssrgb\c9412\c10196\c10588;\cssrgb\c77255\c75294\c72157;
+\cssrgb\c9412\c10196\c10588\c30196;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\sl600\sa60\partightenfactor0
+
+\f0\b\fs56 \cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Introduction\
+\pard\pardeftab720\sa220\partightenfactor0
+
+\f1\b0\fs32 \cf2 Please comply with the following rules:\uc0\u8232 \u8232 - Remain polite, courteous, respectful and constructive throughout the\u8232 evaluation process. The well-being of the community depends on it.\u8232 \u8232 - Identify with the student or group whose work is evaluated the possible\u8232 dysfunctions in their project. Take the time to discuss and debate the\u8232 problems that may have been identified.\u8232 \u8232 - You must consider that there might be some differences in how your peers\u8232 might have understood the project's instructions and the scope of its\u8232 functionalities. Always keep an open mind and grade them as honestly as\u8232 possible. The pedagogy is useful only and only if the peer-evaluation is\u8232 done seriously.\u8232 \
+\pard\pardeftab720\sl600\sa60\partightenfactor0
+
+\f0\b\fs56 \cf2 Guidelines\
+\pard\pardeftab720\sa220\partightenfactor0
+
+\f1\b0\fs32 \cf2 - Only grade the work that was turned in the Git repository of the evaluated\uc0\u8232 student or group.\u8232 \u8232 - Double-check that the Git repository belongs to the student(s). Ensure that\u8232 the project is the one expected. Also, check that 'git clone' is used in an\u8232 empty folder.\u8232 \u8232 - Check carefully that no malicious aliases was used to fool you and make you\u8232 evaluate something that is not the content of the official repository.\u8232 \u8232 - To avoid any surprises and if applicable, review together any scripts used\u8232 to facilitate the grading (scripts for testing or automation).\u8232 \u8232 - If you have not completed the assignment you are going to evaluate, you have\u8232 to read the entire subject prior to starting the evaluation process.\u8232 \u8232 - Use the available flags to report an empty repository, a non-functioning\u8232 program, a Norm error, cheating, and so forth.\u8232 In these cases, the evaluation process ends and the final grade is 0,\u8232 or -42 in case of cheating. However, except for cheating, student are\u8232 strongly encouraged to review together the work that was turned in, in order\u8232 to identify any mistakes that shouldn't be repeated in the future.\u8232 \u8232 - Remember that for the duration of the defence, no segfault, no other\u8232 unexpected, premature, uncontrolled or unexpected termination of the\u8232 program, else the final grade is 0. Use the appropriate flag.\u8232 You should never have to edit any file except the configuration file if it\u8232 exists. If you want to edit a file, take the time to explicit the reasons\u8232 with the evaluated student and make sure both of you are okay with this.\u8232 \u8232 - You must also verify the absence of memory leaks. Any memory allocated on\u8232 the heap must be properly freed before the end of execution.\u8232 You are allowed to use any of the different tools available on the computer,\u8232 such as leaks, valgrind, or e_fence. In case of memory leaks, tick the\u8232 appropriate flag.\u8232 \
+\
+\pard\pardeftab720\sl600\sa60\partightenfactor0
+
+\f0\b\fs56 \cf2 \cb3 Mandatory Part\cb1 \
+\pard\pardeftab720\partightenfactor0
+
+\f2\i\b0\fs32 \cf2 \
+\pard\pardeftab720\sl440\sa220\partightenfactor0
+
+\f0\i0\b\fs40 \cf2 \cb3 Simple Conversion Management\
+\pard\pardeftab720\sa220\partightenfactor0
+
+\f1\b0\fs32 \cf2 - Simply check each conversion without any flags 'cspdiuxX%'\cb1 \uc0\u8232 \cb3 - Try special cases like 0, or smallest int, or empty string, or NULL\cb1 \uc0\u8232 \cb3 pointer.\cb1 \uc0\u8232 \cb3 - Test multiple arguments/conversions.\cb1 \uc0\u8232 \cb3 - Test various conversions in the middle of a sentence (put other\cb1 \uc0\u8232 \cb3 characters before and/or after).\
+\
+\pard\pardeftab720\sl440\sa220\partightenfactor0
+
+\f0\b\fs40 \cf2 Get Crazy\
+\pard\pardeftab720\sa220\partightenfactor0
+
+\f1\b0\fs32 \cf2 - Redo every previous test but this time verify that the return value\cb1 \uc0\u8232 \cb3 matches the one of the original printf.\cb1 \uc0\u8232 \cb3 - Try any combination of conversions.\cb1 \uc0\u8232 \cb3 - Check what happens with a series of identical conversions following\cb1 \uc0\u8232 \cb3 each other.\
+\pard\pardeftab720\sl600\sa60\partightenfactor0
+
+\f0\b\fs56 \cf2 Bonus part\cb1 \
+\pard\pardeftab720\sa220\partightenfactor0
+
+\f2\i\b0\fs32 \cf2 \cb3 Evaluate the bonus part if, and only if, the mandatory part has been entirely and perfectly done, and the error management handles unexpected or bad usage. In case all the mandatory points were not passed during the defense, bonus points must be totally ignored.\cb1 \
+\pard\pardeftab720\sl440\sa220\partightenfactor0
+
+\f0\i0\b\fs40 \cf2 \cb3 Simple flags management\
+\pard\pardeftab720\sa220\partightenfactor0
+
+\f1\b0\fs32 \cf2 - Check the flags '.', '-' and 0.\cb1 \uc0\u8232 \cb3 - Check the %-d with INT_MIN\cb1 \uc0\u8232 \cb3 - Check the - flag with any value.\cb1 \uc0\u8232 \cb3 - Check the 0 flag like %04d.\cb1 \uc0\u8232 \cb3 - Check the '.' with multiple precisions.\cb1 \uc0\u8232 \cb3 - For every test, verify the return value matches the original one.\cb1 \uc0\u8232 \cb3 - For each working flag, give 1 point.\cb1 \uc0\u8232 \cb3 - If all the flags work, give 2 bonus points.\cb1 \uc0\u8232 \cb3 \
+\pard\pardeftab720\qc\partightenfactor0
+
+\f0\b\fs26 \cf4 \cb5 \strokec4 Rate it from 0 (failed) through 5 (excellent)\cb1 \
+\
+\
+\
+\pard\pardeftab720\sl440\sa220\partightenfactor0
+
+\fs40 \cf2 \cb3 \strokec2 # + space\
+\pard\pardeftab720\sa220\partightenfactor0
+
+\f1\b0\fs32 \cf2 - Check all the conversions with the flags '#', '+' and space with all\cb1 \uc0\u8232 \cb3 the other flag combinations.\cb1 \uc0\u8232 \cb3 - For each working flag, give 1 point.\cb1 \uc0\u8232 \cb3 - If all the flags work, give 2 bonus points.\cb1 \uc0\u8232 \cb3 \
+\pard\pardeftab720\qc\partightenfactor0
+
+\f0\b\fs26 \cf4 \cb5 \strokec4 Rate it from 0 (failed) through 5 (excellent)\cb1 \
+\
+\
+\
+}
