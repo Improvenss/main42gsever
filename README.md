@@ -1,4 +1,4 @@
-[![gsever's 42 stats](https://badge42.herokuapp.com/api/stats/gsever?darkmode=false&privacyEmail=false&privacyName=false)](https://github.com/JaeSeoKim/badge42)
+[![gsever's 42 stats](https://badge42.herokuapp.com/api/stats/gsever?darkmode=true&privacyEmail=false&privacyName=false)](https://github.com/JaeSeoKim/badge42)
 
 
 **ONLY USE THIS AS A REFERENCE, IF YOU COPY YOU RISK GETTING A -42!!**
