@@ -1,36 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   deneme.c                                           :+:      :+:    :+:   */
+/*   ft_printf_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/24 13:25:34 by gsever            #+#    #+#             */
-/*   Updated: 2022/02/24 13:55:10 by gsever           ###   ########.fr       */
+/*   Created: 2022/02/26 14:42:55 by gsever            #+#    #+#             */
+/*   Updated: 2022/02/26 18:21:59 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "ft_printf.h"
 /*
-int	main()
-{
-	int	sample;
-	
-	for (sample = 0; sample <= 100; sample++)
-	{
-		printf("Decimal value: %d, Character value: %c\n", sample, sample);
-	}
-}
+yazdirmak istedigimiz char'i int olarak gonderiyoruz cunku bazi char'lara
+fonksiyonu int olarak tanimladigimiz zaman ulasamiyoruz o yuzden int tanimlioz
 */
-/*
-int	main()
+int	ft_print_char(const int c)
 {
-	char	weekday[] = "Thursday";
-	char	month[] = "February";
-	int		day = 24;
-	int		hour = 1;
-	int		minute = 28;
-
-	fprintf(stdout, "%s, %s %d, %.2d:%.2d\n", weekday, month, day, hour, minute);
+	write(1, &c, 1);
+	return (1);
 }
-*/

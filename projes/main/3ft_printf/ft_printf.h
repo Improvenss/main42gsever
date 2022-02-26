@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 14:25:26 by gsever            #+#    #+#             */
-/*   Updated: 2022/02/25 18:48:55 by gsever           ###   ########.fr       */
+/*   Updated: 2022/02/26 17:53:50 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,9 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdarg.h>
+# include <stdio.h>
 
-int ft_printf(const char *, ...);
-
+int	ft_printf(const char *, ...);
+int	ft_print_char(const int c);
 
 #endif
