@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 13:56:16 by gsever            #+#    #+#             */
-/*   Updated: 2022/02/26 18:30:48 by gsever           ###   ########.fr       */
+/*   Updated: 2022/02/26 18:42:08 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int	ft_printf(const char *format, ...)
 		}
 		else
 			printed += ft_print_char(*format);
-		printed++;
+		format++;
 	}
 	va_end(args);
 	return (printed);
