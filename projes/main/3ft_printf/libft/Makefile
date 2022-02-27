@@ -6,7 +6,7 @@
 #    By: gsever <gsever@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/04 19:14:22 by gsever            #+#    #+#              #
-#    Updated: 2022/02/26 17:51:22 by gsever           ###   ########.fr        #
+#    Updated: 2022/02/27 13:53:11 by gsever           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ FILES	:= $(shell find . -type f -name "*.c")
 OBJ		:= $(FILES:%.c=%.o)
 
 $(NAME): $(OBJ)
-	ar -rcs $(NAME) $(OBJ)
+	@ar -rcs $(NAME) $(OBJ)
 	@echo "\033[92m	!!LIBFT SUCCESFULLY COMPILED!!\033[0m"
 
 all: $(NAME) clean

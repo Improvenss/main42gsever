@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 14:42:55 by gsever            #+#    #+#             */
-/*   Updated: 2022/02/26 18:21:59 by gsever           ###   ########.fr       */
+/*   Updated: 2022/02/27 16:48:52 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,4 +19,20 @@ int	ft_print_char(const int c)
 {
 	write(1, &c, 1);
 	return (1);
+}
+/*
+string'i direkt yazdiriyoruz. her functionumuzu int tanimlamamiz gerekiyor, 
+cunku 
+*/
+
+int	ft_print_string(const char *str)
+{
+	int	printed;
+
+	printed = 0;
+	if (str == NULL)
+		return (ft_print_string("(null)"));
+	while (*str)
+		printed += ft_print_char(*str++);
+	return (printed);
 }
