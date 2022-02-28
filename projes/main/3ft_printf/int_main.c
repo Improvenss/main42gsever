@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   deneme.c                                           :+:      :+:    :+:   */
+/*   int_main.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 14:25:03 by gsever            #+#    #+#             */
-/*   Updated: 2022/02/27 18:48:15 by gsever           ###   ########.fr       */
+/*   Updated: 2022/02/28 17:17:34 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,17 +27,13 @@ void ft_test_c(void)
 
 void ft_test_s(void)
 {
-	char *str1;
-	char *str2;
-	char *str3;
-	char *str4;
-
-	str1 = "gorkem";
-	str2 = "sever";
-	str3 = "42";
-	str4 = "";
+	char *str1 = "gorkem";
+	char *str2 = "sever";
+	char *str3 = "42";
+	char *str4 = "";
+	
 	printf("orginal_s_times:%d\n", printf("org:%s, %s, %s, |%s|\n", str1, str2, str3, str4));
-	printf("ft_s_times:%d\n", ft_printf("ft_:%s, %s, %s, |%s|\n", str1, str2, str3, str4));
+	ft_printf("ft_s_times:%d\n", ft_printf("ft_:%s, %s, %s, |%s|\n", str1, str2, str3, str4));
 }
 /*
 void ft_test_p(void)
@@ -53,3 +49,30 @@ void ft_test_p(void)
 	ft_printf("ft_p_times:%d\n", ft_printf("ft_:%p, %p, %p\n", ptr1, ptr2, ptr3));
 }
 */
+
+void ft_test_d(void)
+{
+	int i = 35;
+	char c = 'a';
+	char s[] = "abc";
+
+	printf("original_d_times:%d\n\n", printf("int:%d\nchar:%d\nstring:%d\n", i, c, s[1]));
+	ft_printf("function_d_times:%d\n", ft_printf("int:%d\nchar:%d\nstring:%d\n", i, c, s[1]));
+}
+
+void ft_test_i(void)
+{
+	int	a, b, c;
+ 
+	printf("Enter value of a in decimal format (%%d):");
+	scanf("%d", &a);
+
+	printf("Enter value of b in octal format(%%i):");
+	scanf("%i", &b);
+
+	printf("Enter value of c in hexadecimal format(%%x):");
+	scanf("%x", &c);
+
+	printf("a = %i, b = %i, c = %i", a, b, c);
+
+}

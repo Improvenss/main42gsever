@@ -6,17 +6,17 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 13:56:16 by gsever            #+#    #+#             */
-/*   Updated: 2022/02/27 18:48:19 by gsever           ###   ########.fr       */
+/*   Updated: 2022/02/28 17:06:43 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 //void	ft_test_c(void);
-void	ft_test_s(void);
+//void	ft_test_s(void);
 //void	ft_test_p(void);
 //void	ft_test_d(void);
-//void	ft_test_i(void);
+void	ft_test_i(void);
 //void	ft_test_u(void);
 //void	ft_test_x(void);
 //void	ft_test_X(void);
@@ -44,7 +44,7 @@ static int	ft_format(va_list arg, const char *format_string)
 	else if (*format_string == 'u')
 
 	else if (*format_string == 'x')
-
+a
 	else if (*format_string == 'X')
 
 	else if (*format_string == '%')
@@ -77,10 +77,10 @@ int	ft_printf(const char *format, ...)
 int	main(void)
 {
 	//ft_test_c();
-	ft_test_s();
+	//ft_test_s();
 	//ft_test_p();
 	//ft_test_d();
-	//ft_test_i();
+	ft_test_i();
 	//ft_test_u();
 	//ft_test_x();
 	//ft_test_X();
