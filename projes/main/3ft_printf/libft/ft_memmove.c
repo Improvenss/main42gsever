@@ -6,12 +6,15 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 14:36:00 by gsever            #+#    #+#             */
-/*   Updated: 2022/02/27 14:42:25 by gsever           ###   ########.fr       */
+/*   Updated: 2022/03/01 13:44:14 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-//"start" --> 3's "ststt" doing.
+/*
+"start" --> 3's "ststt" doing.
+https://aticleworld.com/memmove-function-implementation-in-c/
+*/
 void	*ft_memmove(void *dst, const void *src, size_t n)
 {
 	if (!dst && !src)

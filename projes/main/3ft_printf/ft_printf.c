@@ -6,16 +6,16 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 13:56:16 by gsever            #+#    #+#             */
-/*   Updated: 2022/02/28 17:06:43 by gsever           ###   ########.fr       */
+/*   Updated: 2022/03/01 14:11:17 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-//void	ft_test_c(void);
-//void	ft_test_s(void);
-//void	ft_test_p(void);
-//void	ft_test_d(void);
+void	ft_test_c(void);
+void	ft_test_s(void);
+void	ft_test_p(void);
+void	ft_test_d(void);
 void	ft_test_i(void);
 //void	ft_test_u(void);
 //void	ft_test_x(void);
@@ -34,13 +34,13 @@ static int	ft_format(va_list arg, const char *format_string)
 		printed += ft_print_char(va_arg(arg, int));
 	else if (*format_string == 's')
 		printed += ft_print_string(va_arg(arg, char *));
-//	else if (*format_string == 'p')
-	
+	//else if (*format_string == 'p')
+		//printed += ft_print_pointer(va_arg(arg, unsigned long long));
 	else if (*format_string == 'd')
-		printed += ft_print_decimal(va_arg(arg, int));
-/*
+		printed += ft_print_decimal(va_arg(arg, long));
 	else if (*format_string == 'i')
-
+		printed += ft_decimal_to_octal(va_arg(arg, long));
+/*
 	else if (*format_string == 'u')
 
 	else if (*format_string == 'x')
