@@ -6,14 +6,24 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 13:56:16 by gsever            #+#    #+#             */
-/*   Updated: 2022/03/02 15:46:20 by gsever           ###   ########.fr       */
+/*   Updated: 2022/03/02 21:28:57 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+void	ft_test_c(void);
+void	ft_test_s(void);
+void	ft_test_p(void);
+void	ft_test_d(void);
+void	ft_test_i(void);
+void	ft_test_u(void);
+void	ft_test_x(void);
+void	ft_test_X(void);
+void	ft_test_percent(void);
 /*
 Printf fonksiyonu istedigimiz seyleri yazdirmanin yaninda kac tane karakter 
 yazdirdigimizi da yazdirir (kac karakter yazdirdiysak onu yazdirir 'int')
+	%i ile %d ayni boku yapiyor. bunu kodlayanin anasina benden gul buketi
 */
 static int	ft_format(va_list arg, const char *format)
 {
@@ -26,10 +36,8 @@ static int	ft_format(va_list arg, const char *format)
 		printed += ft_print_string(va_arg(arg, char *));
 	else if (*format == 'p')
 		printed += ft_print_pointer(va_arg(arg, unsigned long long));
-	else if (*format == 'd')
-		printed += ft_print_decimal(va_arg(arg, long));
-	else if (*format == 'i')
-		printed += ft_print_decimal_to_octal(va_arg(arg, long));
+	else if (*format == 'd' || *format == '%i')
+		printed += ft_print_decimal(va_arg(arg, int));
 	else if (*format == 'u')
 		printed += ft_print_udecimal(va_arg(arg, unsigned int));
 	else if (*format == 'x' || *format == 'X')
@@ -60,16 +68,6 @@ int	ft_printf(const char *format, ...)
 	va_end(args);
 	return (printed);
 }
-/*
-void	ft_test_c(void);
-void	ft_test_s(void);
-void	ft_test_p(void);
-void	ft_test_d(void);
-void	ft_test_i(void);
-void	ft_test_u(void);
-void	ft_test_x(void);
-void	ft_test_X(void);
-void	ft_test_percent(void);
 
 int	main(void)
 {
@@ -77,10 +75,9 @@ int	main(void)
 	//ft_test_s();
 	//ft_test_p();
 	//ft_test_d();
-	//ft_test_i();
+	ft_test_i();
 	//ft_test_u();
 	//ft_test_x();
 	//ft_test_X();
 	//ft_test_percent();
 }
-*/

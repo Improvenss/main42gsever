@@ -15,7 +15,7 @@
 		-- %i icin yapildi --
 ft_print_decimal() fonksiyonu cagirarak; decimal to octal yaptiktan sonra 
 yani 10->8, bunu char olarak yazdiriyoruz.
-*/
+
 int	ft_print_decimal_to_octal(long dec)
 {
 	long	octal_number;
@@ -35,7 +35,7 @@ int	ft_print_decimal_to_octal(long dec)
 	printed = ft_print_decimal(octal_number);
 	return (printed);
 }
-
+*/
 static int	ft_number_len(unsigned int number)
 {
 	int	len;

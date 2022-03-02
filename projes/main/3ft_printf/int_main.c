@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 14:25:03 by gsever            #+#    #+#             */
-/*   Updated: 2022/03/02 15:12:47 by gsever           ###   ########.fr       */
+/*   Updated: 2022/03/02 21:20:49 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void ft_test_d(void)
 	printf("original_d_times:%d\n\n", printf("int:%d\nchar:%d\nstring:%d\n", i, c, s[1]));
 	ft_printf("function_d_times:%d\n", ft_printf("int:%d\nchar:%d\nstring:%d\n", i, c, s[1]));
 }
-//testind octal value
+//testind octal value amk pirintf'i ayni boku yapiyor
 void ft_test_i(void)
 {
 	int	a, b, c;

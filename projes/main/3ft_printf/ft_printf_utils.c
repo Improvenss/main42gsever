@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 14:42:55 by gsever            #+#    #+#             */
-/*   Updated: 2022/03/02 15:28:42 by gsever           ###   ########.fr       */
+/*   Updated: 2022/03/02 21:25:14 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	ft_print_string(const char *str)
 string'in index'iyle birlikte gonderirsen characterini belirttigin icin
 char olarak decimal degerini yazdiriyor. 43. satirda belirttigim sey.
 */
-int	ft_print_decimal(const long dec)
+int	ft_print_decimal(int dec)
 {
 	int		printed;
 	char	*value;
