@@ -6,11 +6,12 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 14:25:03 by gsever            #+#    #+#             */
-/*   Updated: 2022/03/01 17:44:57 by gsever           ###   ########.fr       */
+/*   Updated: 2022/03/02 13:42:13 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
 //testing char
 void ft_test_c(void)
 {
@@ -122,4 +123,10 @@ void ft_test_X(void)
 
 	printf("orginal_p_times:%d\n", printf("org:%X, %X, %X\n", a, b, c));
 	ft_printf("ft_p_times:%d\n", ft_printf("ft_:%X, %X, %X\n", a, b, c));
+}
+
+void ft_test_percent(void)
+{
+	printf("org_print_percent test --> %%|%%|%%\n");
+	ft_printf("ft_print_percent test  --> %%|%%|%%\n");
 }

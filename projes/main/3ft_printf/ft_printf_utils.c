@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 14:42:55 by gsever            #+#    #+#             */
-/*   Updated: 2022/03/01 17:37:08 by gsever           ###   ########.fr       */
+/*   Updated: 2022/03/02 13:42:43 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,10 @@ int	ft_print_decimal(const long dec)
 	printed = ft_print_string(value);
 	free(value);
 	return (printed);
+}
+
+//		-- %% icin yapildi --
+int	ft_print_percent(void)
+{
+	return (ft_print_char('%'));
 }

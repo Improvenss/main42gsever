@@ -6,21 +6,11 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 13:56:16 by gsever            #+#    #+#             */
-/*   Updated: 2022/03/01 17:43:16 by gsever           ###   ########.fr       */
+/*   Updated: 2022/03/02 13:42:18 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-void	ft_test_c(void);
-void	ft_test_s(void);
-void	ft_test_p(void);
-void	ft_test_d(void);
-void	ft_test_i(void);
-void	ft_test_u(void);
-void	ft_test_x(void);
-void	ft_test_X(void);
-//void	ft_test_percent(void);
 /*
 Printf fonksiyonu istedigimiz seyleri yazdirmanin yaninda kac tane karakter 
 yazdirdigimizi da yazdirir (kac karakter yazdirdiysak onu yazdirir 'int')
@@ -43,10 +33,9 @@ static int	ft_format(va_list arg, const char *format)
 	else if (*format == 'u')
 		printed += ft_print_udecimal(va_arg(arg, unsigned int));
 	else if (*format == 'x' || *format == 'X')
-		printed += ft_print_hex(va_arg(arg, unsigned long long), format);
-/*
-	else if (*format_string == '%')
-*/
+		printed += ft_print_hex(va_arg(arg, unsigned long long), *format);
+	else if (*format == '%')
+		printed += ft_print_percent();
 	return (printed);
 }
 
@@ -71,7 +60,16 @@ int	ft_printf(const char *format, ...)
 	va_end(args);
 	return (printed);
 }
-
+/*
+void	ft_test_c(void);
+void	ft_test_s(void);
+void	ft_test_p(void);
+void	ft_test_d(void);
+void	ft_test_i(void);
+void	ft_test_u(void);
+void	ft_test_x(void);
+void	ft_test_X(void);
+void	ft_test_percent(void);
 int	main(void)
 {
 	//ft_test_c();
@@ -80,7 +78,8 @@ int	main(void)
 	//ft_test_d();
 	//ft_test_i();
 	//ft_test_u();
-	ft_test_x();
-	//t_test_X();
+	//ft_test_x();
+	//ft_test_X();
 	//ft_test_percent();
 }
+*/

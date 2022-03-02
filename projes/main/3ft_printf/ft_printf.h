@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 14:25:26 by gsever            #+#    #+#             */
-/*   Updated: 2022/03/01 17:48:08 by gsever           ###   ########.fr       */
+/*   Updated: 2022/03/02 13:42:07 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,6 @@ int	ft_print_pointer(unsigned long long address);
 int	ft_print_udecimal(unsigned int value);
 int	ft_print_hex(unsigned long long value, const char format);
 int	ft_hexadecimal_len(unsigned long long number);
+int	ft_print_percent(void);
 
 #endif
