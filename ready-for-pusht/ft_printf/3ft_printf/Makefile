@@ -6,12 +6,12 @@
 #    By: gsever <gsever@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/24 12:48:35 by gsever            #+#    #+#              #
-#    Updated: 2022/03/02 16:20:08 by gsever           ###   ########.fr        #
+#    Updated: 2022/03/02 16:19:25 by gsever           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		:= libftprintf.a
-CC			:= clang
+CC			:= clang 
 CFLAGS		:= -Wall -Werror -Wextra -I . -c
 FILES		:= $(wildcard *.c)
 LIBFT_PATH	:= ./libft
@@ -42,8 +42,10 @@ clean:
 
 fclean: clean
 	@make fclean -C $(LIBFT_PATH)
+	@rm -f libft.a
 	@rm -f $(NAME)
 	@echo "\033[33m-->	libftprintf.a 	DELETED\033[0m"
+	
 	
 re: fclean all
 
