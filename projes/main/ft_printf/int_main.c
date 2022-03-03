@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 14:25:03 by gsever            #+#    #+#             */
-/*   Updated: 2022/03/02 21:20:49 by gsever           ###   ########.fr       */
+/*   Updated: 2022/03/03 17:25:27 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,4 +129,48 @@ void ft_test_percent(void)
 {
 	printf("org_print_percent test --> %%|%%|%%\n");
 	ft_printf("ft_print_percent test  --> %%|%%|%%\n");
+}
+
+/*
+	[w]	-- Genisligini veriyoruz o genislik kadar yazdirma yapiyoruz --
+Steps:
+	1 - genisligimizi alalim
+	2 - bu genisligimiz kadar + 1 fazlasi kadar 
+mallocla alan acalim yine sonuna \0 ekleyecegiz
+	3 - if(parametre) -, +, 0, 
+*/
+void ft_test_bonus_width(void)
+{
+	printf("original:|%5d|", 123);
+	//ft_printf("function:|%5d|", 123);
+}
+
+void ft_test_bonus_left(void)
+{
+
+}
+
+void ft_test_bonus_plus(void)
+{
+	
+}
+
+void ft_test_bonus_zero(void)
+{
+	
+}
+
+void ft_test_bonus_hashtag(void)
+{
+	
+}
+
+void ft_test_bonus_space(void)
+{
+	
+}
+
+void ft_test_bonus_dot(void)
+{
+	
 }

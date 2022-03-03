@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 13:14:11 by gsever            #+#    #+#             */
-/*   Updated: 2022/02/23 14:53:33 by gsever           ###   ########.fr       */
+/*   Updated: 2022/03/03 15:38:39 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,7 +126,7 @@ char	*get_next_line(int fd)
 	line[fd] = ft_remove_writed_line(line[fd]);
 	return (write_readed_line);
 }
-
+/*
 int	main()
 {
  	int fd = open("test1", O_RDONLY);
@@ -145,3 +145,4 @@ int	main()
   		write(resfd, str, ft_strlen(str));
  	}
 }
+*/

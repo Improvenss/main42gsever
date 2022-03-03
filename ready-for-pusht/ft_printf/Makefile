@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: aeser <aeser@student.42.fr>                +#+  +:+       +#+         #
+#    By: gsever <gsever@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/20 15:37:57 by aeser             #+#    #+#              #
-#    Updated: 2022/02/20 15:37:58 by aeser            ###   ########.fr        #
+#    Updated: 2022/03/03 12:44:08 by gsever           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,6 +41,8 @@ clean:
 fclean: clean
 	@rm -f $(NAME)
 	@rm -rf $(OBJDIR)
+
+bonus: 
 
 re: fclean all
 

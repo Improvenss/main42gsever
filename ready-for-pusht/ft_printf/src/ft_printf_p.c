@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 13:25:15 by gsever            #+#    #+#             */
-/*   Updated: 2022/03/02 22:56:03 by gsever           ###   ########.fr       */
+/*   Updated: 2022/03/03 13:15:33 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,11 +62,9 @@ int	ft_print_pointer(unsigned long long address)
 	int	printed;
 
 	printed = 0;
-	if (address == 0)
-		return (ft_print_string("(nil)"));
 	printed += ft_print_string("0x");
 	if (address == 0)
-		printed += ft_print_char('0');
+		printed += write(1, "0", 1); 
 	else
 		printed += ft_print_ptr(address);
 	return (printed);
