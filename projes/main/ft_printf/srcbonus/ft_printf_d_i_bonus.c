@@ -6,14 +6,14 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 18:46:34 by gsever            #+#    #+#             */
-/*   Updated: 2022/03/03 17:19:06 by gsever           ###   ########.fr       */
+/*   Updated: 2022/03/04 12:58:24 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf_bonus.h"
 /*
 		-- %i icin yapildi - (ama printf cok ultra muk bir fonksiyon
-		oldugu icin %d ile %i ayni boku yapiyor... -_- -
+		oldugu icin %d ile %i ayni boku yapiyor... -_- --
 ft_print_decimal() fonksiyonu cagirarak; decimal to octal yaptiktan sonra 
 yani 10->8, bunu char olarak yazdiriyoruz.
 

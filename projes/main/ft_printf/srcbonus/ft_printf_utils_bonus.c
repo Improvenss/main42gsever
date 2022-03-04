@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 14:42:55 by gsever            #+#    #+#             */
-/*   Updated: 2022/03/03 17:19:20 by gsever           ###   ########.fr       */
+/*   Updated: 2022/03/04 12:51:44 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	ft_print_string(const char *str)
 }
 
 /*
-		-- %d icin yapildi --
+		-- %d ve %i icin yapildi --
 	10'luk tabanda decimal sayi yazdiriyor.
 	int->degerini
 	char->bytesini yani dec degerini
