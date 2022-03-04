@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 13:56:16 by gsever            #+#    #+#             */
-/*   Updated: 2022/03/04 17:43:05 by gsever           ###   ########.fr       */
+/*   Updated: 2022/03/04 19:26:42 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static int	ft_format(va_list arg, const char *format)
 
 		%[Flags][Width].[Precision][Specifier]
 		%[İşaretler][Genişlik].[Hassasiyet][Belirleyici]
-						%
+			%[-, 0, ., #,  , +][sayi w yani].[float'in .'si][SPECIFIERS]
 1->	[w]	(%5d)	5 dedigimiz yer bizim genisligimiz oluyor, toplamda 5
 	karakterlik yer acmis oluyoruz.
 	ornek --> printf("|%5d|", 123); --> |  123| oluyor.
@@ -69,7 +69,7 @@ static int	ft_format(va_list arg, const char *format)
 		ornek --> printf("|%#5x|", 123); --> | 0x7b| oluyor.
 		ornek --> printf("|%#5X|", 123); --> | 0X7B| oluyor.
 				***********************
-	[ ]	(% 5s)	
+	[ ]	(% 5s)	Isaret belirtilmezse bosluk atar sonrakine gecer.
 				***********************
 	[.]	(%.5f)	.'dan sonra verilen sayi kadar virgullu sayinin virgulden 
 	sonrasinin kac basamak yazilacagini belirliyor. (Float)
@@ -129,7 +129,7 @@ int	main(void)
 	//ft_test_X();
 	//ft_test_percent();
 
-	ft_test_bonus_width();
+	//ft_test_bonus_width();
 	//ft_test_bonus_left();
 	//ft_test_bonus_plus();
 	//ft_test_bonus_zero();

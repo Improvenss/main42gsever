@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 14:25:03 by gsever            #+#    #+#             */
-/*   Updated: 2022/03/04 17:43:08 by gsever           ###   ########.fr       */
+/*   Updated: 2022/03/04 19:26:39 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,6 +132,7 @@ void ft_test_percent(void)
 }
 
 /*************************************************************************** */
+/*		%[-, 0, ., #,  , +][sayi w yani].[float'in .'si][SPECIFIERS]	*/
 /*
 	[w]	-- Genisligini veriyoruz o genislik kadar yazdirma yapiyoruz --
 Steps:
@@ -160,6 +161,9 @@ void ft_test_bonus_left(void)
 		ornek --> printf("|%+5d|", 123); --> | +123| oluyor.
 					negatifse = -		koyuyor.
 		ornek --> printf("|%+5d|", -123); --> | -123| oluyor.
+	
+	if(0 varsa) ilk stuna + yaz sonra 000 ekle
+		ornek => |+0000abc|
 */
 void ft_test_bonus_plus(void)
 {
@@ -190,7 +194,7 @@ void ft_test_bonus_hashtag(void)
 	printf("|%#5X|", 123);
 }
 /*
-	[ ]	(% 5s)	
+	[ ]	(% 5s)	Isaret belirtilmezse bosluk atar sonrakine gecer.
 */
 void ft_test_bonus_space(void)
 {
