@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 13:56:16 by gsever            #+#    #+#             */
-/*   Updated: 2022/03/04 12:34:20 by gsever           ###   ########.fr       */
+/*   Updated: 2022/03/04 15:31:10 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,9 @@ static int	ft_format(va_list arg, const char *format)
 	Bu adama beton yetmez!
 		-> https://alvinalexander.com/programming/printf-format-cheat-sheet/
 
+		%[Flags][Width].[Precision][Specifier]
+		%[İşaretler][Genişlik].[Hassasiyet][Belirleyici]
+						%
 1->	[w]	(%5d)	5 dedigimiz yer bizim genisligimiz oluyor, toplamda 5
 	karakterlik yer acmis oluyoruz.
 	ornek --> printf("|%5d|", 123); --> |  123| oluyor.
@@ -56,18 +59,21 @@ static int	ft_format(va_list arg, const char *format)
 		ornek --> printf("|%+5d|", -123); --> | -123| oluyor.
 				***********************
 	[0]	(%05s)	Eger 5'in basinda 0 (SIFIR) varsa bosluklar yerine 0 koyuyor.
-	ornek --> printf("|%5s|", abc); --> |00abc| oluyor.
+	ornek --> printf("|%5s|", "abc"); --> |00abc| oluyor.
 				***********************
 	[#]	(%#5d)	Eger 5'in basinda # varsa hexadecimal yazdirilan yani x - X
 	ile ciktisi istenilen ciktinin basina 0x - 0X koyuyor. #'siz yazdigimizda 
 	sadece hex hali yaziliyor. (Adres yazdirir gibi)
 				-- Sadece x, X, p ile kullanilabilinir. Bunlar hex cikiyor.
+									p haricmis...
 		ornek --> printf("|%#5x|", 123); --> | 0x7b| oluyor.
 		ornek --> printf("|%#5X|", 123); --> | 0X7B| oluyor.
 				***********************
 	[ ]	(% 5s)	
 				***********************
-	[.]	(%.5s)	
+	[.]	(%.5f)	.'dan sonra verilen sayi kadar virgullu sayinin virgulden 
+	sonrasinin kac basamak yazilacagini belirliyor. (Float)
+		ornek --> printf("|%10.3f|", 123.12345); --> |   123.123| oluyor.
 */
 int	ft_printf(const char *format, ...)
 {

@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 18:46:34 by gsever            #+#    #+#             */
-/*   Updated: 2022/03/04 12:58:24 by gsever           ###   ########.fr       */
+/*   Updated: 2022/03/04 13:14:56 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ static char	*ft_uitoa(unsigned int number)
 
 /*
 		-- %u icin yapildi --
-	unsigned integer olarak gonderilen degerimizi yazdirmamizi istiyor.
+unsigned integer olarak gonderilen degerimizi yazdirmamizi istiyor.
 */
 int	ft_print_udecimal(unsigned int value)
 {

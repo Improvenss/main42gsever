@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 14:25:26 by gsever            #+#    #+#             */
-/*   Updated: 2022/03/03 13:56:48 by gsever           ###   ########.fr       */
+/*   Updated: 2022/03/04 13:25:04 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,10 @@ int	ft_printf(const char *format, ...);
 int	ft_print_char(const int c);
 int	ft_print_string(const char *str);
 int	ft_print_decimal(int dec);
-//int	ft_print_decimal_to_octal(int dec);
 int	ft_print_pointer(unsigned long long address);
 int	ft_print_udecimal(unsigned int value);
 int	ft_print_hex(unsigned int value, const char format);
-//int	ft_hexadecimal_len(unsigned long long number);
 int	ft_print_percent(void);
+//bonus
 
 #endif
