@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 14:25:03 by gsever            #+#    #+#             */
-/*   Updated: 2022/03/04 13:02:22 by gsever           ###   ########.fr       */
+/*   Updated: 2022/03/04 17:43:08 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,13 +124,14 @@ void ft_test_X(void)
 	printf("orginal_p_times:%d\n", printf("org:%X, %X, %X\n", a, b, c));
 	ft_printf("ft_p_times:%d\n", ft_printf("ft_:%X, %X, %X\n", a, b, c));
 }
-
+//	2 tane arka arkaya yuzde varsa % yaz.
 void ft_test_percent(void)
 {
 	printf("org_print_percent test --> %%|%%|%%\n");
 	ft_printf("ft_print_percent test  --> %%|%%|%%\n");
 }
 
+/*************************************************************************** */
 /*
 	[w]	-- Genisligini veriyoruz o genislik kadar yazdirma yapiyoruz --
 Steps:
@@ -145,33 +146,61 @@ void ft_test_bonus_width(void)
 	//ft_printf("function:|%5d|", 123);
 }
 
+/*
+	[-]	(%-5d)	Eger 5'in basinda - varsa yazilarimizi sola yapistiriyor.
+	ornek --> printf("|%-5d|", 123); --> |123  | oluyor.
+*/
 void ft_test_bonus_left(void)
 {
 	printf("|%-5d|", 123);
 }
-
+/*
+	[+]	(%+5d)	Eger 5'in basinda + varsa sayimizin pozitif/negatif gore + -
+					pozitifse = +		koyuyor.
+		ornek --> printf("|%+5d|", 123); --> | +123| oluyor.
+					negatifse = -		koyuyor.
+		ornek --> printf("|%+5d|", -123); --> | -123| oluyor.
+*/
 void ft_test_bonus_plus(void)
 {
 	printf("|%+5d|", 123);
 	printf("|%+5d|", -123);
 }
 
+/*
+	[0]	(%05s)	Eger 5'in basinda 0 (SIFIR) varsa bosluklar yerine 0 koyuyor.
+	ornek --> printf("|%5s|", "abc"); --> |00abc| oluyor.
+*/
 void ft_test_bonus_zero(void)
 {
 	printf("|%5s|", "abc");
 }
-
+/*
+	[#]	(%#5d)	Eger 5'in basinda # varsa hexadecimal yazdirilan yani x - X
+	ile ciktisi istenilen ciktinin basina 0x - 0X koyuyor. #'siz yazdigimizda 
+	sadece hex hali yaziliyor. (Adres yazdirir gibi)
+				-- Sadece x, X, p ile kullanilabilinir. Bunlar hex cikiyor.
+									p haricmis...
+		ornek --> printf("|%#5x|", 123); --> | 0x7b| oluyor.
+		ornek --> printf("|%#5X|", 123); --> | 0X7B| oluyor.
+*/
 void ft_test_bonus_hashtag(void)
 {
 	printf("|%#5x|", 123);
 	printf("|%#5X|", 123);
 }
-
+/*
+	[ ]	(% 5s)	
+*/
 void ft_test_bonus_space(void)
 {
 	
 }
-
+/*
+	[.]	(%.5f)	.'dan sonra verilen sayi kadar virgullu sayinin virgulden 
+	sonrasinin kac basamak yazilacagini belirliyor. (Float)
+		ornek --> printf("|%10.3f|", 123.12345); --> |   123.123| oluyor.
+*/
 void ft_test_bonus_dot(void)
 {
 	
