@@ -6,13 +6,13 @@
 #    By: gsever <gsever@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/20 15:37:57 by aeser             #+#    #+#              #
-#    Updated: 2022/03/03 17:42:58 by gsever           ###   ########.fr        #
+#    Updated: 2022/03/04 11:53:27 by gsever           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		:= libftprintf.a
 CC			:= cc
-CFLAGS		:= -Wall -Wextra -Werror -I ./include
+CFLAGS		:= -Wall -Werror -Wextra -I ./include
 
 SRCS		:= src
 SRC			:= $(wildcard $(SRCS)/*.c)
