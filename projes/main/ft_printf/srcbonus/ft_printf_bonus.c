@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 13:56:16 by gsever            #+#    #+#             */
-/*   Updated: 2022/03/04 19:26:42 by gsever           ###   ########.fr       */
+/*   Updated: 2022/03/05 18:10:15 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ static int	ft_format(va_list arg, const char *format)
 					-- Bonusta ne istiyor bizden? --
 	Bu adama beton yetmez!
 		-> https://alvinalexander.com/programming/printf-format-cheat-sheet/
+	-> https://csnotes.medium.com/ft-printf-tutorial-42project-f09b6dc1cd0e
 
 		%[Flags][Width].[Precision][Specifier]
 		%[İşaretler][Genişlik].[Hassasiyet][Belirleyici]
@@ -67,7 +68,7 @@ static int	ft_format(va_list arg, const char *format)
 				-- Sadece x, X, p ile kullanilabilinir. Bunlar hex cikiyor.
 									p haricmis...
 		ornek --> printf("|%#5x|", 123); --> | 0x7b| oluyor.
-		ornek --> printf("|%#5X|", 123); --> | 0X7B| oluyor.
+		ornek --> printf("|%#5X|", 123); --> |       +0X7B| oluyor.
 				***********************
 	[ ]	(% 5s)	Isaret belirtilmezse bosluk atar sonrakine gecer.
 				***********************
@@ -78,6 +79,7 @@ static int	ft_format(va_list arg, const char *format)
 int	ft_printf(const char *format, ...)
 {
 	va_list	args;
+	t_flags	flags;
 	int		printed;
 
 	va_start(args, format);
@@ -86,7 +88,7 @@ int	ft_printf(const char *format, ...)
 	{
 		if (*format == '%')
 		{
-			printed += ft_check_flag(args, format + 1);
+			printed += ft_check_flag(args, (format + 1), flags);
 			printed += ft_format(args, (format + 1));
 			format++;
 		}

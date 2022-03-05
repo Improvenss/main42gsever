@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 14:42:55 by gsever            #+#    #+#             */
-/*   Updated: 2022/03/04 19:26:40 by gsever           ###   ########.fr       */
+/*   Updated: 2022/03/05 18:55:35 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,4 +65,12 @@ int	ft_print_decimal(int dec)
 int	ft_print_percent(void)
 {
 	return (ft_print_char('%'));
+}
+
+//	eger pozitifse + negatifse - don.
+char	plus(t_flags f)
+{
+	if (f.plus)
+		return ('+');
+	return ('-');
 }

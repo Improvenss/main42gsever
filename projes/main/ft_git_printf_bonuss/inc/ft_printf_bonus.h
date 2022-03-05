@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_bonus.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aperez-b <aperez-b@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 19:30:20 by aperez-b          #+#    #+#             */
-/*   Updated: 2021/09/27 19:30:35 by aperez-b         ###   ########.fr       */
+/*   Updated: 2022/03/05 14:25:42 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_BONUS_H
-
 # define FT_PRINTF_BONUS_H
 
 # include "../libft/inc/libft.h"
