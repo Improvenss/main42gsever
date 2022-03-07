@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 13:05:07 by gsever            #+#    #+#             */
-/*   Updated: 2022/03/05 18:55:34 by gsever           ###   ########.fr       */
+/*   Updated: 2022/03/07 17:52:12 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,15 @@ static t_flags	ft_find_flags(const char *format, t_flags flags)
 {
 	while (*format != '.' && !ft_strchr(SPECIFIERS, *format))
 	{
-		if (*format == '-')
+		if (*format == '-')//all
 			flags.minus = 1;
-		if (*format == '0' && !ft_isdigit(*(format - 1)))
+		if (*format == '0' && !ft_isdigit(*(format - 1)))//d,i,u,x,X
 			flags.zero = 1;
-		if (*format == '#')
+		if (*format == '#')//x,X
 			flags.hashtag = 1;
-		if (*format == ' ')
+		if (*format == ' ')//all
 			flags.space = 1;
-		if (*format == '+')
+		if (*format == '+')//d,i	
 			flags.plus = 1;
 		format++;
 	}
@@ -35,14 +35,17 @@ static t_flags	ft_find_flags(const char *format, t_flags flags)
 
 static int	ft_find_width(const char *format, va_list ap, t_flags f)
 {
-	int	width;
+	int		width;
+	char	width_char;
+
 
 	while (*format != '.' && !ft_strchr(SPECIFIERS, *format))
 		format++;
-	while ()
+	while (*format - 1 != '0' && )
 	{
 
 	}
+	
 	return (width);
 }
 
