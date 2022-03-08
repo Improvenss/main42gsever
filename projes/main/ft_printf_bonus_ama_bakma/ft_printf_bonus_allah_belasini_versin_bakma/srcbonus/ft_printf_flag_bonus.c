@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 13:05:07 by gsever            #+#    #+#             */
-/*   Updated: 2022/03/08 14:34:40 by gsever           ###   ########.fr       */
+/*   Updated: 2022/03/08 15:15:48 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 */
 static t_flags	ft_find_flags(const char *format, t_flags flags)
 {
-	while (*format != '.' && !ft_strchr(SPECIFIERS, *format))
+	while (*format != '.' && !ft_strchr(SPECIFIERS, *format))//s, d, i, u ,x, X
 	{
 		if (*format == '-')//all
 			flags.minus = 1;
@@ -24,9 +24,9 @@ static t_flags	ft_find_flags(const char *format, t_flags flags)
 			flags.zero = 1;
 		if (*format == '#')//x,X
 			flags.hashtag = 1;
-		if (*format == ' ')//all
+		if (*format == ' ')//s, d, i
 			flags.space = 1;
-		if (*format == '+')//d,i	
+		if (*format == '+')//d,i
 			flags.plus = 1;
 		format++;
 	}
@@ -44,13 +44,9 @@ static int	ft_find_width(const char *format, va_list ap, t_flags f)
 	while (*format != '.' && !ft_strchr(SPECIFIERS, *format))
 		format++;
 	format--;
-	while (*format != '.' && *format != '%')
+	while (*format == '0' && !ft_strchr(W_NUMBERS, *format - 1))
 	{
-		format--;
-		if (*format == '0' && !ft_isdigit(*(format - 1)))//d,i,u,x,X
-			flags.zero = 1;
-		else 
-			width_char =
+		
 	}
 	return (width);
 }
