@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 13:05:07 by gsever            #+#    #+#             */
-/*   Updated: 2022/03/08 15:15:48 by gsever           ###   ########.fr       */
+/*   Updated: 2022/03/09 14:25:37 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,21 +33,30 @@ static t_flags	ft_find_flags(const char *format, t_flags flags)
 	return (flags);
 }
 
-//genisligimizi hesaplamaliyiz ki alanimizi acabilelim.
-// %005d %#d %d %d
-static int	ft_find_width(const char *format, va_list ap, t_flags f)
+/*
+	genisligimizi hesaplamaliyiz ki alanimizi acabilelim.
+ 		%005d %#d %d %d
+	dongu ya da kosul icide kullandigimiz break; butun dongulerden ve 
+kosullardan cikiyor.
+*/
+static int	ft_find_width(const char *format)
 {
-	int		width;
 	char	width_char;
-	int		specified;
+	int		width;
 
-	while (*format != '.' && !ft_strchr(SPECIFIERS, *format))
-		format++;
-	format--;
-	while (*format == '0' && !ft_strchr(W_NUMBERS, *format - 1))
+	while (!ft_strchr(SPECIFIERS, *format) || *format == '.')
 	{
-		
+		if (ft_strchr(W_NUMBERS, *format))
+		{
+			while (!ft_strchr(SPECIFIERS, *format) || *format == '.')
+			{
+				width_char = ft_strjoin(width_char, *format);
+				format++;
+			}
+			break;
+		}
 	}
+	width = ft_atoi(width_char);
 	return (width);
 }
 
@@ -58,13 +67,12 @@ int	ft_check_flag(va_list arg, const char *format, t_flags flags)
 	char	*str;
 	char	*buff;
 
-	flags = ft_newflags();
-	flags = ft_find_flags(format, flags);
-	width = ft_find_width(format, arg, flags);
-	buff = malloc(sizeof(char) * width);
+	flags = ft_newflags();/* flaglarimiza flags.* = 0 atadik. */
+	flags = ft_find_flags(format, flags);/* flaglarimiz hazir */
+	width = ft_find_width(format);/* genisligimiz hazir */
+	buff = malloc(sizeof(char) * width);/* genisligimiz kadar yer actik */
 	if (!buff)
 		return (NULL);
-	str = ft_write_all(format, width, buff, flags, )
-	printed = 0;
+	
 	return (printed)
 }
