@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 13:56:16 by gsever            #+#    #+#             */
-/*   Updated: 2022/03/05 18:10:15 by gsever           ###   ########.fr       */
+/*   Updated: 2022/03/09 17:53:08 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,6 @@ int	ft_printf(const char *format, ...)
 	{
 		if (*format == '%')
 		{
-			printed += ft_check_flag(args, (format + 1), flags);
 			printed += ft_format(args, (format + 1));
 			format++;
 		}

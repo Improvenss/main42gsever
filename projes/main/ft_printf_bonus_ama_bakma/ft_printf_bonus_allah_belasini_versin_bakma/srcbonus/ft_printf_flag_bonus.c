@@ -6,34 +6,14 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 13:05:07 by gsever            #+#    #+#             */
-/*   Updated: 2022/03/09 14:25:37 by gsever           ###   ########.fr       */
+/*   Updated: 2022/03/09 17:53:09 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf_bonus.h"
-/*
-	%[-, 0, ., #,  , +][sayi w yani].[float'in .'si][SPECIFIERS]
-*/
-static t_flags	ft_find_flags(const char *format, t_flags flags)
-{
-	while (*format != '.' && !ft_strchr(SPECIFIERS, *format))//s, d, i, u ,x, X
-	{
-		if (*format == '-')//all
-			flags.minus = 1;
-		if (*format == '0' && !ft_isdigit(*(format - 1)))//d,i,u,x,X
-			flags.zero = 1;
-		if (*format == '#')//x,X
-			flags.hashtag = 1;
-		if (*format == ' ')//s, d, i
-			flags.space = 1;
-		if (*format == '+')//d,i
-			flags.plus = 1;
-		format++;
-	}
-	return (flags);
-}
 
 /*
+		-- OK --
 	genisligimizi hesaplamaliyiz ki alanimizi acabilelim.
  		%005d %#d %d %d
 	dongu ya da kosul icide kullandigimiz break; butun dongulerden ve 
@@ -60,6 +40,40 @@ static int	ft_find_width(const char *format)
 	return (width);
 }
 
+/*
+	%[-, 0, ., #,  , +][sayi w yani].[float'in .'si][SPECIFIERS]
+*/
+static t_flags	ft_find_flags(const char *format, t_flags flags)
+{
+	while (*format != '.' && !ft_strchr(SPECIFIERS, *format))//s, d, i, u ,x, X
+	{
+		if (*format == '-')//all
+			flags.minus = 1;
+		if (*format == '0' && !ft_isdigit(*(format - 1)))//d,i,u,x,X
+			flags.zero = 1;
+		if (*format == '#')//x,X
+			flags.hashtag = 1;
+		if (*format == ' ')//s, d, i
+			flags.space = 1;
+		if (*format == '+')//d,i
+			flags.plus = 1;
+		format++;
+	}
+	return (flags);
+}
+
+static int	ft_print_w_flags(const char *format, int buff, t_flags f, va_list arg)
+{
+	if (f.minus)
+	{
+
+	}
+}
+
+/*
+		-- daha bitmedi --
+	
+*/
 int	ft_check_flag(va_list arg, const char *format, t_flags flags)
 {
 	int		printed;
@@ -71,8 +85,8 @@ int	ft_check_flag(va_list arg, const char *format, t_flags flags)
 	flags = ft_find_flags(format, flags);/* flaglarimiz hazir */
 	width = ft_find_width(format);/* genisligimiz hazir */
 	buff = malloc(sizeof(char) * width);/* genisligimiz kadar yer actik */
-	if (!buff)
+	if (!buff)/* |       123| */
 		return (NULL);
-	
+	printed += ft_print_w_flags(format, buff, flags, arg);
 	return (printed)
 }
