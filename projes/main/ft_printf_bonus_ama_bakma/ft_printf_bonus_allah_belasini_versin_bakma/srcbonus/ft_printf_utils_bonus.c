@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 14:42:55 by gsever            #+#    #+#             */
-/*   Updated: 2022/03/05 18:55:35 by gsever           ###   ########.fr       */
+/*   Updated: 2022/03/09 23:45:11 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	ft_print_string(const char *str)
 	char->bytesini yani dec degerini
 	string->bellekte adresini yaziyor sanirim (random sayi yazdiriyor). AMA!!
 string'in index'iyle birlikte gonderirsen characterini belirttigin icin
-char olarak decimal degerini yazdiriyor. 43. satirda belirttigim sey.
+char olarak decimal degerini yazdiriyor.
 */
 int	ft_print_decimal(int dec)
 {
@@ -68,9 +68,9 @@ int	ft_print_percent(void)
 }
 
 //	eger pozitifse + negatifse - don.
-char	plus(t_flags f)
+char	plus(t_flags f, va_list ap)
 {
-	if (f.plus)
+	if (f.plus && va_arg(ap, int) >= 0)
 		return ('+');
 	return ('-');
 }

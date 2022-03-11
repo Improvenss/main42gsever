@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 13:05:07 by gsever            #+#    #+#             */
-/*   Updated: 2022/03/09 17:53:09 by gsever           ###   ########.fr       */
+/*   Updated: 2022/03/11 21:51:28 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,19 +55,11 @@ static t_flags	ft_find_flags(const char *format, t_flags flags)
 			flags.hashtag = 1;
 		if (*format == ' ')//s, d, i
 			flags.space = 1;
-		if (*format == '+')//d,i
+		if (*format == '+')//d,i,p
 			flags.plus = 1;
 		format++;
 	}
 	return (flags);
-}
-
-static int	ft_print_w_flags(const char *format, int buff, t_flags f, va_list arg)
-{
-	if (f.minus)
-	{
-
-	}
 }
 
 /*
@@ -80,13 +72,12 @@ int	ft_check_flag(va_list arg, const char *format, t_flags flags)
 	int		width;
 	char	*str;
 	char	*buff;
-
-	flags = ft_newflags();/* flaglarimiza flags.* = 0 atadik. */
-	flags = ft_find_flags(format, flags);/* flaglarimiz hazir */
+			/* flaglarimiza flags.* = 0 atadik. */
+	flags = ft_find_flags(format, ft_newflags());/* flaglarimiz hazir */
 	width = ft_find_width(format);/* genisligimiz hazir */
 	buff = malloc(sizeof(char) * width);/* genisligimiz kadar yer actik */
 	if (!buff)/* |       123| */
 		return (NULL);
-	printed += ft_print_w_flags(format, buff, flags, arg);
+	printed += ft_print_w_f(format, buff, flags, arg);
 	return (printed)
 }

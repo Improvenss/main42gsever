@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 13:56:16 by gsever            #+#    #+#             */
-/*   Updated: 2022/03/09 17:53:08 by gsever           ###   ########.fr       */
+/*   Updated: 2022/03/11 20:27:26 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,24 @@
 Printf fonksiyonu istedigimiz seyleri yazdirmanin yaninda kac tane karakter 
 yazdirdigimizi da yazdirir (kac karakter yazdirdiysak onu yazdirir 'int')
 */
-static int	ft_format(va_list arg, const char *format)
+static int	ft_format(va_list arg, const char *f)
 {
 	int	printed;
 
-	printed = 0;
-	if (*format == 'c')
+	printed = 0;// !!!!!NOT: BURANIN BENZERINI YAPIYORUM, GECERSIZ KALABILIR.
+	if (*f == 'c')
 		printed += ft_print_char(va_arg(arg, int));
-	else if (*format == 's')
+	else if (*f == 's')
 		printed += ft_print_string(va_arg(arg, char *));
-	else if (*format == 'p')
+	else if (*f == 'p')
 		printed += ft_print_pointer(va_arg(arg, unsigned long long));
-	else if (*format == 'd' || *format == 'i')
+	else if (*f == 'd' || *f == 'i')
 		printed += ft_print_decimal(va_arg(arg, int));
-	else if (*format == 'u')
+	else if (*f == 'u')
 		printed += ft_print_udecimal(va_arg(arg, unsigned int));
-	else if (*format == 'x' || *format == 'X')
-		printed += ft_print_hex(va_arg(arg, unsigned long long), *format);
-	else if (*format == '%')
+	else if (*f == 'x' || *f == 'X')
+		printed += ft_print_hex(va_arg(arg, unsigned long long), *f);
+	else if (*f == '%')
 		printed += ft_print_percent();
 	return (printed);
 }

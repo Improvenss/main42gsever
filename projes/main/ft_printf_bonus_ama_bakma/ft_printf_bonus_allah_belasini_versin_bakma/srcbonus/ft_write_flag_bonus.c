@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 13:23:27 by gsever            #+#    #+#             */
-/*   Updated: 2022/03/09 17:53:10 by gsever           ###   ########.fr       */
+/*   Updated: 2022/03/11 21:51:34 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,10 @@ int	ft_write_flag_space(va_list arg, const char *format)
 	int	printed;
 
 	printed = 0;
-	if (ft_strchr(format, '0'))
-	{
-		
-	}
+
 	return (printed);
 }
-
+//space yerine sifir yazdir.
 int	ft_write_flag_zero(long long number)
 {
 	int	printed;
