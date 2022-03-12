@@ -1,0 +1,49 @@
+--------- PROJECT OVERVİEW ---------
+-1 Sanal makine nasıl çalışır - İşletim sistemini bir yazılım yerine bilgisayarın yerel donanımında çalıştıklarına inandırırlar.
+-2 Seçtiğin işletim sistemi nedir - Debian 64bit
+-3 Debian ile CentOS arasındaki basit farklar 
+CentOS(Çoklu mimari desteği yok, yum manager) 
+Debian(Çoklu mimari desteği var, apt-get manager)
+-4 Sanal makinelerin amacı nedir (Tasarruf, tek bir fiziksel makinede fazla sanal sunucu)
+-5 CentOS'u seçtiysen SElinux ve DNF nedir
+-6 Debianı seçtiysen aptitude ve apt arasındaki farklar ve APParmor nedir
+(Aptitude üst düzet paket yöneticisidir. Apt alt düzey paket yöneticisidir.)
+(Aptitude işlevsellik bakımından apt-get'den geniştir.)
+(AppArmor, etkili ve kullanımı kolay bir Linux uygulama güvenlik sistemidir. 2.6.36(2017) sürümünden beri ana Linux çekirdeğine dahil edilmiştir.)
+--------- SIMPLE SETUP ---------
+-1 UFW(Uncomplicated Firewall) service başlatılmış mı diye kontrol et / sudo ufw status
+-2 SSH(Secure Shell Protocol) service başlatılmış mı diye kontrol et / sudo service ssh status
+-3 Sistemin Debian mı CentOS'mu olup olmadığını kontrol et / name -a
+--------- USER ---------
+-1 Oncelikle yeni bir kullanıcı oluştur, şifreyi kurallara uygun olarak koy, bu kuralları nasıl oluşturduğunu açıkla. /  sudo adduser test / sudo nano /etc/login.defs / sudo nano /etc/pam.d/common-password
+-2 evaluating adında bir grup oluştur, bu gruba oluşturduğun yeni kullanıcı ata ve kontrol et. / sudo addgroup evaluating / sudo adduser <username> user42
+-3 son olarak şifre kurallarının avantajlarını ve dezavantajlarını açıkla.
+--------- HOSTNAME AND PARTITIONS ---------
+-1 hostname'in <ogrenci ismi>42  formatına uygun olup olmadığını kontrol et - hostnamectl
+-2 hostnameyi degistir ve reboot at - hostnamectl set-hostname evo42 / sudo nano /etc/hosts
+-3 hostnameyi eski haline geri döndürebilirsin.
+-4 partitonları listele - lsblk
+-5 partitonların pdfteki gibi olup olmadığını kontrol et.(Size'lar önemsiz)
+--------- SUDO ---------
+-1 "sudo" nun yüklü olup olmadığını kontrol et. dpkg -l | grep sudo
+-2 sudo'nun amacını örneklendirerek anlat. Sudo yönetici olarak işlem yapma
+-3 /var/log/sudo klasörünün olup olmadığına bak ve içinde en azında bir dosyanın olduğunu teyit et
+-4 sudo ile bir komut gerçekleştir ve /var/log/sudo'da ki dosyada değişim olup olmadığını teyit et
+--------- UFW ---------
+-1 UFW kurulmuş mu kontrol et - dpkg -l | grep ufw
+-2 çalışıyor mu kontrol et
+-3 UFW nin ne olduğunu açıkla - 4242 portuna bağlanmak için bir güvenlik duvarı
+-4 UFW'nin aktif kurallarını listele, 4242 portu listede olmalı / sudo ufw status numbered
+-5 8080 portu için yeni bir kural ekle, kontrol et. / sudo ufw allow 8080
+-6 yeni eklenen kuralı sil / sudo uff delete sayı
+--------- SSH ---------
+-1 SSH kurulmuş mu kontrol et - dpkg -l | grep ssh
+-2 çalışıyor mu kontrol et sudo service ssh status
+-3 basitçe SSH nedir anlat secure Shell güvenli veri iletimi kriptografi ağ protokolü.
+-4 SSH servisinin sadece 4242 portunu kullandığından emin ol
+-5 SSH kullanarak bağlantı kurunuz. - Sudo nano /etc/sudoers / ssh kullanıcıadım@127.0.0.1 -p 4242
+--------- SCRIPT MONITORING ---------
+-1 Script nasıl çalışıyor kod olarak göster - sudo crontab -u root -e
+-2 cron nedir
+-3 bu script her 10 dk'da bir nasıl çalışıyor
+-4 bu scripti 1dk'da çalışmaya ayarla

@@ -1,0 +1,180 @@
+-Yeni
+Ad : born2beroot
+Makine : goinfre/ekeskin
+Bellek 1024
+Sabit Disk VDI 30.8
+Dynamic
+-Start
+ISO Seçtim
+Makine adı ekeskin42
+root Useruser42
+ekeskin Userkeskin42
+--
+evo
+Usertest42
+--
+Elle
+SCSI3 -> Evet
+Seç > Yeni > 525 MB > Birincil > Başlangıç > Ext 2 > /boot > Ön Yükleme Açık
+Seç > Yeni > 32.5GB > Mantıksal > Bunu Bağlama
+Şifrelenmiş Cilft Yapılandır > Evet
+Seç > sda5 > devam > done > bitir > Evet > Veriler Silinip Üzerine Yazılıcak >
+Geçiş Parolası DiskSecret42
+Zayıf geçiş parolası kullanılsın mı > evet
+Mantıksal disk yöneticisini lvm ile yapılandır.
+Seç > dev /mapper/sda5_crypt
+Mantıksal Cilt Oluşturdum
+- root 10.7 ext4 / (kök)
+- swap 2.5 takas alanı
+- home 5.4 ext4 /home
+- var 3.2 ext4 /var
+- srv 3.2 ext4 /srv
+- tmp 3.2 ext2 /tmp 
+- var-log 4.3 ext4 ellegir /var/log
+kaydet
+bitir
+Hayır (Bull eye kurma)
+Türkiye
+Contest > Hayır
+
+--Sadece SSH server
+Grub ön yükleyici > evet
+Seç > dev/dsa
+Makine Giriş
+lsblk
+cat /etc/os_release
+
+
+Kök Olarak Giriş Yaptım
+su -
+
+Sudo Yüklemek
+apt-get update -y 
+apt-get upgrade -y 
+apt install sudo
+
+Sudo Grubuna Kullanıcı Ekledim
+su -
+useradd ekeskin sudo / usermod -aG sudo user_test
+
+Kullanıcının sudo grubunda olup olmadığını kontrolu yaptım
+getent group sudo
+
+Reboot
+
+sudo -v - sudo güçlerini al.
+
+Sudo Yapılandırma
+
+Yanlış bir parola olması durumunda sudo kullanarak kimlik doğrulamasını 3 denemeyle (varsayılan 3'tür) sınırlamak için
+Defaults        passwd_tries=3
+
+Yanlış şifre durumunda özel bir hata mesajı eklemek için:
+Defaults        badpass_message="<custom-error-message>"
+
+Tüm sudo komutlarını şuraya kaydetmek için /var/log/sudo/sudo.log
+Defaults        logfile="/var/log/sudo/sudo.log"
+
+Tüm sudo giriş ve çıkışlarını şuraya arşivlemek için /var/log/sudo/:
+Defaults        log_input,log_output
+Defaults        iolog_dir="/var/log/sudo"
+
+TTY'yi istemek için :
+Defaults        requiretty
+
+Sudo yollarını şu şekilde ayarlamak için
+Defaults        secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin"
+
+SHH Yapılandırma
+
+SSH Yükleme
+sudo apt install openssh-server
+
+SSH Kontrol
+dpkg -l | grep ssh
+
+SSH Düzenleme
+sudo nano /etc/ssh/sshd_config
+
+SSH Portu 4242 yapılmalı.
+4242
+SSH'A Root olarak Bağlanmak mümkün olmamalı.
+PermitRootLogin no
+
+sudo service ssh restart
+sudo service ssh status
+
+UFW Yapılandırma
+
+UFW Yükleme
+sudo apt install ufw
+
+UFW Kontrol
+dpkg -l | grep ufw
+
+UFW Aktif Etme
+Sudo ufw enable
+
+UFW Güvenlik Duvarına kural Eklemek
+sudo ufw allow 4242
+
+UFW Kontrol Port durumu
+sudo ufw status
+Ayarlar > ağ > gelişmiş > bağlantı noktası yönlendirme > ekle > 4242
+
+Bağlantı kurmak
+ssh ekeskin@127.0.0.1 -p 4242
+exit logout
+
+Kullanıcı yönetimi
+Güçlü Bir Parola Politikası Ayarlama
+
+PASS_MAX_DAYS   30
+PASS_MIN_DAYS   2
+PASS_WARN_AGE   7
+
+Şifrenin Gizlilik Gücü
+sudo apt install libpam-pwquality
+Kontrol
+dpkg -l | grep libpam-pwquality
+
+Şifre Config Ayarları
+sudo nano /etc/pam.d/common-password
+retry=3 ten sonra
+Şifre minimum uzunluğunu 10 karakter olarak ayarlamak için yukarıdaki satıra aşağıdaki seçeneği ekleyin.
+minlen=10
+Şifrenin en az bir büyük harf bir küçük ve bir sayısal karakter içermesini zorunlu kılmak için:
+lcredit=-1 ucredit=-1 dcredit=-1
+En fazla 3 ardışık aynı karakter ayarlamak için:
+maxrepeat=3
+Bir biçimde içeriyorsa parolayı reddetmek için <username>:
+reject_username
+Yeni şifrede gerekli değişiklik sayısını eski şifreden 7'ye ayarlamak için:
+difok=7
+Aynı politikayı root üzerinde uygulamak için :
+enforce_for_root
+
+Yeni Bir kullanıcı oluşturma
+sudo adduser <username>
+Kullanıcı kontrol
+getent passwd <username>
+Parola Süre Bilgileri
+sudo -chage -l <username>
+
+- userdel
+
+Yeni bir grup oluşturma
+sudo addgroup user42
+
+Gruba kullanıcı ekleme
+sudo adduser <username> user42
+
+Eklenip eklenmediği kontrol
+getent group user42
+
+Cron Yapılandırma
+Cron'u kök olarak yapılandırın 
+sudo crontab -u root -e
+Her 10 dakikada bir
+sudo apt install net-tools
+*/10 * * * * /usr/local/bin/monitoring.sh
