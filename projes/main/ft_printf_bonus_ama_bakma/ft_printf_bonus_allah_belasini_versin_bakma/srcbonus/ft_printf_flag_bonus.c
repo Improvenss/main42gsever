@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 13:05:07 by gsever            #+#    #+#             */
-/*   Updated: 2022/03/11 21:51:28 by gsever           ###   ########.fr       */
+/*   Updated: 2022/03/15 14:22:11 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ static int	ft_find_width(const char *format)
 			}
 			break;
 		}
+		format++;
 	}
 	width = ft_atoi(width_char);
 	return (width);

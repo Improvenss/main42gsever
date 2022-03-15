@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 13:56:16 by gsever            #+#    #+#             */
-/*   Updated: 2022/03/11 20:27:26 by gsever           ###   ########.fr       */
+/*   Updated: 2022/03/15 14:13:56 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ static int	ft_format(va_list arg, const char *f)
 	[#]	(%#5d)	Eger 5'in basinda # varsa hexadecimal yazdirilan yani x - X
 	ile ciktisi istenilen ciktinin basina 0x - 0X koyuyor. #'siz yazdigimizda 
 	sadece hex hali yaziliyor. (Adres yazdirir gibi)
-				-- Sadece x, X, p ile kullanilabilinir. Bunlar hex cikiyor.
+				-- Sadece x, X, ile kullanilabilinir. Bunlar hex cikiyor.
 									p haricmis...
 		ornek --> printf("|%#5x|", 123); --> | 0x7b| oluyor.
 		ornek --> printf("|%#5X|", 123); --> |       +0X7B| oluyor.
