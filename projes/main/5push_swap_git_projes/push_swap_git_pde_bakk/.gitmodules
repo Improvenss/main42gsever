@@ -1,0 +1,12 @@
+[submodule "libft"]
+	path = libft
+	url = https://github.com/42pde-bakk/libft
+[submodule "ft_printf"]
+	path = ft_printf
+	url = https://github.com/42pde-bakk/ft_printf
+[submodule "getnextline"]
+	path = getnextline
+	url = https://github.com/42pde-bakk/getnextline
+[submodule "libc_vector"]
+	path = libc_vector
+	url = https://github.com/42pde-bakk/libc_vector.git

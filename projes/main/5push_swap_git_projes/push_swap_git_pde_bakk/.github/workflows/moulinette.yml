@@ -1,0 +1,19 @@
+name: Moulinette C/C++ CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - run: git submodule update --init --recursive --remote
+      - run: make re
+      - name: Moulinette
+        run: bash moulinette.sh

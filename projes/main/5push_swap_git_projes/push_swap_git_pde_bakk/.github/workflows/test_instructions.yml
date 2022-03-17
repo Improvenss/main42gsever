@@ -1,0 +1,27 @@
+name: Test Amount of Instructions C/C++ CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - run: git submodule update --init --recursive --remote
+      - run: make re OPCOUNT=1
+      - name: Three sort
+        run: ./tester.py 3
+      - name: Five sort
+        run: ./tester.py 5
+      - name: Ten sort
+        run: ./tester.py 10
+      - name: One-hundred sort
+        run: ./tester.py 100
+      - name: Five-hundred sort
+        run: ./tester.py 500
