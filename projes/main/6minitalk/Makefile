@@ -3,34 +3,41 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: gsever <gsever@student.42kocaeli.com.tr>   +#+  +:+       +#+         #
+#    By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/03/20 02:23:57 by gsever            #+#    #+#              #
-#    Updated: 2022/03/20 02:24:02 by gsever           ###   ########.tr        #
+#    Created: 2022/03/19 22:29:33 by gsever            #+#    #+#              #
+#    Updated: 2022/03/20 01:58:11 by gsever           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+NAME 		:=
+SERVER		:= server
+CLIENT		:= client
 
-OBJDIR	:= ../objects
-NAME	:= $(OBJDIR)/libft.a
-CFLAGS	:= -Wall -Wextra -Werror -I ../include -c
-FILES	:= $(shell find . -type f -name "ft_*.c")
-OBJ		:= $(FILES:%.c=$(OBJDIR)/%.o)
+LIBFT_A		:= ./libft/libft.a
+CLIENT_SRC	:= client.c
+SERVER_SRC	:= server.c
 
-all: $(NAME)
+CC			:= cc
+FLAGS		:= -Wall -Werror -Wextra
 
-$(NAME): $(OBJ)
-	ar -rcs $(NAME) $(OBJ)
+$(NAME):
 
-$(OBJDIR)/%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+$(CLIENT):
+
+$(SERVER):
+
+$(LIBFT_A):
+	make -C libft
+
+all:
+
+bonus:
 
 clean:
-	@rm -f $(OBJDIR)/ft_*.o
 
-fclean: clean
-	@rm -f $(NAME)
+fclean:
 
-re: fclean all
+re:
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus libft

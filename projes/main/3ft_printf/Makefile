@@ -3,12 +3,13 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: gsever <gsever@student.42.fr>              +#+  +:+       +#+         #
+#    By: gsever <gsever@student.42kocaeli.com.tr>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/02/20 15:37:57 by aeser             #+#    #+#              #
-#    Updated: 2022/03/08 13:47:40 by gsever           ###   ########.fr        #
+#    Created: 2022/03/20 02:26:20 by gsever            #+#    #+#              #
+#    Updated: 2022/03/20 02:26:24 by gsever           ###   ########.tr        #
 #                                                                              #
 # **************************************************************************** #
+
 
 NAME	:= libftprintf.a
 SRCS	:= src
