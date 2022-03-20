@@ -6,7 +6,7 @@
 #    By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/19 22:29:33 by gsever            #+#    #+#              #
-#    Updated: 2022/03/20 04:26:02 by gsever           ###   ########.fr        #
+#    Updated: 2022/03/21 00:52:45 by gsever           ###   ########.tr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,6 +47,7 @@ clean:
 fclean:
 	rm -f $(LIBFT_A)
 	rm -rf $(OBJDIR)
+	rm -f client server
 
 re: fclean all
 
