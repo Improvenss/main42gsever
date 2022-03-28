@@ -14,3 +14,11 @@ sudo vi /etc/sudoers.d/sudocular eklendi
 Defaults        logfile="/var/log/sudo/sudolog" sudocularin logu --> tum sudo komutlarinin logu burada tutulacak
 
 sudo ufw status
+
+
+
+
+==========================================================================
+born2berootdeneme --> gsever sudo sifresi anan
+
+her sifre anan sanirim
