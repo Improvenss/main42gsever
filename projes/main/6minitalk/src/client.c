@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 00:12:50 by gsever            #+#    #+#             */
-/*   Updated: 2022/03/22 20:02:33 by gsever           ###   ########.fr       */
+/*   Updated: 2022/03/27 04:53:04 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ static void	action(int sig)
 }
 
 static void	mt_kill(int pid, char *str)
+
 {
 	int		i;
 	char	c;
