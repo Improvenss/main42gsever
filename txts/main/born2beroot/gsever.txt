@@ -9,7 +9,20 @@ apt install sudo
 sudo apt update
 sudo apt install vim
 sudo visudo -f /etc/sudoers.d/newsudorule
-	
+	Default	passwd=....
+sudo apt install openssh-server
+sudo vim /etc/ssh/sshd_config
+	15- #Port 22 --> Port 4242
+	34- #PermitRootLogin prohibrit-password --> PermitRootLogin no
+sudo poweroff
+	ssh gsever@127.0.0.1 -p 4242
+		SSH	TCP	127.0.0.1	4242	10.0.2.15	4242
+		HTTP	TCP	127.0.0.1	80	10.0.2.15	80
+		FTP	TCP	127.0.0.1	21	10.0.2.15	21
+sudo adduser gsever sudo
+sudo apt install ufw
+sudo ufw enable
+sudo ufw allow 4242
 
 
 
