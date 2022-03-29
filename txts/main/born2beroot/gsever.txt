@@ -2,18 +2,14 @@ born2beroot --> gsever
 
 diskimizi 30,80G
 
-yuandre: 123Yuandre123 hem root hem yuandre
+root: anan
+gsever: anan
 
-boot icin 500MB yer ayirdik
-
-ssh yuandre@localhost -p 4242
-ssh yuandre@127.0.0.1 -portu yani 4242'de bizim actigimiz port
-
-sudo vi /etc/sudoers.d/sudocular eklendi
-
-Defaults        logfile="/var/log/sudo/sudolog" sudocularin logu --> tum sudo komutlarinin logu burada tutulacak
-
-sudo ufw status
+apt install sudo
+sudo apt update
+sudo apt install vim
+sudo visudo -f /etc/sudoers.d/newsudorule
+	
 
 
 
