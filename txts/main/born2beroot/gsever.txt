@@ -97,7 +97,7 @@ cd /var/www/html
 sudo wget http://wordpress.org/latest.tar.gz -P /var/www/html
 sudo tar -xzvf /var/www/html/latest.tar.gz
 sudo rm /var/www/html/latest.tar.gz
-sudo cp -r /var/www/html/wordpress/* /var/www/html --> hatali silinecek
+sudo cp -r /var/www/html/wordpress/* /var/www/html
 sudo rm -rf /var/www/html/wordpress
 sudo cp /var/www/html/wp-config-sample.php /var/www/html/wp-config.php
 sudo vim /var/www/html/wp-config.php
