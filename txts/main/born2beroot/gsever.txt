@@ -23,6 +23,116 @@ sudo adduser gsever sudo
 sudo apt install ufw
 sudo ufw enable
 sudo ufw allow 4242
+sudo vim /etc/login.defs
+	160- PASS_MAX_DAYS 99999 --> PASS_MAX_DAYS 30
+	160- PASS_MIN_DAYS 0	--> PASS_MIN_DAYS 2
+sudo apt install libpam-pwquality
+sudo vim /etc/pam.d/common-password
+	25- password	requisite			pam_pwquality.so retry=3 minlen=10 ucredit=-1 dcredit=-1 maxrepeat=3 reject_username difok=7 enforce_for_root
+sudo addgroup user42
+sudo adduser gsever user42
+sudo crontab -u root -e
+	*/10 * * * * bash /usr/local/bin/monitoring.sh
+		{
+#!/bin/bash
+arc=$(uname -a)
+pcpu=$(grep "physical id" /proc/cpuinfo | sort | uniq | wc -l)
+vcpu=$(grep "^processor" /proc/cpuinfo | wc -l)
+fram=$(free -m | awk '$1 == "Mem:" {print $2}')
+uram=$(free -m | awk '$1 == "Mem:" {print $3}')
+pram=$(free | awk '$1 == "Mem:" {printf("%.2f", $3/$2*100)}')
+fdisk=$(df -Bg | grep '^/dev/' | grep -v '/boot$' | awk '{totaldisk += $2} END {print totaldisk}')
+udisk=$(df -Bm | grep '^/dev/' | grep -v '/boot$' | awk '{useddisk += $3} END {print useddisk}')
+pdisk=$(df -Bm | grep '^/dev/' | grep -v '/boot$' | awk '{useddisk += $3} {totaldisk += $2} END {printf("%d"), useddisk/totaldisk*100}')
+cpul=$(top -bn1 | grep '^%Cpu' | cut -c 9- | xargs | awk '{printf("%.1f%%"), $1 + $3}')
+lb=$(uptime -s | cut -c -16)
+lvmt=$(lsblk | grep "lvm" | wc -l)
+lvmu=$(if [ $lvmt -eq 0 ]; then echo no; else echo yes; fi)
+#You need to install net tools for the next step [$ sudo apt install net-tools]
+ctcp=$(cat /proc/net/sockstat{,6} | awk '$1 == "TCP:" {print $3}')
+ulog=$(users | wc -w)
+ip=$(hostname -I)
+mac=$(ip link show | awk '$1 == "link/ether" {print $2}')
+cmds=$(journalctl _COMM=sudo | grep COMMAND | wc -l) # journalctl should be running as sudo but our script is running as root so we don't need in sudo here
+wall "	#Architecture: $arc
+	#CPU physical: $pcpu
+	#vCPU: $vcpu
+	#Memory Usage: $uram/${fram}MB ($pram%)
+	#Disk Usage: $udisk/${fdisk}Gb ($pdisk%)
+	#CPU load: $cpul
+	#Last boot: $lb
+	#LVM use: $lvmu
+	#Connexions TCP: $ctcp ESTABLISHED
+	#User log: $ulog
+	#Network: IP $ip ($mac)
+	#Sudo: $cmds cmd" # broadcast our system information on all terminals
+		}
+chmod -x monitoring.sh
+sudo reboot
+----------------------- BONUS PART ----------------------------------------------------
+sudo apt install lighttpd -y
+sudo apt install mariadb-server -y
+sudo ufw allow 80
+sudo ufw status --> kontrol et 80 portu geldi mi
+sudo mysql_secure_installation
+	root sifreni gir --> anan
+	unix_socket			= n
+	root_password		= n
+	remove anonymous users	= y
+	root_login_remotely	= y
+	database_acces		= y
+	privilege_tables		= y
+sudo mariadb
+CREATE DATABASE bonus;
+GRANT ALL ON bonus.* TO 'bonususer'@'localhost' IDENTIFIED BY 'bonuspassword' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
+exit
+mariadb -u bonususer -p
+	bonuspassword
+show databases; --> bonus yaziyor mu kontrol et
+exit
+sudo apt install php-cgi php-mysql -y
+sudo apt install wget
+cd /var/www/html
+sudo wget http://wordpress.org/latest.tar.gz -P /var/www/html
+sudo tar -xzvf /var/www/html/latest.tar.gz
+sudo rm /var/www/html/latest.tar.gz
+sudo cp -r /var/www/html/wordpress/* /var/www/html --> hatali silinecek
+sudo rm -rf /var/www/html/wordpress
+sudo cp /var/www/html/wp-config-sample.php /var/www/html/wp-config.php
+sudo vim /var/www/html/wp-config.php
+	23- define( 'DB_NAME', 'bonus' );
+	26- define( 'DB_USER', 'bonususer' );
+	29- define( 'DB_PASSWORD', 'bonuspassword' );
+sudo lighty-enable-mod fastcgi
+sudo lighty-enable-mod fastcgi-php
+sudo service lighttpd force-reload
+sudo ufw allow 21
+sudo apt install vsftpd
+sudo vim /etc/vsftpd.conf
+	31-	#write_enable=yes --> write_enable=yes
+	152-	user_sub_token=$USER
+	153-	local_root=/home/$USER/ftp
+	154-	userlist_enable=YES
+	155-	userlist_file=/etc/vsftpd/userlist
+	156-	userlist_deny=NO
+sudo mkdir /home/gsever/ftp
+sudo mkdir /home/gsever/ftp/files
+sudo chown nobody:nogroup /home/gsever/ftp
+sudo chmod a-w /home/gsever/ftp
+sudo vim /etc/vsftpd.userlist
+echo gsever | sudo tee -a /etc/vsftpd.userlist
+sudo reboot --> bitti simdi wordpress sitesinden hesap olusturman gerekiyor.
+internet tarayicisini ac -> 127.0.0.1 yaz enterle
+kullanici olustur sonra 127.0.0.1 'e girdiginde websiten gelmesi gerek.
+
+
+
+
+
+
+
+
 
 
 
