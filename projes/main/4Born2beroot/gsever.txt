@@ -5,21 +5,28 @@ diskimizi 30,80G
 root: anan
 gsever: anan
 
-apt install sudo
-sudo apt update
-sudo apt install vim
+su				--> su yazarak root hesabina giris yap
+apt install sudo		--> sudo paketini yukleyerek root hesabinda olmadan root yetkisiyle komut calistirmak icin
+sudo apt update		--> butun paket listelerini guncelle
+sudo apt install vim	--> vim'i kur kolaylik olur
 sudo visudo -f /etc/sudoers.d/newsudorule
-	Default	passwd=....
+	Defaults	passwd_tries=3
+	Defaults	badpass_message="Lanet olasi fok baliklari cok yalniz adamim, yanlis sifre!"
+	Defaults	logfile="/var/log/sudo/sudolog"
+	Defaults	log_input,log_output
+	Defaults	iolog_dir="/var/log/sudo"
+	Defaults	requiretty
+	Defaults	secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin"
 sudo apt install openssh-server
 sudo vim /etc/ssh/sshd_config
 	15- #Port 22 --> Port 4242
 	34- #PermitRootLogin prohibrit-password --> PermitRootLogin no
 sudo poweroff
 	ssh gsever@127.0.0.1 -p 4242
-		SSH	TCP	127.0.0.1	4242	10.0.2.15	4242
-		HTTP	TCP	127.0.0.1	80	10.0.2.15	80
-		FTP	TCP	127.0.0.1	21	10.0.2.15	21
-sudo adduser gsever sudo
+		SSH	TCP	127.0.0.1	4242	|10.0.2.15|	4242
+		HTTP	TCP	127.0.0.1	80	|10.0.2.15|	80
+		FTP	TCP	127.0.0.1	21	|10.0.2.15|	21
+sudo adduser gsever sudo				|calismazsa silin burayi(10.0.2.15 yazan yeri)|
 sudo apt install ufw
 sudo ufw enable
 sudo ufw allow 4242
@@ -32,6 +39,7 @@ sudo vim /etc/pam.d/common-password
 sudo addgroup user42
 sudo adduser gsever user42
 sudo crontab -u root -e
+	min0-59 hour0-23 ayin_gunu0-31 yilin_ayi1-12orJan-Dec haftanin_gunu0-6orMon-Sun
 	*/10 * * * * bash /usr/local/bin/monitoring.sh
 		{
 #!/bin/bash
