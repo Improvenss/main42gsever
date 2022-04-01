@@ -1,0 +1,102 @@
+{\rtf1\ansi\ansicpg1254\cocoartf2513
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\froman\fcharset0 Times-Bold;}
+{\colortbl;\red255\green255\blue255;\red252\green39\blue18;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\cssrgb\c100000\c25271\c7591;\cssrgb\c0\c0\c0;}
+\margl1440\margr1440\vieww22100\viewh28480\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\b\fs36 \cf2 \expnd0\expndtw0\kerning0
+UFW service ba\uc0\u351 lat\u305 lm\u305 \u351  m\u305  diye kontrol et:\
+
+\fs28 \cf3 >> sudo ufw status\
+\
+
+\fs36 \cf2 SSH service ba\uc0\u351 lat\u305 lm\u305 \u351  m\u305  diye kontrol et:\
+
+\fs28 \cf3 >> sudo systemctl status ssh\
+\
+
+\fs36 \cf2 Kullan\uc0\u305 c\u305  sudo ya ekli mi diye kontrol et:\
+
+\fs28 \cf3 >> getent group sudo\
+\
+
+\fs36 \cf2 \'d6ncelikle yeni bir kullan\uc0\u305 c\u305  olu\u351 tur, \u351 ifreyi kurallara uygun olarak koy, bu kurallar\u305  nas\u305 l olu\u351 turdu\u287 unu a\'e7\u305 kla:\
+
+\fs28 \cf3 \
+>> sudo adduser <isim>\
+>> sudo passwd <isim>\
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 Alttaki ile kurallar\uc0\u305  a\'e7\u305 kla:\cf3 \
+>> sudo vim /etc/pam.d/common-password\
+\
+\pard\pardeftab720\partightenfactor0
+
+\fs36 \cf2 Evaluating ad\uc0\u305 nda bir grup olu\u351 tur, bu gruba olu\u351 turdu\u287 un yeni kullan\u305 c\u305  ata ve kontrol et:\
+\
+
+\fs28 \cf3 >> sudo groupadd evaluating\
+>> sudo adduser evaluating userevaluating\
+>> getent group evaluating\
+\pard\pardeftab720\partightenfactor0
+\cf3 >> groups user\
+\
+\pard\pardeftab720\partightenfactor0
+
+\fs36 \cf2 hostname'in 42 format\uc0\u305 na uygun olup olmad\u305 \u287 \u305 n\u305  kontrol et:\
+\
+
+\fs28 \cf3 >> hostnamectl\
+\
+
+\fs36 \cf2 /var/log/sudo klas\'f6r\'fcn\'fcn olup olmad\uc0\u305 \u287 \u305 na bak ve i\'e7inde en az\u305 nda bir dosyan\u305 n oldu\u287 unu teyit et:\
+\
+
+\fs28 \cf3 >> su -\
+>> cd /var/log/sudo\
+>> cat sudolog\
+\
+
+\fs36 \cf2 UFW \'e7al\uc0\u305 \u351 \u305 yor mu kontrol et:\
+\
+
+\fs28 \cf3 >> sudo ufw status\
+\
+>> sudo ufw allow 8080 (isterse ekleme silme)\
+>> sudo ufw delete 8080\
+\
+
+\fs36 \cf2 SSH servisinin sadece 4242 portunu kulland\uc0\u305 \u287 \u305 ndan emin ol:\
+\
+
+\fs28 \cf3 >> sudo grep 4242 /etc/ssh/sshd_config\
+\
+
+\fs36 \cf2 Yeni olu\uc0\u351 turulan kullan\u305 c\u305  ile SSH kullanarak ba\u287 lant\u305  kurunuz:\
+\
+
+\fs28 \cf3 >> ssh eyagiz@localhost -p 4242\
+\
+
+\fs36 \cf2 crontab\'92\uc0\u305  kontrol et ve ne oldu\u287 unu a\'e7\u305 kla:\
+\
+
+\fs28 \cf3 >> sudo crontab -u root -e\
+\
+
+\fs36 \cf2 monitoring.sh dosyas\uc0\u305 n\u305  kontrol et:\
+\
+
+\fs28 \cf3 >> cd /usr/local/bin/monitoring.sh\
+>> bash monitoring.sh\
+
+\fs36 \cf2 \
+Password kurallar (sudoers.d):\
+\
+
+\fs28 \cf3 >> cd /etc/sudoers.d/\
+>> cat newsudorule
+\fs36 \cf2 \
+}
