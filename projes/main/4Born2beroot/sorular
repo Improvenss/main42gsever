@@ -1,0 +1,59 @@
+Getnetn--------- PROJECT OVERVİEW ---------
+
+-1 Sanal makine nasıl çalışır
+-2 Seçtiğin işletim sistemi nedir
+-3 Debian ile CentOS arasındaki basit farklar
+-4 Sanal makinelerin amacı nedir
+-5 CentOS'u seçtiysen SElinux ve DNF nedir
+-6 Debianı seçtiysen aptitude ve apt arasındaki farklar ve APParmor nedir
+
+--------- SIMPLE SETUP --------- q
+
+-1 UFW service başlatılmış mı diye kontrol et
+-2 SSH service başlatılmış mı diye kontrol et
+-3 Siste2in Debian mı CentOS'mu olup olmadığını kontrol et
+
+--------- USER ---------
+
+-1 user42 sudoya ekli mi diye kontrol et.
+-2 Oncelikle yeni bir kullanıcı oluştur, şifreyi kurallara uygun olarak koy, bu kuralları nasıl oluşturduğunu açıkla.
+-3 evaluating adında bir grup oluştur, bu gruba oluşturduğun yeni kullanıcı ata ve kontrol et.
+-4 son olarak şifre kurallarının avantajlarını ve dezavantajlarını açıkla.
+
+--------- HOSTNAME AND PARTITIONS ---------rebooo
+
+-1 hostname'in <ogrenci ismi>42  formatına uygun olup olmadığını kontrol et
+-2 hostnameyi degistir ve reboot at, isim degismezse 
+-3 hostnameyi eski haline geri döndürebilirsin.
+-4 partitonları listele
+dpkg 
+--------- SUDO ---------
+
+-1 "sudo" nun yüklü olup olmadığını kontrol et.
+-2 sudo'nun amacını örneklendirerek anlat.
+-3 /var/log/sudo klasörünün olupcd  olmadığına bak ve içinde en azında bir dosyanın olduğunu teyit et
+-4 sudo ile bir komut gerçekleştir ve /var/log/sudo'da ki dosyada değişim olup olmadığını teyit et
+
+--------- UFW ---------
+
+-1 UFW kurulmuş mu kontrol et
+-2 çalışıyor mu kontrol et
+-3 UFW nin ne olduğunu açıkla
+-4 UFW'nin aktif kurallarını listele, 4242 portu listede olmalı
+-5 8080 portu için yeni bir kural ekle, kontrol et.
+-6 yeni eklenen kuralı sil
+
+--------- SSH ---------
+
+-1 SSH kurulmuş mu kontrol et
+-2 çalışıyor mu kontrol et
+-3 basitçe SSH nedir anlat
+-4 SSH servisinin sadece 4242 portunu kullandığından emin ol
+-5 Yeni oluşturulan kullanıcı ile SSH kullanarak bağlantı kurunuz.
+
+--------- SCRIPT MONITORING ---------
+
+-1 Script nasıl çalışıyor kod olarak göster
+-2 cron nedir
+-3 bu script her 10 dk'da bir nasıl çalışıyor
+-4 bu scripti 1dk'da çalışmaya ayarla
