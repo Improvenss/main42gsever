@@ -2,8 +2,8 @@ born2beroot --> gsever
 
 diskimizi 30,80G
 
-root: anan
-gsever: anan
+root: anan --> Gorkem.sever.42
+gsever: anan --> Gorkem.sever.42
 
 
 Gorkem.sever.42 --> degistirilmis sifre son adimlar
