@@ -1,0 +1,62 @@
+UFW service başlatılmış mı diye kontrol et:
+>> sudo ufw status
+
+SSH service başlatılmış mı diye kontrol et:
+>> sudo systemctl status ssh
+
+Kullanıcı sudo ya ekli mi diye kontrol et:
+>> getent group sudo
+
+Öncelikle yeni bir kullanıcı oluştur, şifreyi kurallara uygun olarak koy, bu kuralları nasıl oluşturduğunu açıkla:
+
+>> sudo adduser <isim>
+>> sudo passwd <isim>
+
+Alttaki ile kuralları açıkla:
+>> sudo vim /etc/pam.d/common-password
+
+Evaluating adında bir grup oluştur, bu gruba oluşturduğun yeni kullanıcı ata ve kontrol et:
+
+>> sudo groupadd evaluating
+>> sudo adduser evaluating userevaluating
+>> getent group evaluating
+>> groups user
+
+hostname'in 42 formatına uygun olup olmadığını kontrol et:
+
+>> hostnamectl
+
+/var/log/sudo klasörünün olup olmadığına bak ve içinde en azında bir dosyanın olduğunu teyit et:
+
+>> su -
+>> cd /var/log/sudo
+>> cat sudolog
+
+UFW çalışıyor mu kontrol et:
+
+>> sudo ufw status
+
+>> sudo ufw allow 8080 (isterse ekleme silme)
+>> sudo ufw delete 8080
+
+SSH servisinin sadece 4242 portunu kullandığından emin ol:
+
+>> sudo grep 4242 /etc/ssh/sshd_config
+
+Yeni oluşturulan kullanıcı ile SSH kullanarak bağlantı kurunuz:
+
+>> ssh eyagiz@localhost -p 4242
+
+crontab’ı kontrol et ve ne olduğunu açıkla:
+
+>> sudo crontab -u root -e
+
+monitoring.sh dosyasını kontrol et:
+
+>> cd /usr/local/bin/monitoring.sh
+>> bash monitoring.sh
+
+Password kurallar (sudoers.d):
+
+>> cd /etc/sudoers.d/
+>> cat newsudorule
