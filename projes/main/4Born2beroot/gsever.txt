@@ -140,6 +140,123 @@ kullanici olustur sonra 127.0.0.1 'e girdiginde websiten gelmesi gerek.
 
 
 
+==========================EVALUATION KONTROL ADIMLARI======================
+
+
+
+	born2beroot EVALUATIONS adımları
+# General !nstruct!ons (Genel Tal!matlar)
+	>> G!t reposundan çek!len s!gnature.txt !le “shasum born2beroot.vd!”
+çıktı değerler! eşleş!yor mu?
+# Mandatory part (Zorunlu Kısım)
+>> B!r sanal mak!ne nasıl çalışır?
+>> Sanal mak!nen!n amacı ned!r?
+>> Neden .... !şlet!m s!stem! terc!h ed!ld!?
+>> CentOS ve Deb!an arasındak! temel farklar nelerd!r? >> Deb!an terc!h ed!ld!yse;
+> apt!tude ve apt arasındak! fark ned!r?
+> APPArmor ned!r?
+>> !!! Scr!pt(makro) 10dk b!r çıktı ver!yor mu kontrol ed!l!r, verm!yorsa
+burada durulur.
+# S!mple setup (Bas!t Kurulum)
+>> Mak!ne graf!k ortamına sah!p m! kontrol et eğerk! graf!k ortamı yoksa
+devam.
+>> Mak!neye bağlanmadan önce parola !sten!yor mu? İsten!yorsa devam.
+>> Sunucuya bağlantı kurma (Öncel!kle root kullanıcısı olarak deney!n,
+eğerk! root !le bağlanılıyorsa burada durulur.) (G!r!len ş!fre protokollere uyuyor mu kontrol et, uymuyorsa burada durulur. Bu kontrol g!rd!ğ! ş!frey! söylemes! gerekt!ğ! anlamına gel!yor. Kontrol ed!len şeyler !se küçük/büyük
+harf ve uzunluk kuralları vs.)
+>> UFW h!zmet! başlatıldı mı kontrol ed!ls!n.
+>> SSH h!zmet! başlatıldı mı kontrol ed!ls!n.
+>> İşlet!m s!stem!n!n Deb!an mı CentOS mu kontrol ed!ls!n.
+>> !!! Doğru çalışmayan b!rşeyler varsa ve açıklamalar net değ!lse
+burada durulur.
+# User (kullanıcı)
+>> Öğrenc!n!n oturum açma b!lg!ler!ne(kısaca !ntrada kullanılan !d) sah!p
+b!r kullanıcı sanal mak!nede var mı kontrol ed!ls!n.
+>> Bu kullanıcı “sudo” ve “user42” gruplarına dah!l ed!lm!ş m! kontrol
+ed!ls!n.
+>> Kullanıcı ş!fres! pol!t!kaları yapılmış mı kontrol ed!ls!n.
+>> Yen! b!r kullanıcı oluşturulsun ve kurallara/pol!t!kalara uygun ş!fre
+atansın.
+>> Bu kuralların nasıl ayarlandığı açıklanmalıdır.
+
+ >> Herhang! b!r problem yok !se “evaluat!ng” grubu oluşturulsun.
+>> Oluşturulan yen! kullanıcı yen! gruba atansın.
+>> Atanan kullanıcı, grupta mı kontrol ed!ls!n.
+>> !!! Bu ş!fre pol!t!kasının ve uygulanmasının avantaj ve dezavantajları
+açıklanmalıdır.
+>> !!! Açıklamalar net değ!lse burada durulur.
+# Hostname and part!t!ons (Ana b!lg!sayar adı ve bölümler)
+>> Mak!nen!n ana b!lg!sayar adının doğru b!ç!mde oluşturuldu mu kontrol
+ed!ls!n (log!n42)(log!n’den kastı !ntra !d’s!)
+>> Ana b!lg!sayarın adı değ!şt!r!ls!n ve mak!ne yen!den başlatılsın. Ad
+güncellenmed!yse burada durulur.
+>> Orj!nal mak!ne !sm!ne artık dönüneb!l!n!r.
+>> Sanal mak!ne bölümler! nasıl görüntülen!r?
+>> Çıktı Subject’tek! örneğe göre değerlend!r. (Bonus çıktısına göre
+yaptıysa bonus puanı ver!lecekt!r.)
+>> LVM nasıl çalışıyor??(Kısaca)
+>> LVM neyle !lg!l!d!r?? (Kısaca)
+>> !!! Doğru çalışmayan b!rşeyler varsa ve açıklamalar net değ!lse
+burada durulur.
+# Sudo
+>> Sudo kurulumu kontrol ed!ls!n.
+>> Yen! oluşturulan kullanıcı sudo grubuna atanmalıdır ve atandığı
+göster!lmel!d!r.
+>> Sudo’nun değer!n! ve !şley!ş! açıklanmalıdır. (Subjecttek! sudo !le !lg!l!
+olan kurallar)
+>> Subject’tek! sudo !ç!n uygulanan kurallar/pol!t!kaların uygulanması
+göster!lmel!d!r.
+>> “/var/log/sudo/“ klasörünün varlığı kontrol ed!l!r ve !çer!s!nde en az
+b!r dosya var mı kontrol ed!l!r. Bu dosyanın !çer!ğ! kontrol ed!l!r.
+>> Sudo üzer!nde b!r komut çalıştırmayı deney!n. “/var/log/sudo/“
+!çer!s!ndek! dosyalarda güncelleme gerçekleşt! m! kontrol ed!n.
+>> !!! Doğru çalışmayan b!rşeyler varsa ve açıklamalar net değ!lse
+burada durulur.
+# UFW
+>> UFW sanal mak!neye düzgün b!r şek!lde kuruldu mu kontrol ed!l!r.
+>> UFW düzgün çalışıyor mu kontrol ed!l!r.
+>> UFW’n!n ned!r? ve kullanmanın değer! ned!r?
+>> UFW’dek! akt!f kuralları l!steley!n. 4242 numaralrı b!r bağlantı noktası
+!ç!n kural bulunmalıdır.
+>> 8080 numaralı bağlantı noktası açmak !ç!n kural ekley!n. Etk!n
+
+ kuralları l!steleyerek eklen!p eklenmed!ğ! kontrol ed!l!r.
+>> Yen! eklenen kural s!l!nmel!d!r.
+>> !!! Doğru çalışmayan b!rşeyler varsa ve açıklamalar net değ!lse
+burada durulur.
+# SSH
+>> SSH h!zmet!n!n sanal mak!neye düzgün b!r şek!lde kurulu mu kontrol
+ed!ls!n.
+>> SSH h!zmet! düzgün çalışıyor mu kontrol ed!ls!n.
+>> SSH ned!r? ve kullanmanın değer! ned!r?
+>> SSH h!zmet!n!n yalnızca 4242 portu üzer!nden kullanıldığını
+doğrulayın.
+>> Yen! oluşturulan kullanıcı ssh üzer!nden oturum açab!lmel!d!r. >> !!! Doğru çalışmayan b!rşeyler varsa ve açıklamalar net değ!lse
+burada durulur.
+# Scr!pt mon!tor!ng (Komut dosyası !zleme)
+>> Kodu göstererek hang! seneryoların nasıl çalıştığı anlatılmalıdır. >> Cron ned!r?
+>> Her 10dk b!r çalışacak komutun nasıl kurulduğu.
+>> Komut dosyasının doğru çalıştığı doğrulandıktan sonra bu komut
+dosyası her 1 dk b!r çalışması sağlanmalıdır.
+>> Komut dosyası değ!şt!r!lmeden, komut dosyasının çalışması
+durdurulmalıdır.
+>> Bu noktayı kontrol etmek !ç!n sunucuyu son b!r kez yen!den
+başlatmanız gerekecek. Başlangıçta, komut dosyasının hala aynı yerde bulunduğunu, haklarının değ!şmed!ğ!n! ve değ!şt!r!lmed!ğ!n! kontrol etmek gerekecekt!r.
+>> !!! Doğru çalışmayan b!rşeyler varsa ve açıklamalar net değ!lse burada durulur.
+## BONUS
+>> Bonus kısmını, ancak ve ancak zorunlu kısım tamamen ve mükemmel
+b!r şek!lde yapılmışsa ve hata yönet!m! beklenmed!k veya kötü kullanımı ele alıyorsa değerlend!r!n. Savunma sırasında tüm zorunlu puanların geç!lmemes! durumunda bonus puanlar tamamen göz ardı ed!lmel!d!r.
+>BONUS
+# Değerlend!r!len konunun ve öğrenc!n!n yardımıyla bu proje !ç!n
+yetk!lend!r!len bonus puanlarını kontrol ed!n:
+- Bölümler! kurmak 2 puan değer!nded!r.
+- Sadece konunun gerekt!rd!ğ! h!zmetlerle WordPress kurmak 2 puan değer!nded!r.
+- Serbest seç!m h!zmet! 1 puan değer!nded!r. Her b!r ekstra
+
+ h!zmet!n düzgün çalıştığını ve uygulandığını doğrulayın ve test ed!n. Ücrets!z seç!m h!zmet! !ç!n, değerlend!r!len öğrenc!n!n s!ze nasıl çalıştığı ve neden yararlı olduğunu düşündükler! hakkında bas!t b!r açıklama yapması gerek!r. Lütfen NGINX ve Apache2'n!n yasak olduğunu unutmayın.
+
+
+
 
 
 
