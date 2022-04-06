@@ -145,36 +145,43 @@ kullanici olustur sonra 127.0.0.1 'e girdiginde websiten gelmesi gerek.
 
 
 	born2beroot EVALUATIONS adımları
+
+
 # General !nstruct!ons (Genel Tal!matlar)
 	>> G!t reposundan çek!len s!gnature.txt !le “shasum born2beroot.vd!”
-çıktı değerler! eşleş!yor mu?
+çıktı değerler! eşleş!yor mu? 					--> Evet eslesiyor.
+
+
 # Mandatory part (Zorunlu Kısım)
->> B!r sanal mak!ne nasıl çalışır?
->> Sanal mak!nen!n amacı ned!r?
->> Neden .... !şlet!m s!stem! terc!h ed!ld!?
->> CentOS ve Deb!an arasındak! temel farklar nelerd!r? >> Deb!an terc!h ed!ld!yse;
-> apt!tude ve apt arasındak! fark ned!r?
-> APPArmor ned!r?
->> !!! Scr!pt(makro) 10dk b!r çıktı ver!yor mu kontrol ed!l!r, verm!yorsa
-burada durulur.
+	>> B!r sanal mak!ne nasıl çalışır?			--> Fiziksel bilgisayarda calisiyormus gibi gostererek yazilimda calismasini sagliyoruz. Birnevi simule ediyoruz.
+	>> Sanal mak!nen!n amacı ned!r?				--> Kullaniciya isletim sistemi icinde bir isletim sistemi kullanabilmesini saglamak.
+	>> Neden .... !şlet!m s!stem! terc!h ed!ld!?		--> Debian daha kullanici dostu ve kullanimi/kurulmasi daha kolay.
+	>> CentOS ve Deb!an arasındak! temel farklar nelerd!r?	--> 
+		>> Deb!an terc!h ed!ld!yse;
+			> apt!tude ve apt arasındak! fark ned!r?	--> Aptitude ust duzey paket yoneticisi, APT ise diger kullanicilar tarafindan kullanilabilen paket yoneticisi.
+			> APPArmor ned!r?					--> AppArmor(uygulama zirhi) sistem yoneticisinin uygulamalari kisitlamasina izin veren Linux cekirdek guvenlik modulu.
+	>> !!! Scr!pt(makro) 10dk b!r çıktı ver!yor mu kontrol ed!l!r, verm!yorsa
+burada durulur.					--> Evet veriyor. -> bash /usr/local/bin/monitoring.sh
+
+
 # S!mple setup (Bas!t Kurulum)
->> Mak!ne graf!k ortamına sah!p m! kontrol et eğerk! graf!k ortamı yoksa
-devam.
->> Mak!neye bağlanmadan önce parola !sten!yor mu? İsten!yorsa devam.
->> Sunucuya bağlantı kurma (Öncel!kle root kullanıcısı olarak deney!n,
+	>> Mak!ne graf!k ortamına sah!p m! kontrol et eğerk! graf!k ortamı yoksa
+devam.			--> Evet sahip.
+	>> Mak!neye bağlanmadan önce parola !sten!yor mu? İsten!yorsa devam. --> Evet isteniyor.
+	>> Sunucuya bağlantı kurma (Öncel!kle root kullanıcısı olarak deney!n,
 eğerk! root !le bağlanılıyorsa burada durulur.) (G!r!len ş!fre protokollere uyuyor mu kontrol et, uymuyorsa burada durulur. Bu kontrol g!rd!ğ! ş!frey! söylemes! gerekt!ğ! anlamına gel!yor. Kontrol ed!len şeyler !se küçük/büyük
 harf ve uzunluk kuralları vs.)
->> UFW h!zmet! başlatıldı mı kontrol ed!ls!n.
->> SSH h!zmet! başlatıldı mı kontrol ed!ls!n.
->> İşlet!m s!stem!n!n Deb!an mı CentOS mu kontrol ed!ls!n.
->> !!! Doğru çalışmayan b!rşeyler varsa ve açıklamalar net değ!lse
-burada durulur.
+	>> UFW h!zmet! başlatıldı mı kontrol ed!ls!n.		--> sudo service ufw status -> sudo ufw status
+	>> SSH h!zmet! başlatıldı mı kontrol ed!ls!n.		--> sudo service ssh status -> sudo systemctl status ssh
+	>> İşlet!m s!stem!n!n Deb!an mı CentOS mu kontrol ed!ls!n.	--> hostnamectl
+	>> !!! Doğru çalışmayan b!rşeyler varsa ve açıklamalar net değ!lse	burada durulur. --> Evet dogru.
+
+
+
 # User (kullanıcı)
->> Öğrenc!n!n oturum açma b!lg!ler!ne(kısaca !ntrada kullanılan !d) sah!p
-b!r kullanıcı sanal mak!nede var mı kontrol ed!ls!n.
->> Bu kullanıcı “sudo” ve “user42” gruplarına dah!l ed!lm!ş m! kontrol
-ed!ls!n.
->> Kullanıcı ş!fres! pol!t!kaları yapılmış mı kontrol ed!ls!n.
+	>> Öğrenc!n!n oturum açma b!lg!ler!ne(kısaca !ntrada kullanılan !d) sah!p b!r kullanıcı sanal mak!nede var mı kontrol ed!ls!n.				--> hostnamectl
+	>> Bu kullanıcı “sudo” ve “user42” gruplarına dah!l ed!lm!ş m! kontrol ed!ls!n. --> getent group sudo -> getent group user42
+	>> Kullanıcı ş!fres! pol!t!kaları yapılmış mı kontrol ed!ls!n. --> 
 >> Yen! b!r kullanıcı oluşturulsun ve kurallara/pol!t!kalara uygun ş!fre
 atansın.
 >> Bu kuralların nasıl ayarlandığı açıklanmalıdır.
