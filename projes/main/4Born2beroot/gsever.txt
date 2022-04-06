@@ -181,9 +181,8 @@ harf ve uzunluk kuralları vs.)
 # User (kullanıcı)
 	>> Öğrenc!n!n oturum açma b!lg!ler!ne(kısaca !ntrada kullanılan !d) sah!p b!r kullanıcı sanal mak!nede var mı kontrol ed!ls!n.				--> hostnamectl
 	>> Bu kullanıcı “sudo” ve “user42” gruplarına dah!l ed!lm!ş m! kontrol ed!ls!n. --> getent group sudo -> getent group user42
-	>> Kullanıcı ş!fres! pol!t!kaları yapılmış mı kontrol ed!ls!n. --> 
->> Yen! b!r kullanıcı oluşturulsun ve kurallara/pol!t!kalara uygun ş!fre
-atansın.
+	>> Kullanıcı ş!fres! pol!t!kaları yapılmış mı kontrol ed!ls!n. --> sudo vim /etc/pam.d/common-password
+	>> Yen! b!r kullanıcı oluşturulsun ve kurallara/pol!t!kalara uygun ş!fre atansın. --> sudo addgroup denemegroup31 -> sudo adduser denemeuser3131 denemegroup31
 >> Bu kuralların nasıl ayarlandığı açıklanmalıdır.
 
  >> Herhang! b!r problem yok !se “evaluat!ng” grubu oluşturulsun.
