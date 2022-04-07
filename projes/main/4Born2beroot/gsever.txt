@@ -82,11 +82,11 @@ wall "	#Architecture: $arc
 chmod -x monitoring.sh
 sudo reboot
 ----------------------- BONUS PART ----------------------------------------------------
-sudo apt install lighttpd -y
-sudo apt install mariadb-server -y
-sudo ufw allow 80
+sudo apt install lighttpd -y		--> Web sunucusunu kur: hosting ya da 'barindirma' islemini internet protokolu uzerinden sunan bir sunucudur.
+sudo apt install mariadb-server -y	--> Data Base'yu kur: bilgilerin sitenin her kakasinin bulundugu yer, depo yeri.
+sudo ufw allow 80				--> 80 portunu aktif et.
 sudo ufw status --> kontrol et 80 portu geldi mi
-sudo mysql_secure_installation
+sudo mysql_secure_installation		--> Hem guvenlik hem kok hesaplar icin parola ayarlabilip, disaridan erisilebilir bir sekilde kok hesaplari falan kaldirabilmemizi saglayan sey.
 	root sifreni gir --> anan
 	unix_socket			= n
 	root_password		= n
@@ -94,7 +94,7 @@ sudo mysql_secure_installation
 	root_login_remotely	= y
 	database_acces		= y
 	privilege_tables		= y
-sudo mariadb
+sudo mariadb					--> Databasemize giris yapip veritabanimizi olusturuyoruz.
 CREATE DATABASE bonus;
 GRANT ALL ON bonus.* TO 'bonususer'@'localhost' IDENTIFIED BY 'bonuspassword' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
@@ -103,24 +103,24 @@ mariadb -u bonususer -p
 	bonuspassword
 show databases; --> bonus yaziyor mu kontrol et
 exit
-sudo apt install php-cgi php-mysql -y
-sudo apt install wget
+sudo apt install php-cgi php-mysql -y	--> CGI(Common Gateway Interface) Ortak Ag Gecidi Arayuzu; web sunucusunun (HTTP sunucusu) harici uygulamalarla iletisime gecebilmesi icin bir yol tanimlayan web teknolojisi protokoludur. Yani bizim websitemiz'de php kodlarini hem calistirabilmemizi hemde onlarla iletisime gecebilmemizi saglar.
+sudo apt install wget				--> WGET -> eski ismi GetURL, wget internet uzerinden dosya indirmemizi saglayan komut.
 cd /var/www/html
-sudo wget http://wordpress.org/latest.tar.gz -P /var/www/html
+sudo wget http://wordpress.org/latest.tar.gz -P /var/www/html			--> Burada wordpress'ten hazir sitemizi indiriyoruz.
 sudo tar -xzvf /var/www/html/latest.tar.gz
 sudo rm /var/www/html/latest.tar.gz
 sudo cp -r /var/www/html/wordpress/* /var/www/html
 sudo rm -rf /var/www/html/wordpress
 sudo cp /var/www/html/wp-config-sample.php /var/www/html/wp-config.php
-sudo vim /var/www/html/wp-config.php
+sudo vim /var/www/html/wp-config.php			--> config dosyamizi kendi databasemize gore yapilandiriyorx
 	23- define( 'DB_NAME', 'bonus' );
 	26- define( 'DB_USER', 'bonususer' );
 	29- define( 'DB_PASSWORD', 'bonuspassword' );
-sudo lighty-enable-mod fastcgi
+sudo lighty-enable-mod fastcgi		--> Buradaki 'fastCGI' etkilesimli programlari web sunucusuyla birlestirmek icin kullanilan ikili protokoldur.
 sudo lighty-enable-mod fastcgi-php
 sudo service lighttpd force-reload
 sudo ufw allow 21
-sudo apt install vsftpd
+sudo apt install vsftpd			--> Linux dahil UNIX benzeri sistemler icin FTP sunucusudur. (FTP = File Transfer Protocol, TCP/IP agi uzerinden dosya aktarmani saglayan bir protocol.
 sudo vim /etc/vsftpd.conf
 	31-	#write_enable=yes --> write_enable=yes
 	152-	user_sub_token=$USER
@@ -130,8 +130,8 @@ sudo vim /etc/vsftpd.conf
 	156-	userlist_deny=NO
 sudo mkdir /home/gsever/ftp
 sudo mkdir /home/gsever/ftp/files
-sudo chown nobody:nogroup /home/gsever/ftp
-sudo chmod a-w /home/gsever/ftp
+sudo chown nobody:nogroup /home/gsever/ftp		--> chown; dosya/klasorlerin sahipligini degistirmek icin kullanilan komut.
+sudo chmod a-w /home/gsever/ftp				--> chmod = izinleri degistiriyoruz.
 sudo vim /etc/vsftpd.userlist
 echo gsever | sudo tee -a /etc/vsftpd.userlist
 sudo reboot --> bitti simdi wordpress sitesinden hesap olusturman gerekiyor.
