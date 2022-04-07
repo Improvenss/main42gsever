@@ -187,78 +187,87 @@ harf ve uzunluk kuralları vs.)
 	>> Herhang! b!r problem yok !se “evaluat!ng” grubu oluşturulsun.	--> sudo addgroup denemegroup31 -> sudo adduser denemeuser3131 denemegroup31
 	>> Oluşturulan yen! kullanıcı yen! gruba atansın.	--> sudo adduser <kullanici> <group> oluyor
 	>> Atanan kullanıcı, grupta mı kontrol ed!ls!n.	--> getent group denemegroup31
->> !!! Bu ş!fre pol!t!kasının ve uygulanmasının avantaj ve dezavantajları açıklanmalıdır. --> Guvenligi arttirmak icin kullanilir, dezavantaji ise 
->> !!! Açıklamalar net değ!lse burada durulur.
-# Hostname and part!t!ons (Ana b!lg!sayar adı ve bölümler)
->> Mak!nen!n ana b!lg!sayar adının doğru b!ç!mde oluşturuldu mu kontrol
-ed!ls!n (log!n42)(log!n’den kastı !ntra !d’s!)
->> Ana b!lg!sayarın adı değ!şt!r!ls!n ve mak!ne yen!den başlatılsın. Ad
-güncellenmed!yse burada durulur.
->> Orj!nal mak!ne !sm!ne artık dönüneb!l!n!r.
->> Sanal mak!ne bölümler! nasıl görüntülen!r?
->> Çıktı Subject’tek! örneğe göre değerlend!r. (Bonus çıktısına göre
-yaptıysa bonus puanı ver!lecekt!r.)
->> LVM nasıl çalışıyor??(Kısaca)
->> LVM neyle !lg!l!d!r?? (Kısaca)
->> !!! Doğru çalışmayan b!rşeyler varsa ve açıklamalar net değ!lse
-burada durulur.
-# Sudo
->> Sudo kurulumu kontrol ed!ls!n.
->> Yen! oluşturulan kullanıcı sudo grubuna atanmalıdır ve atandığı
-göster!lmel!d!r.
->> Sudo’nun değer!n! ve !şley!ş! açıklanmalıdır. (Subjecttek! sudo !le !lg!l!
-olan kurallar)
->> Subject’tek! sudo !ç!n uygulanan kurallar/pol!t!kaların uygulanması
-göster!lmel!d!r.
->> “/var/log/sudo/“ klasörünün varlığı kontrol ed!l!r ve !çer!s!nde en az
-b!r dosya var mı kontrol ed!l!r. Bu dosyanın !çer!ğ! kontrol ed!l!r.
->> Sudo üzer!nde b!r komut çalıştırmayı deney!n. “/var/log/sudo/“
-!çer!s!ndek! dosyalarda güncelleme gerçekleşt! m! kontrol ed!n.
->> !!! Doğru çalışmayan b!rşeyler varsa ve açıklamalar net değ!lse
-burada durulur.
-# UFW
->> UFW sanal mak!neye düzgün b!r şek!lde kuruldu mu kontrol ed!l!r.
->> UFW düzgün çalışıyor mu kontrol ed!l!r.
->> UFW’n!n ned!r? ve kullanmanın değer! ned!r?
->> UFW’dek! akt!f kuralları l!steley!n. 4242 numaralrı b!r bağlantı noktası
-!ç!n kural bulunmalıdır.
->> 8080 numaralı bağlantı noktası açmak !ç!n kural ekley!n. Etk!n
+>> !!! Bu ş!fre pol!t!kasının ve uygulanmasının avantaj ve dezavantajları açıklanmalıdır. --> Guvenligi arttirmak icin kullanilir, dezavantaji ise bence yok.
+>> !!! Açıklamalar net değ!lse burada durulur.		--> Evet net.
 
- kuralları l!steleyerek eklen!p eklenmed!ğ! kontrol ed!l!r.
->> Yen! eklenen kural s!l!nmel!d!r.
->> !!! Doğru çalışmayan b!rşeyler varsa ve açıklamalar net değ!lse
-burada durulur.
+
+
+# Hostname and part!t!ons (Ana b!lg!sayar adı ve bölümler)
+	>> Mak!nen!n ana b!lg!sayar adının doğru b!ç!mde oluşturuldu mu kontrol ed!ls!n (log!n42)(log!n’den kastı !ntra !d’s!)			--> hostnamectl
+	>> Ana b!lg!sayarın adı değ!şt!r!ls!n ve mak!ne yen!den başlatılsın. --> sudo hostnamectl deneme422
+	>> Orj!nal mak!ne !sm!ne artık dönüneb!l!n!r.		--> Evet donuldu.
+	>> Sanal mak!ne bölümler! nasıl görüntülen!r?		--> lsblk
+	>> Çıktı Subject’tek! örneğe göre değerlend!r. (Bonus çıktısına göre yaptıysa bonus puanı ver!lecekt!r.)						--> Evet ona gore yapildi.
+	>> LVM nasıl çalışıyor??(Kısaca)			--> LVM(Locigal Volume Manager) mantiksal birim yoneticisi; Kurulum asamasinda LVM kismi secilip bolumderilerek yapiliyor. Calismasi normal bolumlendirmeden farkli olarak; bolumlendirme bittikten sonra istedigimiz gibi boyutunu duzenleyebiliyoruz.
+	>> LVM neyle !lg!l!d!r?? (Kısaca)	--> Disk bolumlendirmeyle ilgilidir.
+	>> !!! Doğru çalışmayan b!rşeyler varsa ve açıklamalar net değ!lse burada durulur. --> Evet net.
+
+
+
+
+# Sudo
+	>> Sudo kurulumu kontrol ed!ls!n.	--> sudo yaz direkt ya da sudo --help
+	>> Yen! oluşturulan kullanıcı sudo grubuna atanmalıdır ve atandığı göster!lmel!d!r.	--> sudo adduser denemeuser42 -> sudo passwd denemeuser42 -> sudo addgroup denemeuser42 sudo
+	>> Sudo’nun değer!n! ve !şley!ş! açıklanmalıdır. (Subjecttek! sudo !le !lg!l! olan kurallar)	--> Evet aciklarim.
+	>> Subject’tek! sudo !ç!n uygulanan kurallar/pol!t!kaların uygulanması göster!lmel!d!r.	--> Anlamadim ne diyor burada yaw? sudo icin ekledik zaten her seyi.
+	>> “/var/log/sudo/“ klasörünün varlığı kontrol ed!l!r ve !çer!s!nde en az b!r dosya var mı kontrol ed!l!r. Bu dosyanın !çer!ğ! kontrol ed!l!r.		--> su - ile root olarak girip /var/log/sudo/sudolog 'ta her sudo komutunu kullandigimiz zaman kayitlari orada tutuyoruz.
+	>> Sudo üzer!nde b!r komut çalıştırmayı deney!n. “/var/log/sudo/“ !çer!s!ndek! dosyalarda güncelleme gerçekleşt! m! kontrol ed!n.		--> Evet calisiyor.
+	>> !!! Doğru çalışmayan b!rşeyler varsa ve açıklamalar net değ!lse burada durulur.		--> Evet doru.
+
+
+
+
+# UFW
+	>> UFW sanal mak!neye düzgün b!r şek!lde kuruldu mu kontrol ed!l!r.	--> sudo ufw status -> Evet.
+	>> UFW düzgün çalışıyor mu kontrol ed!l!r.		--> sudo systemctl status ufw
+	>> UFW’n!n ned!r? ve kullanmanın değer! ned!r?	--> UFW(Uncomplicated Fire Wall) karmasik olmayan guvenlik duvari; Web'den gelen ve kullanicinin uygulama paneline erisip erisemeyecegini kontrol eden, ag baglantilarina dayanan cogu uygulama kullanicinin erisip erisemeyecegini kontrol etmesine yariyor.
+	>> UFW’dek! akt!f kuralları l!steley!n. 4242 numaralrı b!r bağlantı noktası !ç!n kural bulunmalıdır.	--> sudo ufw status
+	>> 8080 numaralı bağlantı noktası açmak !ç!n kural ekley!n. Etk!n kuralları l!steleyerek eklen!p eklenmed!ğ! kontrol ed!l!r.			--> sudo ufw allow 8080 -> sudo ufw status -> sudo ufw status numbered
+	>> Yen! eklenen kural s!l!nmel!d!r.	-> sudo ufw delete [ ] [ ]
+	>> !!! Doğru çalışmayan b!rşeyler varsa ve açıklamalar net değ!lse burada durulur. --> Evet dogru.
+
+
+
+
 # SSH
->> SSH h!zmet!n!n sanal mak!neye düzgün b!r şek!lde kurulu mu kontrol
-ed!ls!n.
->> SSH h!zmet! düzgün çalışıyor mu kontrol ed!ls!n.
->> SSH ned!r? ve kullanmanın değer! ned!r?
->> SSH h!zmet!n!n yalnızca 4242 portu üzer!nden kullanıldığını
-doğrulayın.
->> Yen! oluşturulan kullanıcı ssh üzer!nden oturum açab!lmel!d!r. >> !!! Doğru çalışmayan b!rşeyler varsa ve açıklamalar net değ!lse
-burada durulur.
+	>> SSH h!zmet!n!n sanal mak!neye düzgün b!r şek!lde kurulu mu kontrol ed!ls!n.		--> sudo service ssh status
+	>> SSH h!zmet! düzgün çalışıyor mu kontrol ed!ls!n.		--> Evet edildi.
+	>> SSH ned!r? ve kullanmanın değer! ned!r?		--> SSH(Secure Shell Hosting) Guvenli Kabuk; ag hizmetlerinin guvenli olmayan ag uzerinde guvenli bir sekilde calismasi icin kullanilan kriptografik ag protokoludur.
+	>> SSH h!zmet!n!n yalnızca 4242 portu üzer!nden kullanıldığını doğrulayın.	--> sudo service ssh status
+	>> Yen! oluşturulan kullanıcı ssh üzer!nden oturum açab!lmel!d!r. >> !!! Doğru çalışmayan b!rşeyler varsa ve açıklamalar net değ!lse burada durulur.		--> Evet aciliyor.
+
+
+
+
+
 # Scr!pt mon!tor!ng (Komut dosyası !zleme)
->> Kodu göstererek hang! seneryoların nasıl çalıştığı anlatılmalıdır. >> Cron ned!r?
->> Her 10dk b!r çalışacak komutun nasıl kurulduğu.
->> Komut dosyasının doğru çalıştığı doğrulandıktan sonra bu komut
-dosyası her 1 dk b!r çalışması sağlanmalıdır.
->> Komut dosyası değ!şt!r!lmeden, komut dosyasının çalışması
-durdurulmalıdır.
->> Bu noktayı kontrol etmek !ç!n sunucuyu son b!r kez yen!den
-başlatmanız gerekecek. Başlangıçta, komut dosyasının hala aynı yerde bulunduğunu, haklarının değ!şmed!ğ!n! ve değ!şt!r!lmed!ğ!n! kontrol etmek gerekecekt!r.
->> !!! Doğru çalışmayan b!rşeyler varsa ve açıklamalar net değ!lse burada durulur.
+	>> Kodu göstererek hang! seneryoların nasıl çalıştığı anlatılmalıdır.		--> Evet anlatildi.
+		> Cron ned!r?		--> Bizim belirledigimiz araliklarla calistirmak istedigimiz komutlari calistiran program diyelim.
+	>> Her 10dk b!r çalışacak komutun nasıl kurulduğu.		--> Eger debian'da falan yuklu degilse 'sudo apt-get install cron' yazarak kurabiliriz. -> sudo crontab -u root -e
+	>> Komut dosyasının doğru çalıştığı doğrulandıktan sonra bu komut	dosyası her 1 dk b!r çalışması sağlanmalıdır. 	--> sudo crontab -u root -e -> */1 * * * * bash /usr/local/bin/monitoring.sh
+	>> Komut dosyası değ!şt!r!lmeden, komut dosyasının çalışması durdurulmalıdır.		--> Yorum satirina alirsin o satiri.
+	>> Bu noktayı kontrol etmek !ç!n sunucuyu son b!r kez yen!den başlatmanız gerekecek. Başlangıçta, komut dosyasının hala aynı yerde bulunduğunu, haklarının değ!şmed!ğ!n! ve değ!şt!r!lmed!ğ!n! kontrol etmek gerekecekt!r.		--> gerek yok.
+>> !!! Doğru çalışmayan b!r şeyler varsa ve açıklamalar net değ!lse burada durulur.	--> Evet dogru.
+
+
+
+
 ## BONUS
->> Bonus kısmını, ancak ve ancak zorunlu kısım tamamen ve mükemmel
-b!r şek!lde yapılmışsa ve hata yönet!m! beklenmed!k veya kötü kullanımı ele alıyorsa değerlend!r!n. Savunma sırasında tüm zorunlu puanların geç!lmemes! durumunda bonus puanlar tamamen göz ardı ed!lmel!d!r.
+	>> Bonus kısmını, ancak ve ancak zorunlu kısım tamamen ve mükemmel b!r şek!lde yapılmışsa ve hata yönet!m! beklenmed!k veya kötü kullanımı ele alıyorsa değerlend!r!n. Savunma sırasında tüm zorunlu puanların geç!lmemes! durumunda bonus puanlar tamamen göz ardı ed!lmel!d!r.
+
+
 >BONUS
+
+
+
+
 # Değerlend!r!len konunun ve öğrenc!n!n yardımıyla bu proje !ç!n
 yetk!lend!r!len bonus puanlarını kontrol ed!n:
 - Bölümler! kurmak 2 puan değer!nded!r.
 - Sadece konunun gerekt!rd!ğ! h!zmetlerle WordPress kurmak 2 puan değer!nded!r.
-- Serbest seç!m h!zmet! 1 puan değer!nded!r. Her b!r ekstra
+- Serbest seç!m h!zmet! 1 puan değer!nded!r. Her b!r ekstra  h!zmet!n düzgün çalıştığını ve uygulandığını doğrulayın ve test ed!n. Ücrets!z seç!m h!zmet! !ç!n, değerlend!r!len öğrenc!n!n s!ze nasıl çalıştığı ve neden yararlı olduğunu düşündükler! hakkında bas!t b!r açıklama yapması gerek!r. Lütfen NGINX ve Apache2'n!n yasak olduğunu unutmayın.
 
- h!zmet!n düzgün çalıştığını ve uygulandığını doğrulayın ve test ed!n. Ücrets!z seç!m h!zmet! !ç!n, değerlend!r!len öğrenc!n!n s!ze nasıl çalıştığı ve neden yararlı olduğunu düşündükler! hakkında bas!t b!r açıklama yapması gerek!r. Lütfen NGINX ve Apache2'n!n yasak olduğunu unutmayın.
-
+					--> PDF'deki seylerin aynisi.
 
 
 
