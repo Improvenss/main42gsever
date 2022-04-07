@@ -182,14 +182,12 @@ harf ve uzunluk kuralları vs.)
 	>> Öğrenc!n!n oturum açma b!lg!ler!ne(kısaca !ntrada kullanılan !d) sah!p b!r kullanıcı sanal mak!nede var mı kontrol ed!ls!n.				--> hostnamectl
 	>> Bu kullanıcı “sudo” ve “user42” gruplarına dah!l ed!lm!ş m! kontrol ed!ls!n. --> getent group sudo -> getent group user42
 	>> Kullanıcı ş!fres! pol!t!kaları yapılmış mı kontrol ed!ls!n. --> sudo vim /etc/pam.d/common-password
-	>> Yen! b!r kullanıcı oluşturulsun ve kurallara/pol!t!kalara uygun ş!fre atansın. --> sudo addgroup denemegroup31 -> sudo adduser denemeuser3131 denemegroup31
->> Bu kuralların nasıl ayarlandığı açıklanmalıdır.
-
- >> Herhang! b!r problem yok !se “evaluat!ng” grubu oluşturulsun.
->> Oluşturulan yen! kullanıcı yen! gruba atansın.
->> Atanan kullanıcı, grupta mı kontrol ed!ls!n.
->> !!! Bu ş!fre pol!t!kasının ve uygulanmasının avantaj ve dezavantajları
-açıklanmalıdır.
+	>> Yen! b!r kullanıcı oluşturulsun ve kurallara/pol!t!kalara uygun ş!fre atansın.		--> sudo adduser denemeuser3131
+	>> Bu kuralların nasıl ayarlandığı açıklanmalıdır. --> Evet aciklandi
+	>> Herhang! b!r problem yok !se “evaluat!ng” grubu oluşturulsun.	--> sudo addgroup denemegroup31 -> sudo adduser denemeuser3131 denemegroup31
+	>> Oluşturulan yen! kullanıcı yen! gruba atansın.	--> sudo adduser <kullanici> <group> oluyor
+	>> Atanan kullanıcı, grupta mı kontrol ed!ls!n.	--> getent group denemegroup31
+>> !!! Bu ş!fre pol!t!kasının ve uygulanmasının avantaj ve dezavantajları açıklanmalıdır. --> Guvenligi arttirmak icin kullanilir, dezavantaji ise 
 >> !!! Açıklamalar net değ!lse burada durulur.
 # Hostname and part!t!ons (Ana b!lg!sayar adı ve bölümler)
 >> Mak!nen!n ana b!lg!sayar adının doğru b!ç!mde oluşturuldu mu kontrol
