@@ -1,23 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
+/*   By: vinograd <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/20 01:33:38 by gsever            #+#    #+#             */
-/*   Updated: 2022/04/11 16:23:50 by gsever           ###   ########.fr       */
+/*   Created: 2019/04/12 14:39:44 by vinograd          #+#    #+#             */
+/*   Updated: 2019/05/01 18:46:15 by vinograd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
+#include <stdlib.h>
 
-# include <stdlib.h>
-# include <unistd.h>
-# include <signal.h>
-# include "libft.h"
+char	*ft_strdup(char *s)
+{
+	int		len;
+	char	*str;
 
-# define WAIT_TIME 100
-
-#endif
+	len = 0;
+	while (s[len])
+		len++;
+	str = (char*)malloc(len + 1);
+	if (str == NULL)
+		return (NULL);
+	while (len >= 0)
+	{
+		str[len] = s[len];
+		len--;
+	}
+	return (str);
+}

@@ -1,23 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   sb.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
+/*   By: vinograd <vinograd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/20 01:33:38 by gsever            #+#    #+#             */
-/*   Updated: 2022/04/11 16:23:50 by gsever           ###   ########.fr       */
+/*   Created: 2019/08/12 15:13:55 by vinograd          #+#    #+#             */
+/*   Updated: 2019/08/12 17:44:01 by vinograd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
+/*
+**	swap the first 2 elements at the top of stack B
+*/
 
-# include <stdlib.h>
-# include <unistd.h>
-# include <signal.h>
-# include "libft.h"
+#include "utils.h"
 
-# define WAIT_TIME 100
-
-#endif
+void	sb(int *stack_b)
+{
+	sa(stack_b);
+}

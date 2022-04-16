@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   rb.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
+/*   By: vinograd <vinograd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/20 01:33:38 by gsever            #+#    #+#             */
-/*   Updated: 2022/04/11 16:23:50 by gsever           ###   ########.fr       */
+/*   Created: 2019/08/12 17:17:07 by vinograd          #+#    #+#             */
+/*   Updated: 2019/08/12 17:20:13 by vinograd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
+/*
+**	rotate B - shift up all elements of stack B by 1.
+**	The first element becomes the last one.
+*/
 
-# include <stdlib.h>
-# include <unistd.h>
-# include <signal.h>
-# include "libft.h"
+#include "utils.h"
 
-# define WAIT_TIME 100
-
-#endif
+void	rb(int *stack_b)
+{
+	ra(stack_b);
+}

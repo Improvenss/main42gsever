@@ -1,23 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_lstadd.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
+/*   By: vinograd <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/20 01:33:38 by gsever            #+#    #+#             */
-/*   Updated: 2022/04/11 16:23:50 by gsever           ###   ########.fr       */
+/*   Created: 2019/05/10 14:35:06 by vinograd          #+#    #+#             */
+/*   Updated: 2019/05/10 15:31:28 by vinograd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
+#include "libft.h"
 
-# include <stdlib.h>
-# include <unistd.h>
-# include <signal.h>
-# include "libft.h"
-
-# define WAIT_TIME 100
-
-#endif
+void	ft_lstadd(t_list **alst, t_list *new)
+{
+	if (alst != NULL && new != NULL)
+	{
+		new->next = *alst;
+		*alst = new;
+	}
+}

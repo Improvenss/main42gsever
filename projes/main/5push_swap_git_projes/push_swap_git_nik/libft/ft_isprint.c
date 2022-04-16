@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
+/*   By: vinograd <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/20 01:33:38 by gsever            #+#    #+#             */
-/*   Updated: 2022/04/11 16:23:50 by gsever           ###   ########.fr       */
+/*   Created: 2019/04/30 17:22:54 by vinograd          #+#    #+#             */
+/*   Updated: 2019/04/30 17:37:36 by vinograd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
-
-# include <stdlib.h>
-# include <unistd.h>
-# include <signal.h>
-# include "libft.h"
-
-# define WAIT_TIME 100
-
-#endif
+int		ft_isprint(int c)
+{
+	if (c >= ' ' && c <= '~')
+		return (1);
+	return (0);
+}

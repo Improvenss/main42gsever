@@ -1,0 +1,17 @@
+			Bitwise operators
+
+		AND --> &	
+	1- 	A	B	OUT
+		0	0	0
+		0	1	0
+		1	0	0
+		1	1	1	--> Yani ikisi de birse 1 olur.
+
+		NOT	--> !
+	2-	A	B	OUT
+		0	0	1
+		0	1	1
+		1	0	1
+		1	1	0	--> Olusan durumu tersine cevirir.
+
+		NOND --> 

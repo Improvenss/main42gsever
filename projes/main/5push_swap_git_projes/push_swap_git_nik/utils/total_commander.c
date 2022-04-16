@@ -1,23 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   total_commander.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
+/*   By: Nik <Nik@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/20 01:33:38 by gsever            #+#    #+#             */
-/*   Updated: 2022/04/11 16:23:50 by gsever           ###   ########.fr       */
+/*   Created: 2019/08/21 14:23:17 by vinograd          #+#    #+#             */
+/*   Updated: 2019/08/29 22:01:45 by Nik              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
+#include "utils.h"
 
-# include <stdlib.h>
-# include <unistd.h>
-# include <signal.h>
-# include "libft.h"
-
-# define WAIT_TIME 100
-
-#endif
+void	totle_commander(char *cmd, int *stack_a, int *stack_b)
+{
+	ft_printf("%s\n", cmd);
+	commander(cmd, stack_a, stack_b);
+}

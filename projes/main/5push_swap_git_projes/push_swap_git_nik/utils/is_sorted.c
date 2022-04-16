@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   is_sorted.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
+/*   By: vinograd <vinograd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/20 01:33:38 by gsever            #+#    #+#             */
-/*   Updated: 2022/04/11 16:23:50 by gsever           ###   ########.fr       */
+/*   Created: 2019/08/12 19:27:11 by vinograd          #+#    #+#             */
+/*   Updated: 2019/08/19 16:39:55 by vinograd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
+#include "utils.h"
 
-# include <stdlib.h>
-# include <unistd.h>
-# include <signal.h>
-# include "libft.h"
+int		is_sorted(int *stack_a, int *stack_b)
+{
+	int i;
 
-# define WAIT_TIME 100
-
-#endif
+	i = A_LEN;
+	if (B_LEN != 0)
+		return (0);
+	while (i > 1)
+	{
+		if (stack_a[i] >= stack_a[i - 1])
+			return (0);
+		i--;
+	}
+	return (1);
+}
