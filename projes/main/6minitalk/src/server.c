@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 00:12:14 by gsever            #+#    #+#             */
-/*   Updated: 2022/04/16 21:30:20 by gsever           ###   ########.fr       */
+/*   Updated: 2022/04/18 15:56:25 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void	action(int sig, siginfo_t *info, void *context)
 	(void)context;
 	if (!client_pid)
 		client_pid = info->si_pid;
-	c = 0 | (sig == SIGUSR2); //c = c | (sig == SIGUSR2) 00000000 -> 00000001
+	c |= (sig == SIGUSR2); //c = c | (sig == SIGUSR2) 00000000 -> 00000001
 	if (++i == 8)
 	{
 		i = 0;

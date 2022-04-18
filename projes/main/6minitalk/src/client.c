@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 00:12:50 by gsever            #+#    #+#             */
-/*   Updated: 2022/04/18 01:23:48 by gsever           ###   ########.fr       */
+/*   Updated: 2022/04/18 15:54:35 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,8 +90,8 @@ int	main(int argc, char **argv)
 		return (1);
 	ft_putstr_fd("Sent	: ", 1);
 	ft_putnbr_fd(ft_strlen(argv[2]), 1);
-	//ft_putchar_fd('\n', 1);
-	ft_putstr_fd("\nReceived: ", 1);
+	ft_putchar_fd('\n', 1);
+	ft_putstr_fd("Received: ", 1);
 	signal(SIGUSR1, action);
 	signal(SIGUSR2, action);
 	mt_kill(ft_atoi(argv[1]), argv[2]);
