@@ -6,13 +6,13 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 00:12:50 by gsever            #+#    #+#             */
-/*   Updated: 2022/04/17 02:13:50 by gsever           ###   ########.fr       */
+/*   Updated: 2022/04/18 01:23:48 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 /*
-	Eger gonderilecek bir sinyal varsa (0/1) action'da calistirmaya devam ederz.
+Eger gonderilecek bir sinyal varsa (0/1) action'da calistirmaya devam ederz.
 	Yani; "gorkem" stringi gonderilecek,
 		 'g' yi gonderirken 'g' = 01100111'i
 		 'o' yi gonderirken 'o' = 01101111'i
