@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 00:12:14 by gsever            #+#    #+#             */
-/*   Updated: 2022/04/18 15:56:25 by gsever           ###   ########.fr       */
+/*   Updated: 2022/04/20 05:01:05 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	main(void)
 	struct sigaction	s_sigaction;
 
 	ft_putstr_fd("Server PID: ", 1);
-	ft_putnbr_fd(getpid(), 1);
+	ft_putnbr_fd(getpid(), 1);// zaten bellekte olusmus olan PID'i bellekten cekiyorsun(numarasini cekiyorsun yani).
 	ft_putchar_fd('\n', 1);
 	s_sigaction.sa_sigaction = action;
 	s_sigaction.sa_flags = SA_SIGINFO;

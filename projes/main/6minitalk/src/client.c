@@ -6,24 +6,12 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 00:12:50 by gsever            #+#    #+#             */
-/*   Updated: 2022/04/18 15:54:35 by gsever           ###   ########.fr       */
+/*   Updated: 2022/04/18 17:26:09 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
-/*
-Eger gonderilecek bir sinyal varsa (0/1) action'da calistirmaya devam ederz.
-	Yani; "gorkem" stringi gonderilecek,
-		 'g' yi gonderirken 'g' = 01100111'i
-		 'o' yi gonderirken 'o' = 01101111'i
-		 'r' yi gonderirken 'r' = 01110010'i
-		 'k' yi gonderirken 'k' = 01101011'i
-		 'e' yi gonderirken 'e' = 01100101'i
-		 'm' yi gonderirken 'm' = 01101101'i
-gondermeye calisiyoruz. 
 
-	'g'den baslayalim --> 00000000 -> 00000001
-*/
 static void	action(int sig)
 {
 	static int	received = 0;
@@ -37,7 +25,19 @@ static void	action(int sig)
 		exit(0);
 	}
 }
+/*
+Eger gonderilecek bir sinyal varsa (0/1) action'da calistirmaya devam ederz.
+	Yani; "gorkem" stringi gonderilecek,
+		 'g' yi gonderirken 'g' = 01100111'i
+		 'o' yi gonderirken 'o' = 01101111'i
+		 'r' yi gonderirken 'r' = 01110010'i
+		 'k' yi gonderirken 'k' = 01101011'i
+		 'e' yi gonderirken 'e' = 01100101'i
+		 'm' yi gonderirken 'm' = 01101101'i
+gondermeye calisiyoruz. 
 
+	'g'den baslayalim --> 'g' = 01100111 -> 01100111
+*/
 static void	mt_kill(int pid, char *str)
 
 {
@@ -47,7 +47,7 @@ static void	mt_kill(int pid, char *str)
 	while (*str)
 	{
 		i = 8;
-		c = *str++;
+		c = *str++;//gorkem --> 'g' = 01100111
 		while (i--)
 		{
 			if (c >> i & 1)//10010110  --> 00000001 --> 00000111 --> 1 2 3 8 16 32
