@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 00:12:50 by gsever            #+#    #+#             */
-/*   Updated: 2022/05/11 15:44:07 by gsever           ###   ########.fr       */
+/*   Updated: 2022/05/11 17:27:46 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,10 +121,5 @@ int	main(int argc, char **argv)
 	mt_kill(ft_atoi(argv[1]), argv[2]);
 	while (1)
 		pause();
-	while(argv[2] == NULL)
-	{
-		ft_putchar_fd('\n', 1);
-		break;
-	}
 	return (0);
 }
