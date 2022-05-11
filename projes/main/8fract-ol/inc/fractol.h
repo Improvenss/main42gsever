@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/15 18:25:43 by tjensen           #+#    #+#             */
-/*   Updated: 2022/04/25 02:57:53 by gsever           ###   ########.fr       */
+/*   Created: 2022/04/25 17:16:47 by gsever            #+#    #+#             */
+/*   Updated: 2022/05/02 11:34:01 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 # include "mlx.h"
 
 # define SIZE_X 1000.0
-# define SIZE_Y 500.0
+# define SIZE_Y 1000.0
 
 typedef struct s_complex	t_complex;
 typedef struct s_mlximg		t_mlximg;
@@ -30,6 +30,10 @@ typedef struct s_mlx		t_mlx;
 typedef struct s_fractol	t_fractol;
 typedef void				(*t_funcptr)(t_fractol *frctl);
 
+/*
+Bu 'struct' fraktal icin 2 tane deger girmemizi istiyor, o degerleri 
+her parametre icin uretmis oluyoruz.
+*/
 typedef struct s_complex{
 	double	re;
 	double	im;

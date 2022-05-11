@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractal_celtic_mandelbrot.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tjensen <tjensen@student.42.fr>            +#+  +:+       +#+        */
+/*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/22 12:15:58 by tjensen           #+#    #+#             */
-/*   Updated: 2021/09/27 12:35:39 by tjensen          ###   ########.fr       */
+/*   Created: 2022/05/02 11:34:43 by gsever            #+#    #+#             */
+/*   Updated: 2022/05/02 11:34:45 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

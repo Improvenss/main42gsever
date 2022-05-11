@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: gsever <gsever@student.42kocaeli.com.tr>   +#+  +:+       +#+         #
+#    By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/23 21:55:01 by gsever            #+#    #+#              #
-#    Updated: 2022/04/23 21:55:06 by gsever           ###   ########.tr        #
+#    Updated: 2022/05/02 11:35:50 by gsever           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,9 +17,9 @@
 NAME		:= fractol
 
 SRCS		:= main.c fractol.c color.c helper.c utils.c \
-			   key_actions.c mouse_actions.c \
-			   fractal_mandelbrot.c fractal_julia.c \
-			   fractal_burning_ship.c fractal_celtic_mandelbrot.c
+				key_actions.c mouse_actions.c \
+				fractal_mandelbrot.c fractal_julia.c \
+				fractal_burning_ship.c fractal_celtic_mandelbrot.c
 LDLIBS		:= -lm -lft -lmlx -framework OpenGL -framework AppKit
 
 # **************************************************************************** #

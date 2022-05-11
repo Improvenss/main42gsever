@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: gsever <gsever@student.42kocaeli.com.tr>   +#+  +:+       +#+         #
+#    By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/20 02:26:20 by gsever            #+#    #+#              #
-#    Updated: 2022/03/20 02:26:24 by gsever           ###   ########.tr        #
+#    Updated: 2022/04/25 19:31:49 by gsever           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
