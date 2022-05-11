@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   server.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
+/*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 00:12:14 by gsever            #+#    #+#             */
-/*   Updated: 2022/04/20 05:01:05 by gsever           ###   ########.fr       */
+/*   Updated: 2022/05/11 17:24:23 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-static void	action(int sig, siginfo_t *info, void *context)
+static void	faction(int sig, siginfo_t *info, void *context)
 {
 	static int				i = 0;
 	static pid_t			client_pid = 0;
@@ -46,7 +46,8 @@ int	main(void)
 	ft_putstr_fd("Server PID: ", 1);
 	ft_putnbr_fd(getpid(), 1);// zaten bellekte olusmus olan PID'i bellekten cekiyorsun(numarasini cekiyorsun yani).
 	ft_putchar_fd('\n', 1);
-	s_sigaction.sa_sigaction = action;
+	//s_sigaction.__sigaction_u.__sa_sigaction = faction; knowledge
+	s_sigaction.sa_sigaction = faction;
 	s_sigaction.sa_flags = SA_SIGINFO;
 	sigaction(SIGUSR1, &s_sigaction, 0);
 	sigaction(SIGUSR2, &s_sigaction, 0);

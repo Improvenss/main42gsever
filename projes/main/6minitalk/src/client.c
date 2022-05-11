@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 00:12:50 by gsever            #+#    #+#             */
-/*   Updated: 2022/05/11 14:03:26 by gsever           ###   ########.fr       */
+/*   Updated: 2022/05/11 15:44:07 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,15 +39,15 @@ Eger gonderilecek bir sinyal varsa (0/1) action'da calistirmaya devam ederz.
 gondermeye calisiyoruz. 
 
 	'g'den baslayalim -->  'g' = 01100111 -> 01100111
-		OK->i=8 [0]1100111 --> 'g' = 00000000
-		OK->i=7 0[1]100111 --> 'g' = 00000001
-		OK->i=6 01[1]00111 --> 'g' = 00000011
-		OK->i=5 011[0]0111 --> 'g' = 00000110
-		OK->i=4 0110[0]111 --> 'g' = 00001100
-		OK->i=3 01100[1]11 --> 'g' = 00011001
-		OK->i=2 011001[1]1 --> 'g' = 00110011
-		OK->i=1 0110011[1] --> 'g' = 01100111
-		KO->i=0 01100111???????
+		OK-> i=8 [0]1100111 --> 'g' = 00000000
+		OK-> i=7 0[1]100111 --> 'g' = 00000001
+		OK-> i=6 01[1]00111 --> 'g' = 00000011
+		OK-> i=5 011[0]0111 --> 'g' = 00000110
+		OK-> i=4 0110[0]111 --> 'g' = 00001100
+		OK-> i=3 01100[1]11 --> 'g' = 00011001
+		OK-> i=2 011001[1]1 --> 'g' = 00110011
+		OK-> i=1 0110011[1] --> 'g' = 01100111
+		KO-> i=0 01100111??????? not entering while loop.
 */
 /*
 	mt_kill --> minitalk _ kill -> im meaning signal sending program starting.
@@ -64,7 +64,7 @@ static void	mt_kill(int pid, char *str)
 		c = *str++;//gorkem --> 'g' characterini = 01100111 sonra o,r,k,e,m
 		while (i--)
 		{
-			if (c >> i & 1)//thinknig--> i=8 0110011[1]--> i=7 011001[1]1
+			if (c >> i & 1)//thinking--> i=8 0110011[1]--> i=7 011001[1]1
 			{
 				kill(pid, SIGUSR2);
 				//printf("1");
@@ -121,5 +121,10 @@ int	main(int argc, char **argv)
 	mt_kill(ft_atoi(argv[1]), argv[2]);
 	while (1)
 		pause();
+	while(argv[2] == NULL)
+	{
+		ft_putchar_fd('\n', 1);
+		break;
+	}
 	return (0);
 }
