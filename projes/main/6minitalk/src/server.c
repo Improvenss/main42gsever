@@ -6,12 +6,32 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 00:12:14 by gsever            #+#    #+#             */
-/*   Updated: 2022/05/11 17:27:56 by gsever           ###   ########.fr       */
+/*   Updated: 2022/05/11 18:02:04 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
-
+/*
+		https://www.programiz.com/c-programming/bitwise-operators
+	https://www.tutorialspoint.com/cprogramming/c_bitwise_operators.htm
+https://en.wikipedia.org/wiki/Operators_in_C_and_C%2B%2B#Operator_precedence
+	https://en.wikipedia.org/wiki/Bitwise_operation
+Operators	Meaning of operators
+	&	-->		Bitwise AND
+Binary AND Operator copies a bit to the result if it exists in both operands.
+	|	-->		Bitwise OR
+Binary OR Operator copies a bit if it exists in either operand.
+	^	-->		Bitwise XOR
+Binary XOR Operator copies the bit if it is set in one operand but not both.
+	~	-->		Bitwise complement
+Binary One's Complement Operator is unary and has the effect of 'flipping' bits.
+	<<	-->		Shift left
+Binary Left Shift Operator. The left operands value is moved left 
+by the number of bits specified by the right operand.
+	>>	-->		Shift right
+Binary Right Shift Operator. The left operands value is moved right 
+by the number of bits specified by the right operand.
+*/
 static void	faction(int sig, siginfo_t *info, void *context)
 {
 	static int				i = 0;
@@ -38,7 +58,21 @@ static void	faction(int sig, siginfo_t *info, void *context)
 	else
 		c <<= 1; // c = c << 1  00000001 -> 00000010
 }
+/*
+	What does a signal handler do?
+		A signal handler is a function which is called by the target 
+environment when the corresponding signal occurs. 
+The target environment suspends execution of the program until 
+the signal handler returns or calls longjmp(). 
+Signal handlers can be set with signal() or sigaction().
 
+	Bir sinyal işleyici ne yapar?
+		Bir sinyal işleyici, ilgili sinyal oluştuğunda hedef ortam 
+tarafından çağrılan bir fonksiyondur. 
+Hedef ortam, sinyal işleyici dönene veya longjmp() öğesini 
+çağırana kadar programın yürütülmesini askıya alır. 
+Sinyal işleyiciler, signal() veya sigaction() ile ayarlanabilir.
+*/
 int	main(void)
 {
 	struct sigaction	s_sigaction;

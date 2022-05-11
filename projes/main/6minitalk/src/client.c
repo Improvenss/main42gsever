@@ -6,13 +6,14 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 00:12:50 by gsever            #+#    #+#             */
-/*   Updated: 2022/05/11 17:27:46 by gsever           ###   ########.fr       */
+/*   Updated: 2022/05/11 17:41:51 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 /*
-	bos action function'unda kac tane signal gonderdigimizi sayiyoruz.
+	void action function'unda kac tane character gonderildigini, 
+server'den --> client'e gonderilen geri dongu olarak kontrol ediyoruz.
 */
 static void	action(int sig)
 {
@@ -28,7 +29,7 @@ static void	action(int sig)
 	}
 }
 /*
-Eger gonderilecek bir sinyal varsa (0/1) action'da calistirmaya devam ederz.
+Eger gonderilecek bir sinyal varsa (0/1) action'da calistirmaya devam ederiz.
 	Yani; "gorkem" stringi gonderilecek,
 		 'g' yi gonderirken 'g' = 01100111'i
 		 'o' yi gonderirken 'o' = 01101111'i
@@ -50,7 +51,10 @@ gondermeye calisiyoruz.
 		KO-> i=0 01100111??????? not entering while loop.
 */
 /*
-	mt_kill --> minitalk _ kill -> im meaning signal sending program starting.
+	mt_kill --> minitalk_kill -> It's meaning signal sending program starting.
+
+	Last while loop: For cleaning signal... We are sending 
+		8 pieces bit = 1 byte. We must cleaned. It's looking interesting :').
 */
 static void	mt_kill(int pid, char *str)
 
@@ -64,7 +68,7 @@ static void	mt_kill(int pid, char *str)
 		c = *str++;//gorkem --> 'g' characterini = 01100111 sonra o,r,k,e,m
 		while (i--)
 		{
-			if (c >> i & 1)//thinking--> i=8 0110011[1]--> i=7 011001[1]1
+			if (c >> i & 1)//thinking--> i=8 0110011[1] --> i=7 011001[1]1
 			{
 				kill(pid, SIGUSR2);
 				//printf("1");
