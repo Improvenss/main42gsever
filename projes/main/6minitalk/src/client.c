@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 00:12:50 by gsever            #+#    #+#             */
-/*   Updated: 2022/05/11 17:41:51 by gsever           ###   ########.fr       */
+/*   Updated: 2022/05/12 17:56:14 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ static void	mt_kill(int pid, char *str)
 		c = *str++;//gorkem --> 'g' characterini = 01100111 sonra o,r,k,e,m
 		while (i--)
 		{
-			if (c >> i & 1)//thinking--> i=8 0110011[1] --> i=7 011001[1]1
+			if (c >> i & 1)//thinking--> i=8 [0]1100111 --> i=7 0[1]100111
 			{
 				kill(pid, SIGUSR2);
 				//printf("1");
