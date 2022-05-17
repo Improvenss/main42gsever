@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 00:12:14 by gsever            #+#    #+#             */
-/*   Updated: 2022/05/12 16:20:55 by gsever           ###   ########.fr       */
+/*   Updated: 2022/05/17 13:11:16 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 	https://www.tutorialspoint.com/cprogramming/c_bitwise_operators.htm
 https://en.wikipedia.org/wiki/Operators_in_C_and_C%2B%2B#Operator_precedence
 	https://en.wikipedia.org/wiki/Bitwise_operation
+	⭐⭐⭐https://realpython.com/python-bitwise-operators/⭐⭐⭐
 Operators	Meaning of operators
 	&	-->		Bitwise AND
 Binary AND Operator copies a bit to the result if it exists in both operands.
@@ -31,6 +32,10 @@ by the number of bits specified by the right operand.
 	>>	-->		Shift right
 Binary Right Shift Operator. The left operands value is moved right 
 by the number of bits specified by the right operand.
+*/
+/*
+	void (*__sa_sigaction)(int, struct __siginfo *, void *);
+		This function using int, struct pointer and void pointer.
 */
 static void	faction(int sig, siginfo_t *info, void *context)
 {
@@ -58,6 +63,7 @@ static void	faction(int sig, siginfo_t *info, void *context)
 	else
 		c <<= 1; // c = c << 1  00000001 -> 00000010
 }
+
 /*
 	What does a signal handler do?
 		A signal handler is a function which is called by the target 
@@ -78,12 +84,13 @@ int	main(void)
 	struct sigaction	s_sigaction;
 
 	ft_putstr_fd("Server PID: ", 1);
-	ft_putnbr_fd(getpid(), 1);// zaten bellekte olusmus olan PID'i bellekten cekiyorsun(numarasini cekiyorsun yani).
+	ft_putnbr_fd(getpid(), 1);/* zaten bellekte olusmus olan PID'i bellekten cekiyorsun(numarasini cekiyorsun yani). */
 	ft_putchar_fd('\n', 1);
 	//s_sigaction.__sigaction_u.__sa_sigaction = faction; knowledge
 	s_sigaction.sa_sigaction = faction;
 	s_sigaction.sa_flags = SA_SIGINFO;
 	sigaction(SIGUSR1, &s_sigaction, 0);
+	//https://stackoverflow.com/questions/12587621/signal-handler-sa-sigaction-arguments
 	sigaction(SIGUSR2, &s_sigaction, 0);
 	while (1)
 		pause();

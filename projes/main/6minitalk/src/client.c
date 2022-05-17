@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 00:12:50 by gsever            #+#    #+#             */
-/*   Updated: 2022/05/12 17:56:14 by gsever           ###   ########.fr       */
+/*   Updated: 2022/05/17 13:11:15 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ static void	action(int sig)
 		exit(0);
 	}
 }
+
 /*
 Eger gonderilecek bir sinyal varsa (0/1) action'da calistirmaya devam ederiz.
 	Yani; "gorkem" stringi gonderilecek,
@@ -55,6 +56,8 @@ gondermeye calisiyoruz.
 
 	Last while loop: For cleaning signal... We are sending 
 		8 pieces bit = 1 byte. We must cleaned. It's looking interesting :').
+
+
 */
 static void	mt_kill(int pid, char *str)
 
@@ -88,6 +91,7 @@ static void	mt_kill(int pid, char *str)
 		usleep(100);
 	}
 }
+
 /*
 	UNIX SIGNALS --> Bu sinyaller calisan bir programa;
 Signal_Name	Signal_Number	Description
@@ -100,6 +104,12 @@ SIGKILL		9	If a process gets this signal it must quit immediately
 	and will not perform any clean-up operations.
 SIGALRM		14	Alarm clock signal. (used for timers)
 SIGTERM		15	Software termination signal. (sent by kill by default)
+
+				How does signal in C work?
+	A signal is a software generated interrupt that is sent to a process 
+by the OS because of when user press ctrl-c or another process tell 
+something to this process. There are fix set of signals that can be sent 
+to a process. signal are identified by integers.
 */
 /*
 	1-	3 tane argumanimiz haricinde arguman girilmisse ve 3. argumanimizin
