@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbrazhni <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/24 15:44:24 by vbrazhni          #+#    #+#             */
-/*   Updated: 2018/08/24 15:44:25 by vbrazhni         ###   ########.fr       */
+/*   Updated: 2022/05/19 19:30:20 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,20 +68,20 @@ typedef struct			s_command_list
 }						t_command_list;
 
 /*
-** Parse
+** Parse --> Ayristirmak
 */
 
 t_stack					*parse(int argc,
 							char **argv);
 
 /*
-** Validate
+** Validate --> Dogrulamak
 */
 
 void					check_dups(t_stack *stack);
 
 /*
-** Stack
+** Stack --> Yigin
 */
 
 t_stack_elem			*create_elem(int number);
@@ -95,13 +95,13 @@ void					push(t_stack *stack,
 t_stack_elem			*pop(t_stack *stack);
 
 /*
-** Index
+** Index --> Dizin
 */
 
 void					index_stack(t_stack *stack);
 
 /*
-** Markup
+** Markup --> Isaretleme
 */
 
 size_t					markup_stack_index(t_stack *stack,
@@ -114,7 +114,7 @@ void					opt_markup_stack(t_stack *stack,
 							size_t (*markup_stack)(t_stack *, t_stack_elem *));
 
 /*
-** Command
+** Command --> Emretmek
 */
 
 void					rx(t_stack *stack,
@@ -150,7 +150,7 @@ void					ss(t_stack *a,
 							t_command_list *list);
 
 /*
-** Solve
+** Solve --> Cozmek
 */
 
 t_command_list			*solve(t_stack *a_stack,
@@ -166,7 +166,7 @@ void					solve_b(t_stack *a_stack,
 							t_command_list *command_list);
 
 /*
-** Direction
+** Direction --> Yon
 */
 
 void					opt_direction(t_stack *a_stack,
@@ -174,7 +174,7 @@ void					opt_direction(t_stack *a_stack,
 							t_shift_info *shift_info);
 
 /*
-** Print
+** Print --> Yazdir
 */
 
 void					print_stacks(t_stack *a_stack,
@@ -182,13 +182,13 @@ void					print_stacks(t_stack *a_stack,
 							t_bool color);
 
 /*
-** Utils
+** Utils --> Araclar
 */
 
 void					terminate(const char *str);
 
 /*
-** Init
+** Init --> Icinde
 */
 
 t_stack					*init_stack(void);
@@ -196,7 +196,7 @@ t_stack					*init_stack(void);
 t_command_list			*init_command_list(void);
 
 /*
-** Command
+** Command --> Komut
 */
 
 t_command				*create_command(const char *str);
@@ -212,7 +212,7 @@ void					exec_command(t_stack *a_stack,
 							t_bool verbose);
 
 /*
-** Free
+** Free --> Bosaltmak
 */
 
 void					free_command_list(t_command_list *list);
