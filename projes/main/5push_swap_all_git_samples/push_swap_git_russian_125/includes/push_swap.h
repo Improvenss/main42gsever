@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: doberyn <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/22 14:43:48 by doberyn           #+#    #+#             */
-/*   Updated: 2019/12/22 14:43:49 by doberyn          ###   ########.fr       */
+/*   Updated: 2022/05/21 17:42:03 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdlib.h>
 # include "./libft/libft.h"
 
+//Adimlar
 typedef struct		s_steps
 {
 	int				count_a;
@@ -25,12 +26,14 @@ typedef struct		s_steps
 	int				dest_b;
 }					t_steps;
 
+//Data
 typedef struct		s_data
 {
 	int				a[10000];
 	int				count_element;
 }					t_data;
 
+//Stack
 typedef struct		s_stack
 {
 	int				data;
@@ -39,6 +42,7 @@ typedef struct		s_stack
 	struct s_stack	*next;
 }					t_stack;
 
+//Stacks
 typedef struct		s_stacks
 {
 	int				count_a;
@@ -51,7 +55,7 @@ typedef struct		s_stacks
 }					t_stacks;
 
 /*
-**		push_swap.c - Начало
+**		push_swap.c - Начало --> Baslatma
 **			༺༻
 **		Нормы:		✓
 **			༺༻
@@ -62,7 +66,7 @@ int					ft_is_sorted(t_data *new);
 void				ft_rrr(t_stacks *s, int i);
 
 /*
-**		validation.c - Валидация
+**		validation.c - Валидация --> Dogrulama
 **			༺༻
 **		Нормы:		✓
 **			༺༻
@@ -75,7 +79,7 @@ void				ft_duplicate_check(t_data *new, t_stacks *stacks);
 void				ft_search_duplicate(const int *dup, int count);
 
 /*
-**		separation.c - Разбивка массива
+**		separation.c - Разбивка массива --> Diziye dokme
 **			༺༻
 **		Нормы:		✓
 **			༺༻
@@ -85,7 +89,7 @@ void				ft_array_separation(int argc, char **argv, t_data *new);
 void				ft_stacking(t_data *new, int *buff, int count);
 
 /*
-**		initialization.c - Инициализация стека
+**		initialization.c - Инициализация стека --> Yigin baslatma
 **			༺༻
 **		Нормы:		✓
 **			༺༻
@@ -99,7 +103,7 @@ void				ft_null(t_stacks *stacks, t_data *new);
 
 /*
 **		sort_3_and_5_element.c - Сортировка 5-и и меньше чисел.
-**			༺༻
+**			༺༻ --> 5 veya daha az sayiyi siralama
 **		Нормы:		✓
 **			༺༻
 */
@@ -110,7 +114,7 @@ int					ft_max(t_stack *s);
 
 /*
 **		 quick_sort.c - Алгоритм быстрой сортировки
-**			༺༻
+**			༺༻	--> Quick Sort algoritmasi
 **		Нормы:		✓
 **			༺༻
 */
@@ -120,7 +124,7 @@ int					ft_partition(int *array, int start, int end);
 
 /*
 **		 global_sort.c - Алгоритм для сортировки любого количества чисел
-**			༺༻
+**			༺༻	--> Herhangi bir sayida sayiyi siralamak icin
 **		Нормы:		✓
 **			༺༻
 */
@@ -134,7 +138,7 @@ void				ft_instruction_execution(t_stacks *stacks, t_steps *steps);
 
 /*
 **		 finding_place.c - Основная часть главного алгоритма
-**			༺༻
+**			༺༻	--> Ana algoritmanin ana kasmi
 **		Нормы:		✓
 **			༺༻
 */
@@ -147,7 +151,7 @@ int					ft_smaller_element_detection(t_stack *a, int buff, int src);
 int					ft_count_to_min(t_stack *a, int min);
 
 /*
-**		 actions.c - Действия
+**		 actions.c - Действия --> Actions --> Hareketler
 **			༺༻
 **		Нормы:		✓
 **			༺༻
@@ -160,7 +164,7 @@ void				ft_rra(t_stack **a, int i);
 void				ft_rrb(t_stack **b, int i);
 
 /*
-**		 actions_2.c - Действия
+**		 actions_2.c - Действия --> Actions --> Hareketler
 **			༺༻
 **		Нормы:		✓
 **			༺༻
@@ -173,7 +177,7 @@ void				ft_pa(t_stacks *s, int i);
 void				ft_pb(t_stacks *s, int i);
 
 /*
-**		 checker.c - Чекер
+**		 checker.c - Чекер --> Denetleyici
 **			༺༻
 **		Нормы:		✓
 **			༺༻

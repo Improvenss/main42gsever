@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/05/21 17:34:04 by gsever            #+#    #+#              #
+#    Updated: 2022/05/21 17:34:05 by gsever           ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME = push_swap checker
 INCLUDE = -Iinclude -Ilibft/include -Igetnextline/include -Ift_printf/include -Ilibc_vector/include
 
