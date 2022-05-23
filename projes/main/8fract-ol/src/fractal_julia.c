@@ -3,15 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   fractal_julia.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
+/*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 11:34:52 by gsever            #+#    #+#             */
-/*   Updated: 2022/05/02 11:34:53 by gsever           ###   ########.fr       */
+/*   Updated: 2022/05/23 12:33:30 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
+/*
+	Keyboard --> 2
+*/
 void	julia(t_fractol *frctl)
 {
 	t_complex	z;

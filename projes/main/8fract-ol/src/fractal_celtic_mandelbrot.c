@@ -3,15 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   fractal_celtic_mandelbrot.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
+/*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 11:34:43 by gsever            #+#    #+#             */
-/*   Updated: 2022/05/02 11:34:45 by gsever           ###   ########.fr       */
+/*   Updated: 2022/05/23 12:35:11 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
+/*
+	Keyboard --> 3
+*/
 void	celtic_mandelbrot(t_fractol *frctl)
 {
 	t_complex	z;
