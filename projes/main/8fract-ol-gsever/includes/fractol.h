@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 00:56:05 by gsever            #+#    #+#             */
-/*   Updated: 2022/05/25 15:20:03 by gsever           ###   ########.fr       */
+/*   Updated: 2022/05/25 17:14:45 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,12 +101,12 @@ typedef struct		s_fractol
 	t_complex		factor;
 	t_complex		c;
 	t_complex		k;
-	//t_bool			is_julia_fixed;
+	t_bool			is_julia_fixed;
 	int				start_line;
 	int				finish_line;
 	int				color_shift;
 	int				(*formula)(struct s_fractol *fractol);
-	//t_bool			is_help;
+	t_bool			is_help;
 }					t_fractol;
 
 /*
@@ -183,5 +183,6 @@ void				print_help(void);
 */
 
 void				terminate(char *s);
+int	ft_strequ(char const *s1, char const *s2);
 
 #endif

@@ -6,11 +6,11 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 01:00:39 by gsever            #+#    #+#             */
-/*   Updated: 2022/05/25 15:15:42 by gsever           ###   ########.fr       */
+/*   Updated: 2022/05/25 16:58:17 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ERROR_MESSAG
+#ifndef ERROR_MESSAGE_H
 # define ERROR_MESSAGE_H
 
 # define ERR_FRACTOL_INIT	"ERROR: Can\'t initialize fractol"

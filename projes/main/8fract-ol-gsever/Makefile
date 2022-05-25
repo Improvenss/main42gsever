@@ -6,7 +6,7 @@
 #    By: gsever <gsever@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/25 14:29:40 by gsever            #+#    #+#              #
-#    Updated: 2022/05/25 15:20:43 by gsever           ###   ########.fr        #
+#    Updated: 2022/05/25 16:56:19 by gsever           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ LIBRARIES = -lmlx -lm -lft\
 INCLUDES = -I$(HEADERS_DIRECTORY) -I$(LIBFT_HEADERS) -I$(MINILIBX_HEADERS)
 
 #	Libft Part
-LIBFT_DIRECTORY = ./libft/
+LIBFT_DIRECTORY = ./libraries/libft/
 LIBFT_HEADERS = $(LIBFT_DIRECTORY)includes/
 LIBFT = $(LIBFT_DIRECTORY)libft.a
 
@@ -31,7 +31,7 @@ MINILIBX_DIRECTORY = ./minilibx_macos/
 MINILIBX_HEADERS = $(MINILIBX_DIRECTORY)
 MINILIBX = $(MINILIBX_DIRECTORY)libmlx.a
 
-#	Header Files
+#	Includes Parts --> Kutuphane
 HEADERS_DIRECTORY = ./includes/
 HEADERS_LIST = \
 	fractol.h\
