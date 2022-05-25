@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 00:56:05 by gsever            #+#    #+#             */
-/*   Updated: 2022/05/25 17:14:45 by gsever           ###   ########.fr       */
+/*   Updated: 2022/05/25 17:27:31 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,12 @@ typedef struct		s_image
 /*
 	Fract'ol
 */
+// check this typedef
+typedef enum
+{
+	false,
+	true
+}	t_bool;
 
 /*
 	mlx            — connection identifier
