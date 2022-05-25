@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/15 17:13:40 by vbrazhni          #+#    #+#             */
-/*   Updated: 2022/05/09 04:36:02 by gsever           ###   ########.fr       */
+/*   Created: 2022/05/25 00:56:05 by gsever            #+#    #+#             */
+/*   Updated: 2022/05/25 01:02:31 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@
 */
 
 /*
-** channel — alpha, red, green, blue color channels
+** channel — [1]alpha, [2]red, [3]green, [4]blue color channels
 */
 
 typedef	struct		s_color
