@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/15 17:11:22 by vbrazhni          #+#    #+#             */
-/*   Updated: 2022/05/23 12:20:16 by gsever           ###   ########.fr       */
+/*   Updated: 2022/05/25 13:52:30 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ static void			start(int number, char **names)
 	mlx_loop(mlx);
 }
 
-int					main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	int	i;
 

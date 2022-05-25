@@ -6,7 +6,7 @@
 #    By: nmei <nmei@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/27 08:57:48 by nmei              #+#    #+#              #
-#    Updated: 2018/01/19 12:24:36 by nmei             ###   ########.fr        #
+#    Updated: 2022/05/25 11:51:06 by gsever           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,7 +44,7 @@ ifeq ($(TARGETOS), Darwin)
 endif
 
 NAME = fractol
-SRCS_DIR = ./
+SRCS_DIR = ./sources/
 INCLUDES = ./includes/
 RM = /bin/rm -f
 
