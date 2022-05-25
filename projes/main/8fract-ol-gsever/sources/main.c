@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 13:47:50 by gsever            #+#    #+#             */
-/*   Updated: 2022/05/25 13:48:49 by gsever           ###   ########.fr       */
+/*   Updated: 2022/05/25 15:19:47 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,20 @@
 */
 int	main(int argc, char *argv[])
 {
-	fractol(argc, argv);
+	int	i;
+
+	if (argc >= 2 && argc <= 11)
+	{
+		i = 1;
+		while (i < argc)
+		{
+			if (!get_formula(argv[i]))
+				break ;
+			i++;
+		}
+		if (i == argc)
+			start(argc - 1, &argv[1]);
+	}
+	print_help();
 	return (0);
 }

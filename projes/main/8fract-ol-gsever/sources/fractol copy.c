@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/15 17:11:22 by vbrazhni          #+#    #+#             */
-/*   Updated: 2022/05/25 15:19:54 by gsever           ###   ########.fr       */
+/*   Updated: 2022/05/25 13:52:30 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,4 +79,24 @@ static void			start(int number, char **names)
 		i++;
 	}
 	mlx_loop(mlx);
+}
+
+int	main(int argc, char **argv)
+{
+	int	i;
+
+	if (argc >= 2 && argc <= 11)
+	{
+		i = 1;
+		while (i < argc)
+		{
+			if (!get_formula(argv[i]))
+				break ;
+			i++;
+		}
+		if (i == argc)
+			start(argc - 1, &argv[1]);
+	}
+	print_help();
+	return (0);
 }

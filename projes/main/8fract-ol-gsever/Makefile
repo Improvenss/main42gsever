@@ -3,38 +3,44 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: vbrazhni <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: gsever <gsever@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2018/07/05 13:39:23 by vbrazhni          #+#    #+#              #
-#    Updated: 2019/07/20 17:59:18 by vbrazhni         ###   ########.fr        #
+#    Created: 2022/05/25 14:29:40 by gsever            #+#    #+#              #
+#    Updated: 2022/05/25 15:20:43 by gsever           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fractol
 
 CC = gcc
+
+#	Flags for compile
 FLAGS = -Wall -Werror -Wextra -O3
 LIBRARIES = -lmlx -lm -lft\
 	-L$(LIBFT_DIRECTORY) -L$(MINILIBX_DIRECTORY)\
 	-framework OpenGL -framework AppKit
 INCLUDES = -I$(HEADERS_DIRECTORY) -I$(LIBFT_HEADERS) -I$(MINILIBX_HEADERS)
 
-LIBFT = $(LIBFT_DIRECTORY)libft.a
+#	Libft Part
 LIBFT_DIRECTORY = ./libft/
 LIBFT_HEADERS = $(LIBFT_DIRECTORY)includes/
+LIBFT = $(LIBFT_DIRECTORY)libft.a
 
-MINILIBX = $(MINILIBX_DIRECTORY)libmlx.a
+#	Minilibx Part
 MINILIBX_DIRECTORY = ./minilibx_macos/
 MINILIBX_HEADERS = $(MINILIBX_DIRECTORY)
+MINILIBX = $(MINILIBX_DIRECTORY)libmlx.a
 
+#	Header Files
+HEADERS_DIRECTORY = ./includes/
 HEADERS_LIST = \
 	fractol.h\
 	color.h\
 	key_macos.h\
 	error_message.h
-HEADERS_DIRECTORY = ./includes/
 HEADERS = $(addprefix $(HEADERS_DIRECTORY), $(HEADERS_LIST))
 
+#	Source Files
 SOURCES_DIRECTORY = ./sources/
 SOURCES_LIST = \
 	fractol.c\
@@ -58,12 +64,12 @@ SOURCES_LIST = \
 	utils.c
 SOURCES = $(addprefix $(SOURCES_DIRECTORY), $(SOURCES_LIST))
 
+#	Object Files --> (Compiled files directory)
 OBJECTS_DIRECTORY = objects/
 OBJECTS_LIST = $(patsubst %.c, %.o, $(SOURCES_LIST))
 OBJECTS	= $(addprefix $(OBJECTS_DIRECTORY), $(OBJECTS_LIST))
 
-# COLORS
-
+#	COLORS
 GREEN = \033[0;32m
 RED = \033[0;31m
 RESET = \033[0m

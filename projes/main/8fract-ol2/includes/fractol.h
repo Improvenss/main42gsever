@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
+/*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 00:56:05 by gsever            #+#    #+#             */
-/*   Updated: 2022/05/25 01:02:31 by gsever           ###   ########.fr       */
+/*   Updated: 2022/05/25 15:17:21 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ typedef struct		s_complex
 ** data_addr      — image
 ** bits_per_pixel — depth of image
 ** size_line      — number of bytes used to store one line of image
-** endian         — little or big endian
+** endian         — little or big endian --> arab and eng keyboard types.
 */
 
 typedef struct		s_image

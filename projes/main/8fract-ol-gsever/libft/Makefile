@@ -3,30 +3,43 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: gsever <gsever@student.42kocaeli.com.tr>   +#+  +:+       +#+         #
+#    By: gsever <gsever@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/20 02:23:57 by gsever            #+#    #+#              #
-#    Updated: 2022/03/20 02:24:02 by gsever           ###   ########.tr        #
+#    Updated: 2022/05/25 15:50:05 by gsever           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
-OBJDIR	:= ../objects
-NAME	:= $(OBJDIR)/libft.a
-CFLAGS	:= -Wall -Wextra -Werror -I ../include -c
-FILES	:= $(shell find . -type f -name "ft_*.c")
-OBJ		:= $(FILES:%.c=$(OBJDIR)/%.o)
+NAME			:= $(OBJ_DIR)/libft.a
+
+CC				:= gcc
+
+#	Includes Files
+INCLUDES_DIR	:= includes
+CFLAGS			:= -Wall -Wextra -Werror -I ./$(INCLUDES_DIR)
+
+#	Sources Files
+SOURCES_DIR		:= sources
+SOURCES			:= $(wildcard $(SOURCES)/*.c)
+
+#	Objects Files
+OBJ_DIR			:= objects
+OBJ				:= $(SOURCES:%.c=$(OBJ_DIR)/%.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
 	ar -rcs $(NAME) $(OBJ)
 
-$(OBJDIR)/%.o: %.c
+$(OBJ_DIR):
+	@mkdir -p $(OBJ_DIR)
+
+$(OBJ_DIR)/%.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	@rm -f $(OBJDIR)/ft_*.o
+	@rm -f $(OBJ_DIR)/ft_*.o
 
 fclean: clean
 	@rm -f $(NAME)

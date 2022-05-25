@@ -6,12 +6,11 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 00:56:05 by gsever            #+#    #+#             */
-/*   Updated: 2022/05/25 13:47:26 by gsever           ###   ########.fr       */
+/*   Updated: 2022/05/25 15:20:03 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
-
 # define FRACTOL_H
 
 # define WIDTH		1000
@@ -31,7 +30,6 @@
 /*
 	channel — [1]alpha, [2]red, [3]green, [4]blue color channels
 */
-
 typedef	struct		s_color
 {
 	int8_t			channel[4];
@@ -45,7 +43,6 @@ typedef	struct		s_color
 	re — real part
 	im — imaginary part
 */
-
 typedef struct		s_complex
 {
 	double			re;
@@ -61,9 +58,8 @@ typedef struct		s_complex
 	data_addr      — image
 	bits_per_pixel — depth of image
 	size_line      — number of bytes used to store one line of image
-	endian         — little or big endian
+	endian         — little or big endian --> arab and eng keyboard types.
 */
-
 typedef struct		s_image
 {
 	void			*image;
@@ -94,7 +90,6 @@ typedef struct		s_image
 	formula        — fractal formula
 	is_help        — flag that reports help screen is displayed or is not
 */
-
 typedef struct		s_fractol
 {
 	void			*mlx;
@@ -122,7 +117,6 @@ typedef struct		s_fractol
 	name    — name of fractal
 	formula — formula of fractal
 */
-
 typedef struct		s_formula
 {
 	char			*name;
@@ -138,9 +132,7 @@ typedef struct		s_formula
 */
 
 t_image				*init_image(void *mlx);
-
 t_complex			init_complex(double re, double im);
-
 void				set_defaults(t_fractol *fractol);
 
 /*
@@ -148,7 +140,6 @@ void				set_defaults(t_fractol *fractol);
 */
 
 void				draw_fractal(t_fractol *fractol);
-
 void				draw_help(t_fractol *fractol);
 
 /*
@@ -156,23 +147,14 @@ void				draw_help(t_fractol *fractol);
 */
 
 int					iterate_mandelbrot(t_fractol *fractol);
-
 int					iterate_julia(t_fractol *fractol);
-
 int					iterate_burning_ship(t_fractol *fractol);
-
 int					iterate_mandelbar(t_fractol *fractol);
-
 int					iterate_celtic_mandelbrot(t_fractol *fractol);
-
 int					iterate_celtic_mandelbar(t_fractol *fractol);
-
 int					iterate_celtic_perpendicular(t_fractol *fractol);
-
 int					iterate_perpendicular_mandelbrot(t_fractol *fractol);
-
 int					iterate_perpendicular_burning_ship(t_fractol *fractol);
-
 int					iterate_perpendicular_buffalo(t_fractol *fractol);
 
 /*
@@ -186,11 +168,8 @@ t_color				get_color(int iteration, t_fractol *fractol);
 */
 
 int					close(void *param);
-
 int					key_press(int key, t_fractol *fractol);
-
 int					zoom(int button, int x, int y, t_fractol *fractol);
-
 int					julia_motion(int x, int y, t_fractol *fractol);
 
 /*
