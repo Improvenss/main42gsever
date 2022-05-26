@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractal_julia.c                                    :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/26 12:33:46 by gsever            #+#    #+#             */
-/*   Updated: 2022/05/26 12:33:50 by gsever           ###   ########.fr       */
+/*   Created: 2022/05/26 12:49:42 by gsever            #+#    #+#             */
+/*   Updated: 2022/05/26 12:50:32 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
 
-int		iterate_julia(t_fractol *fractol)
+int	ft_strcmp(const char *s1, const char *s2)
 {
-	int			iteration;
-	t_complex	z;
+	unsigned char	*ptr1;
+	unsigned char	*ptr2;
+	size_t			i;
 
-	iteration = 0;
-	z = init_complex(fractol->c.re, fractol->c.im);
-	while (pow(z.re, 2.0) + pow(z.im, 2.0) <= 4
-		&& iteration < fractol->max_iteration)
+	ptr1 = (unsigned char *)s1;
+	ptr2 = (unsigned char *)s2;
+	i = 0;
+	while (ptr1[i] || ptr2[i])
 	{
-		z = init_complex(
-			pow(z.re, 2.0) - pow(z.im, 2.0) + fractol->k.re,
-			2.0 * z.re * z.im + fractol->k.im);
-		iteration++;
+		if (ptr1[i] != ptr2[i])
+			return (ptr1[i] - ptr2[i]);
+		i++;
 	}
-	return (iteration);
+	return (0);
 }

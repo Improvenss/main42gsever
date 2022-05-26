@@ -6,7 +6,7 @@
 #    By: gsever <gsever@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/25 14:29:40 by gsever            #+#    #+#              #
-#    Updated: 2022/05/25 17:21:30 by gsever           ###   ########.fr        #
+#    Updated: 2022/05/26 13:25:05 by gsever           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,8 @@ HEADERS_LIST = \
 	fractol.h\
 	color.h\
 	key_macos.h\
-	error_message.h
+	error_message.h\
+	utils.h
 HEADERS = $(addprefix $(HEADERS_DIRECTORY), $(HEADERS_LIST))
 
 #	Source Files
@@ -61,6 +62,7 @@ SOURCES_LIST = \
 	controls_mouse.c\
 	controls_utils.c\
 	print.c\
+	ft_strcmp.c\
 	utils.c
 SOURCES = $(addprefix $(SOURCES_DIRECTORY), $(SOURCES_LIST))
 

@@ -5,15 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/15 17:11:22 by vbrazhni          #+#    #+#             */
-/*   Updated: 2022/05/25 15:19:54 by gsever           ###   ########.fr       */
+/*   Created: 2022/05/26 12:08:23 by gsever            #+#    #+#             */
+/*   Updated: 2022/05/26 13:22:59 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
-#include "error_message.h"
+#include "../includes/fractol.h"
 
-static int			(*get_formula(char *name)) (t_fractol *fractol)
+static int		(*get_formula(char *name)) (t_fractol *fractol)
 {
 	size_t				i;
 	int					(*formula)(t_fractol *fractol);
@@ -64,7 +63,7 @@ static t_fractol	*init_fractol(char *name, void *mlx)
 	return (fractol);
 }
 
-static void			start(int number, char **names)
+static void	start(int number, char **names)
 {
 	t_fractol	*fractols[10];
 	void		*mlx;
@@ -79,4 +78,37 @@ static void			start(int number, char **names)
 		i++;
 	}
 	mlx_loop(mlx);
+}
+
+/*
+	NOT:	int main'lerde return(0) basarili bir donus demektir,
+		return(1) basarisiz donus demektir.
+*/
+/*
+	Programimiza int arguman sayimizi ve char pointerli char ya da string'i
+ gonderdik.
+	Programimizi yapay zeka kontrol etmiyor, sadece insanlar kontrol edecek.
+	Fractal'larin calismasi icin 2 parametre gerekiyor;
+		1-
+		2-
+		
+*/
+int	main(int argc, char *argv[])
+{
+	int	i;
+
+	if (argc >= 2 && argc <= 11)
+	{
+		i = 1;
+		while (i < argc)
+		{
+			if (!get_formula(argv[i]))
+				break ;
+			i++;
+		}
+		if (i == argc)
+			start(argc - 1, &argv[1]);
+	}
+	print_help();
+	return (0);
 }

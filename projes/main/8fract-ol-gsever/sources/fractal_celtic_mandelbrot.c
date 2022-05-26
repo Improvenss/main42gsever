@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   fractal_celtic_mandelbrot.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbrazhni <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/29 20:46:52 by vbrazhni          #+#    #+#             */
-/*   Updated: 2019/07/29 20:48:15 by vbrazhni         ###   ########.fr       */
+/*   Created: 2022/05/26 12:32:54 by gsever            #+#    #+#             */
+/*   Updated: 2022/05/26 12:32:56 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "../includes/fractol.h"
 
 int		iterate_celtic_mandelbrot(t_fractol *fractol)
 {

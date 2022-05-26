@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   fractal_perpendicular_buffalo.c                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbrazhni <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/29 16:55:28 by vbrazhni          #+#    #+#             */
-/*   Updated: 2019/07/06 19:17:12 by vbrazhni         ###   ########.fr       */
+/*   Created: 2022/05/26 12:33:24 by gsever            #+#    #+#             */
+/*   Updated: 2022/05/26 12:33:25 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "../includes/fractol.h"
 
 int		iterate_perpendicular_buffalo(t_fractol *fractol)
 {

@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   controls_keyboard.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbrazhni <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/06 15:22:04 by vbrazhni          #+#    #+#             */
-/*   Updated: 2019/07/20 18:11:57 by vbrazhni         ###   ########.fr       */
+/*   Created: 2022/05/26 12:34:16 by gsever            #+#    #+#             */
+/*   Updated: 2022/05/26 12:41:38 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
-#include "key_macos.h"
+#include "../includes/fractol.h"
 
 static void	help(t_fractol *fractol)
 {

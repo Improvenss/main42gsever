@@ -3,30 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   print.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbrazhni <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/22 17:38:43 by vbrazhni          #+#    #+#             */
-/*   Updated: 2019/07/29 20:41:48 by vbrazhni         ###   ########.fr       */
+/*   Created: 2022/05/26 12:35:26 by gsever            #+#    #+#             */
+/*   Updated: 2022/05/26 12:44:18 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "../includes/fractol.h"
 
 void	print_help(void)
 {
-	ft_putendl("Usage: ./fractol <name>");
-	ft_putendl(NULL);
-	ft_putendl("You can specify from 1 to 10 names of fractals");
-	ft_putendl(NULL);
-	ft_putendl("List of available fractals:");
-	ft_putendl(" * Mandelbrot");
-	ft_putendl(" * Julia");
-	ft_putendl(" * Burning Ship");
-	ft_putendl(" * Mandelbar");
-	ft_putendl(" * Celtic Mandelbrot");
-	ft_putendl(" * Celtic Mandelbar");
-	ft_putendl(" * Celtic Perpendicular");
-	ft_putendl(" * Perpendicular Mandelbrot");
-	ft_putendl(" * Perpendicular Burning Ship");
-	ft_putendl(" * Perpendicular Buffalo");
+	ft_putendl_fd("Usage: ./fractol <name>", 1);
+	ft_putendl_fd(NULL, 1);
+	ft_putendl_fd("You can specify from 1 to 10 names of fractals", 1);
+	ft_putendl_fd(NULL, 1);
+	ft_putendl_fd("List of available fractals:", 1);
+	ft_putendl_fd(" * Mandelbrot", 1);
+	ft_putendl_fd(" * Julia", 1);
+	ft_putendl_fd(" * Burning Ship", 1);
+	ft_putendl_fd(" * Mandelbar", 1);
+	ft_putendl_fd(" * Celtic Mandelbrot", 1);
+	ft_putendl_fd(" * Celtic Mandelbar", 1);
+	ft_putendl_fd(" * Celtic Perpendicular", 1);
+	ft_putendl_fd(" * Perpendicular Mandelbrot", 1);
+	ft_putendl_fd(" * Perpendicular Burning Ship", 1);
+	ft_putendl_fd(" * Perpendicular Buffalo", 1);
 }

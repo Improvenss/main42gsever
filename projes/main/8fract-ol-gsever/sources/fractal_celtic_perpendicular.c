@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   fractal_celtic_perpendicular.c                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbrazhni <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/29 16:43:57 by vbrazhni          #+#    #+#             */
-/*   Updated: 2019/07/06 19:16:24 by vbrazhni         ###   ########.fr       */
+/*   Created: 2022/05/26 12:33:02 by gsever            #+#    #+#             */
+/*   Updated: 2022/05/26 12:33:06 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "../includes/fractol.h"
 
 int		iterate_celtic_perpendicular(t_fractol *fractol)
 {

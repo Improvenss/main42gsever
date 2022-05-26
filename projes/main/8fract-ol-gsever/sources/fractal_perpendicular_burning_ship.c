@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   fractal_perpendicular_burning_ship.c               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbrazhni <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/29 17:06:31 by vbrazhni          #+#    #+#             */
-/*   Updated: 2019/07/06 19:17:16 by vbrazhni         ###   ########.fr       */
+/*   Created: 2022/05/26 12:33:31 by gsever            #+#    #+#             */
+/*   Updated: 2022/05/26 12:33:32 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "../includes/fractol.h"
 
 int		iterate_perpendicular_burning_ship(t_fractol *fractol)
 {

@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 00:56:05 by gsever            #+#    #+#             */
-/*   Updated: 2022/05/25 17:27:31 by gsever           ###   ########.fr       */
+/*   Updated: 2022/05/26 12:52:06 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,15 @@
 # define THREADS	10
 
 # include "libft.h"
+# include "error_message.h"
+# include "color.h"
+# include "key_macos.h"
+# include "utils.h"
 # include <math.h>
 # include <mlx.h>
 # include <stdint.h>
+# include <stdlib.h>
+# include <pthread.h>
 
 /*
 	Color
@@ -173,7 +179,7 @@ t_color				get_color(int iteration, t_fractol *fractol);
 	Controls
 */
 
-int					close(void *param);
+//int					close(void *param);
 int					key_press(int key, t_fractol *fractol);
 int					zoom(int button, int x, int y, t_fractol *fractol);
 int					julia_motion(int x, int y, t_fractol *fractol);
@@ -189,6 +195,13 @@ void				print_help(void);
 */
 
 void				terminate(char *s);
-int	ft_strequ(char const *s1, char const *s2);
+int					ft_strequ(char const *s1, char const *s2);
+void				*ft_memalloc(size_t size);
+
+/*
+	Utils_part_2
+*/
+
+int					ft_strcmp(const char *s1, const char *s2);
 
 #endif

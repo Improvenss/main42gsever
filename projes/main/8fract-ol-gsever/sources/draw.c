@@ -6,14 +6,11 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 12:21:15 by gsever            #+#    #+#             */
-/*   Updated: 2022/05/25 12:21:16 by gsever           ###   ########.fr       */
+/*   Updated: 2022/05/26 12:32:27 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
-#include "error_message.h"
-#include "color.h"
-#include <pthread.h>
+#include "../includes/fractol.h"
 
 static void	put_pixel(t_fractol *fractol, int x, int y, t_color color)
 {

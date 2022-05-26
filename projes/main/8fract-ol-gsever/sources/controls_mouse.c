@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   controls_mouse.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbrazhni <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/22 17:37:01 by vbrazhni          #+#    #+#             */
-/*   Updated: 2019/07/31 20:28:10 by vbrazhni         ###   ########.fr       */
+/*   Created: 2022/05/26 12:30:51 by gsever            #+#    #+#             */
+/*   Updated: 2022/05/26 12:30:52 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
-#include "key_macos.h"
+#include "../includes/fractol.h"
 
 static double	interpolate(double start, double end, double interpolation)
 {

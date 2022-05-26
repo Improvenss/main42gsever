@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbrazhni <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/22 16:42:05 by vbrazhni          #+#    #+#             */
-/*   Updated: 2019/07/31 20:00:10 by vbrazhni         ###   ########.fr       */
+/*   Created: 2022/05/26 12:20:16 by gsever            #+#    #+#             */
+/*   Updated: 2022/05/26 12:35:06 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
-#include "error_message.h"
+#include "../includes/fractol.h"
 
 t_image		*init_image(void *mlx)
 {

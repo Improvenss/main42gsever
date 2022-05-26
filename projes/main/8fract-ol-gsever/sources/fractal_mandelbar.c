@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   fractal_mandelbar.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbrazhni <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/28 20:12:04 by vbrazhni          #+#    #+#             */
-/*   Updated: 2019/07/06 19:17:03 by vbrazhni         ###   ########.fr       */
+/*   Created: 2022/05/26 12:33:39 by gsever            #+#    #+#             */
+/*   Updated: 2022/05/26 12:33:40 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "../includes/fractol.h"
 
 int		iterate_mandelbar(t_fractol *fractol)
 {

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   color.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbrazhni <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/06 15:03:51 by vbrazhni          #+#    #+#             */
-/*   Updated: 2019/07/06 19:15:42 by vbrazhni         ###   ########.fr       */
+/*   Created: 2022/05/26 12:30:59 by gsever            #+#    #+#             */
+/*   Updated: 2022/05/26 12:31:00 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "../includes/fractol.h"
 
 t_color	get_color(int iteration, t_fractol *fractol)
 {

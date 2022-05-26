@@ -3,17 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   controls_utils.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbrazhni <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/06 15:25:31 by vbrazhni          #+#    #+#             */
-/*   Updated: 2019/07/06 19:16:01 by vbrazhni         ###   ########.fr       */
+/*   Created: 2022/05/26 12:31:09 by gsever            #+#    #+#             */
+/*   Updated: 2022/05/26 12:41:40 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+/*
+#include "../includes/fractol.h"
 
 int		close(void *param)
 {
 	(void)param;
 	exit(0);
 }
+*/

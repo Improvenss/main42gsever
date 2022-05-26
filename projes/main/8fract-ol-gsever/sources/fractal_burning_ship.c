@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   fractal_burning_ship.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbrazhni <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/28 19:08:48 by vbrazhni          #+#    #+#             */
-/*   Updated: 2019/07/06 19:16:15 by vbrazhni         ###   ########.fr       */
+/*   Created: 2022/05/26 12:32:33 by gsever            #+#    #+#             */
+/*   Updated: 2022/05/26 12:32:39 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "../includes/fractol.h"
 
 int		iterate_burning_ship(t_fractol *fractol)
 {
