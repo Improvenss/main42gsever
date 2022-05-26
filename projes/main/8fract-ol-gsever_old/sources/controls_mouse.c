@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 12:30:51 by gsever            #+#    #+#             */
-/*   Updated: 2022/05/26 12:30:52 by gsever           ###   ########.fr       */
+/*   Updated: 2022/05/26 14:16:08 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static double	interpolate(double start, double end, double interpolation)
 	return (start + ((end - start) * interpolation));
 }
 
-int				zoom(int button, int x, int y, t_fractol *fractol)
+int	zoom(int button, int x, int y, t_fractol *fractol)
 {
 	t_complex	mouse;
 	double		interpolation;
@@ -45,7 +45,7 @@ int				zoom(int button, int x, int y, t_fractol *fractol)
 	return (0);
 }
 
-int				julia_motion(int x, int y, t_fractol *fractol)
+int	julia_motion(int x, int y, t_fractol *fractol)
 {
 	if (!fractol->is_help && !fractol->is_julia_fixed)
 	{
