@@ -3,18 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 15:09:34 by gsever            #+#    #+#             */
-/*   Updated: 2022/05/26 16:44:35 by gsever           ###   ########.fr       */
+/*   Updated: 2022/05/27 19:03:24 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
-
-# define SIZE_X 1000.0
-# define SIZE_Y 1000.0
 
 //for; size_t
 # include <stdlib.h>
@@ -24,8 +21,15 @@
 # include <stdlib.h>
 //for; MinilibX
 # include "../libraries/minilibx_opengl/mlx.h"
+# include "key_macos_en.h"
 
+# define SIZE_X 1000.0
+# define SIZE_Y 1000.0
 
+typedef struct s_complex	t_complex;
+typedef struct s_mlximg		t_mlximg;
+typedef struct s_mlx		t_mlx;
+typedef struct s_fractol	t_fractol;
 typedef void				(*t_funcptr)(t_fractol *frctl);
 
 /*
@@ -91,6 +95,12 @@ int	fractol(int argc, char **argv);
 
 
 int	frctl_init(int argc, char **argv);
+
+/*
+	KEY_ACTIONS
+*/
+int	key_actions(int key, t_fractol *frctl);
+
 
 /*
 	UTILS_C
