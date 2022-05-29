@@ -6,13 +6,15 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 15:09:34 by gsever            #+#    #+#             */
-/*   Updated: 2022/05/27 19:03:24 by gsever           ###   ########.fr       */
+/*   Updated: 2022/05/29 16:29:53 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
+# include <stdint.h>
+# include <math.h>
 //for; size_t
 # include <stdlib.h>
 //for; bool
@@ -22,6 +24,7 @@
 //for; MinilibX
 # include "../libraries/minilibx_opengl/mlx.h"
 # include "key_macos_en.h"
+# include "../libraries/libft/includes/libft.h"
 
 # define SIZE_X 1000.0
 # define SIZE_Y 1000.0
@@ -89,24 +92,33 @@ typedef struct s_fractol{
 }	t_fractol;
 
 /*
-	
+	Fract-ol starting here.
 */
-int	fractol(int argc, char **argv);
+int			fractol(int argc, char **argv);
+t_fractol	*frctl_init(int argc, char **argv);
+void		setup_mlx(t_fractol *frctl);
+int			fractol_loop(t_fractol *frctl);
 
 
-int	frctl_init(int argc, char **argv);
 
 /*
 	KEY_ACTIONS
 */
-int	key_actions(int key, t_fractol *frctl);
+int			key_actions(int key, t_fractol *frctl);
 
 
 /*
 	UTILS_C
 */
+void		complex_set(t_complex *z, double re, double im);
+void		my_mlx_pixel_put(t_mlximg *img, int x, int y, int color);
+void		print_help(void);
 
-void	complex_set(t_complex *z, double re, double im);
-
+/*
+	UTILS_P2_C
+*/
+long		ft_atol(const char *nptr);
+int			ft_iterative_power(int nb, int power);
+double		ft_atod(const char *nptr);
 
 # endif
