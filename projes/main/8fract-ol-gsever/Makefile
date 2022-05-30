@@ -6,7 +6,7 @@
 #    By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/25 14:29:40 by gsever            #+#    #+#              #
-#    Updated: 2022/05/29 16:57:36 by gsever           ###   ########.fr        #
+#    Updated: 2022/05/30 20:44:14 by gsever           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,22 +21,22 @@ LIBRARIES = -lmlx -lm -lft\
 	-framework OpenGL -framework AppKit
 INCLUDES = -I$(HEADERS_DIRECTORY) -I$(LIBFT_HEADERS) -I$(MINILIBX_HEADERS)
 
-#	Libft Part
+#	Libft Part --> OK
 LIBFT_DIRECTORY = ./libraries/libft/
 LIBFT_HEADERS = $(LIBFT_DIRECTORY)includes/
 LIBFT = $(LIBFT_DIRECTORY)libft.a
 
-#	Minilibx Part
+#	Minilibx Part --> OK
 MINILIBX_DIRECTORY = ./libraries/minilibx_opengl/
 MINILIBX_HEADERS = $(wildcard $(MINILIBX_DIRECTORY)*.h)
 MINILIBX = $(MINILIBX_DIRECTORY)libmlx.a
 
-#	Includes Parts --> Kutuphane
+#	Includes Parts --> Kutuphane --> OK
 HEADERS_DIRECTORY = ./includes/
 HEADERS_LIST = $(wildcard $(HEADERS_DIRECTORY)*)
 HEADERS = $(addprefix $(HEADERS_DIRECTORY), $(HEADERS_LIST))
 
-#	Source Files
+#	Source Files --> Derlenmiyor
 SOURCES_DIRECTORY = ./sources/
 SOURCES_LIST = $(wildcard $(SOURCES_DIRECTORY)*)
 SOURCES = $(addprefix $(SOURCES_DIRECTORY), $(SOURCES_LIST))
@@ -46,7 +46,7 @@ OBJECTS_DIRECTORY = ./objects/
 OBJECTS_LIST = $(patsubst %.c, %.o, $(SOURCES_LIST))
 OBJECTS	= $(addprefix $(OBJECTS_DIRECTORY), $(OBJECTS_LIST))
 
-#	COLORS
+#	COLORS --> 🟥 🟩 🟦
 GREEN	= \033[0;32m
 RED		= \033[0;31m
 RESET	= \033[0m
@@ -94,3 +94,6 @@ fclean: clean
 re:
 	@$(MAKE) fclean
 	@$(MAKE) all
+
+print:
+	printf 

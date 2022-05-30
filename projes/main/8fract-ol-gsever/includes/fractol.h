@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 15:09:34 by gsever            #+#    #+#             */
-/*   Updated: 2022/05/29 16:29:53 by gsever           ###   ########.fr       */
+/*   Updated: 2022/05/30 20:03:47 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 //for; MinilibX
 # include "../libraries/minilibx_opengl/mlx.h"
 # include "key_macos_en.h"
+//for; Libft
 # include "../libraries/libft/includes/libft.h"
 
 # define SIZE_X 1000.0
@@ -99,13 +100,34 @@ t_fractol	*frctl_init(int argc, char **argv);
 void		setup_mlx(t_fractol *frctl);
 int			fractol_loop(t_fractol *frctl);
 
-
+/*
+	--FRACTALS--
+*/
+void		mandelbrot(t_fractol *frctl);
+void		julia(t_fractol *frctl);
+void		celtic_mandelbrot(t_fractol *frctl);
+void		burning_ship(t_fractol *frctl);
 
 /*
 	KEY_ACTIONS
 */
 int			key_actions(int key, t_fractol *frctl);
+void		move(int key, t_fractol *frctl);
+void		fractal_change(int key, t_fractol *frctl);
+void		color_shift(t_fractol *frctl);
+void		change_maxiter(int key, t_fractol *frctl);
 
+/*
+	MOUSE_ACTIONS_C
+*/
+int			zoom(int button, int x, int y, t_fractol *frctl);
+int			julia_mouse_motion(int x, int y, t_fractol *frctl);
+
+/*
+	COLOR_C
+*/
+int			get_color(t_fractol *frctl);
+void		set_color_array(t_fractol *frctl);
 
 /*
 	UTILS_C
@@ -120,5 +142,14 @@ void		print_help(void);
 long		ft_atol(const char *nptr);
 int			ft_iterative_power(int nb, int power);
 double		ft_atod(const char *nptr);
+
+/*
+	FREE_C
+*/
+void		set_input(int argc, char *argv[], t_fractol *frctl);
+int			set_defaults(t_fractol *frctl);
+int			fractol_free_kill_all(t_fractol *frctl);
+void		setup_mlx(t_fractol *frctl);
+
 
 # endif
