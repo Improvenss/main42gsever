@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 15:09:34 by gsever            #+#    #+#             */
-/*   Updated: 2022/05/31 13:52:44 by gsever           ###   ########.fr       */
+/*   Updated: 2022/05/31 14:31:09 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,10 @@
 # include <stdbool.h>
 //for; EXIT_SUCCESS
 # include <stdlib.h>
+//for; printf
+# include <stdio.h>
+//for; u_long u_int
+# include <sys/types.h>
 //for; MinilibX
 # include "../libraries/minilibx_opengl/mlx.h"
 # include "key_macos_en.h"
@@ -142,6 +146,8 @@ void		print_help(void);
 long		ft_atol(const char *nptr);
 int			ft_iterative_power(int nb, int power);
 double		ft_atod(const char *nptr);
+int			ft_get_unumlen(u_long nb);
+int			ft_get_unumlen_base(u_long n, u_int base);
 
 /*
 	FREE_C

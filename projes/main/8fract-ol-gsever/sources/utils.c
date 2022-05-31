@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 16:01:28 by gsever            #+#    #+#             */
-/*   Updated: 2022/05/31 13:56:35 by gsever           ###   ########.fr       */
+/*   Updated: 2022/05/31 14:14:50 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ void	my_mlx_pixel_put(t_mlximg *img, int x, int y, int color)
 
 void	print_help(void)
 {
-	ft_printf("Unfortunately your input is not valid.\n");
-	ft_printf("Please use one of the following parameters: ");
-	ft_printf("[mandelbrot, julia, celtic_mandelbrot, burning_ship]\n");
-	ft_printf("Sample usage: ./fractol mandelbrot\n");
+	printf("Unfortunately your input is not valid.\n");
+	printf("Please use one of the following parameters: ");
+	printf("[mandelbrot, julia, celtic_mandelbrot, burning_ship]\n");
+	printf("Sample usage: ./fractol mandelbrot\n");
 }
