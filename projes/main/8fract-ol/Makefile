@@ -6,7 +6,7 @@
 #    By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/23 21:55:01 by gsever            #+#    #+#              #
-#    Updated: 2022/05/02 11:35:50 by gsever           ###   ########.fr        #
+#    Updated: 2022/05/31 12:44:54 by gsever           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -77,6 +77,7 @@ $(NAME): libs header prep $(OBJS)
 	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LDLIBS)
 	@printf "$(G)======= $(NAME)$(X)\n"
 
+# Burada teker teker derleniyor...
 $(ODIR)/%.o: $(SDIR)/%.c
 	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 	@printf "%-57b %b" "$(B)compile $(LB)$@" "$(G)[✓]$(X)\n"

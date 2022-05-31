@@ -6,50 +6,68 @@
 #    By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/25 14:29:40 by gsever            #+#    #+#              #
-#    Updated: 2022/05/30 20:44:14 by gsever           ###   ########.fr        #
+#    Updated: 2022/05/31 13:47:03 by gsever           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = fractol
-
-CC = gcc
+NAME		:= fractol
+CC			:= gcc
 
 #	Flags for compile
-FLAGS = -Wall -Werror -Wextra -O3
-LIBRARIES = -lmlx -lm -lft\
+FLAGS		:= -Wall -Werror -Wextra -O3
+LIBRARIES	:= -lmlx -lm -lft\
 	-L$(LIBFT_DIRECTORY) -L$(MINILIBX_DIRECTORY)\
 	-framework OpenGL -framework AppKit
-INCLUDES = -I$(HEADERS_DIRECTORY) -I$(LIBFT_HEADERS) -I$(MINILIBX_HEADERS)
+INCLUDES	:= -I$(HEADERS_DIRECTORY) -I$(LIBFT_HEADERS) -I$(MINILIBX_HEADERS)
 
 #	Libft Part --> OK
-LIBFT_DIRECTORY = ./libraries/libft/
-LIBFT_HEADERS = $(LIBFT_DIRECTORY)includes/
-LIBFT = $(LIBFT_DIRECTORY)libft.a
+LIBFT_DIRECTORY		:= libraries/libft/
+LIBFT_HEADERS		:= $(LIBFT_DIRECTORY)includes/
+LIBFT				:= $(LIBFT_DIRECTORY)libft.a
 
 #	Minilibx Part --> OK
-MINILIBX_DIRECTORY = ./libraries/minilibx_opengl/
-MINILIBX_HEADERS = $(wildcard $(MINILIBX_DIRECTORY)*.h)
-MINILIBX = $(MINILIBX_DIRECTORY)libmlx.a
+MINILIBX_DIRECTORY	:= libraries/minilibx_opengl/
+MINILIBX_HEADERS	:= $(wildcard $(MINILIBX_DIRECTORY)*.h)
+MINILIBX			:= $(MINILIBX_DIRECTORY)libmlx.a
 
 #	Includes Parts --> Kutuphane --> OK
-HEADERS_DIRECTORY = ./includes/
-HEADERS_LIST = $(wildcard $(HEADERS_DIRECTORY)*)
-HEADERS = $(addprefix $(HEADERS_DIRECTORY), $(HEADERS_LIST))
+HEADERS_DIRECTORY	:= includes/
+HEADERS_LIST		:= \
+				fractol.h\
+				key_macos_de.h\
+				key_macos_en.h
+HEADERS				:= $(addprefix $(HEADERS_DIRECTORY), $(HEADERS_LIST))
 
 #	Source Files --> Derlenmiyor
-SOURCES_DIRECTORY = ./sources/
-SOURCES_LIST = $(wildcard $(SOURCES_DIRECTORY)*)
-SOURCES = $(addprefix $(SOURCES_DIRECTORY), $(SOURCES_LIST))
+SOURCES_DIRECTORY	:= sources/
+SOURCES_LIST		:= \
+			main.c\
+			fractol.c\
+			color.c\
+			helper.c\
+			utils.c \
+			key_actions.c\
+			mouse_actions.c \
+			fractal_mandelbrot.c\
+			fractal_julia.c \
+			fractal_burning_ship.c\
+			fractal_celtic_mandelbrot.c\
+			ft_atod.c
+SOURCES				:= $(addprefix $(SOURCES_DIRECTORY), $(SOURCES_LIST))
 
 #	Object Files --> (Compiled files directory)
-OBJECTS_DIRECTORY = ./objects/
-OBJECTS_LIST = $(patsubst %.c, %.o, $(SOURCES_LIST))
-OBJECTS	= $(addprefix $(OBJECTS_DIRECTORY), $(OBJECTS_LIST))
+OBJECTS_DIRECTORY	:= objects/
+OBJECTS_LIST		:= $(patsubst %.c, %.o, $(SOURCES_LIST))
+OBJECTS				:= $(addprefix $(OBJECTS_DIRECTORY), $(OBJECTS_LIST))
 
 #	COLORS --> 🟥 🟩 🟦
-GREEN	= \033[0;32m
-RED		= \033[0;31m
-RESET	= \033[0m
+LB		:= \033[0;36m
+BLUE	:= \033[0;34m
+YELLOW	:= \033[0;33m
+GREEN	:= \033[0;32m
+RED		:= \033[0;31m
+RESET	:= \033[0m
+X		:= \033[m
 
 .PHONY: all clean fclean re
 
@@ -64,9 +82,10 @@ $(OBJECTS_DIRECTORY):
 	@mkdir -p $(OBJECTS_DIRECTORY)
 	@echo "$(NAME): $(GREEN)$(OBJECTS_DIRECTORY) was created$(RESET)"
 
-$(OBJECTS_DIRECTORY)%.o : $(SOURCES_DIRECTORY)%.c $(HEADERS)
-	@$(CC) $(FLAGS) -c $(INCLUDES) $< -o $@
-	@echo "$(GREEN).$(RESET)\c"
+$(OBJECTS_DIRECTORY)%.o : $(SOURCES_DIRECTORY)%.c
+	@$(CC) $(FLAGS) $(INCLUDES) -c $< -o $@
+	@printf "%-57b %b" "$(B)compile $(LB)$@" "$(G)[✓]$(X)\n"
+#@echo "$(GREEN).$(RESET)\c"
 
 $(LIBFT):
 	@echo "$(NAME): $(GREEN)Creating $(LIBFT)...$(RESET)"
