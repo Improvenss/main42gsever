@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 15:09:34 by gsever            #+#    #+#             */
-/*   Updated: 2022/05/31 14:31:09 by gsever           ###   ########.fr       */
+/*   Updated: 2022/06/02 00:35:00 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,10 @@
 
 # include <stdint.h>
 # include <math.h>
-//for; size_t
+//for; size_t, EXIT_SUCCESS
 # include <stdlib.h>
 //for; bool
 # include <stdbool.h>
-//for; EXIT_SUCCESS
-# include <stdlib.h>
 //for; printf
 # include <stdio.h>
 //for; u_long u_int
@@ -31,8 +29,8 @@
 //for; Libft
 # include "../libraries/libft/includes/libft.h"
 
-# define SIZE_X 1000.0
-# define SIZE_Y 1000.0
+# define SIZE_X 800.0
+# define SIZE_Y 800.0
 
 typedef struct s_complex	t_complex;
 typedef struct s_mlximg		t_mlximg;
@@ -80,6 +78,11 @@ typedef struct s_mlx{
 
 /*
 	Fract'ol
+*/
+/*
+for;
+	color_shift		-->	Color key.	-->	Renk degisimi -> R[255] G[255] B[255]
+	color_scheme	--> Color combination.
 */
 typedef struct s_fractol{
 	t_mlx		*mlx;
@@ -157,5 +160,9 @@ int			set_defaults(t_fractol *frctl);
 int			fractol_free_kill_all(t_fractol *frctl);
 void		setup_mlx(t_fractol *frctl);
 
+/*
+	Samples --> Ornekler
+*/
+void		color_map(t_fractol *frctl);
 
 # endif

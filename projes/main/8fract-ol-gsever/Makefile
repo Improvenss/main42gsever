@@ -5,46 +5,20 @@
 #                                                     +:+ +:+         +:+      #
 #    By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/05/31 15:04:59 by gsever            #+#    #+#              #
-#    Updated: 2022/05/31 17:45:42 by gsever           ###   ########.fr        #
+#    Created: 2022/04/23 21:55:01 by gsever            #+#    #+#              #
+#    Updated: 2022/06/01 23:51:30 by gsever           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+# **************************************************************************** #
+#	Project specific														   #
+# **************************************************************************** #
+
 NAME		:= fractol
-CC			:= gcc
 
-#	Flags for compile
-FLAGS		:= -Wall -Werror -Wextra
-LIBRARIES	:= -lmlx -lm -lft\
-	-L$(LIBFT_DIRECTORY) -L$(MINILIBX_DIRECTORY)\
-	-framework OpenGL -framework AppKit
-INCLUDES	:= -I$(HEADERS_DIRECTORY) -I$(LIBFT_HEADERS) -I$(MINILIBX_HEADERS)
-
-#	Libft Part --> OK
-LIBFT_DIRECTORY		:= ./libraries/libft/
-LIBFT_HEADERS		:= $(LIBFT_DIRECTORY)includes/
-LIBFT				:= $(LIBFT_DIRECTORY)libft.a
-
-#	Minilibx Part --> OK
-MINILIBX_DIRECTORY	:= ./libraries/minilibx_opengl/
-MINILIBX_HEADERS	:= $(MINILIBX_DIRECTORY)
-MINILIBX			:= $(MINILIBX_DIRECTORY)libmlx.a
-
-
-
-
-
-
-
-
-#	HEADERS Parts --> Kutuphane --> OK
-HEADERS_DIRECTORY	:= includes/
-HEADERS_LIST		:= $(wildcard $(HEADERS_DIRECTORY)*.h)
-
-#	Source Files --> Derlenmiyor
-SOURCES_DIRECTORY	:= sources/
-SOURCES_LIST		:= \
+SRCS		:= \
 			main.c\
+			draw.c\
 			fractol.c\
 			color.c\
 			helper.c\
@@ -57,79 +31,96 @@ SOURCES_LIST		:= \
 			fractal_celtic_mandelbrot.c\
 			ft_atod.c\
 			ft_get_unumlen.c
-#SOURCES_LIST		:= $(wildcard $(SOURCES_DIRECTORY)*.c)
+LDLIBS		:= -lm -lft -lmlx -framework OpenGL -framework AppKit
 
-#	Object Files --> (Compiled files directory)
-OBJECTS_DIRECTORY	:= objects/
-OBJECTS				:= $(addprefix $(OBJECTS_DIRECTORY), $(SOURCES_LIST:.c=.o))
+# **************************************************************************** #
+#	GENERAL VARIABLES														   #
+# **************************************************************************** #
 
+CC			:= gcc
+CFLAGS		:= -Wall -Wextra -Werror
 
-#	COLORS --> 🟥 🟩 🟦
-LB		:= \033[0;36m
-BLUE	:= \033[0;34m
-YELLOW	:= \033[0;33m
-GREEN	:= \033[0;32m
-RED		:= \033[0;31m
-RESET	:= \033[0m
-X		:= \033[m
+SDIR		:= sources
+ODIR		:= objects
+OBJS		:= $(addprefix $(ODIR)/, $(SRCS:.c=.o))
 
-.PHONY: all clean fclean re
+LIBDIRS		:= $(wildcard libraries/*)
+LDLIBS		:= $(addprefix -L./, $(LIBDIRS)) $(LDLIBS)
+INCLUDES	:= -I./includes -I./libraries/libft/includes/ -I./libraries/minilibx_opengl/
+
+# COLORS
+LB   		= \033[0;36m
+B			= \033[0;34m
+Y  			= \033[0;33m
+G		    = \033[0;32m
+R 			= \033[0;31m
+X		    = \033[m
+
+# **************************************************************************** #
+#	SYSTEM SPECIFIC SETTINGS							   					   #
+# **************************************************************************** #
+
+ifeq ($(shell uname -s), Linux)
+	CFLAGS += -D LINUX -Wno-unused-result
+endif
+
+# **************************************************************************** #
+#	FUNCTIONS									   							   #
+# **************************************************************************** #
+
+define MAKE_LIBS
+	for DIR in $(LIBDIRS); do \
+		$(MAKE) -C $$DIR $(1) --silent; \
+	done
+endef
+
+# **************************************************************************** #
+#	RULES																	   #
+# **************************************************************************** #
+
+.PHONY: all header prep clean fclean re bonus debug release libs
 
 all: $(NAME)
 
-$(NAME): $(LIBFT) $(MINILIBX) prep $(OBJECTS)
-	@$(CC) $(FLAGS) $(INCLUDES) $(LIBRARIES) -o $(NAME) $(OBJECTS) 
-	@printf "%-57b %b" "$(GREEN)CREATED $(NAME)" "$(GREEN)[FINISHED]$(X)\n"
+$(NAME): libs header prep $(OBJS)
+	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LDLIBS)
+	@printf "$(G)======= $(NAME)$(X)\n"
 
+# Burada teker teker derleniyor...
+$(ODIR)/%.o: $(SDIR)/%.c
+	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+	@printf "%-57b %b" "$(B)compile $(LB)$@" "$(G)[✓]$(X)\n"
+
+header:
+	@printf "###############################################\n"
+	@printf "$(Y)####### $(shell echo "$(NAME)" | tr '[:lower:]' '[:upper:]')$(X)\n"
 
 prep:
-	@mkdir -p $(OBJECTS_DIRECTORY)
-	@echo "$(NAME): $(GREEN)$(OBJECTS_DIRECTORY) was created$(RESET)"
+	@mkdir -p $(ODIR)
 
-$(OBJECTS_DIRECTORY)%.o: $(SOURCES_DIRECTORY)%.c
-	@$(CC) $(FLAGS) $(INCLUDES) -c $< -o $@
-	@printf "%-57b %b" "$(BLUE)COMPILED $(LB)$@" "$(GREEN)[✓]$(X)\n"
+clean: libs header
+	@$(RM) -r $(ODIR)
+	@$(RM) -r *.dSYM $(SDIR)/*.dSYM $(SDIR)/$(NAME)
+	@printf "%-50b %b" "$(R)clean" "$(G)[✓]$(X)\n"
 
+fclean: libs header clean
+	@$(RM) $(NAME)
+	@printf "%-50b %b" "$(R)fclean" "$(G)[✓]$(X)\n"
 
+re: fclean all
 
+bonus: all
 
+debug: CFLAGS += -O0 -DDEBUG -g
+debug: all
 
+release: fclean
+release: CFLAGS	+= -O2 -DNDEBUG
+release: all clean
 
-
-
-
-
-
-
-
-
-$(LIBFT):
-	@echo "$(NAME): $(GREEN)Creating $(LIBFT)...$(RESET)"
-	@$(MAKE) -sC $(LIBFT_DIRECTORY)
-	@printf "%-57b %b" "$(BLUE)COMPILED $(LIBFT)" "$(GREEN)[✓]$(X)\n"
-
-$(MINILIBX):
-	@echo "$(NAME): $(GREEN)Creating $(MINILIBX)...$(RESET)"
-	@$(MAKE) -sC $(MINILIBX_DIRECTORY)
-	@printf "%-57b %b" "$(BLUE)COMPILED $(LB)$(MINILIBX)" "$(GREEN)[MINILIBX FINISHED]$(X)\n"
-
-clean:
-	@$(MAKE) -sC $(LIBFT_DIRECTORY) clean
-	@$(MAKE) -sC $(MINILIBX_DIRECTORY) clean
-	@rm -rf $(OBJECTS_DIRECTORY)
-	@echo "$(NAME): $(RED)$(OBJECTS_DIRECTORY) was deleted$(RESET)"
-
-fclean: clean
-	@rm -f $(LIBFT)
-	@echo "$(NAME): $(RED)$(LIBFT) was deleted$(RESET)"
-	@rm -f $(MINILIBX)
-	@echo "$(NAME): $(RED)$(MINILIBX) was deleted$(RESET)"
-	@rm -f $(NAME)
-	@echo "$(NAME): $(RED)$(NAME) was deleted$(RESET)"
-
-re:
-	@$(MAKE) fclean
-	@$(MAKE) all
-
-print:
-	echo $(SOURCES_LIST)
+libs:
+ifeq ($(MAKECMDGOALS), $(filter $(MAKECMDGOALS), clean fclean re debug release))
+	@$(call MAKE_LIBS,$(MAKECMDGOALS))
+else
+	@$(call MAKE_LIBS,all)
+endif

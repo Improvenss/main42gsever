@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/23 21:06:42 by gsever            #+#    #+#             */
-/*   Updated: 2022/05/02 11:33:37 by gsever           ###   ########.fr       */
+/*   Updated: 2022/06/02 01:09:20 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,19 @@
 # define MAINP_SPACE	49
 # define MAINP_PLUS		24
 # define MAINP_MINUS	27
+# define MAINP_C		8
 # define MAINP_R		15
 # define MAINP_DOT		47
 # define MAINP_1		18
 # define MAINP_2		19
 # define MAINP_3		20
 # define MAINP_4		21
+# define MAINP_5		23
+# define MAINP_6		22
+# define MAINP_7		26
+# define MAINP_8		28
+# define MAINP_9		25
+# define MAINP_0		29
 
 # define NUMP_PLUS		69
 # define NUMP_MINUS		78
