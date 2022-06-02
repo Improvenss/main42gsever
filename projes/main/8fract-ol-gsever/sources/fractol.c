@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 15:07:11 by gsever            #+#    #+#             */
-/*   Updated: 2022/06/02 00:45:46 by gsever           ###   ########.fr       */
+/*   Updated: 2022/06/02 17:03:19 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ int	fractol_loop(t_fractol *frctl)
 	}
 	mlx_put_image_to_window(frctl->mlx->ptr, frctl->mlx->win,
 		frctl->mlx->img.ptr, 0, 0);
+	mlx_string_put(frctl->mlx->ptr, frctl->mlx->win, 720, 780, COLOR_TUNDORA,
+		"H - Help");
 	return (0);
 }
 

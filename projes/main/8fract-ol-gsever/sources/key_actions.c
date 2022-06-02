@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 18:40:14 by gsever            #+#    #+#             */
-/*   Updated: 2022/06/02 00:59:54 by gsever           ###   ########.fr       */
+/*   Updated: 2022/06/02 15:10:24 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,14 @@ int	key_actions(int key, t_fractol *frctl)
 		change_maxiter(key, frctl);
 	else if (key >= MAINP_1 && key <= MAINP_4)
 		fractal_change(key, frctl);
-	else if (key >= NUMP_1 && key <= NUMP_4)
-		fractal_change(key, frctl);
 	else if (key == MAINP_SPACE)
 		frctl->is_fixed = !frctl->is_fixed;
-	else if (key == MAINP_DOT)
+	else if (key == MAINP_C)
 		color_shift(frctl);
 	else if (key == MAINP_9)
-		(void)color_map(frctl);
+		(void)color_map(frctl, SIZE_X, SIZE_Y);
+	else if (key == MAINP_H)
+		(void)help(frctl);
 	fractol_loop(frctl);
 	return (0);
 }

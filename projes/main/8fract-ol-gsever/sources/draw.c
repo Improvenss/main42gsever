@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 16:51:03 by gsever            #+#    #+#             */
-/*   Updated: 2022/06/02 00:37:49 by gsever           ###   ########.fr       */
+/*   Updated: 2022/06/02 14:26:14 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,17 +55,15 @@ int	main()
 /*
 	Keyboard --> 9
 */
-void	color_map(t_fractol *frctl)
+void	color_map(t_fractol *frctl, int w, int h)
 {
 	void	*win;
 	int		x;
 	int		y;
-	int		w;
-	int		h;
 	int		color;
 
-	//dobbe.ptr = mlx_init();
-	win = mlx_new_window(frctl->mlx->ptr, SIZE_X, SIZE_Y, "Ur Mom Gay!");
+	win = mlx_new_window(frctl->mlx->ptr, SIZE_X, SIZE_Y,
+			"0 - 255 Color Scheme!");
 	w = SIZE_X;
 	x = w;
 	while (x--)
@@ -79,5 +77,4 @@ void	color_map(t_fractol *frctl)
 			mlx_pixel_put(frctl->mlx->ptr, win, x, y, color);
 		}
 	}
-	//mlx_loop(frctl->mlx->ptr);
 }

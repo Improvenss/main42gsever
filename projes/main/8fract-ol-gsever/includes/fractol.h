@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 15:09:34 by gsever            #+#    #+#             */
-/*   Updated: 2022/06/02 00:35:00 by gsever           ###   ########.fr       */
+/*   Updated: 2022/06/02 15:15:41 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,11 @@
 //for; Libft
 # include "../libraries/libft/includes/libft.h"
 
-# define SIZE_X 800.0
-# define SIZE_Y 800.0
+# define SIZE_X 		800.0
+# define SIZE_Y 		800.0
+
+# define COLOR_SILVER	0xCCCCCC
+# define COLOR_TUNDORA	0x444444
 
 typedef struct s_complex	t_complex;
 typedef struct s_mlximg		t_mlximg;
@@ -97,6 +100,7 @@ typedef struct s_fractol{
 	uint8_t		color_shift;
 	int			*color_scheme;
 	bool		is_fixed;
+	bool		is_help;
 }	t_fractol;
 
 /*
@@ -123,6 +127,7 @@ void		move(int key, t_fractol *frctl);
 void		fractal_change(int key, t_fractol *frctl);
 void		color_shift(t_fractol *frctl);
 void		change_maxiter(int key, t_fractol *frctl);
+void		draw_help(t_fractol *frctl);
 
 /*
 	MOUSE_ACTIONS_C
@@ -142,6 +147,8 @@ void		set_color_array(t_fractol *frctl);
 void		complex_set(t_complex *z, double re, double im);
 void		my_mlx_pixel_put(t_mlximg *img, int x, int y, int color);
 void		print_help(void);
+void		help(t_fractol *frctl);
+
 
 /*
 	UTILS_P2_C
@@ -163,6 +170,6 @@ void		setup_mlx(t_fractol *frctl);
 /*
 	Samples --> Ornekler
 */
-void		color_map(t_fractol *frctl);
+void	color_map(t_fractol *frctl, int w, int h);
 
 # endif

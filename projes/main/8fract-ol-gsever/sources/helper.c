@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 15:36:31 by gsever            #+#    #+#             */
-/*   Updated: 2022/06/02 00:39:22 by gsever           ###   ########.fr       */
+/*   Updated: 2022/06/02 16:39:54 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,6 @@ void	set_input(int argc, char *argv[], t_fractol *frctl)
 		frctl->fractal_func = celtic_mandelbrot;
 	else if (argc == 2 && !ft_strncmp(argv[1], "burning_ship", 9))
 		frctl->fractal_func = burning_ship;
-	else if (argc == 2 && !ft_strncmp(argv[1], "color", 6))
-		frctl->fractal_func = color_map;
 	else
 		print_help();
 	if (frctl->fractal_func == NULL)
@@ -68,7 +66,7 @@ void	setup_mlx(t_fractol *frctl)
 /*
 		for; frctl's defaults values entering.
 	SIZE_T and SIZE_Y for window's 1000x1000px image. px == pixel
-	
+
 */
 int	set_defaults(t_fractol *frctl)
 {
