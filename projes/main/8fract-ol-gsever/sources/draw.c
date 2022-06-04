@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 16:51:03 by gsever            #+#    #+#             */
-/*   Updated: 2022/06/02 14:26:14 by gsever           ###   ########.fr       */
+/*   Updated: 2022/06/03 22:20:48 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,11 @@ int	main()
 */
 
 /*
-	Keyboard --> 9
+		Keyboard --> 9
+	This method we use here is the long method. We are writing pixel's color 
+		directly to the window. But we have 800x800=640000 pixels...
+		This pixel put function work 640000 times... :(
+	This color map function just sample for undertand how minilibx working...
 */
 void	color_map(t_fractol *frctl, int w, int h)
 {
@@ -77,4 +81,6 @@ void	color_map(t_fractol *frctl, int w, int h)
 			mlx_pixel_put(frctl->mlx->ptr, win, x, y, color);
 		}
 	}
+	mlx_string_put(frctl->mlx->ptr, win, 720, 780, COLOR_TUNDORA,
+		"H - Help");
 }

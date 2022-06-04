@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 18:40:14 by gsever            #+#    #+#             */
-/*   Updated: 2022/06/02 15:10:24 by gsever           ###   ########.fr       */
+/*   Updated: 2022/06/04 01:38:31 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	key_actions(int key, t_fractol *frctl)
 {
-	printf("%d\n", key);
+	printf("You pressed a key on the keyboard sir. --> %d\n", key);
 	if (key == MAINP_ESC)
 		fractol_free_kill_all(frctl);
 	else if (key == MAINP_R)
@@ -27,7 +27,7 @@ int	key_actions(int key, t_fractol *frctl)
 		change_maxiter(key, frctl);
 	else if (key == MAINP_MINUS || key == NUMP_MINUS)
 		change_maxiter(key, frctl);
-	else if (key >= MAINP_1 && key <= MAINP_4)
+	else if ((key >= MAINP_1 && key <= MAINP_4) || key == MAINP_H)
 		fractal_change(key, frctl);
 	else if (key == MAINP_SPACE)
 		frctl->is_fixed = !frctl->is_fixed;
@@ -35,8 +35,6 @@ int	key_actions(int key, t_fractol *frctl)
 		color_shift(frctl);
 	else if (key == MAINP_9)
 		(void)color_map(frctl, SIZE_X, SIZE_Y);
-	else if (key == MAINP_H)
-		(void)help(frctl);
 	fractol_loop(frctl);
 	return (0);
 }
@@ -79,6 +77,11 @@ void	fractal_change(int key, t_fractol *frctl)
 		frctl->fractal_func = celtic_mandelbrot;
 	else if (key == MAINP_4 || key == NUMP_4)
 		frctl->fractal_func = burning_ship;
+	else if (key == MAINP_H)
+	{
+		frctl->is_help = !frctl->is_help;
+		return ;
+	}
 	set_defaults(frctl);
 }
 

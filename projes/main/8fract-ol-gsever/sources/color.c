@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/28 18:23:05 by gsever            #+#    #+#             */
-/*   Updated: 2022/06/02 16:34:25 by gsever           ###   ########.fr       */
+/*   Updated: 2022/06/03 20:11:45 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,26 @@ int	get_color(t_fractol *frctl)
 	size_t --> unsigned int
 	pow()	---> x^y = pow(x, y) --> 2^3 = pow(2, 3) = 2x2x2 = 8
 	
+	i	= 0 going to current iter value
 	cs	= 0 between 255 can allowing.
 	div	=> division -->  ̶B̶o̶l̶e̶n̶ B̶o̶l̶u̶n̶e̶n̶ >Bolum< K̶a̶l̶a̶n̶
 	
 */
 /*
 	Doing; Calculating color.
+0x00FF0000 == ARGB(0,255,0,0)
+	255(Decimal) -> FF(Hexadecimal)
+	125(Decimal) -> 7D(Hexadecimal)
+	131(Decimal) -> 83(Hexadecimal)
+
+We are calculating rgb's like this;
+	uint8_t ---> unsigned char --> it can take values between 0 - 255
+		-> The RGB's value range too like this.
+	div = 2 / 5000 --> div = 0.0004 -> Therefore define 'double' there.
+	rgb[1] = 0x00FF0000 ---> FF --> Hexadecimal -> 0 - 255
+	rgb[2] = 0x0000FF00 ---> FF --> Hexadecimal -> 0 - 255
+	rgb[3] = 0x000000FF ---> FF --> Hexadecimal -> 0 - 255
+
 */
 static int	calc_color(t_fractol *frctl, size_t i)
 {
@@ -55,6 +69,10 @@ static int	calc_color(t_fractol *frctl, size_t i)
 		rgb[(cs + 1) % 3] = 15 * pow((1 - div), 2) * pow(div, 2) * 255;
 		rgb[(cs + 2) % 3] = 9 * (1 - div) * pow(div, 3) * 255;
 	}
+	printf("Color 1[R]: %hhu		", rgb[0]);
+	printf("Color 2[G]: %hhu		", rgb[1]);
+	printf("Color 3[B]: %hhu		", rgb[2]);
+	printf("Hex: #%x%x%x\n", rgb[0], rgb[1], rgb[2]);
 	return (0 << 24 | rgb[0] << 16 | rgb[1] << 8 | rgb[2]);
 }
 
@@ -65,6 +83,7 @@ void	set_color_array(t_fractol *frctl)
 {
 	size_t	i;
 
+	printf("Color RED		Color GREEN		Color BLUE\n");
 	i = 0;
 	while (i <= frctl->max_iter)
 	{

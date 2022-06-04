@@ -6,17 +6,19 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 15:07:11 by gsever            #+#    #+#             */
-/*   Updated: 2022/06/02 17:03:19 by gsever           ###   ########.fr       */
+/*   Updated: 2022/06/04 01:40:44 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
 
-int	fractol_loop(t_fractol *frctl)
+int	draw_fractal_while(t_fractol *frctl)
 {
 	size_t	x;
 	size_t	y;
 
+	if (frctl->is_help)
+		return (0);
 	frctl->scale.re = (frctl->c_max.re - frctl->c_min.re) / SIZE_X;
 	frctl->scale.im = (frctl->c_max.im - frctl->c_min.im) / SIZE_Y;
 	y = 0;
@@ -33,10 +35,18 @@ int	fractol_loop(t_fractol *frctl)
 		}
 		y++;
 	}
+	return (0);
+}
+
+int	fractol_loop(t_fractol *frctl)
+{
+	draw_fractal_while(frctl);
 	mlx_put_image_to_window(frctl->mlx->ptr, frctl->mlx->win,
 		frctl->mlx->img.ptr, 0, 0);
 	mlx_string_put(frctl->mlx->ptr, frctl->mlx->win, 720, 780, COLOR_TUNDORA,
 		"H - Help");
+	if (frctl->is_help)
+		help(frctl);
 	return (0);
 }
 
