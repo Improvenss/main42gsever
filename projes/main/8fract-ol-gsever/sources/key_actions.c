@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 18:40:14 by gsever            #+#    #+#             */
-/*   Updated: 2022/06/05 16:14:40 by gsever           ###   ########.fr       */
+/*   Updated: 2022/06/05 23:10:42 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	key_actions(int key, t_fractol *frctl)
 		change_maxiter(key, frctl);
 	else if (key == MAINP_MINUS || key == NUMP_MINUS)
 		change_maxiter(key, frctl);
-	else if ((key >= MAINP_1 && key <= MAINP_4) || key == MAINP_H)
+	else if ((key >= MAINP_1 && key <= MAINP_5) || key == MAINP_H)
 		fractal_change(key, frctl);
 	else if (key == MAINP_SPACE)
 		frctl->is_fixed = !frctl->is_fixed;
@@ -77,6 +77,8 @@ void	fractal_change(int key, t_fractol *frctl)
 		frctl->fractal_func = celtic_mandelbrot;
 	else if (key == MAINP_4 || key == NUMP_4)
 		frctl->fractal_func = burning_ship;
+	else if (key == MAINP_5 || key == NUMP_5)
+		frctl->fractal_func = multibrot_set;
 	else if (key == MAINP_H)
 	{
 		frctl->is_help = !frctl->is_help;

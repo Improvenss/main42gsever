@@ -6,11 +6,11 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 11:34:52 by gsever            #+#    #+#             */
-/*   Updated: 2022/05/31 13:55:49 by gsever           ###   ########.fr       */
+/*   Updated: 2022/06/05 20:54:19 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "../includes/fractol.h"
 
 /*
 	Keyboard --> 2

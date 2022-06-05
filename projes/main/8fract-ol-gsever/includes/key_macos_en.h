@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/23 21:06:42 by gsever            #+#    #+#             */
-/*   Updated: 2022/06/03 22:56:12 by gsever           ###   ########.fr       */
+/*   Updated: 2022/06/05 23:31:58 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,12 @@
 # define NUMP_2			84
 # define NUMP_3			85
 # define NUMP_4			86
+# define NUMP_5			87
+# define NUMP_6			88
+# define NUMP_7			89
+# define NUMP_8			91
+# define NUMP_9			92
+
+
 
 #endif

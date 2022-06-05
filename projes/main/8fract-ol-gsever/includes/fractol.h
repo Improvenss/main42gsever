@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 15:09:34 by gsever            #+#    #+#             */
-/*   Updated: 2022/06/04 00:54:29 by gsever           ###   ########.fr       */
+/*   Updated: 2022/06/05 23:06:05 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,6 +121,7 @@ void		mandelbrot(t_fractol *frctl);
 void		julia(t_fractol *frctl);
 void		celtic_mandelbrot(t_fractol *frctl);
 void		burning_ship(t_fractol *frctl);
+void		multibrot_set(t_fractol *frctl);
 
 /*
 	KEY_ACTIONS
