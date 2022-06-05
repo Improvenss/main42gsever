@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    Makefilegorkem                                     :+:      :+:    :+:    #
+#    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/31 15:04:59 by gsever            #+#    #+#              #
-#    Updated: 2022/06/01 18:45:58 by gsever           ###   ########.fr        #
+#    Updated: 2022/06/05 17:20:40 by gsever           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME		:= fractol
 CC			:= gcc
 
 #	Flags for compile
-FLAGS		:= -Wall -Werror -Wextra
+FLAGS		:= -Wall -Werror -Wextra -O3
 LIBRARIES	:= -lmlx -lm -lft\
 	-L$(LIBFT_DIRECTORY) -L$(MINILIBX_DIRECTORY)\
 	-framework OpenGL -framework AppKit
@@ -31,15 +31,19 @@ MINILIBX_HEADERS	:= $(MINILIBX_DIRECTORY)
 MINILIBX			:= $(MINILIBX_DIRECTORY)libmlx.a
 
 #	HEADERS Parts --> Kutuphane --> OK
-HEADERS_DIRECTORY	:= includes/
-HEADERS_LIST		:= $(wildcard $(HEADERS_DIRECTORY)*.h)
+HEADERS_LIST = \
+	fractol.h\
+	key_macos_en.h\
+	key_macos_de.h
+HEADERS_DIRECTORY	:= ./includes/
+HEADERS				:= $(addprefix $(HEADERS_DIRECTORY), $(HEADERS_LIST))
 
 #	Source Files --> Derlenmiyor
-SOURCES_DIRECTORY	:= sources/
 SOURCES_LIST		:= \
 			main.c\
 			fractol.c\
 			color.c\
+			draw.c\
 			helper.c\
 			utils.c \
 			key_actions.c\
@@ -50,11 +54,14 @@ SOURCES_LIST		:= \
 			fractal_celtic_mandelbrot.c\
 			ft_atod.c\
 			ft_get_unumlen.c
+SOURCES_DIRECTORY	:= ./sources/
 #SOURCES_LIST		:= $(wildcard $(SOURCES_DIRECTORY)*.c)
+SOURCES				:= $(addprefix $(SOURCES_DIRECTORY), $(SOURCES_LIST))
 
 #	Object Files --> (Compiled files directory)
 OBJECTS_DIRECTORY	:= objects/
-OBJECTS				:= $(addprefix $(OBJECTS_DIRECTORY), $(SOURCES_LIST:.c=.o))
+OBJECTS_LIST		:= $(patsubst %.c, %.o, $(SOURCES_LIST))
+OBJECTS				:= $(addprefix $(OBJECTS_DIRECTORY), $(OBJECTS_LIST))
 
 #	COLORS --> 🟥 🟩 🟦
 LB		:= \033[0;36m
@@ -69,30 +76,17 @@ X		:= \033[m
 
 all: $(NAME)
 
-$(NAME): $(LIBFT) $(MINILIBX) prep $(OBJECTS)
-	@$(CC) $(FLAGS) $(INCLUDES) $(LIBRARIES) -o $(NAME) $(OBJECTS) 
+$(NAME): $(LIBFT) $(MINILIBX) $(OBJECTS_DIRECTORY) $(OBJECTS)
+	@$(CC) $(FLAGS) $(INCLUDES) $(LIBRARIES) -o $(OBJECTS) $(NAME)
 	@printf "%-57b %b" "$(GREEN)CREATED $(NAME)" "$(GREEN)[FINISHED]$(X)\n"
 
-prep:
+$(OBJECTS_DIRECTORY):
 	@mkdir -p $(OBJECTS_DIRECTORY)
 	@echo "$(NAME): $(GREEN)$(OBJECTS_DIRECTORY) was created$(RESET)"
 
-$(OBJECTS_DIRECTORY)%.o: $(SOURCES_DIRECTORY)%.c
-	@$(CC) $(FLAGS) $(INCLUDES) -c $< -o $@
+$(OBJECTS_DIRECTORY)%.o : $(SOURCES_DIRECTORY)%.c $(HEADERS)
+	@$(CC) $(FLAGS) -c $(INCLUDES) $< -o $@
 	@printf "%-57b %b" "$(BLUE)COMPILED $(LB)$@" "$(GREEN)[✓]$(X)\n"
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 $(LIBFT):
 	@echo "$(NAME): $(GREEN)Creating $(LIBFT)...$(RESET)"
@@ -121,6 +115,3 @@ fclean: clean
 re:
 	@$(MAKE) fclean
 	@$(MAKE) all
-
-print:
-	echo $(SOURCES_LIST)

@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/28 18:23:05 by gsever            #+#    #+#             */
-/*   Updated: 2022/06/03 20:11:45 by gsever           ###   ########.fr       */
+/*   Updated: 2022/06/05 16:23:32 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ int	get_color(t_fractol *frctl)
 /*
 	Doing; Calculating color.
 0x00FF0000 == ARGB(0,255,0,0)
-	255(Decimal) -> FF(Hexadecimal)
-	125(Decimal) -> 7D(Hexadecimal)
-	131(Decimal) -> 83(Hexadecimal)
+	Sample1; 255(Decimal) -> FF(Hexadecimal)
+	Sample2; 125(Decimal) -> 7D(Hexadecimal)
+	Sample3; 131(Decimal) -> 83(Hexadecimal)
 
 We are calculating rgb's like this;
 	uint8_t ---> unsigned char --> it can take values between 0 - 255

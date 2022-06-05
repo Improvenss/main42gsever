@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 16:01:28 by gsever            #+#    #+#             */
-/*   Updated: 2022/06/04 01:44:40 by gsever           ###   ########.fr       */
+/*   Updated: 2022/06/05 16:12:49 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,25 +34,25 @@ void	my_mlx_pixel_put(t_mlximg *img, int x, int y, int color)
 
 void	draw_help(t_fractol *frctl)
 {
-	mlx_string_put(frctl->mlx->ptr, frctl->mlx->win, 460, 330, COLOR_SILVER,
+	mlx_string_put(frctl->mlx->ptr, frctl->mlx->win, 350, 300, COLOR_SILVER,
 		"Controls");
-	mlx_string_put(frctl->mlx->ptr, frctl->mlx->win, 385, 370, COLOR_SILVER,
+	mlx_string_put(frctl->mlx->ptr, frctl->mlx->win, 300, 340, COLOR_SILVER,
 		"Other Fractals   - 1, 2, 3, 4 and Color Scheme --> 9");
-	mlx_string_put(frctl->mlx->ptr, frctl->mlx->win, 385, 400, COLOR_SILVER,
+	mlx_string_put(frctl->mlx->ptr, frctl->mlx->win, 300, 370, COLOR_SILVER,
 		"Reset            - R");
-	mlx_string_put(frctl->mlx->ptr, frctl->mlx->win, 385, 430, COLOR_SILVER,
+	mlx_string_put(frctl->mlx->ptr, frctl->mlx->win, 300, 400, COLOR_SILVER,
 		"Color Shift      - C");
-	mlx_string_put(frctl->mlx->ptr, frctl->mlx->win, 385, 460, COLOR_SILVER,
+	mlx_string_put(frctl->mlx->ptr, frctl->mlx->win, 300, 430, COLOR_SILVER,
 		"Move             - Arrows");
-	mlx_string_put(frctl->mlx->ptr, frctl->mlx->win, 385, 490, COLOR_SILVER,
+	mlx_string_put(frctl->mlx->ptr, frctl->mlx->win, 300, 460, COLOR_SILVER,
 		"Zoom             - Mouse Scroll");
-	mlx_string_put(frctl->mlx->ptr, frctl->mlx->win, 385, 520, COLOR_SILVER,
+	mlx_string_put(frctl->mlx->ptr, frctl->mlx->win, 300, 490, COLOR_SILVER,
 		"Iterations       - +/-");
-	mlx_string_put(frctl->mlx->ptr, frctl->mlx->win, 385, 550, COLOR_SILVER,
+	mlx_string_put(frctl->mlx->ptr, frctl->mlx->win, 300, 520, COLOR_SILVER,
 		"Julia Constant   - Mouse");
-	mlx_string_put(frctl->mlx->ptr, frctl->mlx->win, 385, 580, COLOR_SILVER,
+	mlx_string_put(frctl->mlx->ptr, frctl->mlx->win, 300, 550, COLOR_SILVER,
 		"Mouse Lock       - Space");
-	mlx_string_put(frctl->mlx->ptr, frctl->mlx->win, 385, 610, COLOR_SILVER,
+	mlx_string_put(frctl->mlx->ptr, frctl->mlx->win, 300, 580, COLOR_SILVER,
 		"Close Help       - H");
 }
 
@@ -74,12 +74,11 @@ void	help(t_fractol *frctl)
 			}
 			y++;
 		}
-		mlx_put_image_to_window(frctl->mlx->ptr, frctl->mlx->win, frctl->mlx->img.ptr, 0, 0);
+		mlx_put_image_to_window(frctl->mlx->ptr, frctl->mlx->win,
+			frctl->mlx->img.ptr, 0, 0);
 		draw_help(frctl);
 		printf("Help Page Opened! :)\n");
 	}
-	// else
-	// 	draw_fractal_while(frctl);
 }
 
 void	print_help(void)
