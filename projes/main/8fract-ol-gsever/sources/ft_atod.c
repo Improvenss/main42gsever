@@ -6,12 +6,15 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 16:01:44 by gsever            #+#    #+#             */
-/*   Updated: 2022/05/31 14:32:34 by gsever           ###   ########.fr       */
+/*   Updated: 2022/06/06 02:42:55 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
 
+/*
+	ASCII to LONG
+*/
 long	ft_atol(const char *nptr)
 {
 	long	result;
@@ -39,6 +42,10 @@ long	ft_atol(const char *nptr)
 	return (result * sign);
 }
 
+/*
+	In math library == pow(x, y)
+	x^y --> x=2 y=3 -> x.x.x = x^3
+*/
 int	ft_iterative_power(int nb, int power)
 {
 	int	result;
@@ -56,6 +63,9 @@ int	ft_iterative_power(int nb, int power)
 	return (result);
 }
 
+/*
+	
+*/
 static double	process_decimal(const char *nptr)
 {
 	size_t	count;

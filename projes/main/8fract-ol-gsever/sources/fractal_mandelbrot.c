@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 11:35:00 by gsever            #+#    #+#             */
-/*   Updated: 2022/06/05 23:05:39 by gsever           ###   ########.fr       */
+/*   Updated: 2022/06/05 23:41:45 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,9 @@ void	mandelbrot(t_fractol *frctl)
 	}
 }
 
+/*
+	Keyboard --> 5
+*/
 void	multibrot_set(t_fractol *frctl)
 {
 	t_complex	z;
