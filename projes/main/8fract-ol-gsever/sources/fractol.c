@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 15:07:11 by gsever            #+#    #+#             */
-/*   Updated: 2022/06/07 12:12:59 by gsever           ###   ########.fr       */
+/*   Updated: 2022/06/07 13:49:33 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ int	fractol(int argc, char **argv)
 	if (frctl == NULL)
 		return (-1);
 	setup_mlx(frctl);
+	frctl->is_help = 0;
 	fractol_loop(frctl);
 	mlx_loop(frctl->mlx->ptr);
 	return (0);

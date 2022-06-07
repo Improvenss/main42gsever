@@ -6,7 +6,7 @@
 #    By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/31 15:04:59 by gsever            #+#    #+#              #
-#    Updated: 2022/06/05 17:33:17 by gsever           ###   ########.fr        #
+#    Updated: 2022/06/07 13:55:38 by gsever           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,12 +22,12 @@ LIBRARIES = -lmlx -lm -lft\
 INCLUDES = -I$(HEADERS_DIRECTORY) -I$(LIBFT_HEADERS) -I$(MINILIBX_HEADERS)
 
 #	Libft Part --> OK
-LIBFT = $(LIBFT_DIRECTORY)libft.a
+LIBFT = $(LIBFT_DIRECTORY)/libft.a
 LIBFT_DIRECTORY = ./libraries/libft
 LIBFT_HEADERS = $(LIBFT_DIRECTORY)includes/
 
 #	Minilibx Part --> OK
-MINILIBX = $(MINILIBX_DIRECTORY)libmlx.a
+MINILIBX = $(MINILIBX_DIRECTORY)/libmlx.a
 MINILIBX_DIRECTORY = ./libraries/minilibx_opengl
 MINILIBX_HEADERS = $(MINILIBX_DIRECTORY)
 

@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 16:01:28 by gsever            #+#    #+#             */
-/*   Updated: 2022/06/05 16:12:49 by gsever           ###   ########.fr       */
+/*   Updated: 2022/06/07 14:20:57 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	draw_help(t_fractol *frctl)
 	mlx_string_put(frctl->mlx->ptr, frctl->mlx->win, 350, 300, COLOR_SILVER,
 		"Controls");
 	mlx_string_put(frctl->mlx->ptr, frctl->mlx->win, 300, 340, COLOR_SILVER,
-		"Other Fractals   - 1, 2, 3, 4 and Color Scheme --> 9");
+		"Other Fractals   - 1, 2, 3, 4, 5 and Color Scheme --> 9");
 	mlx_string_put(frctl->mlx->ptr, frctl->mlx->win, 300, 370, COLOR_SILVER,
 		"Reset            - R");
 	mlx_string_put(frctl->mlx->ptr, frctl->mlx->win, 300, 400, COLOR_SILVER,
