@@ -6,7 +6,11 @@
 #    By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/31 15:04:59 by gsever            #+#    #+#              #
+<<<<<<< HEAD
 #    Updated: 2022/06/08 20:41:14 by gsever           ###   ########.tr        #
+=======
+#    Updated: 2022/06/07 13:55:38 by gsever           ###   ########.fr        #
+>>>>>>> 62d7d637d890eeb49148d47f50556cf9ef39e5b7
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +26,7 @@ LIBRARIES = -lmlx -lm -lft\
 INCLUDES = -I$(HEADERS_DIRECTORY) -I$(LIBFT_HEADERS) -I$(MINILIBX_HEADERS)
 
 #	Libft Part --> OK
+<<<<<<< HEAD
 LIBFT = $(LIBFT_DIRECTORY)libft.a
 LIBFT_DIRECTORY = ./libraries/libft/
 LIBFT_HEADERS = $(LIBFT_DIRECTORY)includes/
@@ -29,6 +34,15 @@ LIBFT_HEADERS = $(LIBFT_DIRECTORY)includes/
 #	Minilibx Part --> OK
 MINILIBX = $(MINILIBX_DIRECTORY)libmlx.a
 MINILIBX_DIRECTORY = ./libraries/minilibx_opengl/
+=======
+LIBFT = $(LIBFT_DIRECTORY)/libft.a
+LIBFT_DIRECTORY = ./libraries/libft
+LIBFT_HEADERS = $(LIBFT_DIRECTORY)includes/
+
+#	Minilibx Part --> OK
+MINILIBX = $(MINILIBX_DIRECTORY)/libmlx.a
+MINILIBX_DIRECTORY = ./libraries/minilibx_opengl
+>>>>>>> 62d7d637d890eeb49148d47f50556cf9ef39e5b7
 MINILIBX_HEADERS = $(MINILIBX_DIRECTORY)
 
 #	HEADERS Parts --> Kutuphane --> OK
