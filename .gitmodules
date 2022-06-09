@@ -7,3 +7,6 @@
 [submodule "ready-for-pusht/get_next_line"]
 	path = ready-for-pusht/get_next_line
 	url = git@github.com:Improvenss/get_next_line.git
+[submodule "ready-for-pusht/libft"]
+	path = ready-for-pusht/libft
+	url = git@github.com:Improvenss/libft.git
