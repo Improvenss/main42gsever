@@ -10,3 +10,6 @@
 [submodule "ready-for-pusht/libft"]
 	path = ready-for-pusht/libft
 	url = git@github.com:Improvenss/libft.git
+[submodule "ready-for-pusht/minitalk"]
+	path = ready-for-pusht/minitalk
+	url = git@github.com:Improvenss/minitalk.git
