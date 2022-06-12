@@ -13,3 +13,6 @@
 [submodule "ready-for-pusht/minitalk"]
 	path = ready-for-pusht/minitalk
 	url = git@github.com:Improvenss/minitalk.git
+[submodule "projes/main/libraries"]
+	path = projes/main/libraries
+	url = git@github.com:Improvenss/libraries.git

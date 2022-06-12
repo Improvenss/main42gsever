@@ -6,10 +6,93 @@
 #    By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/09 20:22:17 by gsever            #+#    #+#              #
-#    Updated: 2022/06/11 02:30:11 by gsever           ###   ########.fr        #
+#    Updated: 2022/06/12 04:04:32 by gsever           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	:= push_swap
-CC		:= gcc
+NAME			:= push_swap
+CHECKER			:= checker
+CC				:= gcc
 
+#	Flags for compile
+FLAGS			:= -Wall -Werror -Wextra 
+INCLUDES 		:= -I$(HEADERS_DIRECTORY) -I$(LIBFT_HEADERS)
+
+LIBRARIES		:= -L./libraries/
+LIBRARY_DIRS	:= $(wildcard libraries/*)
+define COMPILE_LIBRARIES
+	for DIR in $(LIBRARY_DIRS); do \
+		$(MAKE) -C $$DIR $(1) --silent; \
+	done
+endef
+
+#	HEADERS Parts --> Kutuphane --> OK
+HEADERS_LIST = \
+	push_swap.h
+HEADERS_DIRECTORY = ./includes/
+HEADERS = $(addprefix $(HEADERS_DIRECTORY), $(HEADERS_LIST))
+
+#	Source Files --> OK
+SOURCES_DIRECTORY = ./sources/
+SOURCES_LIST = \
+			main.c\
+SOURCES = $(addprefix $(SOURCES_DIRECTORY), $(SOURCES_LIST))
+
+#	Object Files --> (Compiled files directory) -> OK
+OBJECTS_DIRECTORY = objects/
+OBJECTS_LIST = $(patsubst %.c, %.o, $(SOURCES_LIST))
+OBJECTS	= $(addprefix $(OBJECTS_DIRECTORY), $(OBJECTS_LIST))
+
+#	COLORS --> 🟥 🟩 🟦
+LB		:= \033[0;36m
+BLUE	:= \033[0;34m
+YELLOW	:= \033[0;33m
+GREEN	:= \033[0;32m
+RED		:= \033[0;31m
+RESET	:= \033[0m
+X		:= \033[m
+
+.PHONY: all clean fclean re libs
+
+all: $(NAME)
+
+$(NAME): libs $(OBJECTS_DIRECTORY) $(OBJECTS)
+	$(CC) $(FLAGS) $(LIBRARIES) $(INCLUDES) $(OBJECTS) -o $(NAME)
+
+$(OBJECTS_DIRECTORY):
+	@mkdir -p $(OBJECTS_DIRECTORY)
+	@echo "$(NAME): $(GREEN)$(OBJECTS_DIRECTORY) was created$(RESET)"
+
+$(OBJECTS_DIRECTORY)%.o : $(SOURCES_DIRECTORY)%.c $(HEADERS)
+	@$(CC) $(FLAGS) -c $(INCLUDES) $< -o $@
+	@printf "%-57b %b" "$(BLUE)COMPILED $(LB)$@" "$(GREEN)[✓]$(X)\n"
+
+$(LIBFT):
+	@echo "$(NAME): $(GREEN)Creating $(LIBFT)...$(RESET)"
+	@$(MAKE) -sC $(LIBFT_DIRECTORY)
+	@printf "%-57b %b" "$(BLUE)COMPILED $(LIBFT)" "$(GREEN)[✓]$(X)\n"
+
+clean:
+	@$(MAKE) -sC $(LIBFT_DIRECTORY) clean
+	@echo "$(NAME): $(RED)$(LIBFT_DIRECTORY) was deleted$(RESET)"
+	@$(MAKE) -sC $(MINILIBX_DIRECTORY) clean
+	@echo "$(NAME): $(RED)$(MINILIBX_DIRECTORY) was deleted$(RESET)"
+	@rm -rf $(OBJECTS_DIRECTORY)
+	@echo "$(NAME): $(RED)$(OBJECTS_DIRECTORY) was deleted$(RESET)"
+
+fclean: clean
+	@rm -f $(LIBFT)
+	@echo "$(NAME): $(RED)$(LIBFT) was deleted$(RESET)"
+	@rm -f $(NAME)
+	@echo "$(NAME): $(RED)$(NAME) was deleted$(RESET)"
+
+re:
+	@$(MAKE) fclean
+	@$(MAKE) all
+
+libs:
+ifeq ($(MAKECMDGOALS), $(filter $(MAKECMDGOALS), clean fclean re))
+	@$(call COMPILE_LIBRARIES,$(MAKECMDGOALS))
+else
+	@$(call COMPILE_LIBRARIES,all)
+endif

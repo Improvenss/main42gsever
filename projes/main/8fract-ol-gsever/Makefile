@@ -6,7 +6,7 @@
 #    By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/31 15:04:59 by gsever            #+#    #+#              #
-#    Updated: 2022/06/11 02:07:40 by gsever           ###   ########.fr        #
+#    Updated: 2022/06/11 19:29:56 by gsever           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,6 @@ NAME = fractol
 CC = gcc
 
 #	Flags for compile
-
 FLAGS = -Wall -Werror -Wextra -O3
 LIBRARIES = -lmlx -lm -lft\
 	-L$(LIBFT_DIRECTORY) -L$(MINILIBX_DIRECTORY)\
