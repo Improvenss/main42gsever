@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: gsever <gsever@student.42.fr>              +#+  +:+       +#+         #
+#    By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/02/20 15:37:57 by aeser             #+#    #+#              #
-#    Updated: 2022/03/08 13:47:40 by gsever           ###   ########.fr        #
+#    Created: 2022/02/20 15:37:57 by gsever            #+#    #+#              #
+#    Updated: 2022/06/13 17:01:13 by gsever           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,7 @@ $(OBJDIR)/%.o: $(SRCS)/%.c
 all: $(NAME)
 
 clean:
-	@rm -f $(OBJDIR)/*.o
+	@rm -rf $(OBJDIR)
 
 fclean: clean
 	@rm -f $(NAME)
