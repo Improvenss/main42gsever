@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tjensen <tjensen@student.42.fr>            +#+  +:+       +#+         #
+#    By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/05 19:51:09 by tjensen           #+#    #+#              #
-#    Updated: 2021/10/15 14:17:09 by tjensen          ###   ########.fr        #
+#    Updated: 2022/06/14 04:28:37 by gsever           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -75,7 +75,7 @@ header:
 	@printf "%-14b %b" "$(WARN_COLOR)#######" "LIBFT$(NO_COLOR)\n"
 
 .PHONY: $(NAME)
-$(NAME): $(MODULES) prep $(OBJS)
+$(NAME): prep $(OBJS) $(MODULES)
 	@ar -crs $(NAME) $(OBJS) $(addsuffix /obj/*.o, $(MODULES))
 	@printf "%-14b %-42b %b" "$(OK_COLOR)=======" "$(OK_COLOR)$(NAME)" "$(OK_COLOR)[✓]$(NO_COLOR)\n"
 
