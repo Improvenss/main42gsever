@@ -19,3 +19,6 @@
 [submodule "projes/main/5push_swap/visualizer_oreo"]
 	path = projes/main/5push_swap/visualizer_oreo
 	url = https://github.com/o-reo/push_swap_visualizer.git
+[submodule "projes/main/5push_swap_all_git_samples/push_swap_git_tjensen/push_swap_visualizer"]
+	path = projes/main/5push_swap_all_git_samples/push_swap_git_tjensen/push_swap_visualizer
+	url = https://github.com/o-reo/push_swap_visualizer.git
