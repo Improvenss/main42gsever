@@ -6,11 +6,11 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 18:55:29 by gsever            #+#    #+#             */
-/*   Updated: 2022/06/11 19:08:35 by gsever           ###   ########.fr       */
+/*   Updated: 2022/06/14 13:00:15 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <push_swap.h>
+#include <../includes/push_swap.h>
 
 /*
 		PUSH_SWAP

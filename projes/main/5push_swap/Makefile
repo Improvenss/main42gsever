@@ -6,40 +6,33 @@
 #    By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/09 20:22:17 by gsever            #+#    #+#              #
-#    Updated: 2022/06/14 04:01:26 by gsever           ###   ########.fr        #
+#    Updated: 2022/06/14 12:57:59 by gsever           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		:= push_swap
 CHECKER		:= checker
-CC			:= gcc
 
 #	Flags for compile
+CC			:= gcc
 FLAGS		:= -Wall -Werror -Wextra 
-INCLUDES	:= -I$(HEADERS_DIRECTORY) -I$(LIBFT_HEADERS) -I$(FT_PRINTF_HEADERS)
+INCLUDES	:= -I$(HEADERS_DIRECTORY) -I$(LIBFTDIR)/includes
+LIBRARIES	:= -L$(LIBFTDIR) -lft
 
 #	Libft Part --> OK
 LIBFTDIR	= ./libraries/libft
 
-
-
-
 #	HEADERS Parts --> Kutuphane --> OK
-HEADERS_LIST = \
-	push_swap.h
-HEADERS_DIRECTORY = ./includes/
-HEADERS = $(addprefix $(HEADERS_DIRECTORY), $(HEADERS_LIST))
+INCLUDES_DIR	:= ./includes
+INCLUDES		:= -I$(INCLUDES_DIR)
 
-#	Source Files --> OK
-SOURCES_DIRECTORY = ./sources/
-SOURCES_LIST = \
-			main.c
-SOURCES = $(addprefix $(SOURCES_DIRECTORY), $(SOURCES_LIST))
+#	Sources Files --> Kaynak
+SOURCES_DIRECTORY	:= ./sources
+SOURCES			:= $(wildcard $(SOURCES_DIRECTORY)/*.c)
 
 #	Object Files --> (Compiled files directory) -> OK
-OBJECTS_DIRECTORY = objects/
-OBJECTS_LIST = $(patsubst %.c, %.o, $(SOURCES_LIST))
-OBJECTS	= $(addprefix $(OBJECTS_DIRECTORY), $(OBJECTS_LIST))
+OBJECTS_DIRECTORY	:= ./objects
+OBJECTS			:= $(SOURCES:$(SOURCES_DIRECTORY)/%.c=$(OBJECTS_DIRECTORY)/%.o)
 
 #	COLORS --> 🟥 🟩 🟦
 LB		:= \033[0;36m
@@ -55,7 +48,7 @@ X		:= \033[m
 all: $(NAME)
 
 $(NAME): libft $(OBJECTS_DIRECTORY) $(OBJECTS)
-	$(CC) $(FLAGS) $(LIBRARIES) $(INCLUDES) $(OBJECTS) -o $(NAME)
+	ar -rcs $(NAME) $(LIBRARIES) $(OBJECTS)
 	@printf "%-57b %b" "$(GREEN)CREATED $(NAME)" "$(GREEN)[FINISHED]$(X)\n"
 
 $(OBJECTS_DIRECTORY):
@@ -74,16 +67,10 @@ else
 endif
 
 clean: libft
-	@$(MAKE) -sC $(LIBFT_DIRECTORY) clean
-	@echo "$(NAME): $(RED)$(LIBFT_DIRECTORY) was deleted$(RESET)"
-	@$(MAKE) -sC $(FT_PRINTF_DIRECTORY) clean
-	@echo "$(NAME): $(RED)$(FT_PRINTF_DIRECTORY) was deleted$(RESET)"
 	@rm -rf $(OBJECTS_DIRECTORY)
 	@echo "$(NAME): $(RED)$(OBJECTS_DIRECTORY) was deleted$(RESET)"
 
 fclean: libft clean
-	@rm -f $(LIBFT)
-	@echo "$(NAME): $(RED)$(LIBFT) was deleted$(RESET)"
 	@rm -f $(NAME)
 	@echo "$(NAME): $(RED)$(NAME) was deleted$(RESET)"
 

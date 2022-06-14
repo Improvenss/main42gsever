@@ -16,3 +16,6 @@
 [submodule "projes/main/libraries"]
 	path = projes/main/libraries
 	url = git@github.com:Improvenss/libraries.git
+[submodule "projes/main/5push_swap/visualizer_oreo"]
+	path = projes/main/5push_swap/visualizer_oreo
+	url = https://github.com/o-reo/push_swap_visualizer.git
