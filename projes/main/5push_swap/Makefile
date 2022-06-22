@@ -31,13 +31,13 @@ HEADERS = $(addprefix $(HEADERS_DIRECTORY), $(HEADERS_LIST))
 #	Source Files --> OK
 SOURCES_DIRECTORY = ./sources/
 SOURCES_LIST = \
-	
+	main.c
 SOURCES = $(addprefix $(SOURCES_DIRECTORY), $(SOURCES_LIST))
 
 #	Checker Files --> OK
 CHECKER_DIRECTORY = ./sources/
 CHECKER_LIST = \
-
+	checker.c
 CHECKER_SOURCES = $(addprefix $(SOURCES_DIRECTORY), $(SOURCES_LIST))
 
 #	Object Files --> (Compiled files directory) -> OK
