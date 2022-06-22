@@ -1,31 +1,26 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
+#    Makefile copy                                      :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/09 20:22:17 by gsever            #+#    #+#              #
-#    Updated: 2022/06/13 16:42:59 by gsever           ###   ########.fr        #
+#    Updated: 2022/06/14 12:52:15 by gsever           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME			:= push_swap
-CHECKER			:= checker
-CC				:= gcc
+NAME		:= push_swap
+CHECKER		:= checker
 
 #	Flags for compile
-FLAGS			:= -Wall -Werror -Wextra 
-INCLUDES 		:= -I$(HEADERS_DIRECTORY) -I$(LIBFT_HEADERS)
+CC			:= gcc
+FLAGS		:= -Wall -Werror -Wextra 
+INCLUDES	:= -I$(HEADERS_DIRECTORY) -I$(LIBFTDIR)/includes
+LIBRARIES	:= -L$(LIBFTDIR) -lft
 
-LIBRARIES		:= -L./libraries/
-LIBRARY_DIRS	:= $(wildcard libraries/*)
-
-define COMPILE_LIBRARIES
-	for DIR in $(LIBRARY_DIRS); do \
-		$(MAKE) -C $$DIR $(1) --silent; \
-	done
-endef
+#	Libft Part --> OK
+LIBFTDIR	= ./libraries/libft
 
 #	HEADERS Parts --> Kutuphane --> OK
 HEADERS_LIST = \
@@ -36,7 +31,7 @@ HEADERS = $(addprefix $(HEADERS_DIRECTORY), $(HEADERS_LIST))
 #	Source Files --> OK
 SOURCES_DIRECTORY = ./sources/
 SOURCES_LIST = \
-			main.c\
+			main.c
 SOURCES = $(addprefix $(SOURCES_DIRECTORY), $(SOURCES_LIST))
 
 #	Object Files --> (Compiled files directory) -> OK
@@ -53,11 +48,11 @@ RED		:= \033[0;31m
 RESET	:= \033[0m
 X		:= \033[m
 
-.PHONY: all clean fclean re libs
+.PHONY: all libft clean fclean re
 
 all: $(NAME)
 
-$(NAME): libs $(OBJECTS_DIRECTORY) $(OBJECTS)
+$(NAME): libft $(OBJECTS_DIRECTORY) $(OBJECTS)
 	$(CC) $(FLAGS) $(LIBRARIES) $(INCLUDES) $(OBJECTS) -o $(NAME)
 	@printf "%-57b %b" "$(GREEN)CREATED $(NAME)" "$(GREEN)[FINISHED]$(X)\n"
 
@@ -69,27 +64,21 @@ $(OBJECTS_DIRECTORY)%.o : $(SOURCES_DIRECTORY)%.c $(HEADERS)
 	@$(CC) $(FLAGS) -c $(INCLUDES) $< -o $@
 	@printf "%-57b %b" "$(BLUE)COMPILED $(LB)$@" "$(GREEN)[✓]$(X)\n"
 
-clean:
-	@$(MAKE) -sC $(LIBFT_DIRECTORY) clean
-	@echo "$(NAME): $(RED)$(LIBFT_DIRECTORY) was deleted$(RESET)"
-	@$(MAKE) -sC $(MINILIBX_DIRECTORY) clean
-	@echo "$(NAME): $(RED)$(MINILIBX_DIRECTORY) was deleted$(RESET)"
+libft:
+ifneq ($(MAKECMDGOALS), $(filter $(MAKECMDGOALS), $(NAME) $(CHECKER)))
+	@make -C $(LIBFTDIR) $(MAKECMDGOALS) --silent
+else
+	@make -C $(LIBFTDIR) --silent
+endif
+
+clean: libft
 	@rm -rf $(OBJECTS_DIRECTORY)
 	@echo "$(NAME): $(RED)$(OBJECTS_DIRECTORY) was deleted$(RESET)"
 
-fclean: clean
-	@rm -f $(LIBFT)
-	@echo "$(NAME): $(RED)$(LIBFT) was deleted$(RESET)"
+fclean: libft clean
 	@rm -f $(NAME)
 	@echo "$(NAME): $(RED)$(NAME) was deleted$(RESET)"
 
 re:
 	@$(MAKE) fclean
 	@$(MAKE) all
-
-libs:
-ifeq ($(MAKECMDGOALS), $(filter $(MAKECMDGOALS), clean fclean re))
-	@$(call COMPILE_LIBRARIES,$(MAKECMDGOALS))
-else
-	@$(call COMPILE_LIBRARIES,all)
-endif
