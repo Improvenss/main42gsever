@@ -31,17 +31,25 @@ HEADERS = $(addprefix $(HEADERS_DIRECTORY), $(HEADERS_LIST))
 #	Source Files --> OK
 SOURCES_DIRECTORY = ./sources/
 SOURCES_LIST = \
+<<<<<<< HEAD
 			main.c\
 			push_swap.c\
 			input_utils.c\
 			free_utils.c\
 			
+=======
+	main.c
+>>>>>>> 7b8cfddbbd93135aa32870112103b7a34af0f878
 SOURCES = $(addprefix $(SOURCES_DIRECTORY), $(SOURCES_LIST))
 
 #	Checker Files --> OK
 CHECKER_DIRECTORY = ./sources/
 CHECKER_LIST = \
+<<<<<<< HEAD
 			
+=======
+	checker.c
+>>>>>>> 7b8cfddbbd93135aa32870112103b7a34af0f878
 CHECKER_SOURCES = $(addprefix $(SOURCES_DIRECTORY), $(SOURCES_LIST))
 
 #	Object Files --> (Compiled files directory) -> OK
