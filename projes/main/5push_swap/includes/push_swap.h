@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 19:02:31 by gsever            #+#    #+#             */
-/*   Updated: 2022/06/22 03:37:05 by gsever           ###   ########.fr       */
+/*   Updated: 2022/06/25 16:31:12 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -188,5 +188,8 @@ int		stack_sort_execute_snake(t_ps *ps, bool print);
 // STACK SORT
 void	stack_sort_small(t_ps *push_swap);
 void	stack_sort_big(t_ps *push_swap);
+
+// STACK FREE
+char	**ft_free_split(char **split_arr);
 
 #endif
