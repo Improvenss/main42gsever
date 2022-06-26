@@ -6,11 +6,12 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 18:55:29 by gsever            #+#    #+#             */
-/*   Updated: 2022/06/25 16:19:41 by gsever           ###   ########.fr       */
+/*   Updated: 2022/06/26 23:57:00 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
 /*
 	PUSH_SWAP
 
@@ -28,7 +29,5 @@ instructions, trying to use the least stack_ops to get a sorted stack.
 */
 int	main(int argc, char **argv)
 {
-	t_ps	push_swap;
-
-	push_swap.input = input_struct_get();
+	
 }

@@ -1,19 +1,19 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    tester.sh                                          :+:      :+:    :+:    #
+#    lfrasson_tester.sh                                 :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: anolivei <anolivei@student.42sp.org.br>    +#+  +:+       +#+         #
+#    By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/04 16:53:09 by lfrasson          #+#    #+#              #
-#    Updated: 2021/07/24 15:42:45 by anolivei         ###   ########.fr        #
+#    Updated: 2022/06/26 20:00:01 by gsever           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #!/bin/bash
 
 NUM_TESTS=100
-PUSH_SWAP=./push_swap
+PUSH_SWAP=/Users/yuandre/Desktop/3push_swap_pde_bakk
 CKER=1
 RET_CKER="is not working"
 

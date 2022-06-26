@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 19:02:31 by gsever            #+#    #+#             */
-/*   Updated: 2022/06/25 16:31:12 by gsever           ###   ########.fr       */
+/*   Updated: 2022/06/26 23:46:56 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <stdint.h>
 # include <stdbool.h>
 # include <errno.h>
+# include <limits.h>
 # include <sys/types.h>
 
 //	MY OWN 42 LIBRARIES
@@ -30,166 +31,123 @@
 # define STACK_EMPTY -3
 # define STACK_ITEM_DOES_NOT_EXIST -4
 
-//	ROTATION CASES
-# define RA_RB 1
-# define RRA_RRB 2
-# define RA_RRB 3
-# define RRA_RB 4
-
 /* ************************************************************************** */
 /* STRUCT DEFINES AREA													  	  */
 /* ************************************************************************** */
 
-/*
-	array:		Stores the input array (for example &argv[1])
-	int_array:	Stores the input converted in integers
-	size:		Amount of input numbers
-	is_split:	Bool if the array is malloced by ft_split
-*/
-typedef struct s_input{
-	char	**array;
-	int		*int_array;
+typedef struct s_start
+{
 	int		size;
-	bool	is_split;
-}	t_input;
+	int		max;
+	int		min;
+}			t_start;
 
-/*
-	num:		"normalized" number from the input
-	is_snake:	defines if the element is part of a presorted list (snake)
-	next: 		Pointer to the next node in the stack
-	prev: 		Pointer to the previous node in the stack
-*/
-typedef struct s_stack{
-	int				num;
-	bool			is_snake;
-	struct s_stack	*next;
-	struct s_stack	*prev;
-}	t_stack;
+typedef struct score
+{
+	int		score;
+	int		rrb;
+	int		rra;
+	int		rrr;
+	int		ra;
+	int		rb;
+	int		rr;
+}			t_score;
 
-/*
-	start: Pointer where to start searching a presorted list (snake)
-	max_start: Pointer to the start of a presorted list (snake), with max_len
-	range: How much bigger an element could be, to be part of a snake.
-	max_range: Stores the range, where we find the longest snake
-	len: Stores the len of a current snake, while searching for the longest
-	max_len: Stores the length of the longest snake.
-*/
-typedef struct s_snake{
-	t_stack	*start;
-	t_stack	*max_start;
-	int		range;
-	int		max_range;
-	int		len;
-	int		max_len;
-}	t_snake;
-
-/*
-	range: next element for next push has to be smaller than smallest + range
-	max_range: Stores the range where we count the less operations.
-	ra_rra_count: Values for rotations on stack_a
-	rb_rrb_count: Values for rotations on stack_b
-	rr_rrr_count: Values for rotations on both stacks at the same time
-	rotation_sum: Sum of all rotations
-*/
-typedef struct s_sort{
-	int		range;
-	int		max_range;
-	int		ra_rra_count[2];
-	int		rb_rrb_count[2];
-	int		rr_rrr_count[2];
-	int		rotation_sum;
-}	t_sort;
-
-/*
-	input: 		Struct pointer for the input_struct
-	stack_mem:	Pointer to the mem for all stack items, to free at the end
-	a_top:		Pointer to the top element of stack_A
-	b_top:		Pointer to the top element of stack_B
-	a_size:		Number of elements in stack_A
-	b_size:		Number of elements in stack_B
-	size: 		Sum of all numbers to be sorted (a_size + b_size)
-*/
-typedef struct s_push_swap{
-	t_input	*input;
-	t_stack	*stack_mem;
-	t_stack	*a_top;
-	t_stack	*b_top;
-	int		a_size;
-	int		b_size;
-	int		size;
-}	t_ps;
+typedef struct s_base
+{
+	t_start	start;
+	t_score	current;
+	t_score	best;
+	int		max;
+	int		mid;
+	int		c_a;
+	int		c_b;
+	int		c_c;
+	int		*a;
+	int		*b;
+	int		*c;
+}			t_base;
 
 /* ************************************************************************** */
 /* FUNCTION PROTOTYPES														  */
 /* ************************************************************************** */
 
-// INPUT
-void	input_check(t_input *input, int argc, char *argv[], bool check_sort);
+// args.c
+void	stack_fill(char **av, int ac, t_base *base);
+void	stack_fill_q(char **av, t_base *base);
+void	arg_checker(int argc, char **argv, t_base *base);
+void	kill_prog(char *str, t_base *base);
+int		ft_atoi(const char *str, t_base *base);
 
-// INPUT UTILS
-t_input	*input_struct_get(void);
-void	input_struct_destroy(t_input **input);
-int		array_count_smaller(int *array, int size, int num);
-void	input_exit(t_input *input, int status);
+// check_error.c
+void	is_sorted(t_base *base);
+void	is_repeated(t_base *base);
+int		ft_error(char *str);
+void	check_num(char **av, int ac);
+void	check_num_q(char *av, t_base *base);
 
-// PUSH_SWAP UTILS
-void	push_swap_struct_cpy(t_ps *dest, t_ps *src);
-void	push_swap_struct_init(t_ps *push_swap);
-void	ft_atexit(t_ps *push_swap, int status);
+// compute.c
+void	count_ra(int b, t_base *base);
+void	merge_rr(t_base *base);
+void	copy_to_best(t_base *base);
+void	score_init_max(t_base *base);
+void	compute(int max, t_base *base);
 
-// OPERATIONS
-int		operation_sa(t_ps *push_swap, bool print);
-int		operation_sb(t_ps *push_swap, bool print);
-int		operation_ss(t_ps *push_swap, bool print);
-int		operation_pa(t_ps *push_swap, bool print);
-int		operation_pb(t_ps *push_swap, bool print);
-int		operation_ra(t_ps *push_swap, bool print);
-int		operation_rb(t_ps *push_swap, bool print);
-int		operation_rr(t_ps *push_swap, bool print);
-int		operation_rra(t_ps *push_swap, bool print);
-int		operation_rrb(t_ps *push_swap, bool print);
-int		operation_rrr(t_ps *push_swap, bool print);
+// ft_split.c
+char	**ft_split(const char *s, char c);
 
-// STACK UTILS
-t_stack	*stack_get_a(t_input *input);
-t_stack	*stack_get_mem(t_ps *ps);
-void	stacks_print(t_ps *push_swap);
-void	stack_item_init(t_stack *stack, int size, int position, int count);
+// mark.c
+int		find_min(int size, t_base *base);
+int		find_max(int size, t_base *base);
+void	indexer(int size, t_base *base);
+void	markup(int size, int index, int prev, t_base *base);
+void	remark(int size, t_base *base);
 
-// STACK IS
-bool	stack_is_num_inside(t_stack *stack, int num);
-bool	stack_is_biggest(t_stack *stack, int num);
-bool	stack_is_smallest(t_stack *stack, int num);
+// oerform.c
+void	perform(t_base *base);
 
-// STACK GET
-int		stack_get_biggest(t_stack *stack);
-int		stack_get_smallest(t_stack *stack);
-int		stack_get_next_bigger(t_stack *stack, int num);
-int		stack_get_next_smaller(t_stack *stack, int num);
+// ps.c
+void	pa(t_base *base);
+void	pb(t_base *base);
+void	sa(t_base *base);
+void	sb(t_base *base);
+void	ss(t_base *base);
 
-// STACK ROTATION
-void	stack_rot_case_set(t_sort *sort, int rotation_case);
-int		stack_rot_case_choose(t_sort *sort);
+// push_to_b.c
+void	keep_me(t_base *base);
+int		ps_finder(int c, t_base *base);
+void	push_to_norme(t_base *base);
+void	push_to_b(t_base *base);
 
-int		stack_rot_count_find_best_num_b(t_ps *ps, t_sort *sort);
-void	stack_rot_count_from(t_stack *stack, int *r_rr_count, int num);
-void	stack_rot_count_to_asc(t_stack *stack, int *r_rr_count, int num);
+// r.c
+void	ra(int bool, t_base *base);
+void	rb(int bool, t_base *base);
+void	rr(t_base *base);
 
-void	stack_rot_set_b_to_a(t_ps *ps, t_sort *sort, int num);
-void	stack_rot_set_end(t_ps *ps, t_sort *sort, int num);
+// rr.c
+void	rra(int bool, t_base *base);
+void	rrb(int bool, t_base *base);
+void	rrr(t_base *base);
 
-// STACK SNAKE
-void	stack_snake_set(t_ps *ps, t_snake *snake);
+// sort_big.c
+void	final_sort(t_base *base);
+void	small_sort(t_base *base);
+void	ft_free(t_base *base);
+void	sort(t_base *base);
 
-// STACK SORT EXECUTE
-int		stack_sort_execute_rotation(t_ps *ps, t_sort *sort, bool print);
-int		stack_sort_execute_snake(t_ps *ps, bool print);
+// sort_small.c
+void	push_smallest(int a, t_base *base);
+void	sort_blood(t_base *base);
+void	six_sort(t_base *base);
 
-// STACK SORT
-void	stack_sort_small(t_ps *push_swap);
-void	stack_sort_big(t_ps *push_swap);
+// utils.c
+size_t	ft_strlen(const char *s);
+int		is_digit(int c);
+size_t	ft_strlcpy(char *dst, const char *src, size_t size);
+size_t	length(char const *s, char c);
 
-// STACK FREE
-char	**ft_free_split(char **split_arr);
+// utils2.c
+void	score_init(t_base *base);
+void	markup_norme(int *i, int *index, int *tmp, t_base *base);
 
 #endif
