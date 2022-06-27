@@ -6,9 +6,16 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 19:02:31 by gsever            #+#    #+#             */
-/*   Updated: 2022/06/26 23:46:56 by gsever           ###   ########.fr       */
+/*   Updated: 2022/06/27 21:32:00 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/** @file push_swap.h
+ * @brief 
+ * 
+ * @author Görkem SEVER (gsever)
+ * @bug 
+ */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
@@ -35,6 +42,13 @@
 /* STRUCT DEFINES AREA													  	  */
 /* ************************************************************************** */
 
+/**
+ * @brief A stack's start, max, min values.
+ * size	: Size of args bytes.
+ * max	:
+ * min	:
+ * @bug No know bugs.
+ */
 typedef struct s_start
 {
 	int		size;
@@ -42,6 +56,17 @@ typedef struct s_start
 	int		min;
 }			t_start;
 
+/**
+ * @brief
+ * score	:
+ * rrb		:
+ * rra		:
+ * rrr		:
+ * ra		:
+ * rb		:
+ * rr		:
+ * @bug No know bugs.
+ */
 typedef struct score
 {
 	int		score;
@@ -53,6 +78,21 @@ typedef struct score
 	int		rr;
 }			t_score;
 
+/**
+ * @brief
+ * start	:
+ * current	:
+ * best		:
+ * max		:
+ * mid		:
+ * c_a		:
+ * c_b		:
+ * c_c		:
+ * *a		:
+ * *b		:
+ * *c		:
+ * @bug No know bugs.
+ */
 typedef struct s_base
 {
 	t_start	start;
@@ -82,9 +122,9 @@ int		ft_atoi(const char *str, t_base *base);
 // check_error.c
 void	is_sorted(t_base *base);
 void	is_repeated(t_base *base);
-int		ft_error(char *str);
-void	check_num(char **av, int ac);
-void	check_num_q(char *av, t_base *base);
+//int		ft_error(char *str);
+void	check_num(int ac, char **av);
+void	check_num_double_quotation(char **av, t_base *base);
 
 // compute.c
 void	count_ra(int b, t_base *base);
@@ -140,14 +180,15 @@ void	push_smallest(int a, t_base *base);
 void	sort_blood(t_base *base);
 void	six_sort(t_base *base);
 
+size_t	arguman_length(const char *str, char c);
+/*
 // utils.c
 size_t	ft_strlen(const char *s);
 int		is_digit(int c);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
-size_t	length(char const *s, char c);
 
 // utils2.c
 void	score_init(t_base *base);
 void	markup_norme(int *i, int *index, int *tmp, t_base *base);
-
+*/
 #endif

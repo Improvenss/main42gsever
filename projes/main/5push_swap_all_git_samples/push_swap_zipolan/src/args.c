@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   args.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bbourcy <bbourcy@student.42lausanne.ch>    +#+  +:+       +#+        */
+/*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 19:56:06 by bbourcy           #+#    #+#             */
-/*   Updated: 2022/04/27 11:10:18 by bbourcy          ###   ########.fr       */
+/*   Updated: 2022/06/27 20:06:32 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void	arg_checker(int argc, char **argv, t_base *base)
 	else if (argc == 2)
 	{
 		check_num_q(argv[1], base);
-	}	
+	}
 }
 
 void	kill_prog(char *str, t_base *base)

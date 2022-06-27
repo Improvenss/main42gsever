@@ -6,7 +6,7 @@
 #    By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/09 20:22:17 by gsever            #+#    #+#              #
-#    Updated: 2022/06/26 19:55:36 by gsever           ###   ########.fr        #
+#    Updated: 2022/06/27 20:28:03 by gsever           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,10 +32,8 @@ HEADERS = $(addprefix $(HEADERS_DIRECTORY), $(HEADERS_LIST))
 SOURCES_DIRECTORY = ./sources/
 SOURCES_LIST = \
 			main.c\
-			push_swap.c\
-			input_utils.c\
-			free_utils.c\
-			
+			args.c\
+			check_error.c
 SOURCES = $(addprefix $(SOURCES_DIRECTORY), $(SOURCES_LIST))
 
 #	Checker Files --> OK
