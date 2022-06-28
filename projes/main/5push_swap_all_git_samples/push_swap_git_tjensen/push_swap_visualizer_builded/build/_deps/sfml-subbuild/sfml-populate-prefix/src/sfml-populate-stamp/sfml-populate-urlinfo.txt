@@ -1,0 +1,12 @@
+# This is a generated file and its contents are an internal implementation detail.
+# The download step will be re-executed if anything in this file changes.
+# No other meaning or use of this file is supported.
+
+method=url
+command=/opt/homebrew/Cellar/cmake/3.23.2/bin/cmake;-P;/Users/yuandre/Desktop/main42gsever/projes/main/5push_swap_all_git_samples/push_swap_git_tjensen/push_swap_visualizer/build/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/download-sfml-populate.cmake;COMMAND;/opt/homebrew/Cellar/cmake/3.23.2/bin/cmake;-P;/Users/yuandre/Desktop/main42gsever/projes/main/5push_swap_all_git_samples/push_swap_git_tjensen/push_swap_visualizer/build/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/verify-sfml-populate.cmake;COMMAND;/opt/homebrew/Cellar/cmake/3.23.2/bin/cmake;-P;/Users/yuandre/Desktop/main42gsever/projes/main/5push_swap_all_git_samples/push_swap_git_tjensen/push_swap_visualizer/build/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/extract-sfml-populate.cmake
+source_dir=/Users/yuandre/Desktop/main42gsever/projes/main/5push_swap_all_git_samples/push_swap_git_tjensen/push_swap_visualizer/build/_deps/sfml-src
+work_dir=/Users/yuandre/Desktop/main42gsever/projes/main/5push_swap_all_git_samples/push_swap_git_tjensen/push_swap_visualizer/build/_deps
+url(s)=https://github.com/SFML/SFML/releases/download/2.5.1/SFML-2.5.1-sources.zip
+hash=
+no_extract=
+
