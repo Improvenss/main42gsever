@@ -6,13 +6,32 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 20:09:00 by gsever            #+#    #+#             */
-/*   Updated: 2022/06/28 12:54:57 by gsever           ###   ########.fr       */
+/*   Updated: 2022/06/28 14:04:32 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
+/**
+ * @brief	Check if a stack's numbers is sorted.
+ * @return	void
+ * @param	ft_free Free all stacks.
+ * @bug		Not know bugs.
+ */
+void	is_sorted(t_base *base)
+{
+	int		i;
 
+	i = 0;
+	while (i + 1 < base->start.size)
+	{
+		if (base->a[i] < base->a[i + 1])
+			i++;
+		else
+			return ;
+	}
+	ft_free(base);
+}
 
 /**
  * @brief	Check if a stack's numbers is repeated.
