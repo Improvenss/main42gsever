@@ -6,7 +6,7 @@
 #    By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/09 20:22:17 by gsever            #+#    #+#              #
-#    Updated: 2022/06/27 20:28:03 by gsever           ###   ########.fr        #
+#    Updated: 2022/06/28 11:49:52 by gsever           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,8 @@ SOURCES_DIRECTORY = ./sources/
 SOURCES_LIST = \
 			main.c\
 			args.c\
-			check_error.c
+			check_error.c\
+			utils.c
 SOURCES = $(addprefix $(SOURCES_DIRECTORY), $(SOURCES_LIST))
 
 #	Checker Files --> OK

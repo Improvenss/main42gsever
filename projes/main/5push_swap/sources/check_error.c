@@ -6,11 +6,38 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 20:09:00 by gsever            #+#    #+#             */
-/*   Updated: 2022/06/27 22:13:28 by gsever           ###   ########.fr       */
+/*   Updated: 2022/06/28 12:54:57 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+
+
+/**
+ * @brief	Check if a stack's numbers is repeated.
+ * @return	void
+ * @param	ft_error If have problem, writing "Error" and exit program.
+ * @bug		Not know bugs.
+ */
+void	is_repeated(t_base *base)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < base->start.size)
+	{
+		j = i + 1;
+		while (j < base->start.size)
+		{
+			if (base->a[i] == base->a[j])
+				ft_error("Error\n");
+			j++;
+		}
+		i++;
+	}
+}
 
 /**
  * @brief	It's just writing string and start exit(1);

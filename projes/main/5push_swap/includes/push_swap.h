@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 19:02:31 by gsever            #+#    #+#             */
-/*   Updated: 2022/06/27 21:32:00 by gsever           ###   ########.fr       */
+/*   Updated: 2022/06/28 12:40:34 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdint.h>
-# include <stdbool.h>
+//# include <stdbool.h>
 # include <errno.h>
 # include <limits.h>
 # include <sys/types.h>
@@ -113,11 +113,11 @@ typedef struct s_base
 /* ************************************************************************** */
 
 // args.c
-void	stack_fill(char **av, int ac, t_base *base);
-void	stack_fill_q(char **av, t_base *base);
+void	stack_fill(int ac, char **av, t_base *base);
+void	stack_fill_double_quotation(char **av, t_base *base);
 void	arg_checker(int argc, char **argv, t_base *base);
 void	kill_prog(char *str, t_base *base);
-int		ft_atoi(const char *str, t_base *base);
+//int		ft_atoi(const char *str, t_base *base);
 
 // check_error.c
 void	is_sorted(t_base *base);

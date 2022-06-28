@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 18:55:29 by gsever            #+#    #+#             */
-/*   Updated: 2022/06/27 21:57:21 by gsever           ###   ########.fr       */
+/*   Updated: 2022/06/28 13:29:35 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,13 @@ int	main(int argc, char **argv)
 	stack.a = malloc(sizeof(int) * stack.start.size);
 	stack.b = malloc(sizeof(int) * stack.start.size);
 	stack.c = malloc(sizeof(int) * stack.start.size);
-
+	if (argc > 2)
+		stack_fill(argc, argv, &stack);
+	else if (argc = 2)
+		stack_fill_double_quotation(ft_split(argv[i], ' '), &stack);
+	else
+		ft_free(&stack);]
+	if (!stack->a || !stack->b || !stack->c)
+		ft_error("Error\n");
+	
 }
