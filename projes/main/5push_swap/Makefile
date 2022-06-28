@@ -6,7 +6,7 @@
 #    By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/09 20:22:17 by gsever            #+#    #+#              #
-#    Updated: 2022/06/28 17:47:55 by gsever           ###   ########.fr        #
+#    Updated: 2022/06/28 17:52:16 by gsever           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -67,7 +67,7 @@ X		:= \033[m
 all: $(NAME)
 
 $(NAME): libft $(OBJECTS_DIRECTORY) $(OBJECTS)
-	$(CC) $(FLAGS) $(INCLUDES) $(LIBRARIES) $(OBJECTS) -o $(NAME)
+	$(CC) $(FLAGS) -o $(NAME) $(OBJECTS) $(LIBRARIES)
 	@printf "%-57b %b" "$(GREEN)CREATED $(NAME)" "$(GREEN)[FINISHED]$(X)\n"
 
 $(OBJECTS_DIRECTORY):

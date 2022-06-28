@@ -6,7 +6,7 @@
 #    By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/30 18:33:16 by tjensen           #+#    #+#              #
-#    Updated: 2022/06/22 03:38:56 by gsever           ###   ########.fr        #
+#    Updated: 2022/06/28 17:50:52 by gsever           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -81,7 +81,7 @@ $(ODIR)/%.o: $(SDIR)/%.c
 
 # Linking
 $(NAME): libft header prep $(OBJS)
-	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LIBRARIES)
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LIBRARIES)
 	@printf "%-14b %-42b %b" "$(OK_COLOR)=======" "$(OK_COLOR)$(NAME)" "$(OK_COLOR)[✓]$(NO_COLOR)\n"
 
 .PHONY: libft
