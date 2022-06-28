@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 19:02:31 by gsever            #+#    #+#             */
-/*   Updated: 2022/06/28 12:40:34 by gsever           ###   ########.fr       */
+/*   Updated: 2022/06/28 17:05:51 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,9 +122,9 @@ void	kill_prog(char *str, t_base *base);
 // check_error.c
 void	is_sorted(t_base *base);
 void	is_repeated(t_base *base);
-//int		ft_error(char *str);
+int		ft_error(char *str);
 void	check_num(int ac, char **av);
-void	check_num_double_quotation(char **av, t_base *base);
+void	check_num_double_quotation(char *av, t_base *base);
 
 // compute.c
 void	count_ra(int b, t_base *base);
@@ -181,10 +181,10 @@ void	sort_blood(t_base *base);
 void	six_sort(t_base *base);
 
 size_t	arguman_length(const char *str, char c);
+int		is_digit(int c);
 /*
 // utils.c
 size_t	ft_strlen(const char *s);
-int		is_digit(int c);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 
 // utils2.c

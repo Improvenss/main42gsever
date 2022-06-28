@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 20:09:00 by gsever            #+#    #+#             */
-/*   Updated: 2022/06/28 14:04:32 by gsever           ###   ########.fr       */
+/*   Updated: 2022/06/28 17:05:56 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	is_repeated(t_base *base)
  */
 int	ft_error(char *str)
 {
-	ft_putstr_fd(*str, 1);
+	ft_putstr_fd(str, 1);
 	exit (1);
 	return (1);
 }
@@ -92,7 +92,7 @@ void	check_num(int ac, char **av)
 				ft_error("Error\n");
 			if (av[i][j] == '-')
 			{
-				if ((!av[i][j + 1] >= '1' && av[i][j + 1] <= '9'))
+				if (!(av[i][j + 1] >= '1' && av[i][j + 1] <= '9'))
 					ft_error("Error\n");
 			}
 			j++;
@@ -109,12 +109,12 @@ void	check_num(int ac, char **av)
  * @param	ft_error If have problem, writing "Error" and exit program.
  * @bug		Not know bugs.
  */
-void	check_num_double_quotation(char **av, t_base *base)
+void	check_num_double_quotation(char *av, t_base *base)
 {
 	int	i;
 
 	i = 0;
-	base->start.size = arguman_length(av, ' ');
+	base->start.size = (int)arguman_length(av, ' ');
 	while (av[i])
 	{
 		if (is_digit(av[i]))
