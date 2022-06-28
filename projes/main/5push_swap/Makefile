@@ -6,7 +6,7 @@
 #    By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/09 20:22:17 by gsever            #+#    #+#              #
-#    Updated: 2022/06/28 11:49:52 by gsever           ###   ########.fr        #
+#    Updated: 2022/06/28 17:38:31 by gsever           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,11 +16,13 @@ CHECKER		:= checker
 #	Flags for compile
 CC			:= gcc
 FLAGS		:= -Wall -Werror -Wextra 
-INCLUDES	:= -I$(HEADERS_DIRECTORY) -I$(LIBFTDIR)/includes/
-LIBRARIES	:= -L$(LIBFTDIR)/ -lft
 
 #	Libft Part --> OK
 LIBFTDIR	:= ./libraries/libft
+LIBFT_A		:= $(LIBFTDIR)/libft.a
+
+LIBRARIES	:= -L$(LIBFTDIR)/
+INCLUDES	:= -I$(HEADERS_DIRECTORY) -I$(LIBFTDIR)/includes/
 
 #	HEADERS Parts --> Kutuphane --> OK
 HEADERS_LIST = \
@@ -31,10 +33,14 @@ HEADERS = $(addprefix $(HEADERS_DIRECTORY), $(HEADERS_LIST))
 #	Source Files --> OK
 SOURCES_DIRECTORY = ./sources/
 SOURCES_LIST = \
-			main.c\
 			args.c\
 			check_error.c\
-			utils.c
+			find.c\
+			free.c\
+			main.c\
+			mark.c\
+			utils.c\
+
 SOURCES = $(addprefix $(SOURCES_DIRECTORY), $(SOURCES_LIST))
 
 #	Checker Files --> OK
@@ -62,7 +68,7 @@ X		:= \033[m
 all: $(NAME)
 
 $(NAME): libft $(OBJECTS_DIRECTORY) $(OBJECTS)
-	$(CC) $(FLAGS) $(LIBRARIES) $(INCLUDES) $(OBJECTS) -o $(NAME)
+	$(CC) $(FLAGS) $(INCLUDES) $(OBJECTS) -o $(NAME)
 	@printf "%-57b %b" "$(GREEN)CREATED $(NAME)" "$(GREEN)[FINISHED]$(X)\n"
 
 $(OBJECTS_DIRECTORY):

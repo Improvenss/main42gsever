@@ -6,11 +6,11 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 13:04:11 by gsever            #+#    #+#             */
-/*   Updated: 2022/06/28 13:29:37 by gsever           ###   ########.fr       */
+/*   Updated: 2022/06/28 17:23:01 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#includes "../includes/push_swap.h"
+#include "../includes/push_swap.h"
 
 /**
  * @brief	Finding stack's MIN number.
