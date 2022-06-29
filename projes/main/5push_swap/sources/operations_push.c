@@ -1,20 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   operations_push.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/05 14:34:18 by gsever            #+#    #+#             */
-/*   Updated: 2022/06/30 01:09:08 by gsever           ###   ########.fr       */
+/*   Created: 2022/06/30 00:30:53 by gsever            #+#    #+#             */
+/*   Updated: 2022/06/30 00:45:57 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
-//numbers
-int	ft_isdigit(int c)
+/** @file 
+ * @brief 
+ * 
+ * @author Görkem SEVER (gsever)
+ * @bug Not know bugs.
+ */
+#include "../includes/push_swap.h"
+
+void	pa(t_base *base)
 {
-	if ((c >= '0' && c <= '9') || c == ' ' || c == '-')
-		return (0);
-	return (1);
+
+}
+void	pb(t_base *base)
+{
+	
 }

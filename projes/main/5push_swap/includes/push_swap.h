@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 19:02:31 by gsever            #+#    #+#             */
-/*   Updated: 2022/06/28 17:21:13 by gsever           ###   ########.fr       */
+/*   Updated: 2022/06/30 00:54:53 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@
 # include <errno.h>
 # include <limits.h>
 # include <sys/types.h>
+
+# include <stdio.h>
 
 //	MY OWN 42 LIBRARIES
 # include "../libraries/libft/includes/libft.h"
@@ -112,83 +114,57 @@ typedef struct s_base
 /* FUNCTION PROTOTYPES														  */
 /* ************************************************************************** */
 
-// args.c
+//args.c
 void	stack_fill(int ac, char **av, t_base *base);
 void	stack_fill_double_quotation(char **av, t_base *base);
 void	arg_checker(int argc, char **argv, t_base *base);
-void	kill_prog(char *str, t_base *base);
-//int		ft_atoi(const char *str, t_base *base);
 
-// check_error.c
+//check_error.c
 void	is_sorted(t_base *base);
 void	is_repeated(t_base *base);
 int		ft_error(char *str);
 void	check_num(int ac, char **av);
 void	check_num_double_quotation(char *av, t_base *base);
 
-// compute.c
-void	count_ra(int b, t_base *base);
-void	merge_rr(t_base *base);
-void	copy_to_best(t_base *base);
-void	score_init_max(t_base *base);
-void	compute(int max, t_base *base);
-
-// ft_split.c
-char	**ft_split(const char *s, char c);
-
-// mark.c
+//find.c
 int		find_min(int size, t_base *base);
 int		find_max(int size, t_base *base);
-void	indexer(int size, t_base *base);
-void	markup(int size, int index, int prev, t_base *base);
-void	remark(int size, t_base *base);
 
-// oerform.c
-void	perform(t_base *base);
-
-// ps.c
-void	pa(t_base *base);
-void	pb(t_base *base);
-void	sa(t_base *base);
-void	sb(t_base *base);
-void	ss(t_base *base);
-
-// push_to_b.c
-void	keep_me(t_base *base);
-int		ps_finder(int c, t_base *base);
-void	push_to_norme(t_base *base);
-void	push_to_b(t_base *base);
-
-// r.c
-void	ra(int bool, t_base *base);
-void	rb(int bool, t_base *base);
-void	rr(t_base *base);
-
-// rr.c
-void	rra(int bool, t_base *base);
-void	rrb(int bool, t_base *base);
-void	rrr(t_base *base);
-
-// sort_big.c
-void	final_sort(t_base *base);
-void	small_sort(t_base *base);
+//free.c
 void	ft_free(t_base *base);
-void	sort(t_base *base);
 
-// sort_small.c
-void	push_smallest(int a, t_base *base);
-void	sort_blood(t_base *base);
-void	six_sort(t_base *base);
-
-size_t	arguman_length(const char *str, char c);
-int		is_digit(int c);
-/*
-// utils.c
-size_t	ft_strlen(const char *s);
-size_t	ft_strlcpy(char *dst, const char *src, size_t size);
-
-// utils2.c
-void	score_init(t_base *base);
+//mark.c
+void	remark(int size, t_base *base);
 void	markup_norme(int *i, int *index, int *tmp, t_base *base);
-*/
+void	markup(int size, int index, int prev, t_base *base);
+void	indexer(int size, t_base *base);
+
+// //operations_push.c
+// void	pa(t_base *base);
+// void	pb(t_base *base);
+
+// //operations_r_reverse.c
+// void	rra(t_base *base);
+// void	rrb(t_base *base);
+// void	rrr(t_base *base);
+
+// //operations_reverse.c
+// void	ra(t_base *base);
+// void	rb(t_base *base);
+// void	rr(t_base *base);
+
+// //operations_swap.c
+// void	sa(t_base *base);
+// void	sb(t_base *base);
+// void	ss(t_base *base);
+
+// //sort_small.c
+// void	sort_small(t_base *base);
+
+// //sorting.c
+// void	sort(t_base *base);
+
+//utils.c
+size_t	arguman_length(const char *str, char c);
+
 #endif

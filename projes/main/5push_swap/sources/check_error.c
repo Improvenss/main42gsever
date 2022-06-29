@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 20:09:00 by gsever            #+#    #+#             */
-/*   Updated: 2022/06/28 17:21:19 by gsever           ###   ########.fr       */
+/*   Updated: 2022/06/30 01:01:58 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ void	check_num(int ac, char **av)
 		j = 0;
 		while (av[i][j])
 		{
-			if (is_digit(av[i][j]))
+			if (ft_isdigit(av[i][j]))
 				ft_error("Error\n");
 			if (av[i][j] == '-')
 			{
@@ -117,7 +117,7 @@ void	check_num_double_quotation(char *av, t_base *base)
 	base->start.size = (int)arguman_length(av, ' ');
 	while (av[i])
 	{
-		if (is_digit(av[i]))
+		if (ft_isdigit(av[i]))
 			ft_error("Error\n");
 		if (av[i] == '-')
 		{

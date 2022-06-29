@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 12:46:39 by gsever            #+#    #+#             */
-/*   Updated: 2022/06/28 16:37:03 by gsever           ###   ########.fr       */
+/*   Updated: 2022/06/30 00:15:47 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,13 @@ void	markup_norme(int *i, int *index, int *tmp, t_base *base)
 	}
 }
 
+/**
+ * @brief Recursive onself
+ * @return void
+ * @param markup_norme ???
+ * @param markup Recursive markup function.
+ * @bug Not know bugs.
+ */
 void	markup(int size, int index, int prev, t_base *base)
 {
 	int	i;
@@ -62,6 +69,17 @@ void	markup(int size, int index, int prev, t_base *base)
 	markup(size, ++index, tmp, base);
 }
 
+/**
+ * @brief	Indexer = Hafizaya alma demek.
+ * We are indexing ---> marking --> remarking
+ * @return	void
+ * @param	is_repeated We are controling repeaded numbers. If found -> "Error"
+ * @param	find_min We are assigning min value to base->start.min.
+ * @param	find_max We are assigning max value to base->start.max.
+ * @param	markup 
+ * @param	remark
+ * @bug		Not know bugs.
+ */
 void	indexer(int size, t_base *base)
 {
 	is_repeated(base);

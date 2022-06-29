@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 18:55:29 by gsever            #+#    #+#             */
-/*   Updated: 2022/06/28 16:37:00 by gsever           ###   ########.fr       */
+/*   Updated: 2022/06/30 00:54:59 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,18 @@ instructions, trying to use the least stack_ops to get a sorted stack.
 
 Steps;
 	1. - Check is numbers are sorted.
-	2. - ?
-	3. - Find max and min number.
-	4. - Mark max and min number.
+	2. - Stack a, b, c icin yer actik.
+	3. - Fill stack with arguman's numbers.
+	4. - 
 	5. - 
-	@param
+	@param arg_checker
+	@param malloc
+	@param stack_fill
+	@param stack_fill_double_quotation
+	@param ft_free
+	@param ft_error
+	@param indexer
+	@param is_sorted
 	@return
  */
 int	main(int argc, char **argv)
@@ -61,5 +68,4 @@ int	main(int argc, char **argv)
 		ft_error("Error\n");
 	indexer(stack.start.size, &stack);
 	is_sorted(&stack);
-	sort(&stack);
 }
