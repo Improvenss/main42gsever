@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 20:09:00 by gsever            #+#    #+#             */
-/*   Updated: 2022/06/30 01:01:58 by gsever           ###   ########.fr       */
+/*   Updated: 2022/06/30 02:29:34 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ void	check_num(int ac, char **av)
 		j = 0;
 		while (av[i][j])
 		{
+			printf("sayi anneninki: %d", av[i][j]);
 			if (ft_isdigit(av[i][j]))
 				ft_error("Error\n");
 			if (av[i][j] == '-')
