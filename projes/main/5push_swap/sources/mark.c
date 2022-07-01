@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 12:46:39 by gsever            #+#    #+#             */
-/*   Updated: 2022/07/01 20:03:22 by gsever           ###   ########.fr       */
+/*   Updated: 2022/07/01 20:19:12 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,12 @@ void	markup(int size, int index, int prev, t_base *base)
 	int	i;
 	int	tmp;
 
+	printf("markup func girdik, kontrol ediyoruz index > size + base->start.max 'mi diye, eger buyukse return'la bitirecegiz\n");
 	if (index > size + base->start.max)
 		return ;
+	printf("degilmis bitmedi devam ediyoruz\n");
 	tmp = base->start.max;
+	printf("tmp = base->start.max ile simdilik find_max func'tan buldugumuz max sayimizi tmp'ye atiyoruz --> base->start.max:%d\n", base->start.max);
 	i = 0;
 	while (i < size)
 	{
