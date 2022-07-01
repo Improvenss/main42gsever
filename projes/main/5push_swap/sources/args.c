@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 19:49:37 by gsever            #+#    #+#             */
-/*   Updated: 2022/06/30 01:17:07 by gsever           ###   ########.fr       */
+/*   Updated: 2022/07/01 19:51:01 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	stack_fill(int ac, char **av, t_base *base)
 
 	n = 1;
 	i = 0;
+	printf("stack_fill func girdik\n");
 	while (n <= base->start.size)
 	{
 		if (av[n][0] == '-')
@@ -32,15 +33,24 @@ void	stack_fill(int ac, char **av, t_base *base)
 			av[n][0] = '+';
 			base->a[i] = ft_atoi(av[n]);
 			base->a[i] *= -1;
+			printf(" - numara gorduk + koyup sayimizi negatif yaptik\n");
 		}
 		else if (av[n][0] == '0')
+		{
 			base->a[i] = 0;
+			printf("sayimiz 0 olm\n");
+		}
 		else
 			base->a[i] = ft_atoi(av[n]);
+		printf("sayimizi integer'e cevirdik ft_atoi'yle\n");
 		n++;
 		if (n < ac)
+		{
+			printf("n'imiz ac'den kucuk i'yi arttiriyoruz\n");
 			i++;
+		}
 	}
+	printf("stack'imizi doldurduk artik stack_fill func cikabilirz\n");
 }
 
 /**
@@ -85,16 +95,17 @@ void	stack_fill_double_quotation(char **av, t_base *base)
  */
 void	arg_checker(int argc, char **argv, t_base *base)
 {
+	printf("arg_checker kontrol ediyoruz\n");
 	if (argc > 2)
 	{
 		base->start.size = argc - 1;
-		printf("Argumanlarin sayilardan olusuyor --> \n");
+		printf("Argumanlarin sayilardan olusuyor\n");
 		check_num(argc, argv);
-		return ;
+		printf("check_num functionundan cikildi\n");
 	}
 	else if (argc == 2)
 	{
-		printf("Argumanin stringden olusuyor --> \n");
+		printf("Argumanin stringden olusuyor\n");
 		check_num_double_quotation(argv[1], base);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 20:09:00 by gsever            #+#    #+#             */
-/*   Updated: 2022/06/30 02:29:34 by gsever           ###   ########.fr       */
+/*   Updated: 2022/07/01 20:01:13 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,17 +45,22 @@ void	is_repeated(t_base *base)
 	int	j;
 
 	i = 0;
+	printf("is_repeated girdik simdi dongumuz basliyor\n");
 	while (i < base->start.size)
 	{
 		j = i + 1;
+		printf("i'miz start.size'sinin hepsine varana kadar ilerlemaye basladi\n");
 		while (j < base->start.size)
 		{
+			printf("sayilarimizin baslangicindan itibaren secip onu hepsinle kontrol ediyoruz.	ai%d	aj%d\n", base->a[i], base->a[j]);
 			if (base->a[i] == base->a[j])
 				ft_error("Error\n");
+			printf("ayni sayimiz yok\n");
 			j++;
 		}
 		i++;
 	}
+	printf("dongumuz bitti cikiyoruz\n");
 }
 
 /**
@@ -83,14 +88,17 @@ void	check_num(int ac, char **av)
 	int	j;
 
 	i = 1;
+	printf("check_num func girildi\n");
 	while (i < ac)
 	{
+		printf("dongumuz basladi\n");
 		j = 0;
 		while (av[i][j])
 		{
-			printf("sayi anneninki: %d", av[i][j]);
+			printf("sayimiz	:%d\n", av[i][j]);
 			if (ft_isdigit(av[i][j]))
 				ft_error("Error\n");
+			printf("sayimiz ft_isdigit functionundan gecti, sayimiz doru\n");
 			if (av[i][j] == '-')
 			{
 				if (!(av[i][j + 1] >= '1' && av[i][j + 1] <= '9'))

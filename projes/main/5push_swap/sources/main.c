@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 18:55:29 by gsever            #+#    #+#             */
-/*   Updated: 2022/06/30 00:54:59 by gsever           ###   ########.fr       */
+/*   Updated: 2022/07/01 19:52:05 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,18 +54,27 @@ int	main(int argc, char **argv)
 {
 	t_base	stack;
 
+	printf("arg_checker'e giriyoruz\n");
 	arg_checker(argc, argv, &stack);
 	stack.a = malloc(sizeof(int) * stack.start.size);
+	printf("stack->a icin yer acildi\n");
 	stack.b = malloc(sizeof(int) * stack.start.size);
+	printf("stack->b icin yer acildi\n");
 	stack.c = malloc(sizeof(int) * stack.start.size);
+	printf("stack->c icin yer acildi\n");
 	if (argc > 2)
+	{
+		printf("argumanlarimiz 2'den fazla stack_fill func gidiyoruz\n");
 		stack_fill(argc, argv, &stack);
+		printf("stack_fill func ciktik\n");
+	}
 	else if (argc == 2)
 		stack_fill_double_quotation(ft_split(argv[1], ' '), &stack);
 	else
 		ft_free(&stack);
 	if (!stack.a || !stack.b || !stack.c)
 		ft_error("Error\n");
+	printf("sayilarimiz hazir simdi bunlari indexlememiz lazim giriyoruz\n");
 	indexer(stack.start.size, &stack);
 	is_sorted(&stack);
 }

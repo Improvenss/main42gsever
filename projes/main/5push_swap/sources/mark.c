@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 12:46:39 by gsever            #+#    #+#             */
-/*   Updated: 2022/06/30 00:15:47 by gsever           ###   ########.fr       */
+/*   Updated: 2022/07/01 20:03:22 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,9 +82,14 @@ void	markup(int size, int index, int prev, t_base *base)
  */
 void	indexer(int size, t_base *base)
 {
+	printf("indexer girdik, is_repeated func giriyoruz\n");
 	is_repeated(base);
+	printf("is_repeated ciktik\n");
+	printf("find_min func gidiyoruz\n");
 	base->start.min = find_min(size, base);
+	printf("min bulduk, base->start.min atadik, find_max'a gidiyoruz\n");
 	base->start.max = find_max(size, base);
+	printf("max bulduk, base->start.max atadik, markup func gidiyoruz\n");
 	markup(base->start.size, base->start.max + 1, base->start.min - 1, base);
 	remark(size, base);
 	base->max = base->start.size - 1;
