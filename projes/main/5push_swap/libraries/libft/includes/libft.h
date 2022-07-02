@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 19:56:31 by gsever            #+#    #+#             */
-/*   Updated: 2022/06/13 23:19:17 by gsever           ###   ########.fr       */
+/*   Updated: 2022/07/02 19:26:34 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,5 +78,8 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 int		ft_lstsize(t_list *lst);
+
+///////////////////// EXTRAS //////////////////////
+int		ft_isdigit_wsm(int c);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 21:22:15 by gsever            #+#    #+#             */
-/*   Updated: 2022/06/28 16:37:39 by gsever           ###   ########.fr       */
+/*   Updated: 2022/07/02 19:15:25 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
  * @return	Number of counted numbers.
  * @bug		Not know bugs.
  */
-size_t	arguman_length(const char *str, char c)
+size_t	calc_number_count_in_string(const char *str, char c)
 {
 	size_t	len;
 	size_t	amount;

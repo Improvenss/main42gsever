@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 19:02:31 by gsever            #+#    #+#             */
-/*   Updated: 2022/06/30 00:54:53 by gsever           ###   ########.fr       */
+/*   Updated: 2022/07/02 19:09:07 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -165,6 +165,6 @@ void	indexer(int size, t_base *base);
 // void	sort(t_base *base);
 
 //utils.c
-size_t	arguman_length(const char *str, char c);
+size_t	calc_number_count_in_string(const char *str, char c);
 
 #endif

@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free.c                                             :+:      :+:    :+:   */
+/*   ft_isdigit_wsm.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/28 12:42:17 by gsever            #+#    #+#             */
-/*   Updated: 2022/07/02 18:32:01 by gsever           ###   ########.fr       */
+/*   Created: 2022/07/02 19:19:17 by gsever            #+#    #+#             */
+/*   Updated: 2022/07/02 19:26:58 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../includes/libft.h"
 
-void	ft_free(t_base *base)
+//Checking char; is it number or space or '-' return 0.
+int	ft_isdigit_wsm(int c)
 {
-	free(base->a);
-	free(base->b);
-	free(base->c);
-	exit(0);
+	if ((c >= '0' && c <= '9') || c == ' ' || c == '-')
+		return (0);
+	return (1);
 }

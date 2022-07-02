@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 20:09:00 by gsever            #+#    #+#             */
-/*   Updated: 2022/07/01 20:01:13 by gsever           ###   ########.fr       */
+/*   Updated: 2022/07/02 19:12:31 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,18 @@ void	is_sorted(t_base *base)
 	int		i;
 
 	i = 0;
+	printf("is_sorted		func girdik, sayimiz bir sonraki sayidan kucukse --> sonraki sayimiza atliyoruz\n");
 	while (i + 1 < base->start.size)
 	{
 		if (base->a[i] < base->a[i + 1])
 			i++;
 		else
+		{
+			printf("\033[0;31mSayilarimiz sirali degil!!! 'sort func gidiyoruz sayilarimizi siralamamiz icin.'\033[0m\n");
 			return ;
+		}
 	}
+	printf("\033[0;33m ############### SAYILARIMIZ SIRALI PROGRAMIMIZI BITIRIYORUZ! :) ###############\033[0m\n");
 	ft_free(base);
 }
 
@@ -54,7 +59,10 @@ void	is_repeated(t_base *base)
 		{
 			printf("sayilarimizin baslangicindan itibaren secip onu hepsinle kontrol ediyoruz.	ai%d	aj%d\n", base->a[i], base->a[j]);
 			if (base->a[i] == base->a[j])
+			{
+				printf("ayni sayi bulundu kural disi, program bitirilecek\n");
 				ft_error("Error\n");
+			}
 			printf("ayni sayimiz yok\n");
 			j++;
 		}
@@ -88,7 +96,7 @@ void	check_num(int ac, char **av)
 	int	j;
 
 	i = 1;
-	printf("check_num func girildi\n");
+	printf("check_num	func girildi\n");
 	while (i < ac)
 	{
 		printf("dongumuz basladi\n");
@@ -113,7 +121,8 @@ void	check_num(int ac, char **av)
 /**
  * @brief	We are checking if the double quotation's output is correct or not.
  * @return	void
- * @param	arguman_length Counts numbers seperated by spaces in a string.
+ * @param	calc_number_count_in_string Counts numbers seperated by spaces 
+ * in a string.
  * @param	is_digit Scanning string, all argumans are digit.
  * @param	ft_error If have problem, writing "Error" and exit program.
  * @bug		Not know bugs.
@@ -123,9 +132,13 @@ void	check_num_double_quotation(char *av, t_base *base)
 	int	i;
 
 	i = 0;
-	base->start.size = (int)arguman_length(av, ' ');
+	printf("check_num_double_quotation	func girildi\n");
+	base->start.size = (int)calc_number_count_in_string(av, ' ');
+	printf("argumanimizin uzunlugunu base->start.size 'ye atiyoruz.\n");
+	printf("stringimizi okuyacak olan while'mize giriyoruz.\n");
 	while (av[i])
 	{
+		printf("ARG2(%d)	:'%s'\nARG2[%d]:%c\n\n", base->start.size, av, i, av[i]);
 		if (ft_isdigit(av[i]))
 			ft_error("Error\n");
 		if (av[i] == '-')

@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 19:49:37 by gsever            #+#    #+#             */
-/*   Updated: 2022/07/01 19:51:01 by gsever           ###   ########.fr       */
+/*   Updated: 2022/07/02 18:50:37 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,13 +99,13 @@ void	arg_checker(int argc, char **argv, t_base *base)
 	if (argc > 2)
 	{
 		base->start.size = argc - 1;
-		printf("Argumanlarin sayilardan olusuyor\n");
+		printf("Argumanlarin integer mi ve dogru sayi girildi mi diye kontrol ediyoruz.\n");
 		check_num(argc, argv);
 		printf("check_num functionundan cikildi\n");
 	}
 	else if (argc == 2)
 	{
-		printf("Argumanin stringden olusuyor\n");
+		printf("2. argumanin string mi ve stringin icindeki sayilar dogru mu diye kontrol ediyoruz.\n");
 		check_num_double_quotation(argv[1], base);
 	}
 }
