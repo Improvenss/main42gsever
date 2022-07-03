@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 19:02:31 by gsever            #+#    #+#             */
-/*   Updated: 2022/07/02 19:09:07 by gsever           ###   ########.fr       */
+/*   Updated: 2022/07/03 21:13:31 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,10 @@
 /* ************************************************************************** */
 
 /**
- * @brief A stack's start, max, min values.
- * size	: Size of args bytes.
- * max	:
- * min	:
+ * @brief This struct for 'stack'.
+ * size	: Holding stack's number count.
+ * max	: Holding stack's BIGGEST number.
+ * min	: Holding stack's SMALLEST number.
  * @bug No know bugs.
  */
 typedef struct s_start
@@ -59,7 +59,7 @@ typedef struct s_start
 }			t_start;
 
 /**
- * @brief
+ * @brief Using this struct for sorting() algorithms.
  * score	:
  * rrb		:
  * rra		:
@@ -82,17 +82,17 @@ typedef struct score
 
 /**
  * @brief
- * start	:
- * current	:
- * best		:
- * max		:
- * mid		:
- * c_a		:
- * c_b		:
- * c_c		:
- * *a		:
- * *b		:
- * *c		:
+ * start	: For the stack's numbers count.
+ * current	: For sort() algorithms.
+ * best		: For sort() algorithms.
+ * max		: 
+ * mid		: 
+ * c_a		: Keeping 'a' stack's numbers count.
+ * c_b		: Keeping 'b' stack's numbers count.
+ * c_c		: Keeping 'c' stack's numbers count.
+ * *a		: This is stack 'a'.
+ * *b		: This is stack 'b'.
+ * *c		: This is stack 'c', for helping.
  * @bug No know bugs.
  */
 typedef struct s_base
@@ -139,30 +139,30 @@ void	markup_norme(int *i, int *index, int *tmp, t_base *base);
 void	markup(int size, int index, int prev, t_base *base);
 void	indexer(int size, t_base *base);
 
-// //operations_push.c
-// void	pa(t_base *base);
-// void	pb(t_base *base);
+//operations_push.c --> OK
+void	pa(t_base *base);
+void	pb(t_base *base);
 
-// //operations_r_reverse.c
-// void	rra(t_base *base);
-// void	rrb(t_base *base);
-// void	rrr(t_base *base);
+//operations_r_reverse.c --> OK
+void	rra(int bool, t_base *base);
+void	rrb(int bool, t_base *base);
+void	rrr(t_base *base);
 
-// //operations_reverse.c
-// void	ra(t_base *base);
-// void	rb(t_base *base);
-// void	rr(t_base *base);
+//operations_rotate.c --> OK
+void	ra(int bool, t_base *base);
+void	rb(int bool, t_base *base);
+void	rr(t_base *base);
 
-// //operations_swap.c
-// void	sa(t_base *base);
-// void	sb(t_base *base);
-// void	ss(t_base *base);
+//operations_swap.c --> OK
+void	sa(int bool, t_base *base);
+void	sb(int bool, t_base *base);
+void	ss(t_base *base);
 
-// //sort_small.c
-// void	sort_small(t_base *base);
+//sort_small.c
+void	sort_small(t_base *base);
 
-// //sorting.c
-// void	sort(t_base *base);
+//sorting.c
+void	sort(t_base *base);
 
 //utils.c
 size_t	calc_number_count_in_string(const char *str, char c);

@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 18:55:29 by gsever            #+#    #+#             */
-/*   Updated: 2022/07/02 18:49:39 by gsever           ###   ########.fr       */
+/*   Updated: 2022/07/03 18:02:17 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,13 +70,21 @@ int	main(int argc, char **argv)
 		printf("stack_fill func ciktik\n");
 	}
 	else if (argc == 2)
+	{
+		printf("2 tane argumanimiz var o yuzden stack_fill_double_quotation func gidiyoruz\n");
 		stack_fill_double_quotation(ft_split(argv[1], ' '), &stack);
+		printf("stack_fill_double_quotation func ciktik.\n");
+	}
 	else
+	{
+		printf("argumanlarimiz yanlis o yuzden bellegimizi freeleyip programi bitireceigiz.\n");
 		ft_free(&stack);
+	}
 	if (!stack.a || !stack.b || !stack.c)
 		ft_error("Error\n");
 	is_sorted(&stack);
 	printf("sayilarimiz hazir simdi bunlari indexlememiz lazim giriyoruz\n");
 	indexer(stack.start.size, &stack);
 	is_sorted(&stack);
+	sort(&stack);
 }

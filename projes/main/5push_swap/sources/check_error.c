@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 20:09:00 by gsever            #+#    #+#             */
-/*   Updated: 2022/07/02 19:12:31 by gsever           ###   ########.fr       */
+/*   Updated: 2022/07/03 19:38:03 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,8 @@ void	is_repeated(t_base *base)
 /**
  * @brief	It's just writing string and start exit(1);
  * @return	1
+ * @param ft_putstr_fd Writing string on shell.
+ * @param exit Exiting program.
  * @bug		Not know bugs.
  */
 int	ft_error(char *str)
@@ -120,10 +122,11 @@ void	check_num(int ac, char **av)
 
 /**
  * @brief	We are checking if the double quotation's output is correct or not.
+ * base->start.size = calc_number_count_in_string();
  * @return	void
  * @param	calc_number_count_in_string Counts numbers seperated by spaces 
  * in a string.
- * @param	is_digit Scanning string, all argumans are digit.
+ * @param	is_digit_wsm Scanning string, all argumans are digit.
  * @param	ft_error If have problem, writing "Error" and exit program.
  * @bug		Not know bugs.
  */
@@ -139,7 +142,7 @@ void	check_num_double_quotation(char *av, t_base *base)
 	while (av[i])
 	{
 		printf("ARG2(%d)	:'%s'\nARG2[%d]:%c\n\n", base->start.size, av, i, av[i]);
-		if (ft_isdigit(av[i]))
+		if (ft_isdigit_wsm(av[i]))
 			ft_error("Error\n");
 		if (av[i] == '-')
 		{

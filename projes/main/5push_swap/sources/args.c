@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 19:49:37 by gsever            #+#    #+#             */
-/*   Updated: 2022/07/02 18:50:37 by gsever           ###   ########.fr       */
+/*   Updated: 2022/07/03 19:39:38 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,8 @@ void	stack_fill_double_quotation(char **av, t_base *base)
 /** OKK
  * @brief	Check arguments, is the argument just an integer?
  * Checking if arguman count 2 or +.
+ * Numbers count --> base->start.size = argc - 1;
+ * Numbers count --> base->start.size = calc_number_count_in_string();
  * @return	void
  * @param	check_num --> ./push_swap 9 8 -3 2 -7 5 -> Looking ("").
  * @param	check_num_double_quotation --> ./push_swap "9 8 -3 2 -7 5"
