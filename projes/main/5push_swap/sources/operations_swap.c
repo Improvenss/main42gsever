@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 00:31:47 by gsever            #+#    #+#             */
-/*   Updated: 2022/07/03 21:02:52 by gsever           ###   ########.fr       */
+/*   Updated: 2022/07/03 22:00:38 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,14 @@
  * @param write Writing 'sa' on shell.
  * @bug Not know bugs.
  */
-void	sa(int bool, t_base *base)
+void	sa(bool both, t_base *base)
 {
 	int	tmp;
 
 	tmp = base->a[0];
 	base->a[0] = base->a[1];
 	base->a[1] = tmp;
-	if (bool == 1)
+	if (both == 1)
 		write(1, "sa\n", 3);
 }
 
@@ -40,14 +40,14 @@ void	sa(int bool, t_base *base)
  * @param write Writing 'sb' on shell.
  * @bug Not know bugs.
  */
-void	sb(int bool, t_base *base)
+void	sb(bool both, t_base *base)
 {
 	int	tmp;
 
 	tmp = base->b[0];
 	base->b[0] = base->b[1];
 	base->b[1] = tmp;
-	if (bool == 1)
+	if (both == 1)
 		write(1, "sb\n", 3);
 }
 

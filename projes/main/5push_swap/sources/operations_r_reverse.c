@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 00:35:04 by gsever            #+#    #+#             */
-/*   Updated: 2022/07/03 21:00:00 by gsever           ###   ########.fr       */
+/*   Updated: 2022/07/03 21:30:15 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
  * @param write Writing 'rra' on shell.
  * @bug Not know bugs.
  */
-void	rra(int bool, t_base *base)
+void	rra(bool both, t_base *base)
 {
 	int	i;
 	int	tmp;
@@ -37,7 +37,7 @@ void	rra(int bool, t_base *base)
 		i--;
 	}
 	base->a[0] = tmp;
-	if (bool == 1)
+	if (both == 1)
 		write(1, "rra\n", 4);
 }
 
@@ -48,7 +48,7 @@ void	rra(int bool, t_base *base)
  * @param write Writing 'rrb' on shell.
  * @bug Not know bugs.
  */
-void	rrb(int bool, t_base *base)
+void	rrb(bool both, t_base *base)
 {
 	int	i;
 	int	tmp;
@@ -61,7 +61,7 @@ void	rrb(int bool, t_base *base)
 		i--;
 	}
 	base->b[0] = tmp;
-	if (bool == 1)
+	if (both == 1)
 		write(1, "rrb\n", 4);
 }
 

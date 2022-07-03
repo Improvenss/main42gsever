@@ -6,15 +6,15 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 19:02:31 by gsever            #+#    #+#             */
-/*   Updated: 2022/07/03 21:13:31 by gsever           ###   ########.fr       */
+/*   Updated: 2022/07/03 22:08:14 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /** @file push_swap.h
- * @brief 
- * 
+ * @brief Libraries for 'push_swap' project.
  * @author Görkem SEVER (gsever)
- * @bug 
+ * @bug Sorting algorithms in process. Im stayed push_smalest(), i will be 
+ * continue here. In sort_small.c file.
  */
 
 #ifndef PUSH_SWAP_H
@@ -24,7 +24,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdint.h>
-//# include <stdbool.h>
+# include <stdbool.h>
 # include <errno.h>
 # include <limits.h>
 # include <sys/types.h>
@@ -144,18 +144,18 @@ void	pa(t_base *base);
 void	pb(t_base *base);
 
 //operations_r_reverse.c --> OK
-void	rra(int bool, t_base *base);
-void	rrb(int bool, t_base *base);
+void	rra(bool both, t_base *base);
+void	rrb(bool both, t_base *base);
 void	rrr(t_base *base);
 
 //operations_rotate.c --> OK
-void	ra(int bool, t_base *base);
-void	rb(int bool, t_base *base);
+void	ra(bool both, t_base *base);
+void	rb(bool both, t_base *base);
 void	rr(t_base *base);
 
 //operations_swap.c --> OK
-void	sa(int bool, t_base *base);
-void	sb(int bool, t_base *base);
+void	sa(bool both, t_base *base);
+void	sb(bool both, t_base *base);
 void	ss(t_base *base);
 
 //sort_small.c

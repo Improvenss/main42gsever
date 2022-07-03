@@ -6,7 +6,7 @@
 #    By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/09 20:22:17 by gsever            #+#    #+#              #
-#    Updated: 2022/06/30 00:51:44 by gsever           ###   ########.fr        #
+#    Updated: 2022/07/03 21:53:25 by gsever           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,14 +39,13 @@ SOURCES_LIST = \
 			free.c\
 			main.c\
 			mark.c\
+			operations_push.c\
+			operations_r_reverse.c\
+			operations_rotate.c\
+			operations_swap.c\
 			sort_small.c\
 			sorting.c\
 			utils.c
-# operations_push.c\
-# operations_r_reverse.c\
-# operations_reverse.c\
-# operations_swap.c\
-
 SOURCES = $(addprefix $(SOURCES_DIRECTORY), $(SOURCES_LIST))
 
 #	Checker Files --> OK

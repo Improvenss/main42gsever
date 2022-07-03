@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 00:34:11 by gsever            #+#    #+#             */
-/*   Updated: 2022/07/03 21:00:05 by gsever           ###   ########.fr       */
+/*   Updated: 2022/07/03 21:29:56 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
  * @param write Writing 'ra' on shell.
  * @bug Not know bugs.
  */
-void	ra(int bool, t_base *base)
+void	ra(bool both, t_base *base)
 {
 	int	i;
 	int	tmp;
@@ -37,7 +37,7 @@ void	ra(int bool, t_base *base)
 		i++;
 	}
 	base->a[i] = tmp;
-	if (bool == 1)
+	if (both == 1)
 		write(1, "ra\n", 3);
 }
 
@@ -48,7 +48,7 @@ void	ra(int bool, t_base *base)
  * @param write Writing 'rb' on shell.
  * @bug Not know bugs.
  */
-void	rb(int bool, t_base *base)
+void	rb(bool both, t_base *base)
 {
 	int	i;
 	int	tmp;
@@ -61,7 +61,7 @@ void	rb(int bool, t_base *base)
 		i++;
 	}
 	base->b[i] = tmp;
-	if (bool == 1)
+	if (both == 1)
 		write(1, "rb\n", 3);
 }
 
