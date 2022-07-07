@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_small.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bbourcy <bbourcy@student.42lausanne.ch>    +#+  +:+       +#+        */
+/*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 14:54:33 by bbourcy           #+#    #+#             */
-/*   Updated: 2022/04/25 18:35:28 by bbourcy          ###   ########.fr       */
+/*   Updated: 2022/07/07 13:06:02 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	push_smallest(int a, t_base *base)
 
 	i = 1;
 	smallest = base->a[0];
+	printf("base->start.size'miz kadar while'ye giriyoruz i'miz: %d < sizemiz: %d", i, base->start.size);
 	while (i < a)
 	{
 		if (base->a[i] < smallest)
