@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 00:23:41 by gsever            #+#    #+#             */
-/*   Updated: 2022/07/03 21:58:40 by gsever           ###   ########.fr       */
+/*   Updated: 2022/07/13 20:25:16 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	sort(t_base *base)
 	// i = 0;
 	if (base->c_a < 7)
 	{
-		printf("sayimiz = %d --> 6 ve daha az sayimiz oldugu icin sort_small() func giriyoruz.\n", base->c_a);
+		printf("sayilarimiz = %d --> 6 ve daha az sayimiz oldugu icin sort_small() func giriyoruz.\n", base->c_a);
 		sort_small(base);
 	}
 	else
