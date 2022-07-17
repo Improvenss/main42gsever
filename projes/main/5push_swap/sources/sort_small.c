@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 00:18:40 by gsever            #+#    #+#             */
-/*   Updated: 2022/07/15 21:54:01 by gsever           ###   ########.fr       */
+/*   Updated: 2022/07/17 17:55:31 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,5 +115,6 @@ void	sort_small(t_base *base)
 	}
 	printf("six_sort() func giriyoruz simdi\n");
 	six_sort(base);
-	printf("sort_small func artik bitti program bitirilebilinir...");
+	printf("sort_small func artik bitti program bitirilebilinir...\n");
+	printf("\033[0;33m		0 - 6 SAYI ARASINDAKI SAYILARIMIZ SIRALANDI!!!\033[0m\n");
 }

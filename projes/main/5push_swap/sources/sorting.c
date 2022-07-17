@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 00:23:41 by gsever            #+#    #+#             */
-/*   Updated: 2022/07/13 20:25:16 by gsever           ###   ########.fr       */
+/*   Updated: 2022/07/17 17:56:13 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,6 @@ void	sort(t_base *base)
 	}
 	else
 	{
-		// keep_me(base);
+		keep_me(base);
 	}
 }
