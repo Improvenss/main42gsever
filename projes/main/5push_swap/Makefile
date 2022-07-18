@@ -6,7 +6,7 @@
 #    By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/09 20:22:17 by gsever            #+#    #+#              #
-#    Updated: 2022/07/17 17:51:41 by gsever           ###   ########.fr        #
+#    Updated: 2022/07/19 00:12:47 by gsever           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,7 @@ HEADERS = $(addprefix $(HEADERS_DIRECTORY), $(HEADERS_LIST))
 #	Source Files --> OK
 SOURCES_DIRECTORY = ./sources/
 SOURCES_LIST = \
+			algorithms_push_b.c\
 			args.c\
 			check_error.c\
 			find.c\
@@ -45,7 +46,8 @@ SOURCES_LIST = \
 			operations_swap.c\
 			sort_small.c\
 			sorting.c\
-			utils.c
+			utils.c\
+			write_all_stack.c
 SOURCES = $(addprefix $(SOURCES_DIRECTORY), $(SOURCES_LIST))
 
 #	Checker Files --> OK
@@ -68,7 +70,10 @@ RED		= \033[0;31m
 RESET	= \033[0m
 X		= \033[m
 
-.PHONY: all libft clean fclean re
+#	LEAKS --> Checking this program have memory leaks.
+LEAKS	= leaks -atExit -- ./push_swap 9 2 8 3 1
+
+.PHONY: all libft clean fclean re leaks
 
 all: $(NAME)
 
@@ -105,3 +110,6 @@ fclean: libft clean
 re:
 	@$(MAKE) fclean
 	@$(MAKE) all
+
+leaks:
+	$(LEAKS)

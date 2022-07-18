@@ -6,21 +6,52 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 00:18:40 by gsever            #+#    #+#             */
-/*   Updated: 2022/07/17 17:55:31 by gsever           ###   ########.fr       */
+/*   Updated: 2022/07/18 23:35:20 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /** @file sort_small.c
- * @brief 
- * 
+ * @brief If the number count smaller than 7, starting "Small Sorting" here.
  * @author Görkem SEVER (gsever)
  * @bug Not know bugs.
  */
 #include "../includes/push_swap.h"
 
 /**
+ * @brief Sorting numbers count < 7
+ * @return void
+ * @param sa
+ * @param ra
+ * @param rra
+ * @bug Not know bugs.
+ */
+void	sort_blood(t_base *base)
+{
+	if (base->a[0] < base->a[1] && base->a[0]
+		< base->a[2] && base->a[1] > base->a[2])
+	{
+		printf("eger ilk < ikinci ise && ilk < ucuncu && ikinci > ucuncu ise sa ve ra yapacak\n");
+		sa(1, base);
+		ra(1, base);
+	}
+	else if (base->a[0] > base->a[1] && base->a[0] < base->a[2])
+		sa(1, base);
+	else if (base->a[0] < base->a[1] && base->a[0] > base->a[2])
+		rra(1, base);
+	else if (base->a[0] > base->a[2] && base->a[1]
+		< base->a[2] && base->a[0] > base->a[1])
+		ra(1, base);
+	else if (base->a[0] > base->a[1] && base->a[1] > base->a[2])
+	{
+		sa(1, base);
+		rra(1, base);
+	}
+	printf("sort_blood() ciktik!.\n");
+}
+
+/**
  * @brief En kucuk sayiyi pushlayacagiz, onun icin butun diziyi tariyoruz,
- * en kucuk sayi gelince onu 
+ * en kucuk sayi gelince onu b stackine pushluyoruz.
  * @return void
  * @param rra
  * @param ra
@@ -93,6 +124,15 @@ void	six_sort(t_base *base)
 		printf("push_smallest func giriyoruz.\n");
 		push_smallest(base->start.size - i, base);
 		i++;
+	}
+	printf("\033[033msort_blood()	func\033[0m giriyoruz\n");
+	sort_blood(base);
+	i = 0;
+	printf("whilemiz i(%d) < diff(%d) kadar b stackindeki butun sayilari a stackine atacak.\n", i, diff);
+	while (i < diff)
+	{
+		pa(base);
+		++i;
 	}
 	printf("six_sort() functan cikiyoruz.\n");
 }

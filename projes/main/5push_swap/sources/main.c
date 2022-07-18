@@ -6,14 +6,18 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 18:55:29 by gsever            #+#    #+#             */
-/*   Updated: 2022/07/03 18:02:17 by gsever           ###   ########.fr       */
+/*   Updated: 2022/07/19 00:40:31 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /** @file push_swap.c
  * @brief Push_Swap program starting here.
  * 
+ * make && ./push_swap 9 1 8 2 7 && make leaks
  * 
+ * push_to_b() yaziliyor orada kaldim.
+ * 
+ * @link https://www.doxygen.nl/manual/commands.html
  * @author Görkem SEVER (gsever)
  * @bug 
  */
@@ -87,4 +91,5 @@ int	main(int argc, char **argv)
 	indexer(stack.start.size, &stack);
 	is_sorted(&stack);
 	sort(&stack);
+	ft_free(&stack);
 }

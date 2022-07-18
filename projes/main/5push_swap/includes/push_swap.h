@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 19:02:31 by gsever            #+#    #+#             */
-/*   Updated: 2022/07/06 05:07:11 by gsever           ###   ########.fr       */
+/*   Updated: 2022/07/19 00:27:28 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,15 @@
 # define INVALID_INPUT -2
 # define STACK_EMPTY -3
 # define STACK_ITEM_DOES_NOT_EXIST -4
+
+//	COLORS --> 🟥 🟩 🟦
+# define LB		"\033[0;36m"
+# define BLUE	"\033[0;34m"
+# define YELLOW	"\033[0;33m"
+# define GREEN	"\033[0;32m"
+# define RED	"\033[0;31m"
+# define RESET	"\033[0m"
+# define X		"\033[m"
 
 /* ************************************************************************** */
 /* STRUCT DEFINES AREA													  	  */
@@ -114,6 +123,11 @@ typedef struct s_base
 /* FUNCTION PROTOTYPES														  */
 /* ************************************************************************** */
 
+//algorithms_push_b.c
+void	keep_me(t_base *base);
+int		ps_finder(int c, t_base *base);
+void	push_to_b(t_base *base);
+
 //args.c
 void	stack_fill(int ac, char **av, t_base *base);
 void	stack_fill_double_quotation(char **av, t_base *base);
@@ -166,5 +180,8 @@ void	sort(t_base *base);
 
 //utils.c
 size_t	calc_number_count_in_string(const char *str, char c);
+
+//write_all_stack.c
+void	write_all_stack(t_base *base);
 
 #endif
