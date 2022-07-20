@@ -6,7 +6,7 @@
 #    By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/09 20:22:17 by gsever            #+#    #+#              #
-#    Updated: 2022/07/19 00:12:47 by gsever           ###   ########.fr        #
+#    Updated: 2022/07/21 02:28:35 by gsever           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,7 @@ SOURCES_LIST = \
 			algorithms_push_b.c\
 			args.c\
 			check_error.c\
+			compute.c\
 			find.c\
 			free.c\
 			main.c\
@@ -44,6 +45,8 @@ SOURCES_LIST = \
 			operations_r_reverse.c\
 			operations_rotate.c\
 			operations_swap.c\
+			perform.c\
+			score_init.c\
 			sort_small.c\
 			sorting.c\
 			utils.c\
@@ -71,7 +74,7 @@ RESET	= \033[0m
 X		= \033[m
 
 #	LEAKS --> Checking this program have memory leaks.
-LEAKS	= leaks -atExit -- ./push_swap 9 2 8 3 1
+LEAKS	= leaks -atExit -- ./push_swap 9 1 8 2 7 3 6 4 5
 
 .PHONY: all libft clean fclean re leaks
 

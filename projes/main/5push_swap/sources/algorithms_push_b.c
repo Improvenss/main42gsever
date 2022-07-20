@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 19:19:43 by gsever            #+#    #+#             */
-/*   Updated: 2022/07/19 00:40:34 by gsever           ###   ########.fr       */
+/*   Updated: 2022/07/21 02:31:28 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,12 @@ void	keep_me(t_base *base)
 	printf("keep_me	func cikiyoruz.\n");
 }
 
+/**
+ * @brief Disaridan gelen sayiyi stack'imizin icinde ariyor.
+ * Buldugunda 1, bulamadiginda 0 donduruyor.
+ * @return int
+ * @bug Not know bugs.
+ */
 int	ps_finder(int c, t_base *base)
 {
 	int	i;
@@ -78,16 +84,52 @@ int	ps_finder(int c, t_base *base)
 	return (0);
 }
 
-void	push_to_b(t_base *base)
+/**
+ * @brief If number match in stack 'c', doing ra.
+ * If number not match, pb.
+ * @return void
+ * @param ps_finder Searching number in stack.
+ * @bug Not know bugs.
+ */
+void	push_to_norme(t_base *base)
 {
 	int	i;
 
 	i = 0;
 	while (i < base->c_a)
 	{
+		if (ps_finder(base->a[0], base) > 0)
+		{
+			ra(1, base);
+			i++;
+			continue ;
+		}
+		pb(base);
+	}
+}
+
+/**
+ * @brief 
+ * @return void
+ * @bug Not know bugs.
+ */
+void	push_to_b(t_base *base)
+{
+	int	i;
+
+	i = 0;
+	printf("push_to_b() func girdik\n");
+	while (i < base->c_a)
+	{
 		if (ps_finder(base->a[0], base) > 0 || base->a[0] <= base->max / 4)
 		{
-
+			ra(1, base);
+			i++;
+			continue ;
 		}
+		pb(base);
+		if (base->b[0] > base->mid)
+			rb(1, base);
 	}
+	push_to_norme(base);
 }

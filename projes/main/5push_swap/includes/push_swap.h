@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 19:02:31 by gsever            #+#    #+#             */
-/*   Updated: 2022/07/19 00:27:28 by gsever           ###   ########.fr       */
+/*   Updated: 2022/07/21 02:06:56 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,6 +126,7 @@ typedef struct s_base
 //algorithms_push_b.c
 void	keep_me(t_base *base);
 int		ps_finder(int c, t_base *base);
+void	push_to_norme(t_base *base);
 void	push_to_b(t_base *base);
 
 //args.c
@@ -139,6 +140,12 @@ void	is_repeated(t_base *base);
 int		ft_error(char *str);
 void	check_num(int ac, char **av);
 void	check_num_double_quotation(char *av, t_base *base);
+
+//compute.c
+void	copy_the_best(t_base *base);
+void	merge_rr(t_base *base);
+void	count_ra(int b, t_base *base);
+void	compute(int max, t_base *base);
 
 //find.c
 int		find_min(int size, t_base *base);
@@ -171,6 +178,14 @@ void	rr(t_base *base);
 void	sa(bool both, t_base *base);
 void	sb(bool both, t_base *base);
 void	ss(t_base *base);
+
+//perform.c
+void	perform_norme(t_base *base);
+void	perform(t_base *base);
+
+//score_init.c
+void	score_init(t_base *base);
+void	score_init_max(t_base *base);
 
 //sort_small.c
 void	sort_small(t_base *base);

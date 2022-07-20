@@ -5,17 +5,64 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/12 19:24:06 by bbourcy           #+#    #+#             */
-/*   Updated: 2022/07/21 02:01:34 by gsever           ###   ########.fr       */
+/*   Created: 2022/07/21 01:34:32 by gsever            #+#    #+#             */
+/*   Updated: 2022/07/21 02:00:18 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+/** @file compute.c
+ * @brief 
+ * 
+ * @author Görkem SEVER (gsever)
+ * @bug Not know bugs.
+ */
+#include "../includes/push_swap.h"
 
-// compteur reverse a
+/**
+ * @brief When current is the best, doing best to current.
+ * @return void
+ * @bug Not know bugs.
+ */
+void	copy_the_best(t_base *base)
+{
+	base->best.ra = base->current.ra;
+	base->best.rb = base->current.rb;
+	base->best.rra = base->current.rra;
+	base->best.rrb = base->current.rrb;
+	base->best.rr = base->current.rr;
+	base->best.rrr = base->current.rrr;
+	base->best.score = base->current.score;
+}
+
+/**
+ * @brief Merging ra and rra.
+ * @return void
+ * @bug Not know bugs.
+ */
+void	merge_rr(t_base *base)
+{
+	while (base->current.ra && base->current.rb)
+	{
+		base->current.rr++;
+		base->current.ra--;
+		base->current.rb--;
+	}
+	while (base->current.rra && base->current.rrb)
+	{
+		base->current.rrr++;
+		base->current.rra--;
+		base->current.rrb--;
+	}
+}
+
+/**
+ * @brief Computing reverse a
+ * @return void
+ * @bug Not know bugs.
+ */
 void	count_ra(int b, t_base *base)
 {
-	int		i;
+	int	i;
 
 	i = 0;
 	if (base->a[0] > b && base->a[base->c_a - 1] < b)
@@ -27,59 +74,25 @@ void	count_ra(int b, t_base *base)
 	{
 		if (b > base->a[i] && b < base->a[i + 1])
 		{
-			++i;
+			i++;
 			if (i > base->c_a / 2)
 				base->current.rra = base->c_a - i;
 			else
 				base->current.ra = i;
 			return ;
 		}
-		++i;
+		i++;
 	}
 }
 
-// fusionne pour rr et rrr
-void	merge_rr(t_base *base)
-{
-	while (base->current.ra && base->current.rb)
-	{
-		++base->current.rr;
-		--base->current.ra;
-		--base->current.rb;
-	}
-	while (base->current.rra && base->current.rrb)
-	{
-		++base->current.rrr;
-		--base->current.rra;
-		--base->current.rrb;
-	}
-}
-
-void	copy_to_best(t_base *base)
-{
-	base->best.ra = base->current.ra;
-	base->best.rb = base->current.rb;
-	base->best.rra = base->current.rra;
-	base->best.rrb = base->current.rrb;
-	base->best.rr = base->current.rr;
-	base->best.rrr = base->current.rrr;
-	base->best.score = base->current.score;
-}
-
-void	score_init_max(t_base *base)
-{
-	base->best.ra = 0;
-	base->best.rb = 0;
-	base->best.rra = 0;
-	base->best.rrb = 0;
-	base->best.rr = 0;
-	base->best.rrr = 0;
-	base->best.score = 10000000;
-}
-
+/**
+ * @brief 
+ * @return void
+ * @bug Not know bugs.
+ */
 void	compute(int max, t_base *base)
 {
-	int		i;
+	int	i;
 
 	i = 0;
 	while (i < base->c_b)
@@ -91,7 +104,7 @@ void	compute(int max, t_base *base)
 		}
 		score_init(base);
 		if (i > base->c_b / 2)
-			base->current.rrb = (base->c_b - i);
+			base->current.rrb = base->c_b - i;
 		else
 			base->current.rb = i;
 		count_ra(base->b[i], base);
@@ -100,7 +113,7 @@ void	compute(int max, t_base *base)
 			+ base->current.rra + base->current.rrb
 			+ base->current.rr + base->current.rrr;
 		if (base->current.score < base->best.score)
-			copy_to_best(base);
-		++i;
+			copy_the_best(base);
+		i++;
 	}
 }
