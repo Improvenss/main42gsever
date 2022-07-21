@@ -6,15 +6,14 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 19:02:31 by gsever            #+#    #+#             */
-/*   Updated: 2022/07/21 02:06:56 by gsever           ###   ########.fr       */
+/*   Updated: 2022/07/21 05:01:51 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /** @file push_swap.h
  * @brief Libraries for 'push_swap' project.
  * @author Görkem SEVER (gsever)
- * @bug Sorting algorithms in process. Im stayed push_smalest(), i will be 
- * continue here. In sort_small.c file.
+ * @bug Not know bugs.
  */
 
 #ifndef PUSH_SWAP_H
@@ -68,7 +67,7 @@ typedef struct s_start
 }			t_start;
 
 /**
- * @brief Using this struct for sorting() algorithms.
+ * @brief Using this struct for sorting algorithms.
  * score	:
  * rrb		:
  * rra		:
@@ -123,18 +122,18 @@ typedef struct s_base
 /* FUNCTION PROTOTYPES														  */
 /* ************************************************************************** */
 
-//algorithms_push_b.c
+//algorithms_push_b.c --> OK
 void	keep_me(t_base *base);
 int		ps_finder(int c, t_base *base);
 void	push_to_norme(t_base *base);
 void	push_to_b(t_base *base);
 
-//args.c
+//args.c --> OK
 void	stack_fill(int ac, char **av, t_base *base);
 void	stack_fill_double_quotation(char **av, t_base *base);
 void	arg_checker(int argc, char **argv, t_base *base);
 
-//check_error.c
+//check_error.c --> OK
 void	is_sorted(t_base *base);
 void	is_repeated(t_base *base);
 int		ft_error(char *str);
@@ -147,14 +146,17 @@ void	merge_rr(t_base *base);
 void	count_ra(int b, t_base *base);
 void	compute(int max, t_base *base);
 
-//find.c
+//find.c --> OK
 int		find_min(int size, t_base *base);
 int		find_max(int size, t_base *base);
 
-//free.c
+//free.c --> OK
 void	ft_free(t_base *base);
 
-//mark.c
+//main.c
+void	push_swap(t_base *stack, int argc, char **argv);
+
+//mark.c --> OK
 void	remark(int size, t_base *base);
 void	markup_norme(int *i, int *index, int *tmp, t_base *base);
 void	markup(int size, int index, int prev, t_base *base);
@@ -183,20 +185,20 @@ void	ss(t_base *base);
 void	perform_norme(t_base *base);
 void	perform(t_base *base);
 
-//score_init.c
+//score_init.c --> OK
 void	score_init(t_base *base);
 void	score_init_max(t_base *base);
 
-//sort_small.c
+//sort_small.c --> OK
 void	sort_small(t_base *base);
 
-//sorting.c
+//sorting.c --> OK
 void	sort(t_base *base);
 
-//utils.c
+//utils.c --> OK
 size_t	calc_number_count_in_string(const char *str, char c);
 
-//write_all_stack.c
+//write_all_stack.c --> OK
 void	write_all_stack(t_base *base);
 
 #endif

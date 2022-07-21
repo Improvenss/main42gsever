@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tjensen <tjensen@student.42.fr>            +#+  +:+       +#+        */
+/*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 10:56:32 by tjensen           #+#    #+#             */
-/*   Updated: 2021/10/19 10:10:27 by tjensen          ###   ########.fr       */
+/*   Updated: 2022/07/21 03:13:21 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ int	main(int argc, char *argv[])
 }
 
 /* Executes all instrcutions the checker reads from the std_in */
+/* Denetleyicinin std_in'den okuduğu tüm talimatları yürütür */
 static int	checker_execute(t_ps *ps, char *operation)
 {
 	if (operation && !ft_strncmp(operation, "ra\n", 3))
@@ -84,6 +85,7 @@ static int	checker_execute(t_ps *ps, char *operation)
 }
 
 /* Checks if the stack is well sorted from top to bootom in ascending order */
+/* Yığının artan düzende yukarıdan aşağıya doğru sıralanıp sıralanmadığını kontrol eder */
 static bool	checker_is_sorted(t_ps *ps)
 {
 	int		i;
