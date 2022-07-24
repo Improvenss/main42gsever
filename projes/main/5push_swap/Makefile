@@ -6,7 +6,7 @@
 #    By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/09 20:22:17 by gsever            #+#    #+#              #
-#    Updated: 2022/07/25 00:48:40 by gsever           ###   ########.fr        #
+#    Updated: 2022/07/25 02:31:41 by gsever           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -71,6 +71,8 @@ CHECKER_LIST = \
 			operations_swap.c\
 			perform.c\
 			score_init.c\
+			sort_small.c\
+			sorting.c\
 			utils.c\
 			write_all_stack.c
 CHECKER_SOURCES = $(addprefix $(SOURCES_DIRECTORY), $(CHECKER_LIST))
@@ -105,7 +107,7 @@ $(OBJECTS_DIRECTORY)%.o : $(SOURCES_DIRECTORY)%.c
 	@printf "%-57b %b" "$(BLUE)COMPILED $(LB)$@" "$(GREEN)[✓]$(X)\n"
 
 $(NAME): libft $(OBJECTS_DIRECTORY) $(OBJECTS)
-	$(CC) $(FLAGS) -o $(NAME) $(OBJECTS) $(LIBRARIES)
+	@$(CC) $(FLAGS) -o $(NAME) $(OBJECTS) $(LIBRARIES)
 	@printf "%-57b %b" "$(GREEN)CREATED $(NAME)" "$(GREEN)[FINISHED]$(X)\n"
 
 #	Objects file creating
@@ -124,12 +126,12 @@ endif
 clean: libft
 	@rm -rf $(OBJECTS_DIRECTORY)
 	@echo "$(NAME): $(RED)$(OBJECTS_DIRECTORY) was deleted$(RESET)"
-#@echo "$(NAME): $(RED)$(CHECKER_DIRECTORY) was deleted$(RESET)"
 
 fclean: libft clean
 	@rm -f $(NAME)
+	@rm -f $(CHECKER)
 	@echo "$(NAME): $(RED)$(NAME) was deleted$(RESET)"
-#@echo "$(NAME): $(RED)$(CHECKER) was deleted$(RESET)"
+	@echo "$(NAME): $(RED)$(CHECKER) was deleted$(RESET)"
 
 re:
 	@$(MAKE) fclean
@@ -147,5 +149,5 @@ leaks:
 # 	@printf "%-57b %b" "$(GREEN)CREATED $(NAME)" "$(GREEN)[FINISHED]$(X)\n"
 
 $(CHECKER): libft $(OBJECTS_CH)
-	$(CC) $(FLAGS) -o $(CHECKER) $(OBJECTS_CH) $(LIBRARIES)
+	@$(CC) $(FLAGS) -o $(CHECKER) $(OBJECTS_CH) $(LIBRARIES)
 	@printf "%-57b %b" "$(GREEN)CREATED $(CHECKER)" "$(GREEN)[FINISHED]$(X)\n"

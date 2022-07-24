@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 03:04:37 by gsever            #+#    #+#             */
-/*   Updated: 2022/07/24 23:55:18 by gsever           ###   ########.fr       */
+/*   Updated: 2022/07/25 02:26:56 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,14 +80,15 @@ static void	checker_fill_stack(t_base *stack, int argc, char **argv)
 		stack_fill(argc, argv, stack);
 	else if (argc == 1)
 	{
-		ft_free(stack);
+		ft_free(stack, true);
 		exit(EXIT_SUCCESS);
 	}
 	else
 	{
-		ft_free(stack);
+		ft_free(stack, true);
 		ft_error("Error\n");
 	}
+	indexer(stack->start.size, stack);
 }
 
 /**
@@ -102,17 +103,17 @@ static void	checker_fill_stack(t_base *stack, int argc, char **argv)
  * Nothing:	Missing *argv[] arguments for the stack
  * @param 
  * @param 
- * @bug		Not know bugs.
+ * @bug		segmentation fault
  */
 int	main(int argc, char **argv)
 {
 	t_base	stack;
 	t_base	stack_control;
 	char	*command;
-	
+
 	push_swap_checker(&stack, argc, argv);
 	checker_fill_stack(&stack_control, argc, argv);
-	printf("burasi calisiyor mu ayoooooolll???");
+	printf("burasi calisiyor mu hay aq???");
 	command = get_next_line(STDIN_FILENO);
 	printf("burasi calisiyor mu alooooooo???");
 	while (checker_execute(&stack_control, command) == 0)
@@ -129,6 +130,6 @@ int	main(int argc, char **argv)
 		write(1, "OK\n", 3);
 	else
 		write(1, "KO\n", 3);
-	ft_free(&stack);
-	ft_free(&stack_control);
+	// ft_free(&stack);
+	ft_free(&stack_control, true);
 }

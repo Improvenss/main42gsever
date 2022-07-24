@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 18:55:29 by gsever            #+#    #+#             */
-/*   Updated: 2022/07/24 23:50:42 by gsever           ###   ########.fr       */
+/*   Updated: 2022/07/25 01:31:23 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
  * 
  * make && ./push_swap 9 1 8 2 7 3 6 4 5
  * 
- * 
+ * make && ./push_swap 9 1 8 2 7 3 6 4 5 && ./checker 9 1 8 2 7 3 6 4 5
  * 
  * @link https://www.doxygen.nl/manual/commands.html
  * @author Görkem SEVER (gsever)
@@ -56,7 +56,7 @@ void	push_swap(t_base *stack, int argc, char **argv)
 	}
 	else
 	{
-		ft_free(stack);
+		ft_free(stack, true);
 	}
 	if (!stack->a || !stack->b || !stack->c)
 		ft_error("Error\n");
@@ -64,7 +64,7 @@ void	push_swap(t_base *stack, int argc, char **argv)
 	indexer(stack->start.size, stack);
 	is_sorted(stack);
 	sort(stack);
-	ft_free(stack);
+	ft_free(stack, true);
 }
 
 /**

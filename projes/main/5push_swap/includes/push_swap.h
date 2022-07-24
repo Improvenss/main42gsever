@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 19:02:31 by gsever            #+#    #+#             */
-/*   Updated: 2022/07/24 23:56:51 by gsever           ###   ########.fr       */
+/*   Updated: 2022/07/25 02:14:11 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -154,7 +154,7 @@ int		find_min(int size, t_base *base);
 int		find_max(int size, t_base *base);
 
 //free.c --> OK
-void	ft_free(t_base *base);
+void	ft_free(t_base *base, bool is_exit);
 
 //main.c
 void	push_swap(t_base *stack, int argc, char **argv);
@@ -196,6 +196,7 @@ void	score_init_max(t_base *base);
 void	sort_small(t_base *base);
 
 //sorting.c --> OK
+void	final_sort(t_base *base);
 void	sort(t_base *base);
 
 //utils.c --> OK
