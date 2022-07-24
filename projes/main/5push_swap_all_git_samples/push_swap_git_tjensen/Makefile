@@ -6,7 +6,7 @@
 #    By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/30 18:33:16 by tjensen           #+#    #+#              #
-#    Updated: 2022/07/21 05:40:59 by gsever           ###   ########.fr        #
+#    Updated: 2022/07/25 00:24:29 by gsever           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -123,13 +123,13 @@ checker_header:
 
 # Linking
 $(CHECKER): libft checker_header checker_prep $(CHECK_OBJS)
-	@$(CC) $(CFLAGS) -o $(CHECKER) $(CHECK_OBJS) $(LIBRARIES)
+	$(CC) $(CFLAGS) -o $(CHECKER) $(CHECK_OBJS) $(LIBRARIES)
 	@printf "%-14b %-42b %b" "$(OK_COLOR)=======" "$(OK_COLOR)$(NAME)" "$(OK_COLOR)[✓]$(NO_COLOR)\n"
 
-# Compiling
-$(CHECK_ODIR)/%.o: $(SDIR)/%.c
-	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
-	@printf "%-57b %b" "$(COM_COLOR)compile $(OBJ_COLOR)$@" "$(OK_COLOR)[✓]$(NO_COLOR)\n"
+# # Compiling
+# $(CHECK_ODIR)/%.o: $(SDIR)/%.c
+# 	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+# 	@printf "%-57b %b" "$(COM_COLOR)compile $(OBJ_COLOR)$@" "$(OK_COLOR)[✓]$(NO_COLOR)\n"
 
 .PHONY: checker_prep
 checker_prep:

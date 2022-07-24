@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 13:14:11 by gsever            #+#    #+#             */
-/*   Updated: 2022/06/13 17:34:16 by gsever           ###   ########.fr       */
+/*   Updated: 2022/07/24 23:45:43 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ char	*ft_read_line(int fd, char *line)
 			return (NULL);
 		}
 		buff[rd_bytes] = '\0';
-		line = ft_strjoin(line, buff);
+		line = ft_strjoin_gnl(line, buff);
 	}
 	free(buff);
 	return (line);

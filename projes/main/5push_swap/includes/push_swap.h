@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 19:02:31 by gsever            #+#    #+#             */
-/*   Updated: 2022/07/21 05:01:51 by gsever           ###   ########.fr       */
+/*   Updated: 2022/07/24 23:56:51 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,6 +139,9 @@ void	is_repeated(t_base *base);
 int		ft_error(char *str);
 void	check_num(int ac, char **av);
 void	check_num_double_quotation(char *av, t_base *base);
+
+//checker_ps.c
+void	push_swap_checker(t_base *stack, int argc, char **argv);
 
 //compute.c
 void	copy_the_best(t_base *base);

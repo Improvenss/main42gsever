@@ -6,13 +6,13 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 17:01:38 by gsever            #+#    #+#             */
-/*   Updated: 2022/06/13 17:34:21 by gsever           ###   ########.fr       */
+/*   Updated: 2022/07/24 23:49:07 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/get_next_line_bonus.h"
 
-size_t	ft_strlen(const char *s)
+size_t	ft_strlen_gnl(const char *s)
 {
 	size_t	i;
 
@@ -24,13 +24,13 @@ size_t	ft_strlen(const char *s)
 	return (i);
 }
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strchr_gnl(const char *s, int c)
 {
 	int	s_len;
 
 	if (!s)
 		return (0);
-	s_len = ft_strlen(s);
+	s_len = ft_strlen_gnl(s);
 	while (s_len >= 0)
 	{
 		if (*s == (char)c)
@@ -41,7 +41,7 @@ char	*ft_strchr(const char *s, int c)
 	return (NULL);
 }
 
-char	*ft_strjoin(char *s1, char *s2)
+char	*ft_strjoin_gnl(char *s1, char *s2)
 {
 	unsigned int	i;
 	unsigned int	j;
@@ -54,7 +54,7 @@ char	*ft_strjoin(char *s1, char *s2)
 	}
 	if (!s1 || !s2)
 		return (NULL);
-	s3 = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
+	s3 = malloc(ft_strlen_gnl(s1) + ft_strlen_gnl(s2) + 1);
 	if (!s3)
 		return (NULL);
 	i = -1;

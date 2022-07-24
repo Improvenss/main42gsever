@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 19:56:31 by gsever            #+#    #+#             */
-/*   Updated: 2022/07/02 19:26:34 by gsever           ###   ########.fr       */
+/*   Updated: 2022/07/24 23:37:46 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <limits.h>
+# include "../modules/ft_printf/includes/ft_printf.h"
+# include "../modules/get_next_line/includes/get_next_line_bonus.h"
 
 int		ft_isalpha(int c);
 int		ft_islower(int c);

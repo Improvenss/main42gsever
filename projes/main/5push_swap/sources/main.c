@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 18:55:29 by gsever            #+#    #+#             */
-/*   Updated: 2022/07/24 21:50:20 by gsever           ###   ########.fr       */
+/*   Updated: 2022/07/24 23:50:42 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,11 @@
  * 
  * make && ./push_swap 9 1 8 2 7 && make leaks
  * 
- * push_to_b() yaziliyor orada kaldim.
+ * make && ./push_swap 9 1 8 2 7 3 6 4 5 && make leaks
+ * 
+ * make && ./push_swap 9 1 8 2 7 3 6 4 5
+ * 
+ * 
  * 
  * @link https://www.doxygen.nl/manual/commands.html
  * @author Görkem SEVER (gsever)
@@ -91,4 +95,5 @@ int	main(int argc, char **argv)
 	t_base	stack;
 
 	push_swap(&stack, argc, argv);
+	exit(0);
 }

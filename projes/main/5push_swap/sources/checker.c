@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 03:04:37 by gsever            #+#    #+#             */
-/*   Updated: 2022/07/21 05:44:02 by gsever           ###   ########.fr       */
+/*   Updated: 2022/07/24 23:55:18 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,9 +110,11 @@ int	main(int argc, char **argv)
 	t_base	stack_control;
 	char	*command;
 	
-	push_swap(&stack, argc, argv);
+	push_swap_checker(&stack, argc, argv);
 	checker_fill_stack(&stack_control, argc, argv);
+	printf("burasi calisiyor mu ayoooooolll???");
 	command = get_next_line(STDIN_FILENO);
+	printf("burasi calisiyor mu alooooooo???");
 	while (checker_execute(&stack_control, command) == 0)
 	{
 		free_one_arr((void **)&command);
