@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 00:18:40 by gsever            #+#    #+#             */
-/*   Updated: 2022/07/24 21:46:48 by gsever           ###   ########.fr       */
+/*   Updated: 2022/07/25 16:03:16 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ void	push_smallest(int a, t_base *base)
 		else
 			ra(1, base);
 	}
-	pb(base);
+	pb(1, base);
 }
 
 /**
@@ -111,7 +111,7 @@ void	six_sort(t_base *base)
 	i = 0;
 	while (i < diff)
 	{
-		pa(base);
+		pa(1, base);
 		++i;
 	}
 }

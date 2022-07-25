@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 00:30:53 by gsever            #+#    #+#             */
-/*   Updated: 2022/07/03 19:58:23 by gsever           ###   ########.fr       */
+/*   Updated: 2022/07/25 16:02:33 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
  * @param write Writing 'pa' on shell.
  * @bug Not know bugs.
  */
-void	pa(t_base *base)
+void	pa(bool both, t_base *base)
 {
 	int	i;
 
@@ -42,7 +42,8 @@ void	pa(t_base *base)
 		i++;
 	}
 	base->c_a += 1;
-	write(1, "pa\n", 3);
+	if (both == 1)
+		write(1, "pa\n", 3);
 }
 
 /**
@@ -52,7 +53,7 @@ void	pa(t_base *base)
  * @param write Writing 'pb' on shell.
  * @bug Not know bugs.
  */
-void	pb(t_base *base)
+void	pb(bool both, t_base *base)
 {
 	int	i;
 
@@ -70,5 +71,6 @@ void	pb(t_base *base)
 		i++;
 	}
 	base->c_b += 1;
-	write(1, "pb\n", 3);
+	if (both == 1)
+		write(1, "pb\n", 3);
 }

@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 00:31:47 by gsever            #+#    #+#             */
-/*   Updated: 2022/07/03 22:00:38 by gsever           ###   ########.fr       */
+/*   Updated: 2022/07/25 16:01:46 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,10 @@ void	sb(bool both, t_base *base)
  * @param write Writing 'ss' on shell.
  * @bug Not know bugs.
  */
-void	ss(t_base *base)
+void	ss(bool both, t_base *base)
 {
 	sa(0, base);
 	sb(0, base);
-	write(1, "ss\n", 3);
+	if (both == 1)
+		write(1, "ss\n", 3);
 }

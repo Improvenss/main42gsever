@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 02:02:19 by gsever            #+#    #+#             */
-/*   Updated: 2022/07/21 02:05:51 by gsever           ###   ########.fr       */
+/*   Updated: 2022/07/25 16:04:55 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,13 +57,13 @@ void	perform(t_base *base)
 	perform_norme(base);
 	while (base->best.rr)
 	{
-		rr(base);
+		rr(1, base);
 		base->best.rr--;
 	}
 	while (base->best.rrr)
 	{
-		rrr(base);
+		rrr(1, base);
 		base->best.rrr--;
 	}
-	pa(base);
+	pa(1, base);
 }

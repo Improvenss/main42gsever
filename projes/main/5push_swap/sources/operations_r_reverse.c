@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 00:35:04 by gsever            #+#    #+#             */
-/*   Updated: 2022/07/03 21:30:15 by gsever           ###   ########.fr       */
+/*   Updated: 2022/07/25 15:59:35 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,9 +74,10 @@ void	rrb(bool both, t_base *base)
  * @param write Writing 'ra' on shell.
  * @bug Not know bugs.
  */
-void	rrr(t_base *base)
+void	rrr(bool both, t_base *base)
 {
 	rra(0, base);
 	rrb(0, base);
-	write(1, "rrr\n", 4);
+	if (both == 1)
+		write(1, "rrr\n", 4);
 }

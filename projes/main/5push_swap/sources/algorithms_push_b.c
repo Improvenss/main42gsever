@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 19:19:43 by gsever            #+#    #+#             */
-/*   Updated: 2022/07/24 21:47:23 by gsever           ###   ########.fr       */
+/*   Updated: 2022/07/25 16:07:12 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ void	push_to_norme(t_base *base)
 			i++;
 			continue ;
 		}
-		pb(base);
+		pb(1, base);
 	}
 }
 
@@ -115,7 +115,7 @@ void	push_to_b(t_base *base)
 			i++;
 			continue ;
 		}
-		pb(base);
+		pb(1, base);
 		if (base->b[0] > base->mid)
 			rb(1, base);
 	}

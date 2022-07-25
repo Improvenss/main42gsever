@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 03:04:37 by gsever            #+#    #+#             */
-/*   Updated: 2022/07/25 15:50:54 by gsever           ###   ########.fr       */
+/*   Updated: 2022/07/25 16:01:59 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,27 +44,27 @@ static bool	checker_is_sorted(t_base *base)
 static int	checker_execute(t_base *base, char *command)
 {
 	if (command && !ft_strncmp(command, "ra\n", 3))
-		ra(1, base);
+		ra(0, base);
 	else if (command && !ft_strncmp(command, "rb\n", 3))
-		rb(1, base);
+		rb(0, base);
 	else if (command && !ft_strncmp(command, "rr\n", 3))
-		rr(base);
+		rr(0, base);
 	else if (command && !ft_strncmp(command, "rra\n", 4))
-		rra(1, base);
+		rra(0, base);
 	else if (command && !ft_strncmp(command, "rrb\n", 4))
-		rrb(1, base);
+		rrb(0, base);
 	else if (command && !ft_strncmp(command, "rrr\n", 4))
-		rrr(base);
+		rrr(0, base);
 	else if (command && !ft_strncmp(command, "pa\n", 3))
-		pa(base);
+		pa(0, base);
 	else if (command && !ft_strncmp(command, "pb\n", 3))
-		pb(base);
+		pb(0, base);
 	else if (command && !ft_strncmp(command, "sa\n", 3))
-		sa(1, base);
+		sa(0, base);
 	else if (command && !ft_strncmp(command, "sb\n", 3))
-		sb(1, base);
+		sb(0, base);
 	else if (command && !ft_strncmp(command, "ss\n", 3))
-		ss(base);
+		ss(0, base);
 	else
 		return (INVALID_INPUT);
 	return (EXIT_SUCCESS);

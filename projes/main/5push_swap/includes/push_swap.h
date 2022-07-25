@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 19:02:31 by gsever            #+#    #+#             */
-/*   Updated: 2022/07/25 13:59:41 by gsever           ###   ########.fr       */
+/*   Updated: 2022/07/25 16:04:13 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -163,23 +163,23 @@ void	markup(int size, int index, int prev, t_base *base);
 void	indexer(int size, t_base *base);
 
 //operations_push.c --> OK
-void	pa(t_base *base);
-void	pb(t_base *base);
+void	pa(bool both, t_base *base);
+void	pb(bool both, t_base *base);
 
 //operations_r_reverse.c --> OK
 void	rra(bool both, t_base *base);
 void	rrb(bool both, t_base *base);
-void	rrr(t_base *base);
+void	rrr(bool both, t_base *base);
 
 //operations_rotate.c --> OK
 void	ra(bool both, t_base *base);
 void	rb(bool both, t_base *base);
-void	rr(t_base *base);
+void	rr(bool both, t_base *base);
 
 //operations_swap.c --> OK
 void	sa(bool both, t_base *base);
 void	sb(bool both, t_base *base);
-void	ss(t_base *base);
+void	ss(bool both, t_base *base);
 
 //perform.c
 void	perform_norme(t_base *base);
