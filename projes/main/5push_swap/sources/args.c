@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 19:49:37 by gsever            #+#    #+#             */
-/*   Updated: 2022/07/26 21:07:00 by gsever           ###   ########.fr       */
+/*   Updated: 2022/07/27 00:51:24 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ void	stack_fill(int ac, char **av, t_base *base)
 	i = 0;
 	while (n <= base->start.size)
 	{
+		if (ft_if_args_mintm(av[n]))
+			ft_error("Error\n");
 		if (av[n][0] == '-')
 		{
 			av[n][0] = '+';

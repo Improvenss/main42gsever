@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 19:19:43 by gsever            #+#    #+#             */
-/*   Updated: 2022/07/26 20:07:54 by gsever           ###   ########.fr       */
+/*   Updated: 2022/07/27 02:03:16 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,11 @@ void	push_to_norme(t_base *base)
 /**
  * @brief 
  * @return void
+ * @param ps_finder
+ * @param ra
+ * @param pb
+ * @param rb
+ * @param push_to_norme
  * @bug Not know bugs.
  */
 void	push_to_b(t_base *base)

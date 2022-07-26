@@ -23,6 +23,7 @@ chmod: dosya izinleri (yetki) değiştirme komutu
 		- w - = yalnız yazma izni var,		
 		- - x = yalnız çalıştırma izni var.
 
+			sample --> chmod -v 777 sample.*
 
 		" NOT: Baştaki (-) dosya ya da klasörün türünü gösterir "
 

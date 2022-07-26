@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 12:46:39 by gsever            #+#    #+#             */
-/*   Updated: 2022/07/26 20:11:34 by gsever           ###   ########.fr       */
+/*   Updated: 2022/07/27 01:35:21 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,7 @@ void	markup_norme(int *i, int *index, int *tmp, t_base *base)
 		if (*tmp == 0)
 		{
 			if (base->a[*i] == 0)
-			{
 				base->a[*i] = *index;
-			}
 		}
 		if (base->a[*i] == *tmp)
 		{
@@ -71,17 +69,13 @@ void	markup(int size, int index, int prev, t_base *base)
 	int	tmp;
 
 	if (index > size + base->start.max)
-	{
 		return ;
-	}
 	tmp = base->start.max;
 	i = 0;
 	while (i < size)
 	{
 		if (base->a[i] > prev && base->a[i] <= tmp)
-		{
 			tmp = base->a[i];
-		}
 		i++;
 	}
 	markup_norme(&i, &index, &tmp, base);

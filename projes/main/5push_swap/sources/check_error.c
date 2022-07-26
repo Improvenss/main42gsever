@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 20:09:00 by gsever            #+#    #+#             */
-/*   Updated: 2022/07/26 21:23:21 by gsever           ###   ########.fr       */
+/*   Updated: 2022/07/26 22:00:48 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,8 @@ void	check_num(int ac, char **av)
 	while (i < ac)
 	{
 		j = 0;
+		if (av[i][j] == '\0')
+			ft_error("Error\n");
 		while (av[i][j])
 		{
 			if (av[i][j] == '-')

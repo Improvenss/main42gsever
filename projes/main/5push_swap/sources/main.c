@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 18:55:29 by gsever            #+#    #+#             */
-/*   Updated: 2022/07/26 20:35:49 by gsever           ###   ########.fr       */
+/*   Updated: 2022/07/27 02:38:21 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,20 +53,13 @@ void	push_swap(t_base *stack, int argc, char **argv)
 	stack->b = malloc(sizeof(int) * stack->start.size);
 	stack->c = malloc(sizeof(int) * stack->start.size);
 	if (argc > 2)
-	{
 		stack_fill(argc, argv, stack);
-	}
 	else if (argc == 2)
-	{
 		stack_fill_double_quotation(ft_split(argv[1], ' '), stack);
-	}
 	else
-	{
 		ft_free(stack, true);
-	}
 	if (!stack->a || !stack->b || !stack->c)
 		ft_error("Error\n");
-	is_sorted(stack);
 	indexer(stack->start.size, stack);
 	is_sorted(stack);
 	sort(stack);

@@ -6,14 +6,14 @@
 #    By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/04 16:53:09 by lfrasson          #+#    #+#              #
-#    Updated: 2022/06/26 20:00:01 by gsever           ###   ########.fr        #
+#    Updated: 2022/07/26 23:36:41 by gsever           ###   ########.tr        #
 #                                                                              #
 # **************************************************************************** #
 
 #!/bin/bash
 
 NUM_TESTS=100
-PUSH_SWAP=/Users/yuandre/Desktop/3push_swap_pde_bakk
+PUSH_SWAP=/Users/yuandre/Desktop/main42gsever/projes/main/5push_swap/push_swap
 CKER=1
 RET_CKER="is not working"
 

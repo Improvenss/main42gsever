@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 00:18:40 by gsever            #+#    #+#             */
-/*   Updated: 2022/07/26 20:09:22 by gsever           ###   ########.fr       */
+/*   Updated: 2022/07/27 01:57:56 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,7 @@ void	six_sort(t_base *base)
 	while (i < diff)
 	{
 		pa(1, base);
-		++i;
+		i++;
 	}
 }
 

@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 13:04:11 by gsever            #+#    #+#             */
-/*   Updated: 2022/07/26 20:11:59 by gsever           ###   ########.fr       */
+/*   Updated: 2022/07/27 01:32:35 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,7 @@ int	find_min(int size, t_base *base)
 	while (i < size)
 	{
 		if (base->a[i] < min)
-		{
 			min = base->a[i];
-		}
 		i++;
 	}
 	return (min);
@@ -50,9 +48,7 @@ int	find_max(int size, t_base *base)
 	while (i < size)
 	{
 		if (base->a[i] > max)
-		{
 			max = base->a[i];
-		}
 		i++;
 	}
 	return (max);

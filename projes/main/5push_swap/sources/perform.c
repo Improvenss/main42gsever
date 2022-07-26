@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 02:02:19 by gsever            #+#    #+#             */
-/*   Updated: 2022/07/26 20:10:22 by gsever           ###   ########.fr       */
+/*   Updated: 2022/07/27 02:11:25 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,10 @@
 /**
  * @brief 
  * @return void
+ * @param ra
+ * @param rb
+ * @param rra
+ * @param rrb
  * @bug Not know bugs.
  */
 void	perform_norme(t_base *base)
@@ -50,6 +54,10 @@ void	perform_norme(t_base *base)
 /**
  * @brief 
  * @return void
+ * @param perform_norme
+ * @param rr
+ * @param rrr
+ * @param pa
  * @bug Not know bugs.
  */
 void	perform(t_base *base)

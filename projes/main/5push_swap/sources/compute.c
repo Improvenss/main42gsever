@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 01:34:32 by gsever            #+#    #+#             */
-/*   Updated: 2022/07/26 20:11:53 by gsever           ###   ########.fr       */
+/*   Updated: 2022/07/27 02:25:04 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
  * @return void
  * @bug Not know bugs.
  */
-void	copy_the_best(t_base *base)
+void	copy_to_best(t_base *base)
 {
 	base->best.ra = base->current.ra;
 	base->best.rb = base->current.rb;
@@ -104,7 +104,7 @@ void	compute(int max, t_base *base)
 		}
 		score_init(base);
 		if (i > base->c_b / 2)
-			base->current.rrb = base->c_b - i;
+			base->current.rrb = (base->c_b - i);
 		else
 			base->current.rb = i;
 		count_ra(base->b[i], base);
@@ -113,7 +113,7 @@ void	compute(int max, t_base *base)
 			+ base->current.rra + base->current.rrb
 			+ base->current.rr + base->current.rrr;
 		if (base->current.score < base->best.score)
-			copy_the_best(base);
+			copy_to_best(base);
 		i++;
 	}
 }

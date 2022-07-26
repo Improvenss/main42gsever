@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 19:02:31 by gsever            #+#    #+#             */
-/*   Updated: 2022/07/25 16:04:13 by gsever           ###   ########.fr       */
+/*   Updated: 2022/07/27 02:22:31 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,10 +141,13 @@ void	check_num(int ac, char **av);
 void	check_num_double_quotation(char *av, t_base *base);
 
 //compute.c
-void	copy_the_best(t_base *base);
+void	copy_to_best(t_base *base);
 void	merge_rr(t_base *base);
 void	count_ra(int b, t_base *base);
 void	compute(int max, t_base *base);
+
+//control_args.c
+bool	ft_if_args_mintm(const char *argv);
 
 //find.c --> OK
 int		find_min(int size, t_base *base);

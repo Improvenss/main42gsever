@@ -6,7 +6,7 @@
 #    By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/09 20:22:17 by gsever            #+#    #+#              #
-#    Updated: 2022/07/25 14:10:06 by gsever           ###   ########.fr        #
+#    Updated: 2022/07/27 00:58:14 by gsever           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,6 +37,7 @@ SOURCES_LIST = \
 			args.c\
 			check_error.c\
 			compute.c\
+			control_args.c\
 			find.c\
 			free.c\
 			main.c\
@@ -61,6 +62,7 @@ CHECKER_LIST = \
 			check_error.c\
 			checker.c\
 			compute.c\
+			control_args.c\
 			find.c\
 			free.c\
 			mark.c\
@@ -94,9 +96,10 @@ RESET	= \033[0m
 X		= \033[m
 
 #	LEAKS --> Checking this program have memory leaks.
-LEAKS	= leaks -atExit -- ./push_swap 9 1 8 2 7 3 6 4 5
+LEAKS_PS	= leaks -atExit -- ./push_swap 9 1 8 2 7 3 6 4 5
+LEAKS_CH	= leaks -atExit -- ./checker 9 1 8 2 7 3 6 4 5
 
-.PHONY: all libft clean fclean re leaks
+.PHONY: all libft clean fclean re leaksps leaksch
 
 all: $(NAME) checker
 
@@ -136,8 +139,11 @@ re:
 	@$(MAKE) fclean
 	@$(MAKE) all
 
-leaks:
-	$(LEAKS)
+leaksps:
+	$(LEAKS_PS)
+
+leaksch:
+	$(LEAKS_CH)
 
 # **************************************************************************** #
 #						       CHECKER RULES        						   #
