@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 19:19:43 by gsever            #+#    #+#             */
-/*   Updated: 2022/07/25 16:07:12 by gsever           ###   ########.fr       */
+/*   Updated: 2022/07/26 20:07:54 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,7 @@ void	keep_me(t_base *base)
 	i = 0;
 	index = 1;
 	while (base->a[i] > 0)
-	{
 		i++;
-	}
 	while (base->a[i] < base->max)
 	{
 		if (base->a[i] == index)
@@ -47,7 +45,7 @@ void	keep_me(t_base *base)
 		if (i == base->c_a - 1)
 		{
 			i = 0;
-			continue;
+			continue ;
 		}
 		i++;
 	}
@@ -109,7 +107,8 @@ void	push_to_b(t_base *base)
 	i = 0;
 	while (i < base->c_a)
 	{
-		if (ps_finder(base->a[0], base) > 0 || base->a[0] <= base->max / 4)
+		if (ps_finder(base->a[0], base) > 0
+			|| base->a[0] <= base->max / 4)
 		{
 			ra(1, base);
 			i++;

@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 18:55:29 by gsever            #+#    #+#             */
-/*   Updated: 2022/07/25 01:31:23 by gsever           ###   ########.fr       */
+/*   Updated: 2022/07/26 20:11:18 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@
  */
 void	push_swap(t_base *stack, int argc, char **argv)
 {
-
 	arg_checker(argc, argv, stack);
 	stack->a = malloc(sizeof(int) * stack->start.size);
 	stack->b = malloc(sizeof(int) * stack->start.size);

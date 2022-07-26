@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 00:23:41 by gsever            #+#    #+#             */
-/*   Updated: 2022/07/25 02:10:04 by gsever           ###   ########.fr       */
+/*   Updated: 2022/07/26 20:08:15 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,7 @@ void	sort(t_base *base)
 
 	i = 0;
 	if (base->c_a < 7)
-	{
 		sort_small(base);
-	}
 	else
 	{
 		keep_me(base);

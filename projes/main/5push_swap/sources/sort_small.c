@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 00:18:40 by gsever            #+#    #+#             */
-/*   Updated: 2022/07/25 16:03:16 by gsever           ###   ########.fr       */
+/*   Updated: 2022/07/26 20:09:22 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,18 +66,14 @@ void	push_smallest(int a, t_base *base)
 	while (i < a)
 	{
 		if (base->a[i] < smallest)
-		{
 			smallest = base->a[i];
-		}
 		++i;
 	}
 	i = -1;
 	while (i++ < a - 1)
 	{
 		if (base->a[i] == smallest)
-		{
 			break ;
-		}
 	}
 	while (base->a[0] != smallest)
 	{
@@ -125,10 +121,7 @@ void	six_sort(t_base *base)
  */
 void	sort_small(t_base *base)
 {
-
 	if (base->c_a == 2)
-	{
 		sa(1, base);
-	}
 	six_sort(base);
 }

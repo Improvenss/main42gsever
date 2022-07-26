@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 03:04:37 by gsever            #+#    #+#             */
-/*   Updated: 2022/07/25 16:01:59 by gsever           ###   ########.fr       */
+/*   Updated: 2022/07/26 20:12:56 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,7 @@ static bool	checker_is_sorted(t_base *base)
 		if (base->a[i] < base->a[i + 1])
 			i++;
 		else
-		{
 			return (false);
-		}
 	}
 	return (true);
 }
@@ -105,18 +103,16 @@ static void	checker_fill_stack(t_base *stack, int argc, char **argv)
 	STDIN_FILENO --> 0
  * @param 
  * @param 
- * @bug		segmentation fault in get_next_line()
+ * @bug		Not know bugs.
  */
 int	main(int argc, char **argv)
 {
-	//t_base	stack;
 	t_base	stack_control;
 	char	*command;
 
 	command = NULL;
 	checker_fill_stack(&stack_control, argc, argv);
 	command = get_next_line(0);
-	printf("command --> %s\n",command);
 	while (checker_execute(&stack_control, command) == 0)
 	{
 		free_one_arr((void **)&command);
@@ -131,6 +127,5 @@ int	main(int argc, char **argv)
 		write(1, "OK\n", 3);
 	else
 		write(1, "KO\n", 3);
-	// ft_free(&stack);
 	ft_free(&stack_control, true);
 }
