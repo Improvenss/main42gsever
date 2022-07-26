@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 19:49:37 by gsever            #+#    #+#             */
-/*   Updated: 2022/07/24 21:43:21 by gsever           ###   ########.fr       */
+/*   Updated: 2022/07/26 21:07:00 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,16 +34,12 @@ void	stack_fill(int ac, char **av, t_base *base)
 			base->a[i] *= -1;
 		}
 		else if (av[n][0] == '0')
-		{
 			base->a[i] = 0;
-		}
 		else
 			base->a[i] = ft_atoi(av[n]);
 		n++;
 		if (n < ac)
-		{
 			i++;
-		}
 	}
 }
 
@@ -97,7 +93,5 @@ void	arg_checker(int argc, char **argv, t_base *base)
 		check_num(argc, argv);
 	}
 	else if (argc == 2)
-	{
 		check_num_double_quotation(argv[1], base);
-	}
 }

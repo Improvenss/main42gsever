@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 20:09:00 by gsever            #+#    #+#             */
-/*   Updated: 2022/07/25 01:59:37 by gsever           ###   ########.fr       */
+/*   Updated: 2022/07/26 21:23:21 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,7 @@ void	is_sorted(t_base *base)
 		if (base->a[i] < base->a[i + 1])
 			i++;
 		else
-		{
 			return ;
-		}
 	}
 	ft_free(base, true);
 }
@@ -53,9 +51,7 @@ void	is_repeated(t_base *base)
 		while (j < base->start.size)
 		{
 			if (base->a[i] == base->a[j])
-			{
 				ft_error("Error\n");
-			}
 			j++;
 		}
 		i++;
@@ -94,13 +90,14 @@ void	check_num(int ac, char **av)
 		j = 0;
 		while (av[i][j])
 		{
-			if (ft_isdigit(av[i][j]))
-				ft_error("Error\n");
 			if (av[i][j] == '-')
 			{
 				if (!(av[i][j + 1] >= '1' && av[i][j + 1] <= '9'))
 					ft_error("Error\n");
+				j++;
 			}
+			if (ft_isdigit(av[i][j]))
+				ft_error("Error\n");
 			j++;
 		}
 		i++;

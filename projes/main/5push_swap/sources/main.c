@@ -6,12 +6,14 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 18:55:29 by gsever            #+#    #+#             */
-/*   Updated: 2022/07/26 20:11:18 by gsever           ###   ########.fr       */
+/*   Updated: 2022/07/26 20:35:49 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /** @file push_swap.c
  * @brief Push_Swap program starting here.
+ * 
+ * ./push_swap `ruby -e "puts (0..499).to_a.shuffle.join(' ')"`
  * 
  * make && ./push_swap 9 1 8 2 7 && make leaks
  * 
@@ -20,6 +22,11 @@
  * make && ./push_swap 9 1 8 2 7 3 6 4 5
  * 
  * make && ./push_swap 9 1 8 2 7 3 6 4 5 && ./checker 9 1 8 2 7 3 6 4 5
+ * 
+ * ARG=(`ruby -e "puts (0..499).to_a.shuffle.join(' ')"`);
+ * 	./push_swap $ARG | ./checker $ARG
+ * 
+ * ARG=$(jot -r -s " " 100 -20000 20000); ./push_swap $ARG | ./checker $ARG
  * 
  * @link https://www.doxygen.nl/manual/commands.html
  * @author Görkem SEVER (gsever)
