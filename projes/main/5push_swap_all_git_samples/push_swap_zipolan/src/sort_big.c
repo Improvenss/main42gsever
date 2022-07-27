@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_big.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bbourcy <bbourcy@student.42lausanne.ch>    +#+  +:+       +#+        */
+/*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 14:54:33 by bbourcy           #+#    #+#             */
-/*   Updated: 2022/04/25 18:47:57 by bbourcy          ###   ########.fr       */
+/*   Updated: 2022/07/27 03:19:00 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,13 +61,13 @@ void	sort(t_base *base)
 			perform(base);
 			++i;
 		}
-		while (base->c_b)
-		{
-			score_init_max(base);
-			compute(base->max, base);
-			perform(base);
-		}
-		final_sort(base);
+		// while (base->c_b)
+		// {
+		// 	score_init_max(base);
+		// 	compute(base->max, base);
+		// 	perform(base);
+		// }
+		// final_sort(base);
 	}
 	ft_free(base);
 }
