@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 00:23:41 by gsever            #+#    #+#             */
-/*   Updated: 2022/07/27 03:47:44 by gsever           ###   ########.fr       */
+/*   Updated: 2022/07/27 12:40:47 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,26 +65,21 @@ void	sort(t_base *base)
 	{
 		keep_me(base);
 		push_to_b(base);
-		int	count = 0;
+
 		while (i < base->mid / 2)
 		{
 			score_init_max(base);
 			compute(base->mid, base);
 			perform(base);
-			// printf("runned times --> %d\n", count);
-			count++;
 			i++;
 		}
-		count = 0;
 		while (base->c_b)
 		{
-			score_init_max(base);//bakmana gerek yok = 0 yapiyor
+			score_init_max(base);
 			compute(base->max, base);
 			perform(base);
-			// printf("runned times --> %d\n", count);
-			count++;
 		}
-		final_sort(base);//here all sorted but minimum value not top.
+		final_sort(base);
 	}
 	ft_free(base, true);
 }

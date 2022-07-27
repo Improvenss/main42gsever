@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 13:27:13 by bbourcy           #+#    #+#             */
-/*   Updated: 2022/06/28 12:16:24 by gsever           ###   ########.fr       */
+/*   Updated: 2022/07/27 12:17:11 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,5 +128,8 @@ size_t	length(char const *s, char c);
 // utils2.c
 void	score_init(t_base *base);
 void	markup_norme(int *i, int *index, int *tmp, t_base *base);
+
+//write_all_stack.c --> OK
+void	write_all_stack(t_base *base);
 
 #endif

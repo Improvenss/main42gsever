@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 00:34:11 by gsever            #+#    #+#             */
-/*   Updated: 2022/07/27 02:33:36 by gsever           ###   ########.fr       */
+/*   Updated: 2022/07/27 12:39:24 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
  * Because the FIRST number will be the LAST number.
  * @return void
  * @param write Writing 'ra' on shell.
- * @bug Not know bugs.
+ * @bug Not know bugs. OK
  */
 void	ra(bool both, t_base *base)
 {
@@ -46,7 +46,7 @@ void	ra(bool both, t_base *base)
  * Because the FIRST number will be the LAST number.
  * @return void
  * @param write Writing 'rb' on shell.
- * @bug Not know bugs.
+ * @bug Not know bugs. OK
  */
 void	rb(bool both, t_base *base)
 {
@@ -72,12 +72,12 @@ void	rb(bool both, t_base *base)
  * @param ra Doing same thing.
  * @param rb Doing same thing.
  * @param write Writing 'rr' on shell.
- * @bug Not know bugs.
+ * @bug Not know bugs. OK
  */
 void	rr(bool both, t_base *base)
 {
 	ra(0, base);
 	rb(0, base);
 	if (both == 1)
-		write(1, "rb\n", 3);
+		write(1, "rr\n", 3);
 }
