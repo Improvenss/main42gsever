@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 19:56:31 by gsever            #+#    #+#             */
-/*   Updated: 2022/07/25 13:50:11 by gsever           ###   ########.fr       */
+/*   Updated: 2022/07/27 13:24:03 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,6 @@ void	ft_lstiter(t_list *lst, void (*f)(void *));
 int		ft_lstsize(t_list *lst);
 
 ///////////////////// EXTRAS //////////////////////
-int		ft_isdigit_wsm(int c);
+int		ft_isdigit_wsm(char c);
 
 #endif

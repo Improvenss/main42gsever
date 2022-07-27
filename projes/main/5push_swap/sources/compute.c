@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 01:34:32 by gsever            #+#    #+#             */
-/*   Updated: 2022/07/27 03:31:48 by gsever           ###   ########.fr       */
+/*   Updated: 2022/07/27 13:52:21 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,13 +102,13 @@ void	compute(int max, t_base *base)
 			i++;
 			continue ;
 		}
-		score_init(base);//OK
+		score_init(base);
 		if (i > base->c_b / 2)
 			base->current.rrb = (base->c_b - i);
 		else
-			base->current.rb = i;//same
-		count_ra(base->b[i], base);//OK
-		merge_rr(base);//OK
+			base->current.rb = i;
+		count_ra(base->b[i], base);
+		merge_rr(base);
 		base->current.score = base->current.ra + base->current.rb
 			+ base->current.rra + base->current.rrb
 			+ base->current.rr + base->current.rrr;

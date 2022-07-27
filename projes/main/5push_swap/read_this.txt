@@ -1,0 +1,20 @@
+bash lfrasson_tester.sh
+
+bash benchmark_vbrazanik.sh
+
+bash moulinette.sh
+	bu tester mal
+
+./push_swap `ruby -e "puts (0..499).to_a.shuffle.join(' ')"`
+ 
+make && ./push_swap 9 1 8 2 7 && make leaks
+
+make && ./push_swap 9 1 8 2 7 3 6 4 5 && make leaks
+
+make && ./push_swap 9 1 8 2 7 3 6 4 5
+
+make && ./push_swap 9 1 8 2 7 3 6 4 5 && ./checker 9 1 8 2 7 3 6 4 5
+
+ARG=(`ruby -e "puts (0..499).to_a.shuffle.join(' ')"`); ./push_swap $ARG | ./checker $ARG
+
+ARG=$(jot -r -s " " 100 -20000 20000); ./push_swap $ARG | ./checker $ARG

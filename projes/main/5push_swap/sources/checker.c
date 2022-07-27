@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 03:04:37 by gsever            #+#    #+#             */
-/*   Updated: 2022/07/26 21:35:45 by gsever           ###   ########.fr       */
+/*   Updated: 2022/07/27 13:36:40 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,13 +70,14 @@ static int	checker_execute(t_base *base, char *command)
 
 static void	checker_fill_stack(t_base *stack, int argc, char **argv)
 {
+	arg_checker(argc, argv, stack);
+	stack->a = malloc(sizeof(int) * stack->start.size);
+	stack->b = malloc(sizeof(int) * stack->start.size);
+	stack->c = malloc(sizeof(int) * stack->start.size);
 	if (argc > 2)
 	{
-		arg_checker(argc, argv, stack);
-		stack->a = malloc(sizeof(int) * stack->start.size);
-		stack->b = malloc(sizeof(int) * stack->start.size);
-		stack->c = malloc(sizeof(int) * stack->start.size);
 		stack_fill(argc, argv, stack);
+		is_repeated(stack);
 	}
 	else if (argc == 1)
 	{
