@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 18:55:29 by gsever            #+#    #+#             */
-/*   Updated: 2022/07/27 13:15:03 by gsever           ###   ########.fr       */
+/*   Updated: 2022/07/29 00:18:38 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
  * ARG=(`ruby -e "puts (0..499).to_a.shuffle.join(' ')"`);
  * 	./push_swap $ARG | ./checker $ARG
  * 
- * ARG=$(jot -r -s " " 100 -20000 20000); ./push_swap $ARG | ./checker $ARG
+ * ARG=$(jot -r -s " " 100 -20000 2000000); ./push_swap $ARG | ./checker $ARG
  * 
  * @link https://www.doxygen.nl/manual/commands.html
  * @author Görkem SEVER (gsever)

@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 13:14:11 by gsever            #+#    #+#             */
-/*   Updated: 2022/07/25 15:49:38 by gsever           ###   ########.fr       */
+/*   Updated: 2022/07/29 00:14:28 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@
 // 		free(line);
 // 		return (NULL);
 // 	}
-// 	new_removed_file = malloc(sizeof(char) * (ft_strlen(line) - counter + 1));
+// 	new_removed_file = malloc(sizeof(char)* (ft_strlen(line) - counter + 1));
 // 	if (!new_removed_file)
 // 		return (NULL);
 // 	counter++;
@@ -142,33 +142,6 @@
 //  	}
 // }
 // */
-char	*ft_strchr_ch(char *save, int c)
-{
-	int	i;
-
-	i = 0;
-	if (!save)
-		return (0);
-	while (save[i] != '\0')
-	{
-		if (save[i] == (char)c)
-			return ((char *)&save[i]);
-		i++;
-	}
-	return (0);
-}
-
-size_t	ft_strlen_ch(const char *s)
-{
-	size_t	i;
-
-	i = 0;
-	while (s[i] != '\0')
-		i++;
-	return (i);
-}
-
-
 char	*ft_strjoin_ch(char *save, char *buffer)
 {
 	char	*temp;

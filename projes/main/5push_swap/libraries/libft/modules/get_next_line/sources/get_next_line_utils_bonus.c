@@ -6,11 +6,11 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 17:01:38 by gsever            #+#    #+#             */
-/*   Updated: 2022/07/25 15:46:54 by gsever           ###   ########.fr       */
+/*   Updated: 2022/07/29 00:13:16 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include "../includes/get_next_line_bonus.h"
+#include "../includes/get_next_line_bonus.h"
 
 // size_t	ft_strlen_gnl(const char *s)
 // {
@@ -69,3 +69,28 @@
 // 	free(s1);
 // 	return (s3);
 // }
+char	*ft_strchr_ch(char *save, int c)
+{
+	int	i;
+
+	i = 0;
+	if (!save)
+		return (0);
+	while (save[i] != '\0')
+	{
+		if (save[i] == (char)c)
+			return ((char *)&save[i]);
+		i++;
+	}
+	return (0);
+}
+
+size_t	ft_strlen_ch(const char *s)
+{
+	size_t	i;
+
+	i = 0;
+	while (s[i] != '\0')
+		i++;
+	return (i);
+}

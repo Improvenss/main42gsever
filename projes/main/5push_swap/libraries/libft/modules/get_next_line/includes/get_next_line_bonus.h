@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 15:38:21 by gsever            #+#    #+#             */
-/*   Updated: 2022/07/24 23:45:51 by gsever           ###   ########.fr       */
+/*   Updated: 2022/07/29 00:14:46 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,13 @@
 # include <unistd.h>
 
 char	*get_next_line(int fd);
-char	*ft_read_line(int fd, char *line);
-char	*ft_write_readed_line(char *line);
-char	*ft_remove_writed_line(char *line);
+char	*save_last_word(char *save);
+char	*short_do_line(char *save);
+char	*read_file(int fd, char *save);
+char	*ft_strjoin_ch(char *save, char *buffer);
+
 //UTILS
-size_t	ft_strlen(const char *s);
-char	*ft_strchr(const char *s, int c);
-char	*ft_strjoin_gnl(char *s1, char *s2);
+char	*ft_strchr_ch(char *save, int c);
+size_t	ft_strlen_ch(const char *s);
 
 #endif
