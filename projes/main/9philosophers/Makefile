@@ -6,7 +6,7 @@
 #    By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/31 18:14:42 by gsever            #+#    #+#              #
-#    Updated: 2022/07/31 18:30:17 by gsever           ###   ########.fr        #
+#    Updated: 2022/07/31 18:32:59 by gsever           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ INCLUDES	= -I$(HEADERS_DIRECTORY) -I$(LIBFTDIR)/includes/
 
 #	HEADERS Parts --> Kutuphane --> OK
 HEADERS_LIST = \
-	push_swap.h
+			philosophers.h
 HEADERS_DIRECTORY = ./includes/
 HEADERS = $(addprefix $(HEADERS_DIRECTORY), $(HEADERS_LIST))
 
