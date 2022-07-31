@@ -1,0 +1,11 @@
+Race condition: (Yaris Kosullari)
+		Bir cihaz veya sistemin ayni anda 2 veya daha fazla islemi gerceklestirmeye
+	calistigi anda olusan sorum. 2 thread ayni bellek konumunu hedeflediginde ve en az biri bir yazma
+	islemi oldugunda bu islem "Data races" tarafindan yonetilir.
+
+Data races: (Veri Yarislari)(Is Parcacigi)
+		
+
+	Sample; Bir Data race(is parcacigi) degistirilebilir bir nesneye erisirken
+		baska bir Data race(is parcacigi) ona yazarken bir Race condition(veri 
+		yarisi) meydana gelir.

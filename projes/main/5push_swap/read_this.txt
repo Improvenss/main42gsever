@@ -17,4 +17,8 @@ make && ./push_swap 9 1 8 2 7 3 6 4 5 && ./checker 9 1 8 2 7 3 6 4 5
 
 ARG=(`ruby -e "puts (0..499).to_a.shuffle.join(' ')"`); ./push_swap $ARG | ./checker $ARG
 
+ARG=(`ruby -e "puts (-250..249).to_a.shuffle.join(' ')"`); ./push_swap $ARG | ./checker $ARG
+
 ARG=$(jot -r -s " " 100 -20000 20000); ./push_swap $ARG | ./checker $ARG
+
+ARG=$(jot -r -s " " 100 -90000000 9000000090000000 90000000); ./push_swap $ARG | ./checker $ARG
