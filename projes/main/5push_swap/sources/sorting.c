@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 00:23:41 by gsever            #+#    #+#             */
-/*   Updated: 2022/07/27 13:52:35 by gsever           ###   ########.fr       */
+/*   Updated: 2022/08/01 20:46:24 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	sort(t_base *base)
 	int	i;
 
 	i = 0;
-	if (base->c_a < 7)
+	if (base->c_a < 10)
 		sort_small(base);
 	else
 	{

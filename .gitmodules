@@ -25,3 +25,6 @@
 [submodule "projes/main/9philosophers/libraries"]
 	path = projes/main/9philosophers/libraries
 	url = git@github.com:Improvenss/libraries.git
+[submodule "ready-for-pusht/push_swap"]
+	path = ready-for-pusht/push_swap
+	url = git@github.com:Improvenss/push_swap.git
