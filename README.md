@@ -21,6 +21,6 @@
 ## Circle 2
 |			Finished				| Description	| Projes |
 |:---------------:|:-----------:|:----:|
-[push_swap](https://github.com/Improvenss/main42gsever/push_swap) | push_swap pjocets we learned sorting algorithms and stack structure. | [![gsever's push_swap Score](https://badge42.vercel.app/api/v2/cl1m41hqg003409l9rs91d7fl/project/2592042)](https://projects.intra.42.fr/42cursus-push_swap/gsever) |
+[push_swap](https://github.com/Improvenss/main42gsever/push_swap) | push_swap project we learned sorting algorithms and stack structure. | [![gsever's push_swap Score](https://badge42.vercel.app/api/v2/cl1m41hqg003409l9rs91d7fl/project/2592042)](https://projects.intra.42.fr/42cursus-push_swap/gsever) |
 [fract-ol](https://github.com/Improvenss/fract-ol) | fract-ol poject visualized fractals with minilibx 42's visualize library.:) | [![gsever's 42 fract-ol Score](https://badge42.vercel.app/api/v2/cl1m41hqg003409l9rs91d7fl/project/2568174)](https://projects.intra.42.fr/42cursus-fract-ol/gsever)|
 [minitalk](https://github.com/Improvenss/minitalk) | Bitwise and UINX singal's usage learning!| [![gsever's 42 minitalk Score](https://badge42.vercel.app/api/v2/cl1m41hqg003409l9rs91d7fl/project/2556398)](https://projects.intra.42.fr/projects/minitalk/gsever) |
