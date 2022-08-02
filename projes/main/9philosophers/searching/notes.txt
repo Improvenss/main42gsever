@@ -4,8 +4,16 @@ Race condition: (Yaris Kosullari)
 	islemi oldugunda bu islem "Data races" tarafindan yonetilir.
 
 Data races: (Veri Yarislari)(Is Parcacigi)
-		
+		Thread Analyzer, çok kanallı bir işlemin yürütülmesi sırasında meydana gelen veri 		yarışlarını algılar. 
+			Data races durumunda sunlar gerçekleşir;
+		1-) Tek bir işlemdeki 2 veya daha fazla is parcacigi ayni anda ayni bellek konumuna
+			erişir ve erisimlerinden en az biri yazmak icindir.
+		2-) 
+		Sample; Bir Data race(is parcacigi) degistirilebilir bir nesneye erisirken
+	baska bir Data race(is parcacigi) ona yazarken bir Race condition(veri 
+	yarisi) meydana gelir.
+		Data races' ten kacinmanin tek yolu, is parcaciklari arasında paylaşılan tüm değişken
+	verilere erisimi senkronize etmektir.
 
-	Sample; Bir Data race(is parcacigi) degistirilebilir bir nesneye erisirken
-		baska bir Data race(is parcacigi) ona yazarken bir Race condition(veri 
-		yarisi) meydana gelir.
+EXC_BAD_ACCES error:
+	Bozuk belleğe erişmeye calisan 
