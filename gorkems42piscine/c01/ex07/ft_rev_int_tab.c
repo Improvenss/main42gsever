@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 15:51:24 by gsever            #+#    #+#             */
-/*   Updated: 2021/12/04 00:07:46 by gsever           ###   ########.fr       */
+/*   Updated: 2022/08/04 02:43:50 by gsever           ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,3 +24,27 @@ void	ft_rev_int_tab(int *tab, int size)
 		i++;
 	}
 }
+/*
+#include <stdio.h>
+int		main(void)
+{
+	int tab[20];
+	int i;
+	int size;
+
+	size = 20;
+	i = 0;
+	while (i < size)
+	{
+		tab[i] = size - i;
+		i++;
+	}
+	ft_rev_int_tab(tab, size);
+	i = 0;
+	while (i < size)
+	{
+		printf("%d: %d\n", i + 1, tab[i]);
+		i++;
+	}
+}
+*/
