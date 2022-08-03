@@ -6,7 +6,7 @@
 #    By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/31 18:14:42 by gsever            #+#    #+#              #
-#    Updated: 2022/07/31 18:32:59 by gsever           ###   ########.fr        #
+#    Updated: 2022/08/02 13:53:38 by gsever           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,14 +32,9 @@ HEADERS = $(addprefix $(HEADERS_DIRECTORY), $(HEADERS_LIST))
 #	Source Files --> OK
 SOURCES_DIRECTORY = ./sources/
 SOURCES_LIST = \
-			main.c
+			main.c\
+			philosophers.c
 SOURCES = $(addprefix $(SOURCES_DIRECTORY), $(SOURCES_LIST))
-
-#	Checker Files --> OK
-CHECKER_DIRECTORY = ./sources/
-CHECKER_LIST = \
-
-CHECKER_SOURCES = $(addprefix $(SOURCES_DIRECTORY), $(CHECKER_LIST))
 
 #	Object Files --> (Compiled files directory) -> OK
 OBJECTS_DIRECTORY = objects/
@@ -59,12 +54,11 @@ RESET	= \033[0m
 X		= \033[m
 
 #	LEAKS --> Checking this program have memory leaks.
-LEAKS_PS	= leaks -atExit -- ./push_swap 9 1 8 2 7 3 6 4 5
-LEAKS_CH	= leaks -atExit -- ./checker 9 1 8 2 7 3 6 4 5
+LEAKS_PH	= leaks -atExit -- ./philosophers
 
 .PHONY: all libft clean fclean re leaksps leaksch
 
-all: $(NAME) checker
+all: $(NAME)
 
 #	Compiling
 $(OBJECTS_DIRECTORY)%.o : $(SOURCES_DIRECTORY)%.c
@@ -82,7 +76,7 @@ $(OBJECTS_DIRECTORY):
 
 #	My Library --> OK
 libft:
-ifneq ($(MAKECMDGOALS), $(filter $(MAKECMDGOALS), $(NAME) $(CHECKER)))
+ifneq ($(MAKECMDGOALS), $(filter $(MAKECMDGOALS), $(NAME)))
 	@make -C $(LIBFTDIR) $(MAKECMDGOALS) --silent
 else
 	@make -C $(LIBFTDIR) --silent
@@ -94,21 +88,11 @@ clean: libft
 
 fclean: libft clean
 	@rm -f $(NAME)
-	@rm -f $(CHECKER)
 	@echo "$(NAME): $(RED)$(NAME) was deleted$(RESET)"
-	@echo "$(NAME): $(RED)$(CHECKER) was deleted$(RESET)"
 
 re:
 	@$(MAKE) fclean
 	@$(MAKE) all
 
 leaksps:
-	$(LEAKS_PS)
-
-leaksch:
-	$(LEAKS_CH)
-
-# **************************************************************************** #
-#						       CHECKER RULES        						   #
-# **************************************************************************** #
-
+	$(LEAKS_PH)

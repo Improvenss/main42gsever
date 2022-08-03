@@ -17,3 +17,7 @@ Data races: (Veri Yarislari)(Is Parcacigi)
 
 EXC_BAD_ACCES error:
 	Bozuk belleğe erişmeye calisan 
+
+
+//////	NOTES	\\\\\
+export MallocStackLogging=1 --> ./prog 3 yazinca 3 tane leaks vardi onları gösteriyor.
