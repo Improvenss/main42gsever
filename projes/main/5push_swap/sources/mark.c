@@ -6,14 +6,26 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 12:46:39 by gsever            #+#    #+#             */
-/*   Updated: 2022/07/27 01:35:21 by gsever           ###   ########.fr       */
+/*   Updated: 2022/08/03 04:53:35 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/**
+ * @file mark.c
+ * @author Gorkem SEVER (gsever)
+ * @brief We are indexing number's values start 0 to up.
+ * Min, Max, Mid values indexing. 
+ * @version 0.1
+ * @date 2022-08-03
+ * 
+ * @copyright Copyright (c) 2022
+ * 
+ */
 #include "../includes/push_swap.h"
 
 /**
- * @brief 
+ * @brief Sayilarimiz 0'dan baslayarak kucukten buyuge olacak sekilde degerler
+ * veriliyor.
  * 
  * @return void
  * @bug Not know bugs.
