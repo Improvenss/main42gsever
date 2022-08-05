@@ -20,4 +20,4 @@ EXC_BAD_ACCES error:
 
 
 //////	NOTES	\\\\\
-export MallocStackLogging=1 --> ./prog 3 yazinca 3 tane leaks vardi onları gösteriyor.
+export MallocStackLogging=1 --> ./prog 3 yazinca 3 tane leaks vardi onları gösteriyor.c
