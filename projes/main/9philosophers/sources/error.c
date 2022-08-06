@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philosophers.c                                     :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/02 13:51:09 by gsever            #+#    #+#             */
-/*   Updated: 2022/08/06 12:49:18 by gsever           ###   ########.fr       */
+/*   Created: 2022/08/06 12:10:43 by gsever            #+#    #+#             */
+/*   Updated: 2022/08/06 12:15:55 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /**
- * @file philosophers.c
+ * @file error.c
  * @author Gorkem SEVER (gsever)
- * @brief 
+ * @brief Error page here.
  * @version 0.1
- * @date 2022-08-02
+ * @date 2022-08-06
  * 
  * @copyright Copyright (c) 2022
  * 
@@ -23,13 +23,13 @@
 #include "../includes/philosophers.h"
 
 /**
- * @brief philosophers main func.
- * @return void
- * @param check_args
+ * @brief Write "string" terminal
+ * @return 1
  * @bug Clear.
  */
-void	philosophers(int argc, char **argv, t_base base)
+int	ft_perror(char *str)
 {
-	check_args(argc, argv, base);
-	
+	ft_putstr_fd(str, 1);
+	exit(1);
+	return(1);
 }

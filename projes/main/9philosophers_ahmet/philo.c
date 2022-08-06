@@ -1,31 +1,61 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/02 13:45:18 by gsever            #+#    #+#             */
-/*   Updated: 2022/08/06 13:06:36 by gsever           ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+#include "Philo.h"
+
+void	ft_exit(int err)
+{
+	if (err == 0)
+		printf("Hatalı / Eksik Argüman Girişi!\n");
+	exit(0);
+}
+
+int *ft_atoi(int argc, char **argv)
+{
+	int *x;
+	int i = 0;
+	int l = 0;
+	int val = 0;
+	
+	x = (int *)malloc(sizeof(int *) * argc);
+	while (argv[i])
+	{
+		while (argv[i][l])
+		{
+			if (argv[i][l] < 48 || argv[i][l] > 57)
+			{
+				free(x);
+				ft_exit(0);
+			}
+			val = val * 10 + (argv[i][l] - 48);
+			l++;
+		}
+		x[i] = val;
+		l = 0;
+		val = 0;
+		i++;
+	}
+	return (x);
+}
+
+void	*assignment()
+{
+	
+	return (0);
+}
+
+void	philo_creater(int argv_i, t_list *sub)
+{
+	int i = 0;
+	pthread_t th[argv_i];
+	pthread_mutex_init(&sub->philo, NULL);
+	while (i < argv_i)
+		pthread_create(&th[i], NULL, &assignment, NULL);
+	i = 0;
+	while (i < argv_i)
+		pthread_join(th[i], NULL);
+
+}
 
 /**
- * @file main.c
- * @author Görkem SEVER (gsever)
- * @brief 
- * @version 0.1
- * @date 2022-08-02
- * 
- * @copyright Copyright (c) 2022
- * 
- */
-#include "../includes/philosophers.h"
-
-/**
- * @brief 
  * Bilgilendirme:
- * *******************************OK****************************************
  * -> Bir veya daha fazla filozof yuvarlak bir masada oturuyor.
  * 		Masanın ortasında büyük bir kase pirinç var.
  * 
@@ -47,7 +77,7 @@
  * -> Filozoflar birbiriyle konuşamazlar.
  * -> Filozoflar başka bir filozofun durumu hakkında bilgiye sahip değildir.
  * -> Amaç filozofları öldürmemektedir.
- * *******************************OK****************************************
+ * 
  * Proje Kuralları:
  * -> Bonus bölüm için ayrı bir program yazılmalıdır.
  * -> Global değişkenler yasaktır.
@@ -166,12 +196,26 @@
  * 		evre tarafından uygulanan _lock işlem sayısı), ve ancak bu sayı
  * 		sıfıra ulaştığından mutex kilidi açılımış olur.
  * 	
- * @param philosophers
- */
-int	main(int argc, char *argv[])
+ **/
+int	main(int argc, char **argv)
 {
-	t_philos	stack;
-	
-	philosophers(argc, argv, stack);
-	exit(1);
+	int *argv_i;
+	int i = 0;
+	t_list *sub;
+
+	argc = argc - 1;
+	argv++;
+	argv_i = ft_atoi(argc, argv);
+	while (argv_i[i])
+		printf("%d\n", argv_i[i++]);
+	if (argc > 3 && argc < 6)
+	{
+		philo_creater(argv_i[0], sub);
+	}
+	else
+		ft_exit(0);
+	printf("\033[0;31m");
+	printf("----\n");
+	//system("leaks a.out");
+	return (0);
 }

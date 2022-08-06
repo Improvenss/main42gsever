@@ -6,7 +6,7 @@
 #    By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/31 18:14:42 by gsever            #+#    #+#              #
-#    Updated: 2022/08/02 13:53:38 by gsever           ###   ########.fr        #
+#    Updated: 2022/08/06 12:27:56 by gsever           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,6 +32,8 @@ HEADERS = $(addprefix $(HEADERS_DIRECTORY), $(HEADERS_LIST))
 #	Source Files --> OK
 SOURCES_DIRECTORY = ./sources/
 SOURCES_LIST = \
+			check_args.c\
+			error.c\
 			main.c\
 			philosophers.c
 SOURCES = $(addprefix $(SOURCES_DIRECTORY), $(SOURCES_LIST))
