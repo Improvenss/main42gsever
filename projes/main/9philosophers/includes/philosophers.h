@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 18:33:22 by gsever            #+#    #+#             */
-/*   Updated: 2022/08/07 22:02:42 by gsever           ###   ########.fr       */
+/*   Updated: 2022/08/07 22:41:39 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,6 @@
 # include <sys/types.h>
 # include <sys/time.h>
 # include <pthread.h>
-
-//	MY OWN 42 LIBRARIES
-# include "../libraries/libft/includes/libft.h"
 
 //	COLORS --> 🟥 🟩 🟦
 # define LB		"\033[0;36m"
@@ -72,7 +69,7 @@ typedef	struct	s_philos
  * @param time_to_eat	: The time the philosophers take to eat.
  * @param time_to_sleep	: The time the philosophers take to sleep.
  * @param dead_time		: The time the philosophers take to death.
- * @param eat_dest		:
+ * @param must_eat		: Cycle count --> Must eat count.
  * @param total_full	:
  * 
  */
@@ -84,7 +81,7 @@ typedef	struct	s_base
 	int			time_to_eat;
 	int			time_to_sleep;
 	int			dead_time;
-	int			eat_dest;
+	int			must_eat;
 	int			total_full;
 }		t_base;
 

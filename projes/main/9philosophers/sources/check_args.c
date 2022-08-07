@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 11:24:30 by gsever            #+#    #+#             */
-/*   Updated: 2022/08/07 22:04:00 by gsever           ###   ########.fr       */
+/*   Updated: 2022/08/07 22:38:22 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,9 @@
  */
 void	check_args_in_values(int ac, char **av, t_base base)
 {
-	if ()
+	(void)ac;
+	(void)**av;
+	(void)base;
 }
 
 /** --> OK
@@ -48,11 +50,11 @@ void	check_args_on_shell(int ac, char **av)
 	{
 		j = 0;
 		if (av[i][j] == '\0')
-			ft_perror("Error\n");
+			exit(-1);
 		while (av[i][j])
 		{
-			if (ft_isdigit(av[i][j]))
-				ft_perror("Error\n");
+			if (!(av[i][j] >= '0' && av[i][j] <= '9'))
+				exit(-1);
 			j++;
 		}
 		i++;

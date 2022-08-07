@@ -49,6 +49,7 @@ X		= \033[m
 
 #	LEAKS --> Checking this program have memory leaks.
 LEAKS_PH	= leaks -atExit -- ./philosophers
+#	You can use //system("leaks a.out");
 
 .PHONY: all libft clean fclean re leaksps leaksch
 

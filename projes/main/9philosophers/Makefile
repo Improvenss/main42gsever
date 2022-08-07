@@ -6,7 +6,7 @@
 #    By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/31 18:14:42 by gsever            #+#    #+#              #
-#    Updated: 2022/08/07 21:16:11 by gsever           ###   ########.fr        #
+#    Updated: 2022/08/07 22:24:11 by gsever           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,12 +20,8 @@ FLAGS		= -Wall -Werror -Wextra
 # UNAME	:= $(shell uname -s)
 # NUMPROC	:= 8
 
-#	Libft Part --> OK
-LIBFTDIR	= ./libraries/libft
-
 #	Locations Part --> not ok
-LIBRARIES	= -L$(LIBFTDIR)/ -lft
-INCLUDES	= -I$(HEADERS_DIRECTORY) -I$(LIBFTDIR)/includes/
+INCLUDES	= -I$(HEADERS_DIRECTORY)
 
 #	HEADERS Parts --> Kutuphane --> OK
 HEADERS_LIST = \
@@ -46,9 +42,6 @@ SOURCES = $(addprefix $(SOURCES_DIRECTORY), $(SOURCES_LIST))
 OBJECTS_DIRECTORY = objects/
 OBJECTS_LIST = $(patsubst %.c, %.o, $(SOURCES_LIST))
 OBJECTS	= $(addprefix $(OBJECTS_DIRECTORY), $(OBJECTS_LIST))
-OBJECTS_CH_DIRECTORY = objects/
-OBJECTS_CH_LIST = $(patsubst %.c, %.o, $(CHECKER_LIST))
-OBJECTS_CH = $(addprefix $(OBJECTS_DIRECTORY), $(OBJECTS_CH_LIST))
 
 #	COLORS --> 🟥 🟩 🟦
 LB		= \033[0;36m
@@ -61,33 +54,25 @@ X		= \033[m
 
 #	LEAKS --> Checking this program have memory leaks.
 LEAKS_PH	= leaks -atExit -- ./philosophers
+#	You can use //system("leaks a.out");
 
-.PHONY: all libft clean fclean re leaksps leaksch
+.PHONY: all clean fclean re leaksps
 
-all:
-	@$(MAKE) $(NAME) -j$(NUMPROC)
+all: $(NAME) -j$(NUMPROC)
 
 #	Compiling
 $(OBJECTS_DIRECTORY)%.o : $(SOURCES_DIRECTORY)%.c
 	@$(CC) $(FLAGS) $(INCLUDES) -c $< -o $@
 	@printf "%-57b %b" "$(BLUE)COMPILED $(LB)$@" "$(GREEN)[✓]$(X)\n"
 
-$(NAME): libft $(OBJECTS_DIRECTORY) $(OBJECTS)
-	@$(CC) $(FLAGS) -o $(NAME) $(OBJECTS) $(LIBRARIES)
+$(NAME): $(OBJECTS_DIRECTORY) $(OBJECTS)
+	@$(CC) $(FLAGS) -o $(NAME) $(OBJECTS)
 	@printf "%-57b %b" "$(GREEN)CREATED $(NAME)" "$(GREEN)[FINISHED]$(X)\n"
 
 #	Objects file creating
 $(OBJECTS_DIRECTORY):
 	@mkdir -p $(OBJECTS_DIRECTORY)
 	@echo "$(NAME): $(GREEN)$(OBJECTS_DIRECTORY) was created$(RESET)"
-
-#	My Library --> OK
-libft:
-ifneq ($(MAKECMDGOALS), $(filter $(MAKECMDGOALS), $(NAME)))
-	@make -C $(LIBFTDIR) $(MAKECMDGOALS) --silent
-else
-	@make -C $(LIBFTDIR) --silent
-endif
 
 #	Compiling with all threads.
 ifeq ($(UNAME), Linux)
@@ -97,17 +82,15 @@ else ifeq ($(UNAME), Darwin)
 endif
 # You can use --> man sysctl -> shell: sysctl -a | grep "hw.ncpu"
 
-clean: libft
+clean:
 	@rm -rf $(OBJECTS_DIRECTORY)
 	@echo "$(NAME): $(RED)$(OBJECTS_DIRECTORY) was deleted$(RESET)"
 
-fclean: libft clean
+fclean: clean
 	@rm -f $(NAME)
 	@echo "$(NAME): $(RED)$(NAME) was deleted$(RESET)"
 
-re:
-	@$(MAKE) fclean
-	@$(MAKE) all
+re: fclean all
 
 leaksps:
 	$(LEAKS_PH)
