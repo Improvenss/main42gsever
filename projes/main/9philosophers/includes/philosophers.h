@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 18:33:22 by gsever            #+#    #+#             */
-/*   Updated: 2022/08/07 23:34:37 by gsever           ###   ########.fr       */
+/*   Updated: 2022/08/08 00:30:41 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ void	check_args_on_shell(int ac, char **av);
 void	check_args(int argc, char **argv, t_base *base);
 
 //error.c
-int		ft_perror(char *str);
+int		ft_perror(void);
 
 //init_args.c
 void	init_args(int ac, char **av, t_base *base);

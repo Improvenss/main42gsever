@@ -6,7 +6,7 @@
 #    By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/31 18:14:42 by gsever            #+#    #+#              #
-#    Updated: 2022/08/07 23:38:59 by gsever           ###   ########.fr        #
+#    Updated: 2022/08/08 00:11:09 by gsever           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,25 +18,19 @@ FLAGS		= -Wall -Werror -Wextra
 
 #	All process use for compiling.
 # UNAME	:= $(shell uname -s)
-# NUMPROC	:= 8
+NUMPROC	:= 8
 
-#	Locations Part --> not ok
+#	Locations Part --> OK
 INCLUDES	= -I$(HEADERS_DIRECTORY)
 
 #	HEADERS Parts --> Kutuphane --> OK
-HEADERS_LIST = \
-			philosophers.h
 HEADERS_DIRECTORY = ./includes/
+# HEADERS_LIST = $(subst $(HEADERS_DIRECTORY),,$(wildcard $(HEADERS_DIRECTORY)*.h))
 HEADERS = $(addprefix $(HEADERS_DIRECTORY), $(HEADERS_LIST))
 
 #	Source Files --> OK
 SOURCES_DIRECTORY = ./sources/
-SOURCES_LIST = \
-			check_args.c\
-			error.c\
-			init_args.c\
-			main.c\
-			philosophers.c
+SOURCES_LIST = $(subst $(SOURCES_DIRECTORY),,$(wildcard $(SOURCES_DIRECTORY)*.c))
 SOURCES = $(addprefix $(SOURCES_DIRECTORY), $(SOURCES_LIST))
 
 #	Object Files --> (Compiled files directory) -> OK
@@ -59,7 +53,9 @@ LEAKS_PH	= leaks -atExit -- ./philosophers
 
 .PHONY: all clean fclean re leaksps
 
-all: $(NAME) -j$(NUMPROC)
+all:
+	@$(MAKE) $(NAME) -j $(NUMPROC)
+#	@$(MAKE) -s $(NAME) -j $(NUMPROC)
 
 #	Compiling
 $(OBJECTS_DIRECTORY)%.o : $(SOURCES_DIRECTORY)%.c
