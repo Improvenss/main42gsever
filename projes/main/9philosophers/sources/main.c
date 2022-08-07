@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 13:45:18 by gsever            #+#    #+#             */
-/*   Updated: 2022/08/06 13:06:36 by gsever           ###   ########.fr       */
+/*   Updated: 2022/08/07 21:53:23 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -166,12 +166,30 @@
  * 		evre tarafından uygulanan _lock işlem sayısı), ve ancak bu sayı
  * 		sıfıra ulaştığından mutex kilidi açılımış olur.
  * 	
+ * 	Description v-v-v
+ * 
+ * 			--- NOTES ---
+ * 	Threads		--> is parcacigi
+ * 	Mutex		--> BOOLEAN gibi dusun, acip kapatmaya yariyor.
+ * 
+ * 	Processes	--> isin kendisi
+ * 	Semaphores	--> INT gibi dusun, catallarin hepsi ortada, her philosopher
+ * 		ortadan aliyor catallari. Catallar kadar islem philosopher olabiliyor.
+ * 		Bele bir sey.
+ * 
+ * 	**************BONUS PART****************
+ * 	Bonus kısmı için özel kurallar şunlardır:
+ * 		• Tüm çatallar masanın ortasına konur.
+ * 		• Hafızada durumları yoktur, ancak mevcut çatalların sayısı
+ * 			bir semafor ile temsil edilir.
+ * 		• Her filozof bir süreç(process) olmalıdır. Ama asıl süreç
+ * 			bir filozof olmamalıdır.
  * @param philosophers
  */
 int	main(int argc, char *argv[])
 {
-	t_philos	stack;
-	
-	philosophers(argc, argv, stack);
+	t_base	philo;
+
+	philosophers(argc, argv, philo);
 	exit(1);
 }
