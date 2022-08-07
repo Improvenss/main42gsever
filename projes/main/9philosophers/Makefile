@@ -6,7 +6,7 @@
 #    By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/31 18:14:42 by gsever            #+#    #+#              #
-#    Updated: 2022/08/07 22:24:11 by gsever           ###   ########.fr        #
+#    Updated: 2022/08/07 23:38:59 by gsever           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,7 @@ SOURCES_DIRECTORY = ./sources/
 SOURCES_LIST = \
 			check_args.c\
 			error.c\
+			init_args.c\
 			main.c\
 			philosophers.c
 SOURCES = $(addprefix $(SOURCES_DIRECTORY), $(SOURCES_LIST))

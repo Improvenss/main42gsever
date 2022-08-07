@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 11:24:30 by gsever            #+#    #+#             */
-/*   Updated: 2022/08/07 22:38:22 by gsever           ###   ########.fr       */
+/*   Updated: 2022/08/07 23:36:07 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
  * @brief 
  * 
  */
-void	check_args_in_values(int ac, char **av, t_base base)
+void	check_args_in_values(int ac, char **av, t_base *base)
 {
 	(void)ac;
 	(void)**av;
@@ -71,7 +71,7 @@ void	check_args_on_shell(int ac, char **av)
  * @param check_args_in_values
  * @bug Clear.
  */
-void	check_args(int argc, char **argv, t_base base)
+void	check_args(int argc, char **argv, t_base *base)
 {
 	if (argc >= 4 && argc <= 5)
 	{
@@ -82,6 +82,6 @@ void	check_args(int argc, char **argv, t_base base)
 	{
 		printf("ERROR: -> ./philosophers p_count die eat sleep [cycle count]\n");
 		printf("ERROR: Use like this -> ./philosophers 7 800 200 200 5\n");
-		ft_perror(RED"Wrong Argument"RESET);
+		ft_perror("error");
 	}
 }

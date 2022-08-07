@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 13:45:18 by gsever            #+#    #+#             */
-/*   Updated: 2022/08/07 21:53:23 by gsever           ###   ########.fr       */
+/*   Updated: 2022/08/07 23:33:08 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -188,8 +188,8 @@
  */
 int	main(int argc, char *argv[])
 {
-	t_base	philo;
+	t_base	base;
 
-	philosophers(argc, argv, philo);
+	philosophers(argc, argv, &base);
 	exit(1);
 }

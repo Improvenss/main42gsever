@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/07 21:19:29 by gsever            #+#    #+#             */
-/*   Updated: 2022/08/07 22:45:53 by gsever           ###   ########.fr       */
+/*   Updated: 2022/08/07 23:35:19 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,14 @@
  * @param check_args Checking args is true and initializing when checking.
  * 
  */
-void	init_args(int ac, char **av, t_base base)
+void	init_args(int ac, char **av, t_base *base)
 {
 	check_args(ac, av, base);
-	base.philos_count = atoi(av[1]);
-	base.time_to_die = atoi(av[2]);
-	base.time_to_eat = atoi(av[3]);
-	base.time_to_sleep = atoi(av[4]);
-	base.must_eat = -1;
+	base->philos_count = atoi(av[1]);
+	base->time_to_die = atoi(av[2]);
+	base->time_to_eat = atoi(av[3]);
+	base->time_to_sleep = atoi(av[4]);
+	base->must_eat = 0;
 	if (ac == 6)
-		base.must_eat = atoi(av[5]);
+		base->must_eat = atoi(av[5]);
 }

@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 18:33:22 by gsever            #+#    #+#             */
-/*   Updated: 2022/08/07 22:41:39 by gsever           ###   ########.fr       */
+/*   Updated: 2022/08/07 23:34:37 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,14 +75,14 @@ typedef	struct	s_philos
  */
 typedef	struct	s_base
 {
-	t_philos	*philos;
+	// t_philos	*philos;
 	int			philos_count;
 	int			time_to_die;
 	int			time_to_eat;
 	int			time_to_sleep;
-	int			dead_time;
+	// int			dead_time;
 	int			must_eat;
-	int			total_full;
+	// int			total_full;
 }		t_base;
 
 
@@ -91,16 +91,17 @@ typedef	struct	s_base
 /* ************************************************************************** */
 
 //check_args.c
+void	check_args_in_values(int ac, char **av, t_base *base);
 void	check_args_on_shell(int ac, char **av);
-void	check_args(int argc, char **argv, t_base base);
+void	check_args(int argc, char **argv, t_base *base);
 
 //error.c
 int		ft_perror(char *str);
 
 //init_args.c
-void	init_args(int ac, char **av, t_base base);
+void	init_args(int ac, char **av, t_base *base);
 
 //philosophers.c
-void	philosophers(int argc, char **argv, t_base base);
+void	philosophers(int argc, char **argv, t_base *base);
 
 #endif
