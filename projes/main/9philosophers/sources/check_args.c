@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 11:24:30 by gsever            #+#    #+#             */
-/*   Updated: 2022/08/08 13:03:37 by gsever           ###   ########.fr       */
+/*   Updated: 2022/08/08 13:20:41 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,13 @@
  * 
  */
 #include "philosophers.h"
-/**
- * @brief 
+
+/** --> OK
+ * @brief Checking base struct's values.
+ * 
+ * -> Do not test with more than 200 philosophers.
+ * -> Do not test with time_to_die or time_to_eat or time_to_sleep set
+ * 		to values lower than 60 ms.
  * @return void
  * @param ft_perror If have error writing terminal "STR" and exit(-1).
  */
@@ -40,7 +45,6 @@ values can't be lower than 60 ms."X);
  * @brief ARGS sayimiz dogruysa bu func() calisacak. 
  * @return void
  * @param ft_perror If have error writing terminal "STR" and exit(-1).
- * @param ft_isdigit
  * @bug Clear.
  */
 void	check_args_on_shell(int ac, char **av)
@@ -53,25 +57,25 @@ void	check_args_on_shell(int ac, char **av)
 	{
 		j = 0;
 		if (av[i][j] == '\0')
-			exit(-1);
+			ft_perror(RED"ERROR: Arguman can't be NULL!"X);
 		while (av[i][j])
 		{
 			if (!(av[i][j] >= '0' && av[i][j] <= '9'))
-				exit(-1);
+				ft_perror(RED"ERROR: Arguman need just numbers."X);
 			j++;
 		}
 		i++;
 	}
 }
 
-/** --> NOK
+/** --> OK
  * @brief 5 ya da 6 oldugunda calisacak yoksa error.
  * -> Programların alacağı argümanlar;
  * 		(1)Filozof Sayısı, (2)Ölme Süresi, (3)Yemek Yeme Süresi,
  * 		(4)Uyuma Süresi, (5)Her Filozofun Yemek Yeme Sayısı.
  * @return void
- * @param check_args_on_shell
- * @param check_args_in_values
+ * @param check_args_on_shell Checking args are ture format.
+ * @param ft_perror If have error writing terminal "STR" and exit(-1).
  * @bug Clear.
  */
 void	check_args(int argc, char **argv)

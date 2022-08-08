@@ -1,38 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philosophers.c                                     :+:      :+:    :+:   */
+/*   init_mutex.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/02 13:51:09 by gsever            #+#    #+#             */
-/*   Updated: 2022/08/08 16:10:35 by gsever           ###   ########.fr       */
+/*   Created: 2022/08/08 15:58:38 by gsever            #+#    #+#             */
+/*   Updated: 2022/08/08 16:05:18 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /**
- * @file philosophers.c
+ * @file init_mutex.c
  * @author Gorkem SEVER (gsever)
  * @brief 
  * @version 0.1
- * @date 2022-08-02
+ * @date 2022-08-08
  * 
  * @copyright Copyright (c) 2022
  * 
  */
 #include "philosophers.h"
 
-/**
- * @brief philosophers main func. Using thread.
- * @return void
- * @param check_args
- * @bug Clear.
- */
-void	philosophers(int argc, char **argv, t_base *base)
+
+void	init_mutex(t_base *base)
 {
-	init_args(argc, argv, base);
-	init_philo(base);
-	init_mutex(base);
-	init_philo_thread(base);
-	//destroy
+	int	i;
+
+	i = -1;
+	while (++i < base->philos_count)
+		pthread_mutex_init(&base->fork[i], NULL);
 }
