@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 12:10:43 by gsever            #+#    #+#             */
-/*   Updated: 2022/08/08 00:29:30 by gsever           ###   ########.fr       */
+/*   Updated: 2022/08/08 12:49:29 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,9 @@
  * @return 1
  * @bug Clear.
  */
-int	ft_perror(void)
+int	ft_perror(char *str)
 {
+	printf("%s\n", str);
 	exit(1);
 	return(1);
 }

@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 18:33:22 by gsever            #+#    #+#             */
-/*   Updated: 2022/08/08 00:30:41 by gsever           ###   ########.fr       */
+/*   Updated: 2022/08/08 12:58:59 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ typedef struct s_base t_base;
 /**
  * @brief This struct for just one philosopher.
  * @param eat_count		: How many times eated.
- * @param full			: Is finished one cycle(dongu). --> eat -> sleep -> think.
+ * @param full			: Is finished one cycle(dongu)-> eat -> sleep -> think.
  * @param last_eat_time	: Elapsed time since the philosopher last ate.
  * @param common*		: Main event BRUH.
  */
@@ -91,12 +91,12 @@ typedef	struct	s_base
 /* ************************************************************************** */
 
 //check_args.c
-void	check_args_in_values(int ac, char **av, t_base *base);
+void	check_args_in_values(t_base *base);
 void	check_args_on_shell(int ac, char **av);
-void	check_args(int argc, char **argv, t_base *base);
+void	check_args(int argc, char **argv);
 
 //error.c
-int		ft_perror(void);
+int	ft_perror(char *str);
 
 //init_args.c
 void	init_args(int ac, char **av, t_base *base);
