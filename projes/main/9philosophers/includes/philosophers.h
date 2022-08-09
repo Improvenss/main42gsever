@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 18:33:22 by gsever            #+#    #+#             */
-/*   Updated: 2022/08/08 16:14:36 by gsever           ###   ########.fr       */
+/*   Updated: 2022/08/10 00:48:48 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,48 @@
 # define PHILOSOPHERS_H
 
 //	STANDARD LIBRARY INCLUDES
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdio.h>
-# include <stdint.h>
+# include <unistd.h> /*
+	write()		-> System call used to write data from the buffer,
+	fork()		-> Create thread from process. */
+# include <stdlib.h> /*
+	free()		-> Deallocatig all allocated memory,
+	exit()		-> Closing everything with atexit() and terminates program. */
+# include <stdio.h> /*
+	printf()	-> A library function to send formatted output to the screen. */
+# include <signal.h> /*
+	kill()		-> Close process from PID. */
+# include <stdint.h> /*
+	Type	 	Name		Num_Bytes	Num_Bits	Integer_Range
+	int8_t	 ->	char  ->		1		8		-128 to 127,
+	int16_t	 ->	short ->	2		16		-32768 to 32767,
+	int32_t	 ->	int	  ->		4		32		-2147483648 to 2147483647,
+	int64_t	 ->	long long =		1		8	0 to 255,
+	uint8_t	 ->	unsigned char =,
+	uint16_t ->	unsigned short,
+	uint32_t ->	unsigned int,
+	uint64_t ->	unsigned long long. */
 # include <stdbool.h>
 # include <errno.h>
 # include <limits.h>
+# include <string.h> /*
+	memset()	-> Bellek blogunu 'belirli bir degerle' doldurur,
+	malloc()	*/
 # include <sys/types.h>
-# include <sys/time.h>
-# include <pthread.h>
+# include <sys/time.h> /* gettimeofday() */
+# include <pthread.h> /* Mendatory part:
+	pthread_create() -> Create process for one function,
+	pthread_detach(),
+	pthread_join(),
+	pthread_mutex_init(),
+	pthread_mutex_destroy(),
+	pthread_mutex_lock(),
+	pthread_mutex_unlock() */
+# include <semaphore.h> /* Bonus part:
+	sem_open(),
+	sem_close(),
+	sem_post(),
+	sem_wait(),
+	sem_unlink() */
 
 //	COLORS --> 🟥 🟩 🟦
 # define LB		"\033[0;36m"
@@ -44,7 +76,7 @@
 /* STRUCT DEFINES AREA													  	  */
 /* ************************************************************************** */
 
-typedef struct s_base t_base;
+typedef struct s_base	t_base;
 
 /**
  * @brief This struct for just one philosopher.
@@ -57,7 +89,7 @@ typedef struct s_base t_base;
  * @param th_id
  * @param id			: Philosopher's thread id.
  */
-typedef	struct	s_philos
+typedef struct s_philos
 {
 	t_base		*common;
 	int			eat_count;
@@ -84,7 +116,7 @@ typedef	struct	s_philos
  * @param total_full	:
  * 
  */
-typedef	struct	s_base
+typedef struct s_base
 {
 	t_philos		*philos;
 	pthread_mutex_t	*fork;

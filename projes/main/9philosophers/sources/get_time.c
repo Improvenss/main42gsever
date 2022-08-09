@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 13:30:32 by gsever            #+#    #+#             */
-/*   Updated: 2022/08/08 15:02:53 by gsever           ###   ########.fr       */
+/*   Updated: 2022/08/10 00:49:02 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@
  * second: 1659960007[000]
  * micro second: [255]371
  * last time --> 1659960007255%
+ * 
+ * @fn gettimeofday() : Zamani milisecond cinsinden aliyoruz.
  */
 long	get_current_time()
 {

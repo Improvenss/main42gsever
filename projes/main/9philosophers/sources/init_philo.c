@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 13:09:35 by gsever            #+#    #+#             */
-/*   Updated: 2022/08/08 16:14:04 by gsever           ###   ########.fr       */
+/*   Updated: 2022/08/09 23:29:40 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,10 @@
 
 /**
  * @brief Philosopher's values entering here.
+ * 
  * @return void
- * @param get_current_time Simdiki zamani aliyoruz. 'ms' cinsinden.
+ * @param base 
+ * @fn get_current_time	: Simdiki zamani aliyoruz. 'ms' cinsinden.
  * @bug Clear.
  */
 void	init_philo(t_base *base)

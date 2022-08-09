@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 11:24:30 by gsever            #+#    #+#             */
-/*   Updated: 2022/08/08 13:20:41 by gsever           ###   ########.fr       */
+/*   Updated: 2022/08/09 23:23:32 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,9 @@
  * @brief Checking base struct's values.
  * 
  * -> Do not test with more than 200 philosophers.
- * -> Do not test with time_to_die or time_to_eat or time_to_sleep set
- * 		to values lower than 60 ms.
+ * -> Do not test with time_to_die or time_to_eat or
+ * 	time_to_sleep set to values lower than 60 ms.
+ * 
  * @return void
  * @param ft_perror If have error writing terminal "STR" and exit(-1).
  */

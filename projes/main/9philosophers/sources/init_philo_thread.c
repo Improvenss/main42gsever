@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 14:36:25 by gsever            #+#    #+#             */
-/*   Updated: 2022/08/08 15:56:26 by gsever           ###   ########.fr       */
+/*   Updated: 2022/08/10 00:49:04 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,22 @@
 #include "philosophers.h"
 
 /**
- * @brief Her philosopher'e bir thread olusturuyoruz. Boylelikle her 
- * philosopherimiz bir thread oluyor.
+ * @brief Her philosopher'e 'pthread_create' functionuyla bir thread
+ * 	olusturuyoruz.
+ * 
+ * >Bu thread yani philosopher kendi lifecycle dongusunu calistiriyor.
+ * >Boylelikle her philosopherimiz bir thread oluyor.
  * 
  * @return void
  * @param base
- * @fn @param pthread_create
- * @fn @param lifecycle
- * @fn @param lifecycle_checker
- * @fn @param pthread_join
+ * 
+ * @fn pthread_create	: Her philosopher'a yeni bir thread burada
+ * 	olusturmus oluyoruz. --> Philosopher_id'sine lifecycle functionunu
+ * 	calismasi gorevini veriyoruz.
+ * @fn lifecycle		: Philosopherlerin yasam dongusunu gerceklestiriyor.
+ * @fn lifecycle_checker: Eger olen bir philosopher var mi onu kontrol ediyor.
+ * @fn pthread_join		: 
+ * 
  * @bug Clear.
  */
 void	init_philo_thread(t_base *base)

@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 15:35:12 by gsever            #+#    #+#             */
-/*   Updated: 2022/08/08 16:15:12 by gsever           ###   ########.fr       */
+/*   Updated: 2022/08/09 17:24:37 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,6 @@ void	*lifecycle(void *arg)
 	t_base	*base;
 
 	base = (t_base *)arg;
+	
 	return (NULL);
 }
