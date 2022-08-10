@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 18:33:22 by gsever            #+#    #+#             */
-/*   Updated: 2022/08/10 00:48:48 by gsever           ###   ########.fr       */
+/*   Updated: 2022/08/10 05:41:24 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,26 +32,27 @@
 	kill()		-> Close process from PID. */
 # include <stdint.h> /*
 	Type	 	Name		Num_Bytes	Num_Bits	Integer_Range
-	int8_t	 ->	char  ->		1		8		-128 to 127,
-	int16_t	 ->	short ->	2		16		-32768 to 32767,
-	int32_t	 ->	int	  ->		4		32		-2147483648 to 2147483647,
-	int64_t	 ->	long long =		1		8	0 to 255,
-	uint8_t	 ->	unsigned char =,
-	uint16_t ->	unsigned short,
-	uint32_t ->	unsigned int,
-	uint64_t ->	unsigned long long. */
+	int8_t	 ->	char			1			8		-128 to 127,
+	int16_t	 ->	short			2			16		-32768 to 32767,
+	int32_t	 ->	int				4			32		-2147483648 to 2147483647,
+	int64_t	 ->	long long		8			64		-9.223372e+18 to 9.223372e+18
+	uint8_t	 ->	unsigned char	1			8			0 to 255,
+	uint16_t ->	unsigned short	2			16			0 to 65535,
+	uint32_t ->	unsigned int	4			32			0 to 4294967295,
+	uint64_t ->	unsigned l_l 	8			64		0 to 18446744073709551615 */
 # include <stdbool.h>
 # include <errno.h>
 # include <limits.h>
 # include <string.h> /*
-	memset()	-> Bellek blogunu 'belirli bir degerle' doldurur,
-	malloc()	*/
+	memset()	-> Filling memory allocated with a value we want,
+	malloc()	-> Allocating memory with NULL. */
 # include <sys/types.h>
-# include <sys/time.h> /* gettimeofday() */
-# include <pthread.h> /* Mendatory part:
+# include <sys/time.h> /*
+	gettimeofday() */
+# include <pthread.h> /*Mendatory part:
 	pthread_create() -> Create process for one function,
-	pthread_detach(),
-	pthread_join(),
+	pthread_detach() -> Thread'la isimiz bittiginde bunu geri ,
+	pthread_join()	 -> p_create ile gorevlendigimiz thread'i calistirmaya yariyor,
 	pthread_mutex_init(),
 	pthread_mutex_destroy(),
 	pthread_mutex_lock(),
@@ -161,6 +162,9 @@ void	init_philo(t_base *base);
 //lifecycle.c
 void	*lifecycle_checker(void *arg);
 void	*lifecycle(void *arg);
+
+//actions.c
+void	philo_think(t_base *base);
 
 //philosophers.c
 void	philosophers(int argc, char **argv, t_base *base);
