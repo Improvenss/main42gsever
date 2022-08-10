@@ -6,14 +6,14 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 13:51:09 by gsever            #+#    #+#             */
-/*   Updated: 2022/08/10 04:09:14 by gsever           ###   ########.fr       */
+/*   Updated: 2022/08/10 05:55:57 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /**
  * @file philosophers.c
  * @author Gorkem SEVER (gsever)
- * @brief 
+ * @brief Main philosopher's function starting here.
  * @version 0.1
  * @date 2022-08-02
  * 
@@ -23,10 +23,20 @@
 #include "philosophers.h"
 
 /**
- * @brief philosophers main func. Using thread.
+ * @brief Philosopher's main function. Every Philosopher one thread.
+ * 
  * @return void
- * @param check_args
- * @bug Clear.
+ * 
+ * @param argc Arguman count from shell.
+ * @param argv Arguman veriable from shell.
+ * @param base Base structure from library.
+ * 
+ * @fn init_args()
+ * @fn init_philo()
+ * @fn init_mutex()
+ * @fn init_philo_thread()
+ * 
+ * @bug Clear
  */
 void	philosophers(int argc, char **argv, t_base *base)
 {

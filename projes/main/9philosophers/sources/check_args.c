@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 11:24:30 by gsever            #+#    #+#             */
-/*   Updated: 2022/08/09 23:23:32 by gsever           ###   ########.fr       */
+/*   Updated: 2022/08/10 05:58:05 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,12 +71,20 @@ void	check_args_on_shell(int ac, char **av)
 
 /** --> OK
  * @brief 5 ya da 6 oldugunda calisacak yoksa error.
+ * 
  * -> Programların alacağı argümanlar;
  * 		(1)Filozof Sayısı, (2)Ölme Süresi, (3)Yemek Yeme Süresi,
  * 		(4)Uyuma Süresi, (5)Her Filozofun Yemek Yeme Sayısı.
+ * 
  * @return void
- * @param check_args_on_shell Checking args are ture format.
- * @param ft_perror If have error writing terminal "STR" and exit(-1).
+ * 
+ * @param argc
+ * @param argv
+ * 
+ * @fn check_args_on_shell : Checking args are ture format.
+ * @fn printf : For error str writing.
+ * @fn ft_perror : If have error writing terminal "STR" and exit(-1).
+ * 
  * @bug Clear.
  */
 void	check_args(int argc, char **argv)
