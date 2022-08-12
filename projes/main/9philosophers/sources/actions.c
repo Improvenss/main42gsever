@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 05:32:09 by gsever            #+#    #+#             */
-/*   Updated: 2022/08/10 05:43:36 by gsever           ###   ########.fr       */
+/*   Updated: 2022/08/12 09:54:32 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,13 @@
  */
 #include "philosophers.h"
 
+void	philo_eat(t_base *base)
+{
+	uint64_t	real_time;
 
+	real_time = get_current_time() - base->philos->last_eat_time;
+	printf("%llu %d %s\n", )
+}
 
 /**
  * @brief Philosopher's thinkning function.

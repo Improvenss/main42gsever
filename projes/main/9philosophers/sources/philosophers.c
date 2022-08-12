@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 13:51:09 by gsever            #+#    #+#             */
-/*   Updated: 2022/08/12 09:50:56 by gsever           ###   ########.fr       */
+/*   Updated: 2022/08/12 09:51:28 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@
  */
 void	philosophers(int argc, char **argv, t_base *base)
 {
-	init_args(argc, argv, base); /*  */
+	init_args(argc, argv, base);
 	init_philo(base);
 	init_mutex(base);
 	init_philo_thread(base);
