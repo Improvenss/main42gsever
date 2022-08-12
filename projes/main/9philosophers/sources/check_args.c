@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 11:24:30 by gsever            #+#    #+#             */
-/*   Updated: 2022/08/10 05:58:05 by gsever           ###   ########.fr       */
+/*   Updated: 2022/08/12 00:25:00 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@
  * 	time_to_sleep set to values lower than 60 ms.
  * 
  * @return void
- * @param ft_perror If have error writing terminal "STR" and exit(-1).
+ * @param base Base structure.
+ * @fn ft_perror	: If have error writing terminal "STR" and exit(-1).
  */
 void	check_args_in_values(t_base *base)
 {
@@ -45,7 +46,9 @@ values can't be lower than 60 ms."X);
 /** --> OK
  * @brief ARGS sayimiz dogruysa bu func() calisacak. 
  * @return void
- * @param ft_perror If have error writing terminal "STR" and exit(-1).
+ * @param ac
+ * @param av**
+ * @fn ft_perror	: If have error writing terminal "STR" and exit(-1).
  * @bug Clear.
  */
 void	check_args_on_shell(int ac, char **av)

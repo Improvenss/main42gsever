@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 18:33:22 by gsever            #+#    #+#             */
-/*   Updated: 2022/08/10 05:41:24 by gsever           ###   ########.fr       */
+/*   Updated: 2022/08/11 17:51:39 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,8 +87,8 @@ typedef struct s_base	t_base;
  * @param last_eat_time	: Elapsed time since the philosopher last ate.
  * @param fork_l		: Left fork.
  * @param fork_r		: Right fork.
- * @param th_id
- * @param id			: Philosopher's thread id.
+ * @param th_id			: Philosopher's thread id.
+ * @param id			: Philosopher's turn id.
  */
 typedef struct s_philos
 {
