@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/07 21:19:29 by gsever            #+#    #+#             */
-/*   Updated: 2022/08/15 18:54:29 by gsever           ###   ########.fr       */
+/*   Updated: 2022/08/16 00:21:33 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	init_args(int ac, char **av, t_base *base)
 	base->time_to_die = atoi(av[2]);
 	base->time_to_eat = atoi(av[3]);
 	base->time_to_sleep = atoi(av[4]);
-	base->must_eat = 0;
+	base->must_eat = -1;
 	if (ac == 6)
 		base->must_eat = atoi(av[5]);
 	check_args_in_values(base);

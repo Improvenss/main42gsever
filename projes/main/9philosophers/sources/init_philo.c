@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 13:09:35 by gsever            #+#    #+#             */
-/*   Updated: 2022/08/15 19:18:12 by gsever           ###   ########.fr       */
+/*   Updated: 2022/08/15 22:49:31 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,6 @@ void	init_philo(t_base *base)
 		base->philos[i].fork_r = (i + 1) % base->philos_count;
 		base->philos[i].eat_count = 0;
 		base->philos[i].last_eat_time = 0;
+		base->philos[i].full = false;
 	}
 }

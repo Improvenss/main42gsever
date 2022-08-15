@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 15:35:12 by gsever            #+#    #+#             */
-/*   Updated: 2022/08/15 20:04:43 by gsever           ###   ########.fr       */
+/*   Updated: 2022/08/15 23:57:26 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ void	*lifecycle_checker(void *arg)
 			i = 0;
 		usleep(100);
 		timestamp = get_current_time() - base->start_time;
-		if (!base->philos[i].full &&
-			(int)(timestamp - base->philos[i].last_eat_time) > base->time_to_die)
+		if (!base->philos[i].full
+			&& ((int)(timestamp - base->philos[i].last_eat_time) > base->time_to_die))
 		{
 			printf("%llu %d %s\n", timestamp, base->philos[i].id, "died");
 			//base->is_running = false;
@@ -64,13 +64,15 @@ void	*lifecycle(void *arg)
 		philo_think(base);
 		usleep(base->time_to_eat * 0.25 * 1000);
 	}
+	printf("bura calisiyor mu amk\n");
 	while (!base->philos->full)
 	{
+		printf("BURAYA GIRMITOR O ZMAAN PPU AMK\n");
 		take_forks(base);
 		philo_eat(base);
-		take_forks(base);
+		leave_forks(base);
 		philo_think(base);
-		if(base->philos->eat_count == base->must_eat)
+		if (base->philos->eat_count == base->must_eat)/* 7 800 200 200 [5] buradaki 5 kac kere donecegini belirtiyor. */
 		{
 			base->philos->full = true;
 			base->philos->full_count++;
@@ -78,5 +80,6 @@ void	*lifecycle(void *arg)
 		}
 		philo_sleep(base);
 	}
+	printf("anneni deleyim\n");
 	return (NULL);
 }

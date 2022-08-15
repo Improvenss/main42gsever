@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 13:51:09 by gsever            #+#    #+#             */
-/*   Updated: 2022/08/15 20:16:46 by gsever           ###   ########.fr       */
+/*   Updated: 2022/08/15 20:22:41 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@
  * @fn init_philo()			: Philosopher's values entering.
  * @fn init_mutex()			: Creating mutex for thread's forks.
  * @fn init_philo_thread()	: Burada thread sonrasi lifecycle dongusu var.
+ * @fn destroy_mutexes()	: Destorying mutexes.
+ * @fn destory_threads()	: Destroying threads.
  * 
  * @bug Clear
  */
