@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 18:33:22 by gsever            #+#    #+#             */
-/*   Updated: 2022/08/15 19:39:58 by gsever           ###   ########.fr       */
+/*   Updated: 2022/08/15 20:16:28 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ typedef struct s_base	t_base;
  * @param fork_r		OK:	Right fork.
  * @param eat_count		OK:	How many times eated.
  * @param last_eat_time	OK:	Elapsed time since the philosopher last ate.
+ * @param full_count		
  * @param full				Is finished one cycle(dongu)-> eat -> sleep -> think.
  */
 typedef struct s_philos
@@ -99,6 +100,7 @@ typedef struct s_philos
 	int			fork_r;
 	int			eat_count;
 	long		last_eat_time;
+	int			full_count;
 	bool		full;
 }		t_philos;
 
@@ -106,7 +108,7 @@ typedef struct s_philos
  * @brief This struct for main cycle.
  * @param philos*		OK:	Creates a Philosopher.
  * @param fork*			: Mutexs.
- * @param philos_count	OK:The amount of philosophers we have.
+ * @param philos_count	OK: The amount of philosophers we have.
  * @param time_to_die	OK: The time the philosophers take to die.
  * @param time_to_eat	OK: The time the philosophers take to eat.
  * @param time_to_sleep	OK: The time the philosophers take to sleep.
@@ -141,6 +143,10 @@ void	philo_think(t_base *base);
 void	check_args_in_values(t_base *base);
 void	check_args_on_shell(int ac, char **av);
 void	check_args(int argc, char **argv);
+
+//destroy.c
+void	destroy_mutexes(t_base *base);
+void	destory_threads(t_base *base);
 
 //error.c
 int	ft_perror(char *str);
