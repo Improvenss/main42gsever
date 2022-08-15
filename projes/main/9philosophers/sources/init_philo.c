@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 13:09:35 by gsever            #+#    #+#             */
-/*   Updated: 2022/08/09 23:29:40 by gsever           ###   ########.fr       */
+/*   Updated: 2022/08/15 19:18:12 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@
  * 
  * @return void
  * @param base 
- * @fn get_current_time	: Simdiki zamani aliyoruz. 'ms' cinsinden.
+ * @fn malloc()				: Bellekte yer aciyoruz.
+ * @fn get_current_time()	: Simdiki zamani aliyoruz. 'ms' cinsinden.
  * @bug Clear.
  */
 void	init_philo(t_base *base)
@@ -40,11 +41,11 @@ void	init_philo(t_base *base)
 	i = -1;
 	while (++i < base->philos_count)
 	{
+		base->philos[i].common = base;
 		base->philos[i].id = i + 1;
 		base->philos[i].fork_l = i;
 		base->philos[i].fork_r = (i + 1) % base->philos_count;
 		base->philos[i].eat_count = 0;
 		base->philos[i].last_eat_time = 0;
-		base->philos[i].common = base;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 15:58:38 by gsever            #+#    #+#             */
-/*   Updated: 2022/08/12 09:46:36 by gsever           ###   ########.fr       */
+/*   Updated: 2022/08/15 19:30:47 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
  * @brief Initializing mutex for philosopher's threads.
  * 
  * @param base 
- * @fn pthread_mutex_init()	: Every for fork initialize ON / OFF value.
+ * @fn pthread_mutex_init()	: Every fork for initialize ON / OFF value.
  */
 void	init_mutex(t_base *base)
 {

@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 14:36:25 by gsever            #+#    #+#             */
-/*   Updated: 2022/08/10 00:49:04 by gsever           ###   ########.fr       */
+/*   Updated: 2022/08/15 18:44:59 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@
 void	init_philo_thread(t_base *base)
 {
 	int			i;
-	pthread_t	lifecycle_id;
+	// pthread_t	lifecycle_id;
 
 	i = -1;
 	while (++i < base->philos_count)
@@ -52,6 +52,6 @@ void	init_philo_thread(t_base *base)
 		pthread_create(&base->philos[i].th_id, NULL,
 			lifecycle, (void *)&base->philos[i]);
 	}
-	pthread_create(&lifecycle_id, NULL, &lifecycle_checker, base);
-	pthread_join(lifecycle_id, NULL);
+	// pthread_create(&lifecycle_id, NULL, &lifecycle_checker, base);
+	// pthread_join(lifecycle_id, NULL);
 }

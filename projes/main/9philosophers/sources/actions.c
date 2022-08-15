@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 05:32:09 by gsever            #+#    #+#             */
-/*   Updated: 2022/08/14 17:09:20 by gsever           ###   ########.fr       */
+/*   Updated: 2022/08/15 18:42:50 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,40 @@
  */
 #include "philosophers.h"
 
+/**
+ * @brief Unlocking mutex's job. We can use again this mutex.
+ * 
+ * @return void
+ * @param base 
+ * @fn pthread_mutex_unlock()	: Freeing mutex's job.
+ * @bug Clear.
+ */
+void	leave_forks(t_base *base)
+{
+	pthread_mutex_unlock(&base->fork[base->philos->fork_l]);
+	pthread_mutex_unlock(&base->fork[base->philos->fork_r]);
+}
+
+/**
+ * @brief A philosopher taking forks.
+ * 
+ * @return void
+ * @param base 
+ * @fn pthread_mutex_lock()	: Locking mutex for this mutex on the job.
+ * @fn get_current_time()	: Getting current time.
+ * @fn printf()				: Writing shell -> fork taken.
+ * @bug Clear.
+ */
 void	take_forks(t_base *base)
 {
 	uint64_t	real_time;
 
-	pthread_mutex_lock(base->fork);
-	
+	pthread_mutex_lock(&base->fork[base->philos->fork_l]);
+	real_time = get_current_time() - base->start_time;
+	printf("%llu %d %s\n", real_time, base->philos->id, "has taken a left fork");
+	pthread_mutex_lock(&base->fork[base->philos->fork_r]);
+	real_time = get_current_time() - base->start_time;
+	printf("%llu %d %s\n", real_time, base->philos->id, "has taken a right fork");
 }
 
 /**
@@ -37,8 +65,8 @@ void	take_forks(t_base *base)
  * philosopher's id, and it's sleeping.
  * 
  * @param base
- * @fn get_current_time()
- * @fn printf()
+ * @fn get_current_time()	: Getting current time.
+ * @fn printf()				: Writing shell philosopher sleeping.
  * @bug Clear.
  */
 void	philo_sleep(t_base *base)

@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/07 21:19:29 by gsever            #+#    #+#             */
-/*   Updated: 2022/08/08 12:59:09 by gsever           ###   ########.fr       */
+/*   Updated: 2022/08/15 18:54:29 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
  * 
  */
 #include "philosophers.h"
+
 /**
  * @brief Checking args and initializing values for philos.
  * @return void
