@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 14:36:25 by gsever            #+#    #+#             */
-/*   Updated: 2022/08/15 19:52:52 by gsever           ###   ########.fr       */
+/*   Updated: 2022/08/16 13:41:06 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,14 @@
  */
 #include "philosophers.h"
 
-/**
+/** OK
  * @brief Her philosopher'e 'pthread_create' functionuyla bir thread
  * 	olusturuyoruz.
  * 
  * >Bu thread yani philosopher kendi lifecycle dongusunu calistiriyor.
  * >Boylelikle her philosopherimiz bir thread oluyor.
+ * 
+ * >Buradaki 'i' philosopher'i temsil ediyor.
  * 
  * @return void
  * @param base
@@ -49,8 +51,10 @@ void	init_philo_thread(t_base *base)
 	i = -1;
 	while (++i < base->philos_count)
 	{
+		// printf("yarr id'miz --> %d		", base->philos[i].id);
 		pthread_create(&base->philos[i].th_id, NULL,
 			lifecycle, (void *)&base->philos[i]);
+		// printf("ball id'miz --> %d\n", base->philos[i].id);
 	}
 	pthread_create(&lifecycle_id, NULL, &lifecycle_checker, base);
 	pthread_join(lifecycle_id, NULL);

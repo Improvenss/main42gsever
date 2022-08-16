@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 05:32:09 by gsever            #+#    #+#             */
-/*   Updated: 2022/08/16 11:54:37 by gsever           ###   ########.fr       */
+/*   Updated: 2022/08/16 13:53:39 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,10 @@ void	take_forks(t_base *base)
 
 	pthread_mutex_lock(&base->fork[base->philos->fork_l]);
 	real_time = get_current_time() - base->start_time;
-	printf("%llu %d %s\n", real_time, base->philos->id, "has taken a left fork");
+	printf("%llums %d %s\n", real_time, base->philos->id, "has taken a left fork");
 	pthread_mutex_lock(&base->fork[base->philos->fork_r]);
 	real_time = get_current_time() - base->start_time;
-	printf("%llu %d %s\n", real_time, base->philos->id, "has taken a right fork");
+	printf("%llums %d %s\n", real_time, base->philos->id, "has taken a right fork");
 }
 
 /**
@@ -74,7 +74,7 @@ void	philo_sleep(t_base *base)
 	uint64_t	real_time;
 
 	real_time = get_current_time() - base->philos->last_eat_time;
-	printf("%llu %d %s\n", real_time, base->philos->id, "is sleeping");
+	printf("%llums %d %s\n", real_time, base->philos->id, "is sleeping");
 	usleep(base->time_to_sleep * 1000);
 }
 
@@ -94,7 +94,7 @@ void	philo_eat(t_base *base)
 	uint64_t	real_time;
 
 	real_time = get_current_time() - base->philos->last_eat_time;
-	printf("%llu %d %s\n", real_time, base->philos->id, "is eating");
+	printf(GREEN"%llums %d %s\n"X, real_time, base->philos->id, "is eating");
 	base->philos->last_eat_time = real_time;
 	base->philos->eat_count++;
 	usleep(base->time_to_eat * 1000);
@@ -116,5 +116,5 @@ void	philo_think(t_base *base)
 	uint64_t	real_time;
 
 	real_time = get_current_time() - base->philos->last_eat_time;
-	printf("%lld %d %s\n", real_time, base->philos->id, "is thinking");
+	printf(YELLOW"%lldms %d %s\n"X, real_time, base->philos->id, "is thinking");
 }

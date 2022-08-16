@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 13:09:35 by gsever            #+#    #+#             */
-/*   Updated: 2022/08/15 22:49:31 by gsever           ###   ########.fr       */
+/*   Updated: 2022/08/16 13:30:28 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,9 @@ void	init_philo(t_base *base)
 	while (++i < base->philos_count)
 	{
 		base->philos[i].common = base;
+		printf(GREEN"sonceki id'miz --> %d		", base->philos[i].id);
 		base->philos[i].id = i + 1;
+		printf("sonraki id'miz --> %d\n"X, base->philos[i].id);
 		base->philos[i].fork_l = i;
 		base->philos[i].fork_r = (i + 1) % base->philos_count;
 		base->philos[i].eat_count = 0;
