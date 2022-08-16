@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 18:33:22 by gsever            #+#    #+#             */
-/*   Updated: 2022/08/16 17:03:06 by gsever           ###   ########.fr       */
+/*   Updated: 2022/08/16 17:43:32 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,7 @@ typedef struct s_base	t_base;
 typedef struct s_philos
 {
 	t_base		*common;
+	pthread_t	th_id;
 	int			id;
 	int			fork_l;
 	int			fork_r;
@@ -101,7 +102,6 @@ typedef struct s_philos
 	long		last_eat_time;
 	int			full_count;
 	bool		full;
-	pthread_t	th_id;
 }		t_philos;
 
 /**
@@ -117,7 +117,8 @@ typedef struct s_philos
  */
 typedef struct s_base
 {
-	t_philos		*philos;
+	pthread_mutex_t	*fork;
+	pthread_mutex_t	write;
 	int				philos_count;
 	int				time_to_die;
 	int				time_to_eat;
@@ -125,8 +126,7 @@ typedef struct s_base
 	int				must_eat;
 	int				start_time;
 	bool			is_running;
-	pthread_mutex_t	*fork;
-	pthread_mutex_t	write;
+	t_philos		*philos;
 }		t_base;
 
 
@@ -135,11 +135,11 @@ typedef struct s_base
 /* ************************************************************************** */
 
 //actions.c
-void	leave_forks(t_base *base);
-void	take_forks(t_base *base);
-void	philo_sleep(t_base *base);
-void	philo_eat(t_base *base);
-void	philo_think(t_base *base);
+void	leave_forks(t_philos *philos);
+void	take_forks(t_philos *philos);
+void	philo_sleep(t_philos *philos);
+void	philo_eat(t_philos *philos);
+void	philo_think(t_philos *philos);
 
 //check_args.c
 void	check_args_in_values(t_base *base);

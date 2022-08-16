@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 05:32:09 by gsever            #+#    #+#             */
-/*   Updated: 2022/08/16 17:26:41 by gsever           ###   ########.fr       */
+/*   Updated: 2022/08/16 17:41:01 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,10 @@
  * @fn pthread_mutex_unlock()	: Freeing mutex's job.
  * @bug Clear.
  */
-void	leave_forks(t_base *base)
+void	leave_forks(t_philos *philos)
 {
-	pthread_mutex_unlock(&base->fork[base->philos->fork_l]);
-	pthread_mutex_unlock(&base->fork[base->philos->fork_r]);
+	pthread_mutex_unlock(&philos->common->fork[philos->fork_l]);
+	pthread_mutex_unlock(&philos->common->fork[philos->fork_r]);
 }
 
 /**
@@ -46,16 +46,16 @@ void	leave_forks(t_base *base)
  * @fn printf()				: Writing shell -> fork taken.
  * @bug Clear.
  */
-void	take_forks(t_base *base)
+void	take_forks(t_philos *philos)
 {
 	uint64_t	real_time;
 
-	pthread_mutex_lock(&base->fork[base->philos->fork_l]);
-	real_time = get_current_time() - base->start_time;
-	printf("%llu %d %s\n", real_time, base->philos->id, "has taken a left fork");
-	pthread_mutex_lock(&base->fork[base->philos->fork_r]);
-	real_time = get_current_time() - base->start_time;
-	printf("%llu %d %s\n", real_time, base->philos->id, "has taken a right fork");
+	pthread_mutex_lock(&philos->common->fork[philos->fork_l]);
+	real_time = get_current_time() - philos->common->start_time;
+	printf("%llu %d %s\n", real_time, philos->id, "has taken a left fork");
+	pthread_mutex_lock(&philos->common->fork[philos->fork_r]);
+	real_time = get_current_time() - philos->common->start_time;
+	printf("%llu %d %s\n", real_time, philos->id, "has taken a right fork");
 }
 
 /**
@@ -69,13 +69,13 @@ void	take_forks(t_base *base)
  * @fn printf()				: Writing shell philosopher sleeping.
  * @bug Clear.
  */
-void	philo_sleep(t_base *base)
+void	philo_sleep(t_philos *philos)
 {
 	uint64_t	real_time;
 
 	real_time = get_current_time();
-	printf(BLUE"%llu %d %s\n"X, real_time, base->philos->id, "is sleeping");
-	usleep(base->time_to_sleep * 1000);
+	printf(BLUE"%llu %d %s\n"X, real_time, philos->id, "is sleeping");
+	usleep(philos->common->time_to_sleep * 1000);
 }
 
 /**
@@ -89,15 +89,15 @@ void	philo_sleep(t_base *base)
  * @fn printf()
  * @bug Clear.
  */
-void	philo_eat(t_base *base)
+void	philo_eat(t_philos *philos)
 {
 	uint64_t	real_time;
 
 	real_time = get_current_time();
-	printf(GREEN"%llu %d %s\n"X, real_time, base->philos->id, "is eating");
-	base->philos->last_eat_time = real_time;
-	base->philos->eat_count++;
-	usleep(base->time_to_eat * 1000);
+	printf(GREEN"%llu %d %s\n"X, real_time, philos->id, "is eating");
+	philos->last_eat_time = real_time;
+	philos->eat_count++;
+	usleep(philos->common->time_to_eat * 1000);
 }
 
 /**
@@ -111,10 +111,10 @@ void	philo_eat(t_base *base)
  * @fn printf()
  * @bug Clear.
  */
-void	philo_think(t_base *base)
+void	philo_think(t_philos *philos)
 {
 	uint64_t	real_time;
 
 	real_time = get_current_time();
-	printf(YELLOW"%lld %d %s\n"X, real_time, base->philos->id, "is thinking");
+	printf(YELLOW"%lld %d %s\n"X, real_time, philos->id, "is thinking");
 }

@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 15:35:12 by gsever            #+#    #+#             */
-/*   Updated: 2022/08/16 17:22:02 by gsever           ###   ########.fr       */
+/*   Updated: 2022/08/16 17:41:20 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,22 +62,22 @@ void	*lifecycle(void *arg)
 	philos->last_eat_time = get_current_time();
 	if (philos->id % 2 == 0)
 	{
-		philo_think(philos->common);
+		philo_think(philos);
 		usleep(philos->common->time_to_eat * 0.25 * 1000);
 	}
-	while (philos->common->is_running)
+	while (!philos->full)
 	{
-		take_forks(philos->common);
-		philo_eat(philos->common); /* base->philos->eat_count++ */
-		leave_forks(philos->common);
-		philo_think(philos->common);
+		take_forks(philos);
+		philo_eat(philos); /* base->philos->eat_count++ */
+		leave_forks(philos);
+		philo_think(philos);
 		if (philos->eat_count == philos->common->must_eat)/* 7 800 200 200 [5] buradaki 5 kac kere donecegini belirtiyor. */
 		{
 			philos->full = true;
 			philos->full_count++;
 			break ;
 		}
-		philo_sleep(philos->common);
+		philo_sleep(philos);
 	}
 	return (NULL);
 }
