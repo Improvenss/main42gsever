@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 15:35:12 by gsever            #+#    #+#             */
-/*   Updated: 2022/08/16 13:54:09 by gsever           ###   ########.fr       */
+/*   Updated: 2022/08/16 17:22:02 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,9 @@ void	*lifecycle_checker(void *arg)
 		if (!base->philos[i].full
 			&& ((int)(timestamp - base->philos[i].last_eat_time) > base->time_to_die))
 		{
+			// pthread_mutex_lock(base->)
 			printf("%llu %d %s\n", timestamp, base->philos[i].id, "died");
-			//base->is_running = false;
+			base->is_running = false;
 			break ;
 		}
 		i++;
@@ -55,30 +56,28 @@ void	*lifecycle_checker(void *arg)
  */
 void	*lifecycle(void *arg)
 {
-	t_base	*base;
-	// int	i = 0;
+	t_philos	*philos;
 	
-	base = (t_base *)arg;
-	base->philos->last_eat_time = get_current_time() - base->start_time;
-	if (base->philos->id % 2 == 1)
+	philos= (t_philos *)arg;
+	philos->last_eat_time = get_current_time();
+	if (philos->id % 2 == 0)
 	{
-		philo_think(base);
-		usleep(base->time_to_eat * 0.25 * 1000);
+		philo_think(philos->common);
+		usleep(philos->common->time_to_eat * 0.25 * 1000);
 	}
-	while (!base->philos->full)
+	while (philos->common->is_running)
 	{
-		// printf(BLUE"lifecycle girdik id'miz --> %d\n"X, base->philos[1].id);
-		take_forks(base);
-		philo_eat(base); /* base->philos->eat_count++ */
-		leave_forks(base);
-		philo_think(base);
-		if (base->philos->eat_count == base->must_eat)/* 7 800 200 200 [5] buradaki 5 kac kere donecegini belirtiyor. */
+		take_forks(philos->common);
+		philo_eat(philos->common); /* base->philos->eat_count++ */
+		leave_forks(philos->common);
+		philo_think(philos->common);
+		if (philos->eat_count == philos->common->must_eat)/* 7 800 200 200 [5] buradaki 5 kac kere donecegini belirtiyor. */
 		{
-			base->philos->full = true;
-			base->philos->full_count++;
+			philos->full = true;
+			philos->full_count++;
 			break ;
 		}
-		philo_sleep(base);
+		philo_sleep(philos->common);
 	}
 	return (NULL);
 }

@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 18:33:22 by gsever            #+#    #+#             */
-/*   Updated: 2022/08/15 20:16:28 by gsever           ###   ########.fr       */
+/*   Updated: 2022/08/16 17:03:06 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,6 @@ typedef struct s_base	t_base;
 typedef struct s_philos
 {
 	t_base		*common;
-	pthread_t	th_id;
 	int			id;
 	int			fork_l;
 	int			fork_r;
@@ -102,6 +101,7 @@ typedef struct s_philos
 	long		last_eat_time;
 	int			full_count;
 	bool		full;
+	pthread_t	th_id;
 }		t_philos;
 
 /**
@@ -118,13 +118,15 @@ typedef struct s_philos
 typedef struct s_base
 {
 	t_philos		*philos;
-	pthread_mutex_t	*fork;
 	int				philos_count;
 	int				time_to_die;
 	int				time_to_eat;
 	int				time_to_sleep;
 	int				must_eat;
 	int				start_time;
+	bool			is_running;
+	pthread_mutex_t	*fork;
+	pthread_mutex_t	write;
 }		t_base;
 
 
@@ -154,17 +156,11 @@ int	ft_perror(char *str);
 //get_time.c
 long	get_current_time();
 
-//init_args.c
-void	init_args(int ac, char **av, t_base *base);
-
-//init_mutex.c
-void	init_mutex(t_base *base);
-
-//init_philo_thread.c
+//init_all.c
 void	init_philo_thread(t_base *base);
-
-//init_philo.c
+void	init_mutex(t_base *base);
 void	init_philo(t_base *base);
+void	init_args(int ac, char **av, t_base *base);
 
 //lifecycle.c
 void	*lifecycle_checker(void *arg);
