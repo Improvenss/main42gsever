@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 15:35:12 by gsever            #+#    #+#             */
-/*   Updated: 2022/08/15 23:57:26 by gsever           ###   ########.fr       */
+/*   Updated: 2022/08/16 11:53:28 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,10 +64,8 @@ void	*lifecycle(void *arg)
 		philo_think(base);
 		usleep(base->time_to_eat * 0.25 * 1000);
 	}
-	printf("bura calisiyor mu amk\n");
 	while (!base->philos->full)
 	{
-		printf("BURAYA GIRMITOR O ZMAAN PPU AMK\n");
 		take_forks(base);
 		philo_eat(base);
 		leave_forks(base);
@@ -80,6 +78,5 @@ void	*lifecycle(void *arg)
 		}
 		philo_sleep(base);
 	}
-	printf("anneni deleyim\n");
 	return (NULL);
 }

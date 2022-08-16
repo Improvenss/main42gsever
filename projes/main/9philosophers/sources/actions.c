@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 05:32:09 by gsever            #+#    #+#             */
-/*   Updated: 2022/08/15 22:52:01 by gsever           ###   ########.fr       */
+/*   Updated: 2022/08/16 11:54:37 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void	philo_sleep(t_base *base)
 
 	real_time = get_current_time() - base->philos->last_eat_time;
 	printf("%llu %d %s\n", real_time, base->philos->id, "is sleeping");
-	//usleep eklenecek.
+	usleep(base->time_to_sleep * 1000);
 }
 
 /**
@@ -97,7 +97,7 @@ void	philo_eat(t_base *base)
 	printf("%llu %d %s\n", real_time, base->philos->id, "is eating");
 	base->philos->last_eat_time = real_time;
 	base->philos->eat_count++;
-	//usleep eklenecek.
+	usleep(base->time_to_eat * 1000);
 }
 
 /**
