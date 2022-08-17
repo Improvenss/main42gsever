@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 18:33:22 by gsever            #+#    #+#             */
-/*   Updated: 2022/08/16 17:43:32 by gsever           ###   ########.fr       */
+/*   Updated: 2022/08/17 12:04:50 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,7 +129,6 @@ typedef struct s_base
 	t_philos		*philos;
 }		t_base;
 
-
 /* ************************************************************************** */
 /* FUNCTION PROTOTYPES														  */
 /* ************************************************************************** */
@@ -151,10 +150,10 @@ void	destroy_mutexes(t_base *base);
 void	destory_threads(t_base *base);
 
 //error.c
-int	ft_perror(char *str);
+int		ft_perror(char *str);
 
 //get_time.c
-long	get_current_time();
+long	get_current_time(void);
 
 //init_all.c
 void	init_philo_thread(t_base *base);

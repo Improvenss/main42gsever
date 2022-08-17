@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 13:51:09 by gsever            #+#    #+#             */
-/*   Updated: 2022/08/16 14:44:03 by gsever           ###   ########.fr       */
+/*   Updated: 2022/08/17 13:18:44 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,16 @@
  */
 void	philosophers(int argc, char **argv, t_base *base)
 {
+	int	i = -1;
 	init_args(argc, argv, base);
 	init_philo(base);
 	init_mutex(base);
 	init_philo_thread(base);
-	destroy_mutexes(base);
-	destory_threads(base);
+	usleep(10000);
+	while (++i < base->philos_count)
+	{
+		printf("philosopher %d is eated %d times\n", base->philos[i].id, base->philos->eat_count);
+	}
+	// destroy_mutexes(base);
+	// destory_threads(base);
 }

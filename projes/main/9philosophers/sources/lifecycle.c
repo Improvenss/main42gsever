@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 15:35:12 by gsever            #+#    #+#             */
-/*   Updated: 2022/08/16 17:41:20 by gsever           ###   ########.fr       */
+/*   Updated: 2022/08/17 13:18:19 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ void	*lifecycle_checker(void *arg)
 		if (i == base->philos_count)
 			i = 0;
 		usleep(100);
-		timestamp = get_current_time() - base->start_time;
-		if (!base->philos[i].full
-			&& ((int)(timestamp - base->philos[i].last_eat_time) > base->time_to_die))
+		timestamp = get_current_time();
+		if (!base->philos[i].full && ((int)(timestamp
+				- base->philos[i].last_eat_time) > base->time_to_die))
 		{
 			// pthread_mutex_lock(base->)
 			printf("%llu %d %s\n", timestamp, base->philos[i].id, "died");
@@ -57,8 +57,8 @@ void	*lifecycle_checker(void *arg)
 void	*lifecycle(void *arg)
 {
 	t_philos	*philos;
-	
-	philos= (t_philos *)arg;
+
+	philos = (t_philos *)arg;
 	philos->last_eat_time = get_current_time();
 	if (philos->id % 2 == 0)
 	{
@@ -68,13 +68,14 @@ void	*lifecycle(void *arg)
 	while (!philos->full)
 	{
 		take_forks(philos);
-		philo_eat(philos); /* base->philos->eat_count++ */
+		philo_eat(philos);
 		leave_forks(philos);
 		philo_think(philos);
-		if (philos->eat_count == philos->common->must_eat)/* 7 800 200 200 [5] buradaki 5 kac kere donecegini belirtiyor. */
+		if (philos->eat_count == philos->common->must_eat)
 		{
 			philos->full = true;
 			philos->full_count++;
+			exit(1);
 			break ;
 		}
 		philo_sleep(philos);
