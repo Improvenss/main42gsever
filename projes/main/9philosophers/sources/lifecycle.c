@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 15:35:12 by gsever            #+#    #+#             */
-/*   Updated: 2022/08/17 13:18:19 by gsever           ###   ########.fr       */
+/*   Updated: 2022/08/19 17:52:21 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,11 @@ void	*lifecycle_checker(void *arg)
 			break ;
 		if (i == base->philos_count)
 			i = 0;
-		usleep(100);
+		usleep(1000);
 		timestamp = get_current_time();
 		if (!base->philos[i].full && ((int)(timestamp
 				- base->philos[i].last_eat_time) > base->time_to_die))
 		{
-			// pthread_mutex_lock(base->)
 			printf("%llu %d %s\n", timestamp, base->philos[i].id, "died");
 			base->is_running = false;
 			break ;
@@ -60,12 +59,12 @@ void	*lifecycle(void *arg)
 
 	philos = (t_philos *)arg;
 	philos->last_eat_time = get_current_time();
-	if (philos->id % 2 == 0)
+	if (philos->id % 2 == 1)
 	{
 		philo_think(philos);
 		usleep(philos->common->time_to_eat * 0.25 * 1000);
 	}
-	while (!philos->full)
+	while (philos->common->is_running)
 	{
 		take_forks(philos);
 		philo_eat(philos);
@@ -73,9 +72,8 @@ void	*lifecycle(void *arg)
 		philo_think(philos);
 		if (philos->eat_count == philos->common->must_eat)
 		{
-			philos->full = true;
 			philos->full_count++;
-			exit(1);
+			philos->full = true;
 			break ;
 		}
 		philo_sleep(philos);

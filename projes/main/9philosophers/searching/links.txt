@@ -1,3 +1,9 @@
+YouTube:
+	CodeVault;
+		https://www.youtube.com/playlist?list=PLfqABt5AS4FmuQf70psXrsMLEDQXNkLq2
+		https://www.youtube.com/playlist?list=PLfqABt5AS4FkW5mOn2Tn9ZZLLDwA3kZUY
+
+
 Race condition vs. Data races means:
 	https://www.avanderlee.com/swift/race-condition-vs-data-race/
 

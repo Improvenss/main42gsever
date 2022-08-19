@@ -6,11 +6,11 @@
 #    By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/31 18:14:42 by gsever            #+#    #+#              #
-#    Updated: 2022/08/17 13:15:21 by gsever           ###   ########.fr        #
+#    Updated: 2022/08/19 19:31:10 by gsever           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= philosophers
+NAME		= philo
 
 #	Flags for compile
 CC			= gcc

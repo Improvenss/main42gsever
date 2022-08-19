@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 05:32:09 by gsever            #+#    #+#             */
-/*   Updated: 2022/08/16 17:41:01 by gsever           ###   ########.fr       */
+/*   Updated: 2022/08/19 16:05:47 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,10 @@ void	take_forks(t_philos *philos)
 
 	pthread_mutex_lock(&philos->common->fork[philos->fork_l]);
 	real_time = get_current_time() - philos->common->start_time;
-	printf("%llu %d %s\n", real_time, philos->id, "has taken a left fork");
+	printf("%llu %d %s\n", real_time, philos->id, "has taken a fork");
 	pthread_mutex_lock(&philos->common->fork[philos->fork_r]);
 	real_time = get_current_time() - philos->common->start_time;
-	printf("%llu %d %s\n", real_time, philos->id, "has taken a right fork");
+	printf("%llu %d %s\n", real_time, philos->id, "has taken a fork");
 }
 
 /**
