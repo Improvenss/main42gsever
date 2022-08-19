@@ -1,0 +1,28 @@
+-----------------------------------------
+Race condition: (Yaris Kosullari)
+		Olayların zamanlamasi veya sirasi kod parcasinin doğruluğunu etkilediğinde 
+	Race Condition oluşur.
+		Bir cihaz veya sistemin ayni anda 2 veya daha fazla islemi gerceklestirmeye
+	calistigi anda olusan sorum. 2 thread ayni bellek konumunu hedeflediginde ve en az biri bir yazma
+	islemi oldugunda bu islem "Data races" tarafindan yonetilir.
+-----------------------------------------
+Data races: (Veri Yarislari)(Is Parcacigi)
+		Thread Analyzer, çok kanallı bir işlemin yürütülmesi sırasında meydana gelen veri yarışlarını algılar. 
+		1-) Tek bir işlemdeki 2 veya daha fazla is parcacigi ayni anda ayni bellek konumuna
+			erişir ve erisimlerinden en az biri yazmak icindir.
+		Sample; Bir Data race(is parcacigi) degistirilebilir bir nesneye erisirken
+	baska bir Data race(is parcacigi) ona yazarken bir Race condition(veri 
+	yarisi) meydana gelir.
+		Data races' ten kacinmanin tek yolu, is parcaciklari arasında paylaşılan tüm değişken
+	verilere erisimi senkronize etmektir.
+
+-----------------------------------------!
+--> Özeti -> Olayın zamanlaması/sirasi kodla cakisirsa -> Race Condition(Yaris Koşulları).
+--> Özeti -> Thread mutable object(değiştirilebilir nesneye) erişirsen baska bir Thread ona yazarsa -> Data Race(Veri Yarislari).
+-----------------------------------------!
+EXC_BAD_ACCES error:
+	Bozuk belleğe erişmeye calisan 
+-----------------------------------------
+
+//////	NOTES	\\\\\
+export MallocStackLogging=1 --> ./prog 3 yazinca 3 tane leaks vardi onları gösteriyor.c
