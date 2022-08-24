@@ -1,4 +1,0 @@
-Race condition vs. Data races means:
-	https://www.avanderlee.com/swift/race-condition-vs-data-race/
-
-
