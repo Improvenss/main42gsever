@@ -6,7 +6,7 @@
 /*   By: akaraca <akaraca@student.42.tr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 10:57:07 by akaraca           #+#    #+#             */
-/*   Updated: 2022/08/24 18:24:21 by akaraca          ###   ########.fr       */
+/*   Updated: 2022/08/26 20:03:12 by akaraca          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_exit(int error, char *str)
 	else if (error == 1)
 		printf(RED"%s"FINISH, str);
 	else if (error == 2)
-		printf(RED"%s: too many arguments\n"FINISH, str);
+		printf(RED"cd: %s: No such file or directory\n"FINISH, str);
 }
 
 int	ft_strlen(const char *str)
@@ -89,7 +89,7 @@ char	*ft_strdup(char *src)
 	return (new);
 }
 
-void	ft_argument_set(const char *str, t_main *main)
+void	ft_argument_set(t_main *main)
 {
 	char CWD[256];
 
@@ -106,7 +106,7 @@ void	ft_input_line(const char *str, t_main *main)
 			" Failed to allocate bytes.");
 	main->line = ft_split(str, ' ');
 	main->i = -1; //fonksiyonlarda destek verisi olarak kullanıyorum.
-	while (main->line[++main->i])
+	while (main->line[++main->i] && main->line[main->i + 1] != NULL)
 		main->line[main->i] = ft_strjoin(main->line[main->i], " "); // "echo - -ahmet" durumu için boşluk ekliyorum.
 }
 
@@ -135,17 +135,17 @@ void	ft_echo_command(t_main *main)
 			printf("%s", "\0");
 		else
 			ft_print(main, main->i);
-	}
-	else if (ft_strncmp(main->line[1], "--help", 6)) //echo --help <enter>
-		printf(BLUE"hMM, sorry we can't help you,"
-			" try in other terminals :(\n"FINISH);
-	else
+	}/*
+	else if (ft_strncmp(main->line[1][0], "$", 1)) // echo $? <enter> || echo $USER <enter>
 	{
-		if (ft_strncmp(main->line[1], "- ", 2)) //echo - .... <enter>
-			ft_print(main, 2); //echo - - -ahmet <enter>
-		else
-			ft_print(main, 1); //echo ahmet karaca ... <enter>
+		if (env_check(&main->line[1][1]))
+		{
+			
+		}
 	}
+	*/
+	else
+		ft_print(main, 1); //echo ahmet karaca ... <enter>
 }
 
 /**
@@ -177,23 +177,29 @@ char	*ft_down_to_backslash(char *path)
 
 void	ft_cd_command(t_main *main)
 {
-	if (main->line[1] == NULL) // cd <enter> -> "/home/akaraca" dizinine gidiyor.
+	if (main->line[1] == NULL || ft_strncmp(main->line[1], "~", 1) || ft_strncmp(main->line[1], "--", 2)) // cd <enter> || cd ~ <enter> || cd -- <enter> -> "/home/akaraca" dizinine gidiyor.
+	{
+		main->old_path = main->path;
 		chdir(getenv("HOME")); // getenv("HOME"), sistemdeki ana dizini bulmayı sağlıyor.
-	else if (ft_strncmp(main->line[1], "..", 2)) // cd .. <enter>
-		chdir(ft_down_to_backslash(main->path)); // bir önceki satıra geçişi sağlıyor.
+	}
+	else if (ft_strncmp(main->line[1], "-", 1)) // cd - <enter>
+		chdir(main->old_path); // bir önceki /'li dizine geçişi sağlıyor.
+	else if (main->line[1] != NULL) //cd .. <enter> || cd Desktop <enter>
+	{
+		main->old_path = main->path;
+		main->path = ft_strjoin(main->path,ft_strjoin("/", main->line[1]));
+		chdir(main->path);
+	}
+	else
+		ft_exit(2, main->line[1]);
 }
 
 void	ft_pwd_command(t_main *main)
 {
-	if (main->line[1] != NULL)
-		ft_exit(2, "pwd");
-	else
-	{
-		char CWD[256];
+	char CWD[256];
 
-		getcwd(CWD, sizeof(CWD));
-		printf("%s\n", CWD);
-	}
+	getcwd(CWD, sizeof(CWD));
+	printf("%s\n", CWD);
 }
 
 void	ft_command_find(t_main *main) //echo, cd, pwd... arraya alınıp karşılaştırması yapılıp bulunduğu 2boyutlu indexi döndürülerek komut yönlendirmesi yapılabilir. Bu sayede birden fazla komut eklenebilir.
@@ -206,10 +212,12 @@ void	ft_command_find(t_main *main) //echo, cd, pwd... arraya alınıp karşıla�
 		ft_pwd_command(main);
 	/*else if (ft_strncmp(main->line[0], "unset", 5))
 		ft_unset_command(main);
+	else if (ft_strncmp(main->line[0], "export", 6))
+		ft_export_command(main);
 	else if (ft_strncmp(main->line[0], "env", 3))
-		ft_env_command(main);
+		ft_env_command(main);*/
 	else if (ft_strncmp(main->line[0], "exit", 4))
-		ft_exit_command(main);*/
+		exit(0);
 	else if (ft_strncmp(main->line[0], "clear", 5))
 		printf("\e[1;1H\e[2J");
 	else
@@ -280,14 +288,14 @@ int	main(void)
 	t_main		main;
 
 	//printf("\e[1;1H\e[2J"); // Derleme sonrasında önceki girdileri silmeye yarıyor.
-	main.history = NULL;
 	while (1)
 	{
-		printf(APP_NAME);
 		cmd = readline(COMMAND_SIGN); // terminal adının silinmemesi için " " girilmesi gerekiyor, NULL durumunda siliyor.
-		ft_argument_set(cmd, &main);
+		add_history(cmd); //history bro, use fucking keyboard arrow and you see that shits
+		ft_argument_set(&main);
 		ft_input_line(cmd, &main);
 		ft_command_find(&main);
 	}
+	
 	return (0);
 }
