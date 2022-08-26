@@ -6,7 +6,7 @@
 #    By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/20 02:23:57 by gsever            #+#    #+#              #
-#    Updated: 2022/08/26 20:24:06 by gsever           ###   ########.fr        #
+#    Updated: 2022/08/26 21:00:40 by gsever           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,11 +47,11 @@ $(NAME): $(OBJECTS_DIRECTORY) $(OBJECTS) $(MODULES)
 
 $(OBJECTS_DIRECTORY):
 	@mkdir -p $(OBJECTS_DIRECTORY)
-	@echo "$(NAME): $(GREEN)$(OBJECTS_DIRECTORY) was created$(RESET)"
+# @echo "$(NAME): $(GREEN)$(OBJECTS_DIRECTORY) was created$(RESET)"
 
 $(OBJECTS_DIRECTORY)/%.o: $(SOURCES_DIRECTORY)/%.c
 	@$(CC) $(FLAGS) $(INCLUDES) -c $< -o $@
-	@printf "%-57b %b" "$(BLUE)COMPILED $(LB)$@" "$(GREEN)[✓]$(X)\n"
+# @printf "%-57b %b" "$(BLUE)COMPILED $(LB)$@" "$(GREEN)[✓]$(X)\n"
 
 $(MODULES):
 	@make -C $@ $(MAKECMDGOALS)
@@ -59,10 +59,12 @@ $(MODULES):
 
 clean: $(MODULES)
 	@rm -rf $(OBJECTS_DIRECTORY)
+	@printf "%-14b %-42b %b" "$(BLUE)$(MAKECMDGOALS)" "$(LB)$(NAME)" "$(GREEN)[✓]$(X)\n"
 # @echo "$(NAME): $(RED)$(OBJECTS_DIRECTORY) was deleted$(RESET)"
 
 fclean: clean $(MODULES)
 	@rm -f $(NAME)
+	@printf "%-14b %-42b %b" "$(BLUE)$(MAKECMDGOALS)" "$(LB)$(NAME)" "$(GREEN)[✓]$(X)\n"
 # @echo "$(NAME): $(RED)$(NAME) was deleted$(RESET)"
 
 re: fclean all

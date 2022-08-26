@@ -6,7 +6,7 @@
 #    By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/13 17:13:08 by gsever            #+#    #+#              #
-#    Updated: 2022/08/26 20:24:24 by gsever           ###   ########.fr        #
+#    Updated: 2022/08/26 20:53:41 by gsever           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,15 +52,15 @@ X		:= \033[m
 all: $(NAME)
 
 $(NAME): $(OBJECTS_DIRECTORY) $(OBJECTS)
-	@printf "%-57b %b" "$(GREEN)COMPILED $(NAME)" "$(GREEN)[FINISHED]$(X)\n"
+# @printf "%-57b %b" "$(GREEN)COMPILED $(NAME)" "$(GREEN)[FINISHED]$(X)\n"
 
 $(OBJECTS_DIRECTORY):
 	@mkdir -p $(OBJECTS_DIRECTORY)
-	@echo "$(NAME): $(GREEN)$(OBJECTS_DIRECTORY) was created$(RESET)"
+# @echo "$(NAME): $(GREEN)$(OBJECTS_DIRECTORY) was created$(RESET)"
 
 $(OBJECTS_DIRECTORY)%.o : $(SOURCES_DIRECTORY)%.c $(HEADERS)
 	@$(CC) $(FLAGS) -c $(INCLUDES) $< -o $@
-	@printf "%-57b %b" "$(BLUE)COMPILED $(LB)$@" "$(GREEN)[✓]$(X)\n"
+# @printf "%-57b %b" "$(BLUE)COMPILED $(LB)$@" "$(GREEN)[✓]$(X)\n"
 
 clean:
 	@rm -rf $(OBJECTS_DIRECTORY)
