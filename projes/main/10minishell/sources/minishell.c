@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: akaraca <akaraca@student.42.tr>            +#+  +:+       +#+        */
+/*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 10:57:07 by akaraca           #+#    #+#             */
-/*   Updated: 2022/08/26 20:03:12 by akaraca          ###   ########.fr       */
+/*   Updated: 2022/08/27 22:10:19 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -229,14 +229,14 @@ void	ft_command_find(t_main *main) //echo, cd, pwd... arraya alınıp karşıla�
 	> Bu proje basit bir kabuk(shell) oluşturmakla ilgilidir.
 		İşlemler ve dosya tanımlayıcıları hakkındadır.
 > İzin verilen fonksiyonlar:
-	> readline, rl_clear_history, rl_on_new_line, rl_replace_line,
-	rl_redisplay, add_history, printf, malloc, free, write, access,
-	open, read, close, fork, wait, waitpid, wait3, wait4, signal,
-	sigaction, sigemptyset, sigaddset, kill, exit, getcwd, chdir,
-	stat, lstat, fstat, unlink, execve, dup, dup2, pipe, opendir,
-	readdir, closedir, strerror, perror, isatty, ttyname, ttyslot,
-	ioctl, getenv, tcsetattr, tcgetattr, tgetent, tgetflag, tgetnum,
-	tgetstr, tgoto, tputs
+	> readline(), rl_clear_history(), rl_on_new_line(), rl_replace_line(),
+	rl_redisplay(), add_history(), printf(), malloc(), free(), write(), access(),
+	open(), read(), close(), fork(), wait(), waitpid(), wait3(), wait4(), signal(),
+	sigaction(), sigemptyset(), sigaddset(), kill(), exit(), getcwd(), chdir(),
+	stat(), lstat(), fstat(), unlink(), execve(), dup(), dup2(), pipe(), opendir(),
+	readdir(), closedir(), strerror(), perror(), isatty(), ttyname(), ttyslot(),
+	ioctl(), getenv(), tcsetattr(), tcgetattr(), tgetent(), tgetflag(), tgetnum(),
+	tgetstr(), tgoto(), tputs()
 
 > Kabukta olması gereken özellikler:
 	> Yeni bir komut beklerken bir bilgi istemi görüntüleyin.
