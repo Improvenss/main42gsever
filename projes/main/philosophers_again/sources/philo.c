@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 16:30:41 by gsever            #+#    #+#             */
-/*   Updated: 2022/08/28 19:26:02 by gsever           ###   ########.tr       */
+/*   Updated: 2022/08/29 21:44:16 by gsever           ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,17 +84,18 @@ void	init_mutexes(t_base *base)
 
 void	write_command(unsigned long long time, t_philo *philo)
 {
-	printf("ben %d. philosopherim, anlik zaman --> %llu\n", philo->th_id, time);
+	printf("ben %d. philosopherim, anlik zaman --> %llu\n", philo->id, time);
 }
 
 void	*lifecycle(void *arg)
 {
 	long	time;
-	t_philo	philo;
+	t_philo	*philo;
 
 	philo = (t_philo *)arg;
 	time = get_time();
 	write_command(time, philo);
+//	printf("ben %d. philosopherim, anlik zaman --> %llu\n", thread, time);
 	return (NULL);
 }
 
@@ -108,15 +109,15 @@ void	init_philos_thread(t_base	*base)
 		pthread_create(&base->philo[i].th_id, NULL, &lifecycle, (void *)&base->philo[i]);
 	i = -1;
 	while (++i < base->number_of_philo)
-	{
 		pthread_join(base->philo[i].th_id, NULL);
-	}
 }
 
 void	philosophers(int ac, char **av, t_base *base)
 {
 	init_args(ac, av, base);
+	printf("		******* init_args(ac, av, base); okay *******\n\n");
 	init_philos(base);
+	printf("		******* init_philos(base); okay *******\n\n");
 	init_mutexes(base);
-	init_philos_threads(base);
+	init_philos_thread(base);
 }
