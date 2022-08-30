@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 16:30:41 by gsever            #+#    #+#             */
-/*   Updated: 2022/08/29 21:44:16 by gsever           ###   ########.tr       */
+/*   Updated: 2022/08/30 20:01:46 by gsever           ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	init_args(int ac, char **av, t_base *base)
 	}
 	else
 	{
-		printf("argumanlarini kontrol et yarram\n");
+		printf("argumanlarini kontrol et\n");
 		ft_perror("Error\n");
 	}
 }
