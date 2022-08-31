@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 05:32:09 by gsever            #+#    #+#             */
-/*   Updated: 2022/08/31 14:02:52 by gsever           ###   ########.fr       */
+/*   Updated: 2022/08/31 15:35:39 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,11 +93,13 @@ void	philo_eat(t_philos *philos)
 {
 	uint64_t	real_time;
 
+	take_forks(philos);
 	real_time = get_current_time();
 	printf(GREEN"%llu %d %s\n"X, real_time, philos->id, "is eating");
 	philos->last_eat_time = real_time;
 	philos->eat_count++;
 	usleep(philos->common->time_to_eat * 1000);
+	leave_forks(philos);
 }
 
 /**

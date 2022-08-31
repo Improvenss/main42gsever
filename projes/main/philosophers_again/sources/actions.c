@@ -19,6 +19,6 @@ void	action_think(t_philo *philo)
 
 void	action_sleep(t_philo *philo)
 {
-	write_command(get_time(), philo, THINK);
+	write_command(get_time(), philo, SLEEP);
 }
 

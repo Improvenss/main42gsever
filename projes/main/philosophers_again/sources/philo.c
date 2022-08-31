@@ -111,10 +111,13 @@ void	init_philos_thread(t_base *base)
 
 	i = -1;
 	while (++i < base->number_of_philo)
+	{
 		pthread_create(&base->philo[i].th_id, NULL, &lifecycle, (void *)&base->philo[i]);
-	i = -1;
-	while (++i < base->number_of_philo)
-		pthread_join(base->philo[i].th_id, NULL);
+//		pthread_join(base->philo[i].th_id, NULL);
+	}
+	//i = -1;
+	//while (++i < base->number_of_philo)
+//		pthread_join(base->philo[i].th_id, NULL);
 }
 
 void	philosophers(int ac, char **av, t_base *base)
