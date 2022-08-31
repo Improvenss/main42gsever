@@ -6,13 +6,13 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 16:30:41 by gsever            #+#    #+#             */
-/*   Updated: 2022/08/31 13:26:00 by gsever           ###   ########.fr       */
+/*   Updated: 2022/08/31 13:56:33 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-long	get_time(void)
+uint64_t	get_time(void)
 {
 	struct timeval	ct;
 
@@ -80,30 +80,31 @@ void	init_mutexes(t_base *base)
 	while (++i < base->number_of_philo)
 	{
 		pthread_mutex_init(&base->fork[i], NULL);
-		printf("%d. mutex init edildi.\n", i);
+		printf("%d. mutex(fork) init edildi.\n", i);
 	}
 	pthread_mutex_init(&base->write, NULL);
 	printf("WRITE mutex init edildi.\n\n");
 }
 
-void	write_command(unsigned long long time, t_philo *philo)
+void	write_command(uint64_t time, t_philo *philo, t_state state)
 {
-	printf("ben %d. philosopherim, anlik zaman --> %llu\n", philo->id, time);
+	const char	*actions[5] = {STR_EAT, STR_SLEEP, STR_THINK,
+		STR_TOOK_FORK, STR_DEAD};
+	
+	printf("%llu %d %s\n", time, philo->id, actions[state]);
 }
 
 void	*lifecycle(void *arg)
 {
-	long	time;
 	t_philo	*philo;
 
 	philo = (t_philo *)arg;
-	time = get_time();
-	write_command(time, philo);
-//	printf("ben %d. philosopherim, anlik zaman --> %llu\n", thread, time);
+//	printf("%d philo is working\n", philo->id);
+	action_think(philo);
 	return (NULL);
 }
 
-void	init_philos_thread(t_base	*base)
+void	init_philos_thread(t_base *base)
 {
 	int			i;
 //	pthread_t	lifecycle_id;

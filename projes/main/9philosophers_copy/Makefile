@@ -6,7 +6,7 @@
 #    By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/31 18:14:42 by gsever            #+#    #+#              #
-#    Updated: 2022/08/31 13:39:19 by gsever           ###   ########.fr        #
+#    Updated: 2022/08/19 19:31:10 by gsever           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,6 @@ NAME		= philo
 #	Flags for compile
 CC			= gcc
 FLAGS		= -Wall -Werror -Wextra
-# -Wall -Werror -Wextra
 
 #	All process use for compiling.
 # UNAME	:= $(shell uname -s)

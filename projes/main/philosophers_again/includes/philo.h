@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 16:16:28 by gsever            #+#    #+#             */
-/*   Updated: 2022/08/31 12:30:18 by gsever           ###   ########.fr       */
+/*   Updated: 2022/08/31 13:58:48 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,23 @@
 # include <pthread.h>
 # include <sys/time.h>
 
+# define STR_EAT "is eating"
+# define STR_SLEEP "is sleeping"
+# define STR_THINK "is thinking"
+# define STR_TOOK_FORK "has taken a fork"
+# define STR_DEAD "died"
+
 typedef struct s_base	t_base;
 typedef struct s_philo	t_philo;
+
+typedef enum s_state
+{
+	EAT,
+	SLEEP,
+	THINK,
+	TOOK_FORK,
+	DEAD
+}		t_state;
 
 typedef struct s_philo
 {
@@ -51,13 +66,22 @@ typedef struct s_base
 
 /********* FUNCTION PROTOTYPES ********/
 
-//philo.c
-void	check_args(int ac, char **av, t_base *base);
-void	init_args(int ac, char **av, t_base *base);
-void	init_philos(t_base *base);
-void	philosophers(int ac, char **av, t_base *base);
+//actions.c
+void	action_sleep(t_philo *philo);
+void	action_think(t_philo *philo);
 
 //error.c
 void	ft_perror(char *str);
+
+//philo.c
+uint64_t	get_time(void);
+void	check_args(int ac, char **av, t_base *base);
+void	init_args(int ac, char **av, t_base *base);
+void	init_philos(t_base *base);
+void	init_mutexes(t_base *base);
+void	write_command(uint64_t time, t_philo *philo, t_state state);
+void	*lifecycle(void *arg);
+void	init_philos_thread(t_base *base);
+void	philosophers(int ac, char **av, t_base *base);
 
 #endif
