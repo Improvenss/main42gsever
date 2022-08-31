@@ -47,8 +47,9 @@ typedef struct s_philo
 	int					fork_l;
 	int					fork_r;
 	int					eat_count;
-	unsigned long long	last_eat_time;
+	uint64_t			last_eat_time;
 	bool				full;
+	int					full_count;
 }		t_philo;
 
 typedef struct s_base
@@ -61,12 +62,16 @@ typedef struct s_base
 	int				time_to_eat;
 	int				time_to_sleep;
 	int				must_eat_count;
+	uint64_t		prog_start_time;
 	bool			is_running;
 }		t_base;
 
 /********* FUNCTION PROTOTYPES ********/
 
 //actions.c
+void	leave_forks(t_philo *philo);
+void	take_forks(t_philo *philo);
+void	action_eat(t_philo *philo);
 void	action_sleep(t_philo *philo);
 void	action_think(t_philo *philo);
 

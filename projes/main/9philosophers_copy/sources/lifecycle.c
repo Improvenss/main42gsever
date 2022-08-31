@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 15:35:12 by gsever            #+#    #+#             */
-/*   Updated: 2022/08/31 15:36:54 by gsever           ###   ########.fr       */
+/*   Updated: 2022/08/31 17:57:40 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ void	*lifecycle_checker(void *arg)
 	i = 0;
 	while (1)
 	{
-		if (base->philos->full_count == base->philos_count)
-			break ;
+		// if (base->philos->full_count == base->philos_count)
+		// 	break ;
 		if (i == base->philos_count)
 			i = 0;
 		usleep(1000);
@@ -59,25 +59,24 @@ void	*lifecycle(void *arg)
 
 	philos = (t_philos *)arg;
 	philos->last_eat_time = get_current_time();
-	// if (philos->id % 2 == 1)
-	// {
-	// 	philo_think(philos);
-	// 	usleep(philos->common->time_to_eat * 0.25 * 1000);
-	// }
-	// while (philos->common->is_running)
-	// {
-	// 	// take_forks(philos);
-	// 	philo_eat(philos);
-	// 	// leave_forks(philos);
-	// 	philo_think(philos);
-	// 	if (philos->eat_count == philos->common->must_eat)
-	// 	{
-	// 		philos->full_count++;
-	// 		philos->full = true;
-	// 		break ;
-	// 	}
-	// 	philo_sleep(philos);
-	// }
-	printf("%d philosopher is entered lifecycle()\n", philos->id);
+	if (philos->id % 2 == 1)
+	{
+		philo_think(philos);
+		usleep(philos->common->time_to_eat * 0.25 * 1000);
+	}
+	while (philos->common->is_running)
+	{
+		// take_forks(philos);
+		philo_eat(philos);
+		// leave_forks(philos);
+		philo_think(philos);
+		if (philos->eat_count == philos->common->must_eat)
+		{
+			philos->full_count++;
+			philos->full = true;
+			break ;
+		}
+		philo_sleep(philos);
+	}
 	return (NULL);
 }

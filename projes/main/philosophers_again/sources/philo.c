@@ -42,6 +42,7 @@ void	init_args(int ac, char **av, t_base *base)
 		if (ac == 6)
 			base->must_eat_count = atoi(av[5]);
 		check_args_values(base);
+		base->prog_start_time = get_time();
 	}
 	else
 	{
@@ -54,8 +55,8 @@ void	init_philos(t_base *base)
 {
 	int		i;
 
-	base->philo = malloc(sizeof(t_philo));
-	base->fork = malloc(sizeof(fork));
+	base->philo = malloc(sizeof(t_philo) * base->number_of_philo);
+	base->fork = malloc(sizeof(pthread_mutex_t) * base->number_of_philo);
 	i = -1;
 	while (++i < base->number_of_philo)
 	{
@@ -66,6 +67,7 @@ void	init_philos(t_base *base)
 		base->philo[i].eat_count = 0;
 		base->philo[i].last_eat_time = 0;
 		base->philo[i].full = false;
+		base->philo[i].full_count = 0;
 		printf("philo[%d] id -> %d -> left fork -> %d\n", i, base->philo[i].id, base->philo[i].fork_l);
 		printf("philo[%d] id -> %d\n", i, base->philo[i].id);
 		printf("philo[%d] id -> %d -> right fork -> %d\n\n", i, base->philo[i].id, base->philo[i].fork_r);
@@ -94,20 +96,60 @@ void	write_command(uint64_t time, t_philo *philo, t_state state)
 	printf("%llu %d %s\n", time, philo->id, actions[state]);
 }
 
+void	*lifecycle_checker(void *arg)
+{
+	t_base	*base;
+	int		i;
+
+	i = 0;
+	base = (t_base *)arg;
+	while (1)
+	{
+		if (base->philo->full_count == base->number_of_philo)
+			break ;
+		if (i == base->number_of_philo)
+			i = 0;
+		usleep(1000);
+		if (!base->philo[i].full && ((int)(get_time() - base->philo[i].last_eat_time) > base->time_to_eat))
+		{
+			write_command(get_time(), base->philo, DEAD);
+			base->is_running = false;
+			break ;
+		}
+		i++;
+	}
+	return (NULL);
+}
+
 void	*lifecycle(void *arg)
 {
 	t_philo	*philo;
 
 	philo = (t_philo *)arg;
-//	printf("%d philo is working\n", philo->id);
-	action_think(philo);
+	while (philo->base->is_running)
+	{
+		if (philo->id % 2 == 0)
+		{
+			action_think(philo);
+			usleep(philo->base->time_to_eat * 0.25 * 1000);
+		}
+		action_eat(philo);
+		action_think(philo);
+		if (philo->eat_count == philo->base->must_eat_count)
+		{
+			philo->full_count++;
+			philo->full = true;
+			break ;
+		}
+		action_sleep(philo);
+	}
 	return (NULL);
 }
 
 void	init_philos_thread(t_base *base)
 {
 	int			i;
-//	pthread_t	lifecycle_id;
+	pthread_t	lifecycle_id;
 
 	i = -1;
 	while (++i < base->number_of_philo)
@@ -115,9 +157,11 @@ void	init_philos_thread(t_base *base)
 		pthread_create(&base->philo[i].th_id, NULL, &lifecycle, (void *)&base->philo[i]);
 //		pthread_join(base->philo[i].th_id, NULL);
 	}
-	//i = -1;
-	//while (++i < base->number_of_philo)
-//		pthread_join(base->philo[i].th_id, NULL);
+	i = -1;
+	while (++i < base->number_of_philo)
+		pthread_join(base->philo[i].th_id, NULL);
+	pthread_create(&lifecycle_id, NULL, &lifecycle_checker, NULL);
+	pthread_join(lifecycle_id, NULL);
 }
 
 void	philosophers(int ac, char **av, t_base *base)

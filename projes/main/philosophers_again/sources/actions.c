@@ -12,6 +12,30 @@
 
 #include <philo.h>
 
+void	leave_forks(t_philo *philo)
+{
+	pthread_mutex_unlock(&philo->base->fork[philo->fork_l]);
+	pthread_mutex_unlock(&philo->base->fork[philo->fork_r]);
+}
+
+void	take_forks(t_philo *philo)
+{
+	pthread_mutex_lock(&philo->base->fork[philo->fork_l]);
+	write_command(get_time(), philo, TOOK_FORK);
+	pthread_mutex_lock(&philo->base->fork[philo->fork_r]);
+	write_command(get_time(), philo, TOOK_FORK);
+}
+
+void	action_eat(t_philo *philo)
+{
+	take_forks(philo);
+	write_command(get_time(), philo, EAT);
+	philo->last_eat_time = get_time();
+	philo->eat_count++;
+	leave_forks(philo);
+	usleep(philo->base->time_to_eat * 1000);
+}
+
 void	action_think(t_philo *philo)
 {
 	write_command(get_time(), philo, THINK);
@@ -20,5 +44,6 @@ void	action_think(t_philo *philo)
 void	action_sleep(t_philo *philo)
 {
 	write_command(get_time(), philo, SLEEP);
+	usleep(philo->base->time_to_sleep * 1000);
 }
 
