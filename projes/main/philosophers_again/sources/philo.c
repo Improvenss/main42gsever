@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gsever <gsever@student.42kocaeli.com.tr>   +#+  +:+       +#+        */
+/*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 16:30:41 by gsever            #+#    #+#             */
-/*   Updated: 2022/08/30 20:01:46 by gsever           ###   ########.tr       */
+/*   Updated: 2022/08/31 13:26:00 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,12 @@ void	init_mutexes(t_base *base)
 
 	i = -1;
 	while (++i < base->number_of_philo)
+	{
 		pthread_mutex_init(&base->fork[i], NULL);
+		printf("%d. mutex init edildi.\n", i);
+	}
 	pthread_mutex_init(&base->write, NULL);
+	printf("WRITE mutex init edildi.\n\n");
 }
 
 void	write_command(unsigned long long time, t_philo *philo)
@@ -119,5 +123,6 @@ void	philosophers(int ac, char **av, t_base *base)
 	init_philos(base);
 	printf("		******* init_philos(base); okay *******\n\n");
 	init_mutexes(base);
+	printf("		******* init_mutexes(base); okay *******\n\n");
 	init_philos_thread(base);
 }

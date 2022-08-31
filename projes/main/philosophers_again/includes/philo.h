@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 16:16:28 by gsever            #+#    #+#             */
-/*   Updated: 2022/08/28 18:50:56 by gsever           ###   ########.tr       */
+/*   Updated: 2022/08/31 12:30:18 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # include <sys/time.h>
 
 typedef struct s_base	t_base;
+typedef struct s_philo	t_philo;
 
 typedef struct s_philo
 {

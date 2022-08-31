@@ -3,13 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   actions.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gsever <gsever@student.42kocaeli.com.tr>   +#+  +:+       +#+        */
+/*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 20:03:20 by gsever            #+#    #+#             */
-/*   Updated: 2022/08/30 20:09:00 by gsever           ###   ########.tr       */
+/*   Updated: 2022/08/31 12:21:39 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <philo.h>
+// #include <philo.h>
 
-void	action_think(
+// void	action_think(t_base *base)
+// {
+	
+// }
