@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 15:35:12 by gsever            #+#    #+#             */
-/*   Updated: 2022/08/31 17:57:40 by gsever           ###   ########.fr       */
+/*   Updated: 2022/09/01 16:23:11 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ void	*lifecycle_checker(void *arg)
 	i = 0;
 	while (1)
 	{
-		// if (base->philos->full_count == base->philos_count)
-		// 	break ;
+		if (base->philos->full_count == base->philos_count)
+			break ;
 		if (i == base->philos_count)
 			i = 0;
 		usleep(1000);

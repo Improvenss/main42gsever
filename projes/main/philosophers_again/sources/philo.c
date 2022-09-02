@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 16:30:41 by gsever            #+#    #+#             */
-/*   Updated: 2022/08/31 13:56:33 by gsever           ###   ########.fr       */
+/*   Updated: 2022/09/01 16:46:05 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,17 +92,18 @@ void	write_command(uint64_t time, t_philo *philo, t_state state)
 {
 	const char	*actions[5] = {STR_EAT, STR_SLEEP, STR_THINK,
 		STR_TOOK_FORK, STR_DEAD};
-	
+
 	printf("%llu %d %s\n", time, philo->id, actions[state]);
 }
 
 void	*lifecycle_checker(void *arg)
 {
-	t_base	*base;
-	int		i;
+	t_base		*base;
+	uint64_t	timestamp;
+	int			i;
 
-	i = 0;
 	base = (t_base *)arg;
+	i = 0;
 	while (1)
 	{
 		if (base->philo->full_count == base->number_of_philo)
@@ -110,9 +111,11 @@ void	*lifecycle_checker(void *arg)
 		if (i == base->number_of_philo)
 			i = 0;
 		usleep(1000);
-		if (!base->philo[i].full && ((int)(get_time() - base->philo[i].last_eat_time) > base->time_to_eat))
+		timestamp = get_time();
+		if (!base->philo[i].full && ((int)(timestamp
+			- base->philo[i].last_eat_time) > base->time_to_eat))
 		{
-			write_command(get_time(), base->philo, DEAD);
+			write_command(get_time(), &base->philo[i], DEAD);
 			base->is_running = false;
 			break ;
 		}
@@ -126,9 +129,10 @@ void	*lifecycle(void *arg)
 	t_philo	*philo;
 
 	philo = (t_philo *)arg;
+	philo->last_eat_time = get_time();
 	while (philo->base->is_running)
 	{
-		if (philo->id % 2 == 0)
+		if (philo->id % 2 == 1)
 		{
 			action_think(philo);
 			usleep(philo->base->time_to_eat * 0.25 * 1000);
@@ -149,7 +153,7 @@ void	*lifecycle(void *arg)
 void	init_philos_thread(t_base *base)
 {
 	int			i;
-	pthread_t	lifecycle_id;
+	// pthread_t	lifecycle_id;
 
 	i = -1;
 	while (++i < base->number_of_philo)
@@ -160,8 +164,8 @@ void	init_philos_thread(t_base *base)
 	i = -1;
 	while (++i < base->number_of_philo)
 		pthread_join(base->philo[i].th_id, NULL);
-	pthread_create(&lifecycle_id, NULL, &lifecycle_checker, NULL);
-	pthread_join(lifecycle_id, NULL);
+	// pthread_create(&lifecycle_id, NULL, &lifecycle_checker, NULL);
+	// pthread_join(lifecycle_id, NULL);
 }
 
 void	philosophers(int ac, char **av, t_base *base)
