@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 15:35:12 by gsever            #+#    #+#             */
-/*   Updated: 2022/09/01 16:23:11 by gsever           ###   ########.fr       */
+/*   Updated: 2022/09/02 13:09:36 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	*lifecycle_checker(void *arg)
 	i = 0;
 	while (1)
 	{
-		if (base->philos->full_count == base->philos_count)
+		if (base->full_count == base->philos_count)
 			break ;
 		if (i == base->philos_count)
 			i = 0;
@@ -72,7 +72,7 @@ void	*lifecycle(void *arg)
 		philo_think(philos);
 		if (philos->eat_count == philos->common->must_eat)
 		{
-			philos->full_count++;
+			philos->common->full_count++;
 			philos->full = true;
 			break ;
 		}

@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 16:39:08 by gsever            #+#    #+#             */
-/*   Updated: 2022/09/01 16:58:38 by gsever           ###   ########.fr       */
+/*   Updated: 2022/09/02 12:39:10 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
  * @copyright Copyright (c) 2022
  * 
  */
-#include "philo.h"
+#include "philos.h"
 
 /**
  * @brief Philosopher's main function. Every Philosopher one thread.

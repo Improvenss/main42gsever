@@ -6,11 +6,11 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 17:07:34 by gsever            #+#    #+#             */
-/*   Updated: 2022/09/01 17:27:47 by gsever           ###   ########.fr       */
+/*   Updated: 2022/09/02 12:38:38 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "philos.h"
 
 /** --> OK
  * @brief Checking base struct's values.

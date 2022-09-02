@@ -6,11 +6,11 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 16:37:38 by gsever            #+#    #+#             */
-/*   Updated: 2022/09/01 17:32:32 by gsever           ###   ########.fr       */
+/*   Updated: 2022/09/02 12:38:43 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "philos.h"
 
 void	ft_perror(char *str)
 {

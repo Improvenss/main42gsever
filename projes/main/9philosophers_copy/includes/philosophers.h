@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 18:33:22 by gsever            #+#    #+#             */
-/*   Updated: 2022/08/31 15:21:33 by gsever           ###   ########.fr       */
+/*   Updated: 2022/09/02 13:04:26 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,6 @@ typedef struct s_philos
 	int			fork_r;
 	int			eat_count;
 	long		last_eat_time;
-	int			full_count;
 	bool		full;
 }		t_philos;
 
@@ -124,6 +123,7 @@ typedef struct s_base
 	int				time_to_eat;
 	int				time_to_sleep;
 	int				must_eat;
+	int				full_count;
 	int				start_time;
 	bool			is_running;
 	t_philos		*philos;

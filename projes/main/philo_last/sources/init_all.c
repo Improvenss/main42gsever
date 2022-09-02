@@ -6,11 +6,11 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 16:38:42 by gsever            #+#    #+#             */
-/*   Updated: 2022/09/01 17:33:43 by gsever           ###   ########.fr       */
+/*   Updated: 2022/09/02 12:59:59 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "philos.h"
 
 void	init_philos_thread(t_base *base)
 {
@@ -54,7 +54,6 @@ void	init_philos(t_base *base)
 		base->philo[i].eat_count = 0;
 		base->philo[i].last_eat_time = 0;
 		base->philo[i].full = false;
-		base->philo[i].full_count = 0;
 	}
 }
 

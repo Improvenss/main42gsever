@@ -6,11 +6,11 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 16:41:18 by gsever            #+#    #+#             */
-/*   Updated: 2022/09/01 17:01:28 by gsever           ###   ########.fr       */
+/*   Updated: 2022/09/02 13:07:31 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "philos.h"
 
 void	*lifecycle_checker(void *arg)
 {
@@ -20,9 +20,9 @@ void	*lifecycle_checker(void *arg)
 
 	base = (t_base *)arg;
 	i = 0;
-	while (1)
+	while (true)
 	{
-		if (base->philo->full_count == base->number_of_philo)
+		if (base->full_count == base->number_of_philo)
 			break ;
 		if (i == base->number_of_philo)
 			i = 0;
@@ -48,16 +48,16 @@ void	*lifecycle(void *arg)
 	philo->last_eat_time = get_time();
 	while (philo->base->is_running)
 	{
-		if (philo->id % 2 == 1)
+		if (philo->id % 2 == 0)
 		{
 			action_think(philo);
 			usleep(philo->base->time_to_eat * 0.25 * 1000);
 		}
-		action_eat(philo);
+		action_eat(philo, get_time());
 		action_think(philo);
 		if (philo->eat_count == philo->base->must_eat_count)
 		{
-			philo->full_count++;
+			philo->base->full_count++;
 			philo->full = true;
 			break ;
 		}

@@ -6,11 +6,11 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 16:36:06 by gsever            #+#    #+#             */
-/*   Updated: 2022/09/01 16:36:49 by gsever           ###   ########.fr       */
+/*   Updated: 2022/09/02 12:55:35 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <philo.h>
+#include <philos.h>
 
 void	leave_forks(t_philo *philo)
 {
@@ -26,11 +26,11 @@ void	take_forks(t_philo *philo)
 	write_command(get_time(), philo, TOOK_FORK);
 }
 
-void	action_eat(t_philo *philo)
+void	action_eat(t_philo *philo, uint64_t timestamp)
 {
 	take_forks(philo);
-	write_command(get_time(), philo, EAT);
-	philo->last_eat_time = get_time();
+	write_command(timestamp, philo, EAT);
+	philo->last_eat_time = timestamp;
 	philo->eat_count++;
 	leave_forks(philo);
 	usleep(philo->base->time_to_eat * 1000);

@@ -6,11 +6,11 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 16:48:27 by gsever            #+#    #+#             */
-/*   Updated: 2022/09/01 17:24:30 by gsever           ###   ########.fr       */
+/*   Updated: 2022/09/02 13:02:04 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "philos.h"
 
 uint64_t	get_time(void)
 {
@@ -31,10 +31,14 @@ uint64_t	get_time(void)
 
 void	write_command(uint64_t time, t_philo *philo, t_state state)
 {
-	const char	*actions[5] = {STR_EAT, STR_SLEEP, STR_THINK,
-		STR_TOOK_FORK, STR_DEAD};
+	const char	*actions[6] = {STR_EAT, STR_SLEEP, STR_THINK,
+		STR_TOOK_FORK, STR_DEAD, NULL};
 
+	if (!philo->base->is_running)
+		return ;
+	pthread_mutex_lock(&philo->base->write);
 	printf("%llu %d %s\n", time, philo->id, actions[state]);
+	pthread_mutex_unlock(&philo->base->write);
 }
 
 /**

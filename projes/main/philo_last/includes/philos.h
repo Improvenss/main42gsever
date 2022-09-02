@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo.h                                            :+:      :+:    :+:   */
+/*   philos.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 16:28:22 by gsever            #+#    #+#             */
-/*   Updated: 2022/09/01 17:32:19 by gsever           ###   ########.fr       */
+/*   Updated: 2022/09/02 12:33:04 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/** @file philosophers.h
+/** @file philos.h
  * @brief Library for 'philosophers' project.
  * @author Görkem SEVER (gsever)
  * @bug Not know bugs.
  */
 
-#ifndef PHILO_H
-# define PHILO_H
+#ifndef PHILOS_H
+# define PHILOS_H
 
 //	STANDARD LIBRARY INCLUDES
 # include <unistd.h> /*
@@ -97,15 +97,14 @@ typedef enum s_state
 
 typedef struct s_philo
 {
-	t_base				*base;
-	pthread_t			th_id;
-	int					id;
-	int					fork_l;
-	int					fork_r;
-	int					eat_count;
-	uint64_t			last_eat_time;
-	bool				full;
-	int					full_count;
+	t_base			*base;
+	pthread_t		th_id;
+	int				id;
+	int				fork_l;
+	int				fork_r;
+	int				eat_count;
+	uint64_t		last_eat_time;
+	bool			full;
 }		t_philo;
 
 typedef struct s_base
@@ -118,6 +117,7 @@ typedef struct s_base
 	int				time_to_eat;
 	int				time_to_sleep;
 	int				must_eat_count;
+	int				full_count;
 	uint64_t		prog_start_time;
 	bool			is_running;
 }		t_base;
@@ -129,7 +129,7 @@ typedef struct s_base
 //actions.c --> OK
 void		leave_forks(t_philo *philo);
 void		take_forks(t_philo *philo);
-void		action_eat(t_philo *philo);
+void		action_eat(t_philo *philo, uint64_t timestamp);
 void		action_sleep(t_philo *philo);
 void		action_think(t_philo *philo);
 
