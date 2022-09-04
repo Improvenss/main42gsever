@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 14:51:39 by gsever            #+#    #+#             */
-/*   Updated: 2022/08/19 14:23:52 by gsever           ###   ########.fr       */
+/*   Updated: 2022/09/04 17:56:44 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,14 +114,14 @@ void	init_philo(t_base *base)
 void	init_args(int ac, char **av, t_base *base)
 {
 	check_args(ac, av);
-	base->philos_count = atoi(av[1]);
-	base->time_to_die = atoi(av[2]);
-	base->time_to_eat = atoi(av[3]);
-	base->time_to_sleep = atoi(av[4]);
+	base->philos_count = ft_atoi(av[1]);
+	base->time_to_die = ft_atoi(av[2]);
+	base->time_to_eat = ft_atoi(av[3]);
+	base->time_to_sleep = ft_atoi(av[4]);
 	base->must_eat = -1;
 	base->is_running = true;
 	if (ac == 6)
-		base->must_eat = atoi(av[5]);
+		base->must_eat = ft_atoi(av[5]);
 	check_args_in_values(base);
 	base->start_time = get_current_time();
 }

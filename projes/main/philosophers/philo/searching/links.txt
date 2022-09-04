@@ -6,5 +6,6 @@ YouTube:
 
 Race condition vs. Data races means:
 	https://www.avanderlee.com/swift/race-condition-vs-data-race/
-
+	https://www.cs.cmu.edu/afs/cs.cmu.edu/project/cmt-40/Nice/RuleRefinement/bin/valgrind-3.2.0/docs/html/hg-manual.html
+	
 

@@ -53,3 +53,54 @@ pgrep, pkill – find or signal processes by name
 		32425	philo
 	zsh: terminated  ./philo 7 800 200 200
 ------------------------------------
+$ cat data_races_1.cc
+#include <pthread.h>
+#include <stdio.h>
+
+int Global;
+
+void *Thread1(void *x) {
+  Global++;
+  return NULL;
+}
+
+void *Thread2(void *x) {
+  Global--;
+  return NULL;
+}
+
+int main() {
+  pthread_t t[2];
+  pthread_create(&t[0], NULL, Thread1, NULL);
+  pthread_create(&t[1], NULL, Thread2, NULL);
+  pthread_join(t[0], NULL);
+  pthread_join(t[1], NULL);
+}
+
+clang++ data_races_1.cc -fsanitize=thread -fPIE -pie -g
+
+yuandre@Gorkems-MacBook-Pro samples % ./a.out
+a.out(4313,0x103268580) malloc: nano zone abandoned due to inability to preallocate reserved vm space.
+==================
+WARNING: ThreadSanitizer: data race (pid=4313)
+  Write of size 4 at 0x000102fb4000 by thread T2:
+    #0 Thread2(void*) data_races_1.c:12 (a.out:arm64+0x100003e30)
+
+  Previous write of size 4 at 0x000102fb4000 by thread T1:
+    #0 Thread1(void*) data_races_1.c:7 (a.out:arm64+0x100003dc8)
+
+  Location is global 'Global' at 0x000102fb4000 (a.out+0x000100008000)
+
+  Thread T2 (tid=113010, running) created by main thread at:
+    #0 pthread_create <null>:56718660 (libclang_rt.tsan_osx_dynamic.dylib:arm64e+0x2bbe8)
+    #1 main data_races_1.c:19 (a.out:arm64+0x100003eac)
+
+  Thread T1 (tid=113009, finished) created by main thread at:
+    #0 pthread_create <null>:56718660 (libclang_rt.tsan_osx_dynamic.dylib:arm64e+0x2bbe8)
+    #1 main data_races_1.c:18 (a.out:arm64+0x100003e8c)
+
+SUMMARY: ThreadSanitizer: data race data_races_1.c:12 in Thread2(void*)
+==================
+ThreadSanitizer: reported 1 warnings
+zsh: abort      ./a.out
+------------------------------------

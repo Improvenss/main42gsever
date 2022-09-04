@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 18:33:22 by gsever            #+#    #+#             */
-/*   Updated: 2022/09/02 13:04:26 by gsever           ###   ########.fr       */
+/*   Updated: 2022/09/04 18:01:26 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,38 +134,41 @@ typedef struct s_base
 /* ************************************************************************** */
 
 //actions.c
-void	leave_forks(t_philos *philos);
-void	take_forks(t_philos *philos);
-void	philo_sleep(t_philos *philos);
-void	philo_eat(t_philos *philos);
-void	philo_think(t_philos *philos);
+void		leave_forks(t_philos *philos);
+void		take_forks(t_philos *philos);
+void		philo_sleep(t_philos *philos);
+void		philo_eat(t_philos *philos);
+void		philo_think(t_philos *philos);
 
 //check_args.c
-void	check_args_in_values(t_base *base);
-void	check_args_on_shell(int ac, char **av);
-void	check_args(int argc, char **argv);
+void		check_args_in_values(t_base *base);
+void		check_args_on_shell(int ac, char **av);
+void		check_args(int argc, char **argv);
 
 //destroy.c
-void	destroy_mutexes(t_base *base);
-void	destory_threads(t_base *base);
+void		destroy_mutexes(t_base *base);
+void		destory_threads(t_base *base);
 
 //error.c
-int		ft_perror(char *str);
+int			ft_perror(char *str);
+
+//ft_atoi.c
+int			ft_atoi(const char *nptr);
 
 //get_time.c
-unsigned long long	get_current_time(void);
+uint64_t	get_current_time(void);
 
 //init_all.c
-void	init_philo_thread(t_base *base);
-void	init_mutex(t_base *base);
-void	init_philo(t_base *base);
-void	init_args(int ac, char **av, t_base *base);
+void		init_philo_thread(t_base *base);
+void		init_mutex(t_base *base);
+void		init_philo(t_base *base);
+void		init_args(int ac, char **av, t_base *base);
 
 //lifecycle.c
-void	*lifecycle_checker(void *arg);
-void	*lifecycle(void *arg);
+void		*lifecycle_checker(void *arg);
+void		*lifecycle(void *arg);
 
 //philosophers.c
-void	philosophers(int argc, char **argv, t_base *base);
+void		philosophers(int argc, char **argv, t_base *base);
 
 #endif
