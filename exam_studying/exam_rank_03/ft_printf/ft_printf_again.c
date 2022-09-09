@@ -51,6 +51,7 @@ int	ft_printf(const char *format, ...)
 		else
 			write(1, format++, 1);
 	}
+	va_end(ap);
 	return (g_val);
 }
 
