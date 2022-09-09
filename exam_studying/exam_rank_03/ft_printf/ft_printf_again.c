@@ -3,7 +3,7 @@
 
 int	g_val = 0;
 
-void	ft_decimal(long des, int set, char *sign)
+static void	ft_decimal(long des, int set, char *sign)
 {
 	if (des > set)
 		ft_decimal((des / set), set, sign);
@@ -25,6 +25,13 @@ int	ft_printf(const char *format, ...)
 			{
 				char	*str = va_arg(ap, char *);
 				int		len = 0;
+				if (str == NULL)
+				{
+					g_val += 6;
+					write(1, "(null)", 6);
+					format++;
+					continue ;
+				}
 				while (str[len] != '\0')
 					len++;
 				g_val += len;
@@ -49,15 +56,22 @@ int	ft_printf(const char *format, ...)
 			format++;
 		}
 		else
+		{
 			write(1, format++, 1);
+			g_val++;
+		}
 	}
 	va_end(ap);
 	return (g_val);
 }
 
+/*
 #include <stdio.h>
 int	main()
 {
 	ft_printf("ben %s %d yasindayim 61 yazacak -> %x\n", "gorkem SEVER", 21, 97);
 	printf("ben %s %d yasindayim 61 yazacak -> %x\n", "gorkem SEVER", 21, 97);
+	ft_printf("length -> %d\n", ft_printf("%s", NULL));
+	printf("length -> %d\n", printf("%s", NULL));
 }
+*/
