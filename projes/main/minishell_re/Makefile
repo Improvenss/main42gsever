@@ -1,20 +1,8 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/09/08 16:36:01 by gsever            #+#    #+#              #
-#    Updated: 2022/09/08 17:36:21 by gsever           ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 NAME		= minishell
 
 #	Flags for compile
 CC			= gcc
-FLAGS		= -Wall -Werror -Wextra
+FLAGS		= -Wall -Werror -Wextra -lreadline
 
 #	All process use for compiling.
 # UNAME	:= $(shell uname -s)
@@ -22,16 +10,14 @@ FLAGS		= -Wall -Werror -Wextra
 
 #	Libft Part --> OK
 LIBFTDIR	= ./libraries/libft
-# LIBFT		= $(LIBFTDIR)/libft.a
 
 #	Locations Part --> OK
 LIBRARIES	= -L$(LIBFTDIR)/ -lft
-LIBFT_HEADERS = $(LIBFT_DIRECTORY)includes/
-INCLUDES	= -I$(HEADERS_DIRECTORY) -I$(LIBFT_HEADERS)
+INCLUDES	= -I$(HEADERS_DIRECTORY)
 
 #	HEADERS Parts --> Kutuphane --> OK
 HEADERS_DIRECTORY = ./includes/
-HEADERS_LIST = $(subst $(HEADERS_DIRECTORY),,$(wildcard $(HEADERS_DIRECTORY)*.h))
+# HEADERS_LIST = $(subst $(HEADERS_DIRECTORY),,$(wildcard $(HEADERS_DIRECTORY)*.h))
 HEADERS = $(addprefix $(HEADERS_DIRECTORY), $(HEADERS_LIST))
 
 #	Source Files --> OK
@@ -64,12 +50,12 @@ all:
 #	@$(MAKE) -s $(NAME) -j $(NUMPROC)
 
 #	Compiling
-$(OBJECTS_DIRECTORY)%.o : $(SOURCES_DIRECTORY)%.c $(HEADERS)
+$(OBJECTS_DIRECTORY)%.o : $(SOURCES_DIRECTORY)%.c
 	@$(CC) $(FLAGS) $(INCLUDES) -c $< -o $@
 	@printf "%-57b %b" "$(BLUE)COMPILED $(LB)$@" "$(GREEN)[✓]$(X)\n"
 
 $(NAME): libft $(OBJECTS_DIRECTORY) $(OBJECTS)
-	@$(CC) $(FLAGS) -o $(NAME) $(OBJECTS) -lreadline
+	@$(CC) $(FLAGS) -o $(NAME) $(OBJECTS)
 	@printf "%-57b %b" "$(GREEN)CREATED $(NAME)" "$(GREEN)[FINISHED]$(X)\n"
 
 #	Objects file creating
