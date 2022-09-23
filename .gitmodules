@@ -31,3 +31,6 @@
 [submodule "ready-for-pusht/push_swap"]
 	path = ready-for-pusht/push_swap
 	url = git@github.com:Improvenss/push_swap.git
+[submodule "projes/main/10minishell"]
+	path = projes/main/10minishell
+	url = git@github.com:Improvenss/minishell.git
