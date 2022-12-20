@@ -1,0 +1,9 @@
+NET_PRACTICE
+{
+	Meanings
+	{
+		TCP/IP: IP, verilerin gönderildiği adresi alır
+			(bilgisayarınızın bir IP adresi vardır). TCP, bu IP adresi
+			 bulunduğunda doğru veri iletimini sağlar. İkisi birlikte TCP'yi oluşturur
+	}
+}
