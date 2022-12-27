@@ -12,3 +12,12 @@ submodule_update:
 # NOTE: git pull origin master
 # NOTE: git clone --depth 1 -> sadece en son commit'i aliyor
 # NOTE: git checkout acc9a87 -> hangi commit'e gitmek istiyorsan ona gidiyor
+#
+# GITHUB'S CREATE NEW REPOSITORY AREA
+# echo "# asdf" >> README.md
+# git init
+# git add README.md
+# git commit -m "first commit"
+# git branch -M main
+# git remote add origin git@github.com:Improvenss/asdf.git
+# git push -u origin main

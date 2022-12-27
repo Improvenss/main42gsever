@@ -34,3 +34,12 @@
 [submodule "projes/main/10minishell"]
 	path = projes/main/10minishell
 	url = git@github.com:Improvenss/minishell.git
+[submodule "projes/main/makefiles"]
+	path = projes/main/makefiles
+	url = git@github.com:Improvenss/makefiles.git
+[submodule "projes/main/net_practice"]
+	path = projes/main/14net_practice
+	url = git@github.com:Improvenss/net_practice.git
+[submodule "projes/main/cpp_modules"]
+	path = projes/main/11cpp_modules
+	url = git@github.com:Improvenss/cpp_modules.git
