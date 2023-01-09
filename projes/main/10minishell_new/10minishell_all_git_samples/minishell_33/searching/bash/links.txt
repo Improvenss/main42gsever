@@ -1,0 +1,9 @@
+Lexer and Parser
+{
+	Lexer
+	https://dev.to/cad97/what-is-a-lexer-anyway-4kdo
+	DIFFERENCE
+	https://tomassetti.me/guide-parsing-algorithms-terminology/#:~:text=They%20are%20called%20scannerless%20parsers,and%20produces%20the%20parsing%20result.
+	Parser
+	https://www.techopedia.com/definition/3854/parser#:~:text=A%20parser%20is%20a%20compiler,by%20other%20components%20in%20programming.
+}

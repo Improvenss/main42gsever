@@ -1,0 +1,142 @@
+Terminal Basics Cheatsheet
+NOTES
+./
+	A special directory on *nix systems that refers to the current directory.  
+
+../
+	A special directory that is used to refer to the parent directory.
+
+*
+	A common placeholder for "all" or "all files".
+
+DOCUMENTATION
+man command
+	Retrieves the man page (manual) for a particular command (ex. cp, rm, mv, emacs, g++,
+	etc.).  Use the letter q to exit and /string to search the page.
+
+
+NAVIGATION
+pwd
+	"Print Working Directory".  Prints the exact path of the current working directory.
+
+ls -l
+	Lists (long format) all files in a directory.
+
+clear
+	Clears the screen
+
+cd path/name
+	Changes the current working directory to the directory name
+
+cp -r source destination
+	Recursively copies the contents of the directory "source" to the directory named
+	"destination".
+
+up/down arrows
+	Cycle through history.
+
+
+FILE MANIPULATION
+
+touch filename
+	Creates a plain text file named "file".  If such a file already exists,
+	touch updates the file's timestamp (useful for recompiling).
+
+cat filename
+	Prints the file filename.
+
+less filename
+	View file on terminal without editing (use q to exit).
+
+cp source destination
+	Creates a copy of the file "source" named "destination".
+
+mv source_file destination_file
+	Renames the file "source" as "destination".
+
+mv source/file destination/file
+	Moves a file from the directory source to destination.  If the names
+	of the file are different in the source and destination paths the file
+	will also be renamed.
+	Note: source and destination may be exact or relative paths.
+
+rm file
+	Deletes a file named "file".
+	Note: A *nix terminal has no "recycling bin" or "trash bin".  For
+	practical reasons (_not_ reasons of security), you should consider
+	deletes using rm to be permanent.
+
+
+DIRECTORIES
+mkdir name
+    Makes a new directory named name.
+
+rmdir name
+	Removes the current directory (empty directory only).
+
+mv source destination
+	Renames (moves) the directory "source" to the name "destination".
+
+FILE EDITING
+emacs filename
+	Opens a file named filename in the emacs text editor.  Recommended for
+	advanced users.
+
+vim file
+	Opens a file named filename in the vim text editor.  Recommended for
+	advanced users.
+
+nano file
+	Opens a file named "file" in the nano text editor.  Recommended for users who desire a
+	simpler file editing experience that requires learning fewer commands.	
+
+
+COMPILING C++ PROGRAMS
+g++ file.cpp -o executable
+	The simplest way to invoke the g++ compiler.  Compiles (and links) file.cpp
+	to produce an executable named "executable".
+
+g++ -c file1.cpp file2.cpp ... fileN.cpp
+    Compiles each fileX.cpp file into an (unlinked) object file named fileX.o.
+
+g++ file1.o file2.o ... fileN.o -o executable
+	Links the listed .o files to produce an executable named "executable".
+
+
+
+PRINTING
+lpr file -num_copies
+	Send file to the default printer.  Optionally, specify num_copies as the
+	number of copies to print.
+
+lpq
+	View the current print queue.
+
+lprm job_id
+	Cancels print job job-id (see lpq for job-id).
+
+lpstat -p -d
+	List current printers including the default.
+
+lpoptions -d printer_name
+
+
+
+MISC
+chmod
+	Changes permissions of file.  See the manpage for usage details.
+
+grep "pattern" file
+	Searches for instances of "pattern" in file and prints matching lines.
+
+Ctrl+C
+	Halt current command.
+
+find start_directory -name "filename"
+	Starts searching at the directory start_directory for a file named filename.
+
+head filename
+	Display the first 10 lines of filename.
+
+tail filename
+	Display the last 10 lines of filename.

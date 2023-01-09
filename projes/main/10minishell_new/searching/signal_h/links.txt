@@ -1,0 +1,9 @@
+https://linuxhint.com/signal_handlers_c_programming_language/
+{
+	sig_handler,
+	SIG_IGN,
+	SIG_DFL
+}
+https://www.asciihex.com/character/control/4/0x04/eot-end-of-transmission
+https://www.windmill.co.uk/ascii-control-codes.html
+https://stackoverflow.com/questions/608916/ignoring-ctrl-c
