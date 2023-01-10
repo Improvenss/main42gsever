@@ -1,0 +1,46 @@
+cp - copy
+
+ln - link
+
+mkdir - make directory
+
+rm - remove (as in delete)
+
+ld - load (link files for a loadable program) - this is a correction
+
+su - Switch User (as in become the admin dude if you don’t select a userID )
+
+ls - list files
+
+ed - a line (text) editor
+
+vi - a visual (24x80 terminal display) editor
+
+grep - generate "regular expression" & print //anything that is found//
+
+diff - find the difference in lines between two files //and print them out//
+
+sed - stream editor <<stream in, process with a "regular expression" and output the results>>
+
+sleep - go to sleep <<wait XX seconds>>
+
+read - stop and wait for input from a terminal
+
+man - list off the manual page (documentation) for a command
+
+more (& pg) - list a file a page/line at a time for display
+
+less - (a joke, as in less is more) does the same as pg & more, but also backs up a file, if requested
+
+Seems intuitive to me. ... Then again, you should deal with things like EXCP, EXCPW, WAIT, ...
+
+Well, there are some arcane instructions,
+
+awk - Aho, Weinberger, & Kernighan (a interpreter named after the creators)
+
+yacc - Yet Another Compiler Compiler (compiler creator)
+
+bison - another interpreter (a pun on a Yak, as in an animal) -this is a correction
+
+lex - a lexical analyzer
+

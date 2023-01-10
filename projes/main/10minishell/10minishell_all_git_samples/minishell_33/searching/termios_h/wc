@@ -1,0 +1,8 @@
+total 112
+drwxr-xr-x  7 gsever  2021_kocaeli    238 Sep 28 15:49 .
+drwxr-xr-x  5 gsever  2021_kocaeli    170 Sep 28 15:11 ..
+-rw-r--r--  1 gsever  2021_kocaeli      0 Sep 28 15:50 1.txt
+-rw-r--r--  1 gsever  2021_kocaeli      0 Sep 28 15:50 2.txt
+-rwxr-xr-x  1 gsever  2021_kocaeli  49696 Sep 28 15:31 a.out
+-rw-r--r--  1 gsever  2021_kocaeli    716 Sep 28 15:15 tcsetattr.c
+-rw-r--r--  1 gsever  2021_kocaeli      0 Sep 28 15:50 wc

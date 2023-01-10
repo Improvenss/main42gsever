@@ -1,0 +1,9 @@
+https://www.ibm.com/docs/en/zos/2.5.0?topic=files-direnth-posix-directory-access
+{
+	opendir()
+	https://www.ibm.com/docs/en/zos/2.3.0?topic=functions-opendir-open-directory#rtoped
+	readdir()
+	https://www.ibm.com/docs/en/zos/2.3.0?topic=functions-readdir-read-entry-from-directory
+	closedir()
+	https://www.ibm.com/docs/en/zos/2.5.0?topic=functions-closedir-close-directory
+}

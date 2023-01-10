@@ -1,0 +1,7 @@
+.
+..
+1.txt
+2.txt
+a.out
+tcsetattr.c
+wc
