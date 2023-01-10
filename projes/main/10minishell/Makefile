@@ -159,10 +159,10 @@ brew_readline:
 	@echo "$(GREEN)Brew readline installed. 💩$(X)"
 	brew link --force readline
 	@echo "$(GREEN)Brew readline linked. 🎈$(X)"
-# 	echo 'export C_INCLUDE_PATH="/goinfre/$(USER)/brew/\
-# include:$(C_INCLUDE_PATH)"' >> ~/.zshrc
-# 	echo 'export LIBRARY_PATH="/goinfre/$(USER)/brew/\
-# lib:$(LIBRARY_PATH)"' >> ~/.zshrc
+	echo 'export C_INCLUDE_PATH="/goinfre/$(USER)/brew/\
+	include:$(C_INCLUDE_PATH)"' >> ~/.zshrc
+	echo 'export LIBRARY_PATH="/goinfre/$(USER)/brew/\
+	lib:$(LIBRARY_PATH)"' >> ~/.zshrc
 
 test:
 	@cd testers && bash tester.sh m
