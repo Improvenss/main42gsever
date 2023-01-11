@@ -34,3 +34,6 @@
 [submodule "ready-for-pusht/philosophers"]
 	path = ready-for-pusht/philosophers
 	url = git@github.com:Improvenss/philosophers.git
+[submodule "projes/main/13cub3D"]
+	path = projes/main/13cub3D
+	url = git@github.com:Improvenss/cub3D.git
