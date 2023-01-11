@@ -1,0 +1,7 @@
+NO ./textures/A.xpm
+SO ./textures/B.xpm
+WE ./textures/C.xpm
+EA ./textures/D.xpm
+
+F 86,125,70,123,123,123,123
+C 0,0,255

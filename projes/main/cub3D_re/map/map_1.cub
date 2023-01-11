@@ -1,0 +1,15 @@
+NO ./textures/eagle.xpm
+SO ./textures/B.xpm
+WE ./textures/C.xpm
+EA ./textures/D.xpm
+
+F 255,204,204
+C 255,178,102
+
+1111111111
+1001000001
+1010010001
+1100N00001
+1000000001
+1000000001
+1111111111
