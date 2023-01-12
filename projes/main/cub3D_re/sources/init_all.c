@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 00:45:58 by gsever            #+#    #+#             */
-/*   Updated: 2023/01/12 00:03:34 by gsever           ###   ########.fr       */
+/*   Updated: 2023/01/12 14:12:12 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,13 @@
 static int	init_mlx_draw(t_main *main)
 {
 	init_set_player(main, 0, 0);
+	main->ply.walk_speed = PLAYER_WALK_SPEED;
+	// main->key.left = false;
+	// main->key.right = false;
+	// main->key.up = false;
+	// main->key.down = false;
+	// main->key.r_left = false;
+	// main->key.r_right = false;
 	return (0);
 }
 

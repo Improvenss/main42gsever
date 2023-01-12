@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 15:58:35 by gsever            #+#    #+#             */
-/*   Updated: 2023/01/12 00:02:12 by gsever           ###   ########.fr       */
+/*   Updated: 2023/01/12 14:53:34 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,8 +98,8 @@ https://www.ibm.com/docs/en/i/7.5?topic=ssw_ibm_i_75/apis/close.htm
 # define ERROR					-1
 # define PROMPT					"cub3D"
 
-# define WINDOW_W				600//1280//800
-# define WINDOW_H				500//1024//800
+# define WINDOW_W				1920//1280//800
+# define WINDOW_H				1080//1024//800
 
 # define WHITESPACES			" \t\n\r"
 
@@ -142,8 +142,10 @@ https://www.ibm.com/docs/en/i/7.5?topic=ssw_ibm_i_75/apis/close.htm
 # define PLAYER_ANGLE			(ONE_DEGREE * 66)
 # define RAY_COUNT				(PLAYER_ANGLE * 2)
 # define PLAYER_THICKNESS		2
-# define PLAYER_ROTATION_SPEED	0.80
-# define PLAYER_WALK_SPEED		0.09
+# define FOV					60
+# define FOV_THICKNESS			1921
+# define PLAYER_ROTATION_SPEED	1.7
+# define PLAYER_WALK_SPEED		0.40
 /* -------------------------------------------------- */
 
 
@@ -214,19 +216,19 @@ typedef struct s_player
 	double	rotation_angle;
 }		t_player;
 
-// typedef struct s_key
-// {
-// 	int	value;
-// }		t_key;
+typedef struct s_key
+{
+	int	value;
+}		t_key;
 
-typedef struct s_key {
-	bool	up;
-	bool	down;
-	bool	right;
-	bool	left;
-	bool	r_right;
-	bool	r_left;
-}	t_key;
+// typedef struct s_key {
+// 	bool	up;
+// 	bool	down;
+// 	bool	right;
+// 	bool	left;
+// 	bool	r_right;
+// 	bool	r_left;
+// }	t_key;
 
 
 // typedef struct	s_minimap
@@ -371,5 +373,6 @@ char	**map_split(char *line, char c, int max);
 
 // utils_wall.c
 int		is_wall(t_main *main, double x, double y);
+int		is_wall_v2(t_main *main, double x, double y);
 
 #endif
