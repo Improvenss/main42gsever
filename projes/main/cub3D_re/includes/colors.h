@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 15:42:12 by gsever            #+#    #+#             */
-/*   Updated: 2022/12/18 20:18:36 by gsever           ###   ########.fr       */
+/*   Updated: 2023/01/12 17:53:08 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,16 @@
 # define B_RESET	"\033[1m"
 
 //	MLX COLORS --> ⚪️
+# define COLOR_RED		0xFF0000
+# define COLOR_GREEN	0x00FF00
+# define COLOR_BLUE		0x0000FF
+# define COLOR_BLACK	0x000000
+# define COLOR_ORANGE	0xFFA500
+# define COLOR_YELLOW	0xFFFF00
+# define COLOR_CYAN		0x00ffff
 # define COLOR_SILVER	0xCCCCCC
 # define COLOR_TUNDORA	0x444444
-# define COLOR_BLACK	0x000000
-# define COLOR_CYAN		0x00ffff
-# define COLOR_YELLOW	0xFFFF00
-# define COLOR_ORANGE	0xFFA500
-# define COLOR_GREEN	0x00ff00
+# define COLOR_D_PURPLE	0x300B19
+# define COLOR_D_GREEN	0x0B3025
 
 #endif

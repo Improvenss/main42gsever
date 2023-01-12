@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 15:58:35 by gsever            #+#    #+#             */
-/*   Updated: 2023/01/12 14:53:34 by gsever           ###   ########.fr       */
+/*   Updated: 2023/01/12 17:32:25 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,8 +144,8 @@ https://www.ibm.com/docs/en/i/7.5?topic=ssw_ibm_i_75/apis/close.htm
 # define PLAYER_THICKNESS		2
 # define FOV					60
 # define FOV_THICKNESS			1921
-# define PLAYER_ROTATION_SPEED	1.7
-# define PLAYER_WALK_SPEED		0.40
+# define PLAYER_ROTATION_SPEED	2.50
+# define PLAYER_WALK_SPEED		1.20
 /* -------------------------------------------------- */
 
 
@@ -214,6 +214,9 @@ typedef struct s_player
 	double	plane_y;// 0.66 -> 66º fov look angle
 	double	walk_speed;
 	double	rotation_angle;
+	double	default_rotation_angle;
+	double	default_pos_x;
+	double	default_pos_y;
 }		t_player;
 
 typedef struct s_key
@@ -261,6 +264,14 @@ typedef struct	s_texture
 	char	*c;
 }		t_texture;
 
+typedef struct s_test
+{
+	bool	_hith;
+	bool	_hitv;
+	double	_dir_x;
+	double	_dir_y;
+}	t_test;
+
 typedef struct s_main
 {
 	t_texture	texture;
@@ -273,6 +284,7 @@ typedef struct s_main
 	t_player	ply;
 	t_ray		ray;
 	int			first_key;
+	t_test		test;
 }		t_main;
 
 
@@ -354,11 +366,12 @@ int		map_map(char *line, int start, t_main *main);
 
 // player.c
 void	update_player_all(t_main *main);
+void	set_player_default_pos(t_main *main);
 void	init_set_player(t_main *main, int x, int y);
 
-// ray.c
-void	sent_ray(t_main *main);
-void	ray_init(t_ray *ray);
+// // ray.c
+// void	sent_ray(t_main *main);
+// void	ray_init(t_ray *ray);
 
 // utils_func.c
 void	free_pstr(char **line);
