@@ -16,7 +16,6 @@ public:
 	ClapTrap(const ClapTrap& CopyClap);
 	ClapTrap& operator=(const ClapTrap& CopyClap);
 	virtual ~ClapTrap();
-	
 
 	virtual void attack(const std::string& target);
 	virtual void takeDamage(unsigned int amount);
@@ -24,6 +23,5 @@ public:
 	bool is_dead() const;
 	unsigned int get_damage();
 };
-
 
 #endif
