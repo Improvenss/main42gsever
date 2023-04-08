@@ -21,3 +21,9 @@ submodule_update:
 # git branch -M main
 # git remote add origin git@github.com:Improvenss/asdf.git
 # git push -u origin main
+
+# How can i learn my ip addres?
+#yuandre@Gorkems-MacBook-Pro ~ % curl ifconfig.me
+#<yourPublicIpAddress>
+#yuandre@Gorkems-MacBook-Pro ~ % ipconfig getifaddr en0
+#<yourPrivateIpAddress>
