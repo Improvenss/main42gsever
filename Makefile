@@ -4,7 +4,7 @@ git:
 	git push
 
 submodule_update:
-	git submodule update --init --recursive --remote -j 8
+	git submodule update --init --recursive --remote --depth 1 -j 8
 	git submodule update --remote
 #	git pull --recurse-submodules -j 8
 # NOTE: git push origin HEAD:master
