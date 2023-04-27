@@ -1,0 +1,130 @@
+Özet: Bu belge, Sistem Yönetimi ile ilgili bir alıştırmadır.
+Bölüm I Önsöz
+Bir konteyner yetmez daha derine inmek lazım.
+
+Bölüm II Giriş
+Bu proje, Docker'ı kullanarak sistem yönetimi bilginizi genişletmeyi amaçlamaktadır.
+Birkaç Docker görüntüsünü sanallaştıracak ve bunları yeni kişisel sanal makinenizde oluşturacaksınız.
+
+Bölüm III Genel yönergeler
+• Bu projenin bir Sanal Makine üzerinde yapılması gerekmektedir.
+• Projenizin konfigürasyonu için gerekli olan tüm dosyalar bir srcs'ye yerleştirilmelidir.
+dosya.
+• Bir Makefile de gereklidir ve dizininizin kök dizininde yer almalıdır.
+ Tüm uygulamanızı kurması gerekir (yani, docker-compose.yml kullanarak Docker
+ görüntülerini oluşturması gerekir).
+• Bu konu, altyapınıza bağlı olarak henüz öğrenmemiş olabileceğiniz kavramları
+ uygulamaya koymayı gerektirir. Bu nedenle, bu ödevi tamamlamak için Docker
+ kullanımıyla ilgili birçok belgeyi ve yararlı bulacağınız diğer her şeyi
+ okumaktan çekinmemenizi öneririz.
+
+Bölüm IV Zorunlu kısım
+Bu proje, belirli kurallar altında farklı hizmetlerden oluşan küçük bir
+ altyapı kurmanızı içerir. Tüm proje sanal bir makinede yapılmalıdır.
+ Docker compose'u kullanmalısınız.
+Her Docker görüntüsü, karşılık gelen hizmetiyle aynı ada sahip olmalıdır.
+Her hizmetin özel bir kapsayıcıda çalışması gerekir.
+Performansla ilgili hususlar için, kaplar Alpine veya Debian'ın sondan
+ bir önceki kararlı sürümünden oluşturulmalıdır. Seçim senin.
+Ayrıca hizmet başına bir tane olmak üzere kendi Docker dosyalarınızı
+ da yazmanız gerekir. Dockerfiles, docker-compose.yml dosyanızda
+ Makefile tarafından çağrılmalıdır.
+Bu, projenizin Docker görüntülerini kendiniz oluşturmanız gerektiği
+ anlamına gelir. Bu durumda hazır Docker imajlarının çekilmesi ve
+ DockerHub gibi servislerin kullanılması (Alpine/Debian bu
+ kuralın dışındadır) yasaklanmıştır.
+
+Ardından şunları ayarlamanız gerekir:
+• Yalnızca TLSv1.2 veya TLSv1.3 ile NGINX içeren bir Docker kapsayıcısı.
+• Yalnızca nginx olmadan WordPress + php-fpm içeren (kurulması ve
+ yapılandırılması gerekir) bir Docker kabı.
+• Yalnızca nginx olmadan MariaDB içeren bir Docker kapsayıcısı.
+• WordPress veritabanınızı içeren bir cilt.
+• WordPress web sitesi dosyalarınızı içeren ikinci bir cilt.
+• Konteynerleriniz arasında bağlantı kuran bir liman işçisi ağı.
+ Bir çökme durumunda kapsayıcılarınızın yeniden başlatılması gerekir.
+
+Docker kapsayıcı bir sanal makine değildir. Böylece, değil
+"kuyruk -f" ve benzerlerine dayalı herhangi bir hileli
+ yamanın kullanılması önerilir çalıştırmaya çalışırken.
+Arka plan programlarının nasıl çalıştığı ve bunun olup
+ olmadığı hakkında bilgi edinin.
+onları kullanmak ya da kullanmamak iyi bir fikir.
+
+Elbette, network: host veya --link veya links: kullanmak yasaktır.
+Ağ hattı, docker-compose.yml dosyanızda bulunmalıdır.
+Kapsayıcılarınız sonsuz çalıştıran bir komutla başlatılmamalıdır.
+döngü. Dolayısıyla bu, giriş noktası olarak kullanılan herhangi
+ bir komut için de geçerlidir veya giriş noktası betiklerinde
+ kullanılır. Aşağıdakiler birkaç yasaklı bilgisayar korsanlığıdır
+yamalar: tail -f, bash, sleep infinity, true iken.
+
+PID 1 ve Dockerfiles yazmaya yönelik en iyi uygulamalar
+ hakkında bilgi edinin.
+
+• WordPress veri tabanınızda biri yönetici olmak üzere iki
+ kullanıcı bulunmalıdır. Yöneticinin kullanıcı adı admin/Admin
+ veya admin/Administrator içeremez (ör. admin, yönetici,
+ Yönetici, admin-123 vb.).
+
+Birimleriniz /home/login/data klasöründe mevcut olacaktır.
+Docker kullanarak ana makine. Tabii ki, oturum açma
+ bilgilerini değiştirmelisiniz seninkiyle
+
+İşleri kolaylaştırmak için, alan adınızı yerel IP adresinizi
+ gösterecek şekilde yapılandırmanız gerekir.
+Bu alan adı login.42.fr olmalıdır. Yine, kendi oturum açma
+ bilgilerinizi kullanmalısınız.
+Örneğin, oturum açma bilgileriniz wil ise wil.42.fr, wil'in
+ web sitesine işaret eden IP adresine yönlendirecektir.
+
+En son etiket yasaktır.
+Docker dosyalarınızda parola bulunmamalıdır.
+Ortam değişkenlerini kullanmak zorunludur.
+Ayrıca, depolamak için bir .env dosyası kullanılması
+ şiddetle tavsiye edilir.
+Ortam Değişkenleri. .env dosyası kökte bulunmalıdır
+srcs dizini.
+NGINX konteyneriniz, sunucunuza tek giriş noktası olmalıdır.
+TLSv1.2 veya TLSv1.3 kullanılarak yalnızca 443 numaralı
+ bağlantı noktası üzerinden altyapı protokol.
+
+İşte beklenen sonucun örnek bir diyagramı:
+
+Beklenen dizin yapısının bir örneği aşağıdadır:
+
+Bariz güvenlik nedenleriyle, tüm kimlik bilgileri,
+ API anahtarları, env değişkenler vb... yerel olarak bir
+ .env dosyasına kaydedilmeli ve git. Herkese açık olarak
+ saklanan kimlik bilgileri sizi doğrudan bir
+ başarısızlığa götürür projenin.
+
+Bölüm V Bonus parçası
+Bu proje için bonus kısmının basit olması hedeflenmiştir.
+Her ekstra hizmet için bir Dockerfile yazılmalıdır.
+Böylece her biri kendi kabının içinde çalışacak ve
+ gerekirse ayrılmış hacmine sahip olacaktır.
+
+Bonus listesi:
+• Önbelleği düzgün bir şekilde yönetmek için WordPress
+ web siteniz için redis önbelleğini kurun.
+• WordPress web sitenizin hacmine işaret eden bir FTP
+ sunucusu kabı kurun.
+• PHP dışında istediğiniz dilde basit bir statik web
+ sitesi oluşturun (Evet, PHP Hariç tutulmuştur!). Örneğin,
+ bir vitrin sitesi veya özgeçmişinizi sunmak için bir site.
+• Yöneticiyi kurun.
+• Yararlı olduğunu düşündüğünüz, seçtiğiniz bir hizmeti kurun.
+ Savunma sırasında seçiminizi gerekçelendirmeniz gerekecek.
+
+Bonus bölümünü tamamlamak için ekstra ayarlama olanağına sahipsiniz.
+Hizmetler. Bu durumda ihtiyacınıza göre daha fazla port açabilirsiniz.
+
+Bonus kısım, yalnızca zorunlu kısım varsa değerlendirilecektir.
+MÜKEMMEL. Mükemmel, zorunlu kısmın bütünleşik olarak yapıldığı anlamına gelir
+ve arıza yapmadan çalışır. TÜMÜNÜ geçmediyseniz
+Zorunlu şartlar, bonus bölümünüz hiç değerlendirilmeyecektir.
+
+Bölüm VI
+Başvuru ve akran değerlendirmesi
+Git deponuzdaki ödevinizi her zamanki gibi teslim edin. Savunma sırasında yalnızca deponuzdaki çalışma değerlendirilecektir. Doğru olduklarından emin olmak için klasörlerinizin ve dosyalarınızın adlarını iki kez kontrol etmekten çekinmeyin.
