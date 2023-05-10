@@ -37,3 +37,6 @@
 [submodule "projes/main/13cub3D"]
 	path = projes/main/13cub3D
 	url = git@github.com:Improvenss/cub3D.git
+[submodule "projes/main/14inception"]
+	path = projes/main/14inception
+	url = git@github.com:Improvenss/inception.git
