@@ -29,7 +29,7 @@ submodule_update:
 #<yourPrivateIpAddress>
 
 
-#Syntax:
+# How can i send file transfer with ssh?
 #scp <source> <destination>
 #To copy a file from B to A while logged into B:
 #scp /path/to/file username@a:/path/to/destination
