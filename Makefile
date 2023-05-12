@@ -27,3 +27,12 @@ submodule_update:
 #<yourPublicIpAddress>
 #yuandre@Gorkems-MacBook-Pro ~ % ipconfig getifaddr en0
 #<yourPrivateIpAddress>
+
+
+#Syntax:
+#scp <source> <destination>
+#To copy a file from B to A while logged into B:
+#scp /path/to/file username@a:/path/to/destination
+#To copy a file from B to A while logged into A:
+#scp username@b:/path/to/file /path/to/destination
+#scp ~/Desktop/app.zip gorkem@192.168.64.15:/home/gorkem/Desktop/inception
