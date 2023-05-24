@@ -27,6 +27,10 @@ submodule_update:
 #<yourPublicIpAddress>
 #yuandre@Gorkems-MacBook-Pro ~ % ipconfig getifaddr en0
 #<yourPrivateIpAddress>
+#yuandre@Gorkems-MacBook-Pro ~ % ifconfig -l | xargs -n1 ipconfig getifaddr
+#<yourPrivateIpAddress>
+#debian@debian:~$ hostname -I | awk '{print $1}'
+#<yourPrivateIpAddress>
 
 
 # How can i send file transfer with ssh?
