@@ -35,12 +35,15 @@ submodule_update:
 
 # How can i send file transfer with ssh?
 #scp <source> <destination>
-#To copy a file from B to A while logged into B:
+# To copy a file from B to A while logged into B:
 #scp /path/to/file username@a:/path/to/destination
-#To copy a file from B to A while logged into A:
+# To copy a file from B to A while logged into A:
 #scp username@b:/path/to/file /path/to/destination
 #scp ~/Desktop/app.zip gorkem@192.168.64.15:/home/gorkem/Desktop/inception
 
-#How can i remove fully any package in Debian?
+# How can i remove fully any package in Debian?
 #sudo apt purge <package>
 #sudo apt purge nginx
+
+# How can i unrar file?
+#unrar x Görsel1.rar asdf/
