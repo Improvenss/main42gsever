@@ -32,7 +32,6 @@ submodule_update:
 #debian@debian:~$ hostname -I | awk '{print $1}'
 #<yourPrivateIpAddress>
 
-
 # How can i send file transfer with ssh?
 #scp <source> <destination>
 # To copy a file from B to A while logged into B:
@@ -47,3 +46,6 @@ submodule_update:
 
 # How can i unrar file?
 #unrar x Görsel1.rar asdf/
+
+# How can i sent iMessage from MacOS with icloud account?
+#brew install imessage-ruby; imessage --text "hello" --contacts "gorkem@icloud.com" --attachment 'foo.jpg'
