@@ -49,3 +49,12 @@ submodule_update:
 
 # How can i sent iMessage from MacOS with icloud account?
 #brew install imessage-ruby; imessage --text "hello" --contacts "gorkem@icloud.com" --attachment 'foo.jpg'
+
+# How can i transfer file with Netcat(nc)?
+# 	Listening pc writing;
+# 	->	netcat -l <port> > <save_file_name>
+#	sample: netcat -l 7777 > asdf.txt
+#
+#	Sending pc writing;
+#	-> netcat -w 2 <listening_pc_ip_address> < <sending_file>
+#	sample: netcat -w 2 192.168.64.22 < notes.txt
