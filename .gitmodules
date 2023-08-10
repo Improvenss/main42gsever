@@ -40,3 +40,6 @@
 [submodule "projes/main/14inception"]
 	path = projes/main/14inception
 	url = git@github.com:Improvenss/inception.git
+[submodule "projes/main/15ft_irc"]
+	path = projes/main/15ft_irc
+	url = git@github.com:Improvenss/ft_irc.git
