@@ -2,6 +2,7 @@
 # define ASPELL_HPP
 
 # include <iostream>
+# include "ATarget.hpp"
 
 class ATarget;
 
@@ -10,22 +11,19 @@ class ASpell
 	private:
 		std::string	name;
 		std::string	effects;
-
 	public:
-		ASpell( void ); // Constructor
-		ASpell( const std::string &name, const std::string &effects ); // Name constructor.
-		ASpell( ASpell const &rhs ); // Copy constructor.
-		ASpell &operator=( ASpell const &rhs ); // Copy assignment operator overload.
-		virtual ~ASpell( void ); // Destructor.
+		ASpell( void ); // Default Constructor.
+		ASpell( const std::string &name, const std::string &title ); // Name Constructor.
+		ASpell( const ASpell &rhs ); // Copy Constructor.
+		ASpell	&operator=( const ASpell &rhs ); // Copy assignment operator overload.
+		virtual	~ASpell( void ); // Destructor.
 
 		const std::string	&getName( void ) const;
 		const std::string	&getEffects( void ) const;
 
-		void launch( ATarget const &atarget_ref ) const;
+		virtual	ASpell	*clone( void ) const = 0;
 
-		virtual ASpell	*clone() const = 0;
+		void	launch( ATarget const &rhs );
 };
-
-# include <ATarget.hpp>
 
 #endif
