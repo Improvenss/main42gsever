@@ -58,3 +58,7 @@ submodule_update:
 #	Sending pc writing;
 #	-> netcat -w 2 <listening_pc_ip_address> < <sending_file>
 #	sample: netcat -w 2 192.168.64.22 < notes.txt
+
+# How can i clear just 3 commit on GitHub?
+# git reset --hard HEAD~3
+# git push --force
