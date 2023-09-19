@@ -43,3 +43,6 @@
 [submodule "projes/main/15ft_irc"]
 	path = projes/main/15ft_irc
 	url = git@github.com:Improvenss/ft_irc.git
+[submodule "projes/main/16ft_transcendence"]
+	path = projes/main/16ft_transcendence
+	url = git@github.com:Improvenss/ft_transcendence.git
