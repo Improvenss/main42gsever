@@ -62,3 +62,10 @@ submodule_update:
 # How can i clear just 3 commit on GitHub?
 # git reset --hard HEAD~3
 # git push --force
+
+# How can i connect router from internet?
+#	https://<webdav_name>/webdav/
+# or
+#	sftp -P 22 admin@<router_ip_address>
+# or
+#	ftp in process...
