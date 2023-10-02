@@ -69,3 +69,10 @@ submodule_update:
 #	sftp -P 22 admin@<router_ip_address>
 # or
 #	ftp://<router_public_ip>:21
+# or local
+# sudo /usr/local/sbin/sstpc --cert-warn --tls-ext --user <login> --password <password> <keendns name of the router> usepeerdns require-mschap-v2 noauth noipdefault noccp refuse-eap refuse-pap refuse-mschap
+
+
+# How can i connect locale Windows pc from MacOS?
+#	Go 'settings'->'update and security'->'for developers'->'device portal'->'create username and password'->'finish'.
+#	Connect from MacOS: open 'web browser'->'<windows_private_ip_address>:50080'->'write username and password'->'you are in'.
