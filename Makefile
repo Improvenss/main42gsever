@@ -68,4 +68,4 @@ submodule_update:
 # or
 #	sftp -P 22 admin@<router_ip_address>
 # or
-#	ftp in process...
+#	ftp://<router_public_ip>:21
