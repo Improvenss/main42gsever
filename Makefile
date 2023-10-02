@@ -32,6 +32,11 @@ submodule_update:
 #debian@debian:~$ hostname -I | awk '{print $1}'
 #<yourPrivateIpAddress>
 
+# How can i learn your devices MAC address?
+#	networksetup -getmacaddress en0
+# How can i learn all devices MAC address from network?
+#	arp -a
+
 # How can i send file transfer with ssh?
 #scp <source> <destination>
 # To copy a file from B to A while logged into B:
@@ -70,8 +75,10 @@ submodule_update:
 # or
 #	ftp://<router_public_ip>:21
 # or local
-# sudo /usr/local/sbin/sstpc --cert-warn --tls-ext --user <login> --password <password> <keendns name of the router> usepeerdns require-mschap-v2 noauth noipdefault noccp refuse-eap refuse-pap refuse-mschap
-
+#	sudo /usr/local/sbin/sstpc --cert-warn --tls-ext --user <login> --password <password> <keendns name of the router> usepeerdns require-mschap-v2 noauth noipdefault noccp refuse-eap refuse-pap refuse-mschap
+# 		after
+#		You are must be in local network.
+#		ssh admin@192.168.1.1 -p 2022 -> this 2022 port i'm changed, default 22.
 
 # How can i connect locale Windows pc from MacOS?
 #	Go 'settings'->'update and security'->'for developers'->'device portal'->'create username and password'->'finish'.
