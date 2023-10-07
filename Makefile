@@ -83,3 +83,10 @@ submodule_update:
 # How can i connect locale Windows pc from MacOS?
 #	Go 'settings'->'update and security'->'for developers'->'device portal'->'create username and password'->'finish'.
 #	Connect from MacOS: open 'web browser'->'<windows_private_ip_address>:50080'->'write username and password'->'you are in'.
+#
+# sudo lsof -i -n -P | grep LISTEN
+# netstat -an
+# netstat -a
+# netstat -n | grep $(ipconfig getifaddr en0)
+#
+# sudo sstpc --cert-warn --tls-ext --user admin --password <password> <KeenDNS_name> usepeerdns require-mschap-v2 noauth noipdefault noccp refuse-eap refuse-pap refuse-mschap
