@@ -79,6 +79,8 @@ submodule_update:
 # 		after
 #		You are must be in local network.
 #		ssh admin@192.168.1.1 -p 2022 -> this 2022 port i'm changed, default 22.
+# or
+#	https://<webdav_name>:8090
 
 # How can i connect locale Windows pc from MacOS?
 #	Go 'settings'->'update and security'->'for developers'->'device portal'->'create username and password'->'finish'.
