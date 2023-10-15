@@ -55,6 +55,8 @@ submodule_update:
 # How can i sent iMessage from MacOS with icloud account?
 #brew install imessage-ruby; imessage --text "hello" --contacts "gorkem@icloud.com" --attachment 'foo.jpg'
 
+# How can i check 'Docker' is running on 'MacOS'?
+# 	launchctl list | grep docker
 # How can i start 'Docker' from terminal?
 #	./Applications/Docker.app/Contents/MacOS/Docker
 # How can i stop(kill) 'Docker' from terminal?
