@@ -55,6 +55,11 @@ submodule_update:
 # How can i sent iMessage from MacOS with icloud account?
 #brew install imessage-ruby; imessage --text "hello" --contacts "gorkem@icloud.com" --attachment 'foo.jpg'
 
+# How can i start 'Docker' from terminal?
+#	./Applications/Docker.app/Contents/MacOS/Docker
+# How can i stop(kill) 'Docker' from terminal?
+#	pkill -SIGHUP -f /Applications/Docker.app 'docker-serve'
+
 # How can i transfer file with Netcat(nc)?
 # 	Listening pc writing;
 # 	->	netcat -l <port> > <save_file_name>
