@@ -76,11 +76,13 @@ submodule_update:
 # git push --force
 
 # How can i connect router from internet?
+#	ssh -p 22 admin@<router_ip_address>
+# or
 #	https://<webdav_name>/webdav/
 # or
 #	sftp -P 22 admin@<router_ip_address>
 # or
-#	ftp://<router_public_ip>:21
+#	ftp://<router_ip_address>:21
 # or local
 #	sudo /usr/local/sbin/sstpc --cert-warn --tls-ext --user <login> --password <password> <keendns name of the router> usepeerdns require-mschap-v2 noauth noipdefault noccp refuse-eap refuse-pap refuse-mschap
 # 		after
