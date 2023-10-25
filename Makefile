@@ -22,6 +22,11 @@ submodule_update:
 # git remote add origin git@github.com:Improvenss/asdf.git
 # git push -u origin main
 
+# 42Mac ~/.zshrc
+#	$> export PATH="$PATH:/System/Volumes/Data/Applications/Docker.app/Contents/Resources/bin/"
+#	$> export PATH="$PATH:/goinfre/brew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munkid"
+#	$> alias reOpenDocker="launchctl list | grep docker && pkill -SIGHUP -f /Applications/Docker.app && open -a Docker
+
 # How can i learn my ip addres?
 #yuandre@Gorkems-MacBook-Pro ~ % curl ifconfig.me
 #<yourPublicIpAddress>
