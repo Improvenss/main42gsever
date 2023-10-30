@@ -106,3 +106,7 @@ submodule_update:
 # netstat -n | grep $(ipconfig getifaddr en0)
 #
 # sudo sstpc --cert-warn --tls-ext --user admin --password <password> <KeenDNS_name> usepeerdns require-mschap-v2 noauth noipdefault noccp refuse-eap refuse-pap refuse-mschap
+#
+
+# How can i repead macos keyboard?
+# 	defaults write -g ApplePressAndHoldEnabled -bool false
