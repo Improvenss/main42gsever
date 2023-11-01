@@ -110,3 +110,6 @@ submodule_update:
 
 # How can i repead macos keyboard?
 # 	defaults write -g ApplePressAndHoldEnabled -bool false
+
+# 42Mac Docker open problem fix;
+# 	$> alias reOpenDocker="launchctl list | grep docker && pkill -SIGHUP -f /Applications/Docker.app && open -a Docker"
