@@ -1,0 +1,42 @@
+Görev adı: mini_serv
+Beklenen dosyalar: mini_serv.c
+İzin verilen fonksiyonlar: write, close, select, socket, accept, listen, send, recv, bind, strstr, malloc, realloc, free, calloc, bzero, atoi, sprintf, strlen, exit, strcpy, strcat, memset
+--------------------------------------------------------------------------------
+
+127.0.0.1'deki belirli bir portta istemci bağlantısını dinleyecek ve istemcilerin birbirleriyle konuşmasına izin verecek bir program yazın.
+
+Bu program ilk argüman olarak bağlanılacak portu alacak.
+Eğer hiçbir argüman verilmezse, stderr'e "Argüman sayısı yanlış" yazmalı, ardından bir \n eklemeli ve durum 1 ile çıkmalıdır.
+Eğer bir Sistem Çağrısı, programın bağlantıyı kabul etmeye başlamadan önce bir hata döndürürse, stderr'e "Ölümcül hata" yazmalı, ardından bir \n eklemeli ve durum 1 ile çıkmalıdır.
+Eğer bellek ayıramazsanız, stderr'e "Ölümcül hata" yazmalı, ardından bir \n eklemeli ve durum 1 ile çıkmalıdır.
+
+Programınız engelleme yapmamalıdır ancak istemci tembel olabilir ve eğer mesajınızı okumazlarsa onları KESİNLİKLE bağlantıdan koparmamalısınız...
+
+Programınız #define preproc içermemelidir.
+Programınız yalnızca 127.0.0.1'i dinlemelidir.
+Aldığınız fd, 'recv' veya 'send' işlemlerinin select çağrılmadan önce bloke olmasını sağlayacak şekilde ayarlanmış olacak, ancak aksi takdirde bloke olmayacaktır.
+
+Bir istemci sunucuya bağlandığında:
+- istemciye bir id verilecektir. ilk istemci id 0'ı alacak ve her yeni istemci son istemcinin id'si + 1'i alacak
+- %d bu sayıyla değiştirilecektir
+- tüm istemcilere, sunucuya bağlı olan bir mesaj gönderilir: "sunucu: istemci %d yeni geldi\n"
+
+İstemciler programınıza mesaj gönderebilmelidir.
+- mesaj yalnızca yazdırılabilir karakterler olacak, kontrol etmeye gerek yok
+- tek bir mesaj birden çok \n içerebilir
+- sunucu bir mesaj aldığında, tüm diğer istemcilere her satırdan önce "istemci %d: " ile yeniden göndermelidir!
+
+Bir istemci sunucudan ayrıldığında:
+- tüm istemcilere, sunucuya bağlı olan bir mesaj gönderilir: "sunucu: istemci %d ayrıldı\n"
+
+Bellek veya fd sızıntıları yasaktır.
+
+Size yardımcı olmak için, bir sunucunun başlangıcını ve belki de bazı yararlı fonksiyonları bulacağınız main.c dosyasını bulacaksınız. (Dikkat, bu dosya yasaklanmış fonksiyonları kullanır veya final programınızda olmaması gereken şeyler yazar)
+
+Uyarı, test cihazımızın mesajları mümkün olduğunca hızlı göndermenizi bekliyor. Gereksiz tampon yapmayın.
+
+Değerlendirme biraz daha uzun sürebilir...
+
+İpucu: programınızı test etmek için nc kullanabilirsiniz
+İpucu: programınızı test etmek için nc kullanmalısınız
+İpucu: Test etmek için fcntl(fd, F_SETFL, O_NONBLOCK) kullanabilirsiniz ama select kullanın ve ASLA EAGAIN'i kontrol etmeyin (man 2 send)
