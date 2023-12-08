@@ -18,15 +18,17 @@ typedef struct s_client
 void	send_all(char *str, char *message, int newSocket, int maxfd, t_client *clients)
 {
 	int		i;
-	char	buff[500]; // sprintf() ile icerisini dolduracagiz.
+	char	*buff = NULL; // sprintf() ile icerisini dolduracagiz.
 
+	buff = realloc(buff, (sizeof(str) + sizeof(message)));
 	sprintf(buff, str, clients[newSocket].id, message); // str'yi client id'siyle birlikte buff'a yaziyoruz.
 	printf("buff: %s", buff);
 	i = 3;
 	while (++i <= maxfd)
 		if (i != newSocket && clients[i].sock_id != -1)
 			send(i, buff, strlen(buff), 0);
-	bzero(buff, sizeof(buff));
+	free(message);
+	free(buff);
 }
 
 void	ft_putstr_fd(int fd, char *str, int exit_num)
@@ -57,7 +59,6 @@ int	main(int argc, char **argv)
 	int					maxfd;
 	int					next_id; // Gelen her socket'in id'sine tekamul eder. 0, 1, 2, 3... gibi.
 	struct sockaddr_in	servaddr; // #include <netinet/in.h>
-	char				buffer[BUFFER_SIZE];
 	fd_set				mainfds; // Socketlerimizin hepsinin tutuldugu fd.
 	fd_set				rfds; // select() functionu tarafindan set edilmis fd'ler tutulur.
 	t_client			clients[1024];
@@ -113,6 +114,11 @@ int	main(int argc, char **argv)
 			while (1)
 			{ // Buradaki dinamik olarak buffer kadar yer aciyoruz ve okuma islemi gerceklestiriyoruz.
 				dynamic_buffer = realloc(dynamic_buffer, BUFFER_SIZE);
+				if (dynamic_buffer == NULL)
+				{
+					free(dynamic_buffer);
+					ft_putstr_fd(2, "Fatal Error", 1);
+				}
 				readed_byte = recv(socket, dynamic_buffer + total_byte, BUFFER_SIZE, 0);
 				if (readed_byte < 0)
 					break;
@@ -126,15 +132,12 @@ int	main(int argc, char **argv)
 				send_all("server: client %d just left\n", NULL, socket, maxfd, clients);
 				FD_CLR(socket, &mainfds);
 				clients[socket].sock_id = -1;
-				close(socket);
 				free(dynamic_buffer);
-				bzero(buffer, sizeof(buffer));
+				close(socket);
 				break;
 			}
 			printf("total_byte: %lu\n", total_byte);
 			send_all("client %d: %s", dynamic_buffer, socket, maxfd, clients);
-			free(dynamic_buffer);
-			bzero(buffer, sizeof(buffer));
 		}
 	}
 
