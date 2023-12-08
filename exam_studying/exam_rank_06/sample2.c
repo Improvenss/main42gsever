@@ -11,9 +11,9 @@
 int main(int argc, char **argv) 
 {
 	if (argc != 2)  // Check if the number of command line arguments is incorrect 
-	{                         
-		fprintf(stderr, "Usage: %s <port>\n", argv[0]);  // Print an error message to the standard error stream
-		exit(1);                              // Terminate the program with a non-zero status code
+	{
+		fprintf(stderr, "Usage: %s <port>\n", argv[0]);		// Print an error message to the standard error stream
+		exit(1);											// Terminate the program with a non-zero status code
 	}
 
 	int clientSockets[MAX_CLIENTS];           // Array to store client socket descriptors
