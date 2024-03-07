@@ -113,3 +113,6 @@ submodule_update:
 
 # 42Mac Docker open problem fix;
 # 	$> alias reOpenDocker="launchctl list | grep docker && pkill -SIGHUP -f /Applications/Docker.app && open -a Docker"
+
+# How to size down any videos?
+#	  ffmpeg -i chamber.mov -c:v h264_videotoolbox -b:v 5M -c:a aac -b:a 128k cikti_chamber.mov
